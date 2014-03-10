@@ -1,0 +1,15 @@
+.ui-refresh .ui-refresh-up, .ui-refresh .ui-refresh-down{
+    background: #fff;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+}
+
+.ui-refresh .ui-refresh-up .ui-loading,
+.ui-refresh .ui-refresh-down .ui-loading{
+    display: block;
+    height: 25px;
+    -webkit-background-size: 25px 25px;
+    margin:0 auto;
+}

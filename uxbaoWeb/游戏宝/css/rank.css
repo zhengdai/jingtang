@@ -1,0 +1,35 @@
+/* CSS Document */
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#252525; font-size:14px; line-height:20px;}
+
+.appList{margin:10px 10px 25px;}
+#app-list-box{width:100%; overflow: hidden;}
+#app-list-box li{margin:5px auto; overflow: hidden; position: relative;}
+.number
+{
+    background: url("../images/paihang/item_num.png") top right no-repeat;
+    width:36px; text-align: right;
+    margin: 10px 0;
+    padding: 0 10px 0 0;
+    line-height: 26px;
+    position: absolute;
+}
+.itemAll{border:1px solid #e7e7e7;border-radius:15px;margin-left:46px;padding:3px 0;overflow: hidden;}
+.appInfo{width:80%;float: left;}
+.appInfo a{display: block; overflow: hidden; margin:0 5px;}
+.appIcon{width:72px; height: 72px; display: block; float: left; border-radius: 9px;}
+.tit{float:left;}
+.tit strong{display:block;padding:5px 3px;font-size: 14px;color: #858484;line-height: 30px; overflow:hidden; height: 30px; max-width: 100px;}
+.tit .items-score{padding:10px 3px;}
+.tit .items-score img{display: block; float:left;}
+.btn{display: block;float: left;width: 20%;height: 72px;}
+.dlBtn{background: url("../images/paihang/down.png") center 5px no-repeat;}
+.cancelBtn{background: url("../images/paihang/close.png") center 5px no-repeat;}
+.openBtn{background: url("../images/paihang/down.png") center 5px no-repeat;}
+.updateBtn{background: url("../images/paihang/down.png") center 5px no-repeat;}
+.installBtn{background: url("../images/paihang/down.png")center 5px no-repeat;}
+.btn .state{display: block; margin:36px 0 0;line-height: 36px; text-align: center;font-size: 14px;}

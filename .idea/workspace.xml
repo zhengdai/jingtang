@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d2f1e345-111d-4a01-9a1d-6f0546db2005" name="Default" comment="" />
+    <ignored path="景唐.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="景唐" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="精品.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/精品.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="55" selection-start="2883" selection-end="2890" vertical-scroll-proportion="-8.142858" vertical-offset="760" max-vertical-offset="10450">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="548" column="50" selection-start="17239" selection-end="17239" vertical-scroll-proportion="0.68697125" vertical-offset="9987" max-vertical-offset="12027">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rank.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/rank.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="553" column="24" selection-start="17355" selection-end="17381" vertical-scroll-proportion="-17.56" vertical-offset="10068" max-vertical-offset="12141">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rank.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/css/rank.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="140" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="760">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="排行.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/排行.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="24" selection-start="4659" selection-end="4659" vertical-scroll-proportion="-12.892858" vertical-offset="1387" max-vertical-offset="5092">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/游戏宝/js/more.js" />
+        <option value="$PROJECT_DIR$/游戏宝/js/huaping.js" />
+        <option value="$PROJECT_DIR$/游戏宝/排行.html" />
+        <option value="$PROJECT_DIR$/游戏宝/js/action.js" />
+        <option value="$PROJECT_DIR$/游戏宝/精品.html" />
+        <option value="$PROJECT_DIR$/游戏宝/css/common.css" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/web/js/action.js" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/web/精品.html" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/css/common.css" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/web/css/common.css" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/js/action.js" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/slider/imgzoom.js" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/slider/slider.default.css" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/refresh/$lite.js" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/refresh/refresh.js" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/refresh/refresh.default.css" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/loading.default.css" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/css/main.css" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/精品.html" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/排行.html" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/js/extend/imglazyload.js" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/js/rank.js" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/css/rank.css" />
+        <option value="$PROJECT_DIR$/uxbaoWeb/游戏宝/js/main.js" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="图" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uxbaoWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="游戏宝" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uxbaoWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="游戏宝" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uxbaoWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="游戏宝" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uxbaoWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="游戏宝" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uxbaoWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="游戏宝" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="景唐" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uxbaoWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
+    <property name="last_opened_file_path" value="F:/Programs/zepto" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\景唐\uxbaoWeb\游戏宝" />
+      <recent name="F:\景唐\uxbaoWeb\游戏宝\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\景唐\游戏宝\images\jingpin" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="name" value="Dart" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <browser start="false" url="" with-js-debugger="false" />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2f1e345-111d-4a01-9a1d-6f0546db2005" name="Default" comment="" />
+      <created>1393990199048</created>
+      <updated>1393990199048</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18960468" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32970452" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USERS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="68" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/精品.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="20" selection-start="3054" selection-end="3066" vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="10184">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/web/js/action.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="607" column="19" selection-start="0" selection-end="22878" vertical-scroll-proportion="0.0" vertical-offset="8675" max-vertical-offset="12540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="639" column="0" selection-start="17023" selection-end="17023" vertical-scroll-proportion="0.0" vertical-offset="11867" max-vertical-offset="12483">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/精品.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="20" selection-start="3054" selection-end="3066" vertical-scroll-proportion="0.0" vertical-offset="2983" max-vertical-offset="10184">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/安智/安智.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="532" column="90" selection-start="29144" selection-end="29144" vertical-scroll-proportion="0.0" vertical-offset="9894" max-vertical-offset="10469" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/安智/安智.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="532" column="90" selection-start="29144" selection-end="29144" vertical-scroll-proportion="0.0" vertical-offset="9894" max-vertical-offset="10469" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/安智/安智.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="532" column="90" selection-start="29144" selection-end="29144" vertical-scroll-proportion="0.0" vertical-offset="9894" max-vertical-offset="10469" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/安智/安智.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="532" column="87" selection-start="29141" selection-end="29141" vertical-scroll-proportion="0.0" vertical-offset="9894" max-vertical-offset="10469" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/安智/安智.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="532" column="87" selection-start="29141" selection-end="29141" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10469" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/安智/安智.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="532" column="87" selection-start="29141" selection-end="29141" vertical-scroll-proportion="0.0" vertical-offset="9894" max-vertical-offset="10469" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/安智/安智.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="65" selection-start="6681" selection-end="6690" vertical-scroll-proportion="0.0" vertical-offset="2762" max-vertical-offset="10469" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/安智/安智.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="532" column="90" selection-start="29144" selection-end="29144" vertical-scroll-proportion="0.3721739" vertical-offset="9894" max-vertical-offset="10469" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="616" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/web/js/huaping.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="27" selection-start="2808" selection-end="2808" vertical-scroll-proportion="0.5551948" vertical-offset="1425" max-vertical-offset="13566" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/web/精品.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="71" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.5816327" vertical-offset="57" max-vertical-offset="10431" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/web/js/action.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="607" column="19" selection-start="0" selection-end="22878" vertical-scroll-proportion="4.6396103" vertical-offset="8675" max-vertical-offset="12540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/zepto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="28" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="30362">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/core/gmu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/tabs/tabs.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="798" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/图/精品.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/slider/ui-slider-arrow.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/slider/ui-slider-imgbg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/icons.default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/icons-36-black.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/ui-loading.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/slider/$autoplay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="4" vertical-scroll-proportion="-1.6655844" vertical-offset="1026" max-vertical-offset="1691" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/images/jingpin/banner1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/slider/slider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="4" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7543" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/slider/imgzoom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="39" selection-start="978" selection-end="978" vertical-scroll-proportion="1.2337662" vertical-offset="0" max-vertical-offset="1064" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/slider/slider.default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="24" selection-start="580" selection-end="580" vertical-scroll-proportion="0.6915584" vertical-offset="125" max-vertical-offset="741" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/slider/slider.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="21" selection-start="30" selection-end="52" vertical-scroll-proportion="0.06168831" vertical-offset="0" max-vertical-offset="616" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/core/widget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="245" column="15" selection-start="6914" selection-end="6914" vertical-scroll-proportion="0.055194806" vertical-offset="4621" max-vertical-offset="11210" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/web/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="25" selection-start="2749" selection-end="2749" vertical-scroll-proportion="0.0" vertical-offset="353" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/refresh/r-flip.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/refresh/refresh.iscroll.default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="44" selection-start="226" selection-end="226" vertical-scroll-proportion="0.1919192" vertical-offset="0" max-vertical-offset="665" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/refresh/$iscroll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="27" selection-start="5143" selection-end="5143" vertical-scroll-proportion="0.7164179" vertical-offset="2019" max-vertical-offset="2622" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/loading.default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="56" selection-start="97" selection-end="97" vertical-scroll-proportion="0.06168831" vertical-offset="0" max-vertical-offset="1748" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/assets/widget/refresh/refresh.default.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="20" selection-start="100" selection-end="100" vertical-scroll-proportion="0.06168831" vertical-offset="0" max-vertical-offset="616" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/slider/$lazyloadimg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="4" vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="1273" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/refresh/$lite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="63" selection-start="1433" selection-end="1433" vertical-scroll-proportion="-1.0480928" vertical-offset="1468" max-vertical-offset="2071" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/widget/refresh/refresh.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="43" selection-start="3371" selection-end="3371" vertical-scroll-proportion="-0.013266998" vertical-offset="1870" max-vertical-offset="4731" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/images/paihang/item_num.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/extend/touch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.8555195" vertical-offset="1759" max-vertical-offset="2375">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/排行.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="24" selection-start="4659" selection-end="4659" vertical-scroll-proportion="-12.892858" vertical-offset="1387" max-vertical-offset="5092">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/extend/imglazyload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="22" selection-start="4328" selection-end="4328" vertical-scroll-proportion="0.0" vertical-offset="1053" max-vertical-offset="2432">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/css/rank.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="140" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/精品.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="55" selection-start="2883" selection-end="2890" vertical-scroll-proportion="-8.142858" vertical-offset="760" max-vertical-offset="10450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/rank.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="553" column="24" selection-start="17355" selection-end="17381" vertical-scroll-proportion="-17.56" vertical-offset="10068" max-vertical-offset="12141">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uxbaoWeb/游戏宝/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="548" column="50" selection-start="17239" selection-end="17239" vertical-scroll-proportion="0.68697125" vertical-offset="9987" max-vertical-offset="12027">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
