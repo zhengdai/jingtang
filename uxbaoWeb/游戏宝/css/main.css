@@ -16,15 +16,15 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#2525
 .appList{margin:10px 3px 25px;}
 #app-list-box{width:100%; overflow: hidden;}
 #app-list-box li{width:50%;float:left;margin:5px auto;}
-.itemAll{border:1px solid #e7e7e7;border-radius:6px;margin:0 3px;padding: 3px;overflow: hidden;}
-.appInfo{width:80%;float: left;}
-.appInfo a{display: block; width: 100%;}
-.appIcon{width:48px; height: 48px; display: block; float: left; border-radius: 6px;}
-.tit{float:left;}
-.tit strong{display:block;padding: 3px;font-size: 12px;color: #858484;line-height: 22px; max-width: 60px; overflow:hidden; height: 22px;}
-.tit .items-score{padding:3px;}
+.itemAll{border:1px solid #e7e7e7;border-radius:6px;margin:0 3px;padding: 3px;overflow: hidden; position: relative;}
+.appInfo{margin-right:30px;}
+.appInfo a{display: block; width: 100%; position: relative; overflow: hidden;}
+.appIcon{width:48px; height: 48px; display: block; border-radius: 6px;position: absolute;}
+.tit{margin-left: 48px; overflow: hidden;}
+.tit strong{display:block;padding: 4px 2px;font-size: 12px;color: #858484;line-height: 22px; overflow:hidden; height: 22px;}
+.tit .items-score{padding:3px 2px;overflow: hidden;}
 .tit .items-score img{display: block; float:left;}
-.btn{display: block;float: left;width: 20%;height: 48px;}
+.btn{display: block;height: 48px;position: absolute;right: 3px; width: 30px; top: 3px;}
 .dlBtn{background: url("../images/jingpin/down.png") top center no-repeat;}
 .cancelBtn{background: url("../images/jingpin/close.png") top center no-repeat;}
 .openBtn{background: url("../images/jingpin/down.png") top center no-repeat;}
