@@ -21,10 +21,10 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#2525
 .itemAll{border:1px solid #e7e7e7;border-radius:15px;margin-left:46px;padding:3px 0;overflow: hidden; position: relative;}
 .appInfo{margin-right: 48px;}
 .appInfo a{display: block; overflow: hidden; width: 100%; position: relative;}
-.appIcon{width:72px; height: 72px; display: block; position: absolute; border-radius: 9px;}
-.tit{margin-left: 72px; overflow: hidden;}
-.tit strong{display:block;padding:5px 3px;font-size: 14px;color: #858484;line-height: 30px; overflow:hidden; height: 30px; max-width: 100px;}
-.tit .items-score{padding:10px 3px;}
+.appIcon{width:72px; height: 72px; display: block; position: absolute; border-radius: 9px; left:3px;}
+.tit{margin-left: 75px; overflow: hidden;}
+.tit strong{display:block;padding:5px 3px;font-size: 14px;color: #858484;line-height: 30px; overflow:hidden; height: 30px;}
+.tit .items-score{padding:10px 3px; overflow: hidden;}
 .tit .items-score img{display: block; float:left;}
 .btn{display: block;height: 48px;position: absolute;right: 3px; width: 48px; top: 3px;}
 .dlBtn{background: url("../images/paihang/down.png") center 5px no-repeat;}
