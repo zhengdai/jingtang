@@ -1,0 +1,15 @@
+/* CSS Document */
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#252525; font-size:14px; line-height:20px;background-color: #ededed;}
+
+.subjectList{margin:10px;  overflow: hidden;}
+#subject-list-box li{margin:10px auto; width: 100%;}
+.subjectItem{display: block; overflow: hidden; border: #d4d4d4 1px solid;}
+.subjectItem img{display: block; width: 100%;}
+.subjectDes{width: 100%; padding:5px; background-color: #fefefe; overflow: hidden; position: relative;}
+.description{margin-right:30px; line-height: 22px; font-size: 14px; height: 44px; overflow: hidden; color: #8e8e8e;}
+.arrow{display: block;position: absolute; height: 44px; width: 30px; background: url("../images/zhuanti/arraw.png") center no-repeat;top:5px;right: 5px;}
