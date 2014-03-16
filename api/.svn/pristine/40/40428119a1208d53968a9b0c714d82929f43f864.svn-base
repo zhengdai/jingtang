@@ -1,0 +1,38 @@
+[
+  {
+    "resHomeId": 26, 
+    "resId": 241, 
+    "resHomeOrder": 0, 
+    "resHomeTitle": "性感猜拳", 
+    "resHomePhoto": "http://223.6.254.27:8080/mystore/upload/20131116-homepic-576.jpg", 
+    "resHomeCreatedate": 1384535225000, 
+    "phonetypeId": 0
+  }, 
+  {
+    "resHomeId": 25, 
+    "resId": 184, 
+    "resHomeOrder": 0, 
+    "resHomeTitle": "仙战OL", 
+    "resHomePhoto": "http://223.6.254.27:8080/mystore/upload/20131109-homepic-6250.jpg", 
+    "resHomeCreatedate": 1383933370000, 
+    "phonetypeId": 0
+  }, 
+  {
+    "resHomeId": 20, 
+    "resId": 51, 
+    "resHomeOrder": 0, 
+    "resHomeTitle": "赢话费斗地主", 
+    "resHomePhoto": "http://223.6.254.27:8080/mystore/upload/20131027-homepic-6091.jpg", 
+    "resHomeCreatedate": 1383022697000, 
+    "phonetypeId": 0
+  }, 
+  {
+    "resHomeId": 18, 
+    "resId": 201, 
+    "resHomeOrder": 0, 
+    "resHomeTitle": "全能歌迷", 
+    "resHomePhoto": "http://223.6.254.27:8080/mystore/upload/20130930-homepic-8147.jpg", 
+    "resHomeCreatedate": 1380559718000, 
+    "phonetypeId": 0
+  }
+]

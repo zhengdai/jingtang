@@ -1,0 +1,642 @@
+/**
+ * Created by zd on 14-3-9.
+ */
+//获取本机数据
+//var phoneData = JSON.parse(window.uxbao.init());
+var phoneData =
+{
+    "downloadList":
+        [
+            {
+                "userresPaystatus": null,
+                "author_email": null,
+                "author_id": null,
+                "downLength": null,
+                "downPercent": 30,
+                "downState": null,
+                "resCapacity": null,
+                "resDescription": null,
+                "resDeveloper": null,
+                "resDownloadnum": null,
+                "resIcons": null,
+                "resId": null,
+                "resLocation": null,
+                "resName": null,
+                "resPackagename": "com.chukong.brave",
+                "resPrice": null,
+                "resRated": null,
+                "resRecommendflag": null,
+                "resScreenshots": null,
+                "resVersion": null,
+                "resVersionCode": 2,
+                "rescategoryId": null,
+                "totalLength": null,
+                "_id": 0
+            },
+            {
+                "userresPaystatus": null,
+                "author_email": null,
+                "author_id": null,
+                "downLength": null,
+                "downPercent": 20,
+                "downState": null,
+                "resCapacity": null,
+                "resDescription": null,
+                "resDeveloper": null,
+                "resDownloadnum": null,
+                "resIcons": null,
+                "resId": null,
+                "resLocation": null,
+                "resName": null,
+                "resPackagename": "com.uxbao",
+                "resPrice": null,
+                "resRated": null,
+                "resRecommendflag": null,
+                "resScreenshots": null,
+                "resVersion": null,
+                "resVersionCode": 4,
+                "rescategoryId": null,
+                "totalLength": null,
+                "_id": 0
+            },
+            {
+                "userresPaystatus": null,
+                "author_email": null,
+                "author_id": null,
+                "downLength": null,
+                "downPercent": 45,
+                "downState": null,
+                "resCapacity": null,
+                "resDescription": null,
+                "resDeveloper": null,
+                "resDownloadnum": null,
+                "resIcons": null,
+                "resId": null,
+                "resLocation": null,
+                "resName": null,
+                "resPackagename": "com.koogame.zaiyiqi",
+                "resPrice": null,
+                "resRated": null,
+                "resRecommendflag": null,
+                "resScreenshots": null,
+                "resVersion": null,
+                "resVersionCode": 5,
+                "rescategoryId": null,
+                "totalLength": null,
+                "_id": 0
+            }
+        ],
+    "updateList":
+        [
+            {
+                "userresPaystatus": null,
+                "author_email": null,
+                "author_id": null,
+                "downLength": null,
+                "downPercent": null,
+                "downState": null,
+                "resCapacity": null,
+                "resDescription": null,
+                "resDeveloper": null,
+                "resDownloadnum": null,
+                "resIcons": null,
+                "resId": null,
+                "resLocation": null,
+                "resName": null,
+                "resPackagename": "com.supreme.tanks",
+                "resPrice": null,
+                "resRated": null,
+                "resRecommendflag": null,
+                "resScreenshots": null,
+                "resVersion": null,
+                "resVersionCode": 20,
+                "rescategoryId": null,
+                "totalLength": null,
+                "_id": 0
+            },
+            {
+                "userresPaystatus": null,
+                "author_email": null,
+                "author_id": null,
+                "downLength": null,
+                "downPercent": null,
+                "downState": null,
+                "resCapacity": null,
+                "resDescription": null,
+                "resDeveloper": null,
+                "resDownloadnum": null,
+                "resIcons": null,
+                "resId": null,
+                "resLocation": null,
+                "resName": null,
+                "resPackagename": "org.cocos2dx.FishingJoy2",
+                "resPrice": null,
+                "resRated": null,
+                "resRecommendflag": null,
+                "resScreenshots": null,
+                "resVersion": null,
+                "resVersionCode": 105,
+                "rescategoryId": null,
+                "totalLength": null,
+                "_id": 0
+            },
+            {
+                "userresPaystatus": null,
+                "author_email": null,
+                "author_id": null,
+                "downLength": null,
+                "downPercent": null,
+                "downState": null,
+                "resCapacity": null,
+                "resDescription": null,
+                "resDeveloper": null,
+                "resDownloadnum": null,
+                "resIcons": null,
+                "resId": null,
+                "resLocation": null,
+                "resName": null,
+                "resPackagename": "com.TongBanStudio.JTDDZ",
+                "resPrice": null,
+                "resRated": null,
+                "resRecommendflag": null,
+                "resScreenshots": null,
+                "resVersion": null,
+                "resVersionCode": 5,
+                "rescategoryId": null,
+                "totalLength": null,
+                "_id": 0
+            }
+        ],
+    "installList":
+        [
+            {
+                "userresPaystatus": null,
+                "author_email": null,
+                "author_id": null,
+                "downLength": null,
+                "downPercent": null,
+                "downState": null,
+                "resCapacity": null,
+                "resDescription": null,
+                "resDeveloper": null,
+                "resDownloadnum": null,
+                "resIcons": null,
+                "resId": null,
+                "resLocation": null,
+                "resName": null,
+                "resPackagename": "com.andbase",
+                "resPrice": null,
+                "resRated": null,
+                "resRecommendflag": null,
+                "resScreenshots": null,
+                "resVersion": null,
+                "resVersionCode": 14,
+                "rescategoryId": null,
+                "totalLength": null,
+                "_id": 0
+            },
+            {
+                "userresPaystatus": null,
+                "author_email": null,
+                "author_id": null,
+                "downLength": null,
+                "downPercent": null,
+                "downState": null,
+                "resCapacity": null,
+                "resDescription": null,
+                "resDeveloper": null,
+                "resDownloadnum": null,
+                "resIcons": null,
+                "resId": null,
+                "resLocation": null,
+                "resName": null,
+                "resPackagename": "com.aspire.mm",
+                "resPrice": null,
+                "resRated": null,
+                "resRecommendflag": null,
+                "resScreenshots": null,
+                "resVersion": null,
+                "resVersionCode": 32,
+                "rescategoryId": null,
+                "totalLength": null,
+                "_id": 0
+            }
+        ]
+};
+
+//ajax参数对象
+var ajaxPara =
+{
+    "total_size":0,//总共的应用个数
+    "start_position":1,//从第几个开始取
+    "init_size":10,//第一次取的数目
+    "load_size":5,//之后每次下拉加载的数目
+    "url":"http://115.29.177.196:8080/mystore/app/getrecommendproducts.do"
+};
+
+//加载进来的推荐应用列表
+var recommendList = [];
+//空li字符串，创建用
+function createItem(itemData, i)
+{
+    var $item = $($("#app-list-box li")[0].cloneNode(true));
+    fillItem($item, itemData, i);
+    /*
+    var itemString = '<li id="' + itemData.resPackagename +
+        '" data-url="' + itemData.resLocation +
+        '" data-id="' + itemData.resId +
+        '" data-package="' + itemData.resPackagename +
+        '" data-icon="' + itemData.resIcons +
+        '" data-name="' + itemData.resName + '">' +
+        '<h4 class="number">' + i + '</h4>' +
+        '<div class="itemAll">' +
+        '<div class="appInfo">' +
+        '<a href="">' +
+        '<img class="appIcon" data-icon="' + itemData.resIcons + '" />' +
+        '<div class="tit">' +
+        '<strong>' + itemData.resName + '</strong>' +
+        '<div class="items-score">';
+    //评分
+    for(var i = 0; i < 5; ++i)
+    {
+        if(i - itemData.resRated < -0.5)
+        {
+            itemString += '<img alt="" src="images/jingpin/star_01.png" />';
+        }
+        else if(i - itemData.resRated == -0.5)
+        {
+            itemString += '<img alt="" src="images/jingpin/star_02.png" />';
+        }
+        else
+        {
+            itemString += '<img alt="" src="images/jingpin/star_03.png" />'
+        }
+    }
+    itemString += '</div></div></a></div>';
+
+    //在下载列表里
+    var downloadIndex = indexList(itemData.resPackagename, phoneData.downloadList);
+    if(downloadIndex != -1)
+    {
+        //下载完成。显示安装状态
+        if(phoneData.downloadList[downloadIndex].downPercent == 100)
+        {
+            itemString += '<a class="btn installBtn" href="javascript:void(0)"><span class="state">安装</span>';
+        }
+        //下载未完成，显示继续
+        else
+        {
+            itemString += '<a class="btn dlBtn" href="javascript:void(0)"><span class="state">继续</span>';
+        }
+    }
+    //在升级列表里
+    else if(indexList(itemData.resPackagename, phoneData.updateList) != -1)
+    {
+        itemString += '<a class="btn updateBtn" href="javascript:void(0)"><span class="state">升级</span>';
+    }
+    //在已安装列表
+    else if(indexList(itemData.resPackagename, phoneData.installList) != -1)
+    {
+        itemString += '<a class="btn openBtn" href="javascript:void(0)"><span class="state">打开</span>';
+    }
+    //不在上述列表中
+    else
+    {
+        itemString += '<a class="btn dlBtn" href="javascript:void(0)"><span class="state">下载</span>';
+    }
+
+    itemString += '</a></div></li>';
+    return $(itemString);*/
+    return $item;
+}
+
+//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
+function updateState(packageName, state)
+{
+    var $item = $(document.getElementById(packageName));
+    if(state >= 0 && state <= 100)
+    {
+        $item.find(".state").text(state + "%");
+    }
+    else if(state == "finishDownload")
+    {
+        $item.find(".btn").removeClass().addClass("installBtn btn");
+        $item.find(".state").text("安装");
+    }
+    else if(state == "finishInstall")
+    {
+        $item.find(".btn").removeClass().addClass("openBtn btn");
+        $item.find(".state").text("打开");
+    }
+    else if(state == "pause")
+    {
+        $item.find(".btn").removeClass().addClass("dlBtn btn");
+        $item.find(".state").text("继续");
+    }
+}
+
+//判断packageName是否在list中，在的话返回索引，不在的话返回-1
+function indexList(packageName, list)
+{
+    var len = list.length;
+    for(var i = 0; i < len; ++i)
+    {
+        if(packageName == list[i].resPackagename)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//ajax填充打分
+function fillRate($item, score)
+{
+    //分数
+    $item.find(".items-score img").each(function(j, imgItem)
+    {
+        if(j - score < -0.5)
+        {
+            $(imgItem).attr("src", "images/jingpin/star_01.png");
+        }
+        else if(j - score == -0.5)
+        {
+            $(imgItem).attr("src", "images/jingpin/star_02.png");
+        }
+        else
+        {
+            $(imgItem).attr("src", "images/jingpin/star_03.png");
+        }
+    });
+}
+
+//根据本机信息填充状态
+function fillState($item, packageName, phoneData)
+{
+    //在下载列表里
+    var downloadIndex = indexList(packageName, phoneData.downloadList);
+    if(downloadIndex != -1)
+    {
+        //下载完成。显示安装状态
+        if(phoneData.downloadList[downloadIndex].downPercent == 100)
+        {
+            $item.find(".state").text("安装");
+            $item.find(".btn").removeClass().addClass("btn installBtn");
+        }
+        //下载未完成，显示继续
+        else
+        {
+            $item.find(".state").text("继续");
+            $item.find(".btn").removeClass().addClass("btn dlBtn");
+        }
+    }
+    //在升级列表里
+    else if(indexList(packageName, phoneData.updateList) != -1)
+    {
+        $item.find(".state").text("升级");
+        $item.find(".btn").removeClass().addClass("btn updateBtn");
+    }
+    //在已安装列表
+    else if(indexList(packageName, phoneData.installList) != -1)
+    {
+        $item.find(".state").text("打开");
+        $item.find(".btn").removeClass().addClass("btn openBtn");
+    }
+    //不在上述列表中
+    else
+    {
+        $item.find(".state").text("下载");
+        $item.find(".btn").removeClass().addClass("btn dlBtn");
+    }
+}
+
+//ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
+function fillItem($item, itemData, i)
+{
+    var packageName = itemData.resPackagename;
+    var defaultIcon = "images/jingpin/market.png";
+    //使用包名作为id
+    $item.attr("id", itemData.resPackagename)
+        .attr("data-location", itemData.resLocation)
+        .attr("data-id", itemData.resId)
+        .attr("data-package", packageName)
+        .attr("data-icon", itemData.resIcons)
+        .attr("data-name", itemData.resName);
+
+    $item.find(".number").text(i);
+    $item.find(".appIcon").attr("data-icon", itemData.resIcons).attr("src", defaultIcon);
+
+    $item.find(".tit strong").text(itemData.resName);
+    $item.find(".tit p").text(itemData.resDeveloper);
+
+    //评分
+    var rated = itemData.resRated;
+    fillRate($item, rated);
+
+    //状态
+    fillState($item, packageName, phoneData);
+}
+
+//点击函数
+function btnTapHandler($target)
+{
+    var $item = $target.parent().parent();
+    //通知android下载
+    if($target.hasClass('dlBtn'))
+    {
+        $target.removeClass('dlBtn').addClass('cancelBtn');
+        $target.find(".state").text('暂停');
+        window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":1,
+                    "resPackagename":$item.attr("data-package"),
+                    "resId":$item.attr("data-id"),
+                    "resLocation":$item.attr("data-location"),
+                    "resIcons":$item.attr("data-icon"),
+                    "resName":$item.attr("data-name")
+                }
+            )
+        );
+    }
+    else if($target.hasClass('updateBtn'))
+    {
+        $target.removeClass('updateBtn').addClass('cancelBtn');
+        $target.find(".state").text('暂停');
+        window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":1,
+                    "resPackagename":$item.attr("data-package"),
+                    "resId":$item.attr("data-id"),
+                    "resLocation":$item.attr("data-url"),
+                    "resIcons":$item.attr("data-icon"),
+                    "resName":$item.attr("data-name")
+                }
+            )
+        );
+    }
+    //通知android暂停下载
+    else if($target.hasClass('cancelBtn'))
+    {
+        $target.removeClass('cancelBtn').addClass('dlBtn');
+        $target.find(".state").text('继续');
+        window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":5,
+                    "resPackagename":$item.attr("data-package"),
+                    "resId":$item.attr("data-id"),
+                    "resLocation":$item.attr("data-url"),
+                    "resIcons":$item.attr("data-icon"),
+                    "resName":$item.attr("data-name")
+                }
+            )
+        );
+    }
+    //通知android打开此应用
+    else if($target.hasClass("openBtn"))
+    {
+        window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":3,
+                    "resPackagename":$item.attr("data-package"),
+                    "resId":$item.attr("data-id"),
+                    "resLocation":$item.attr("data-url"),
+                    "resIcons":$item.attr("data-icon"),
+                    "resName":$item.attr("data-name")
+                }
+            )
+        );
+    }
+    //通知android安装此应用
+    else if($target.hasClass("installBtn"))
+    {
+        window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":6,
+                    "resPackagename":$target.attr("data-package"),
+                    "resId":$target.attr("data-id"),
+                    "resLocation":$target.attr("data-url"),
+                    "resIcons":$item.attr("data-icon"),
+                    "resName":$item.attr("data-name")
+                }
+            )
+        );
+    }
+}
+
+//页面加载完毕执行函数
+$(function()
+{
+    //最开始ajax加载20个应用
+    $.ajax(
+        {
+            url:ajaxPara.url,
+            dataType:'jsonp',
+            data:
+            {
+                "resolution":"200*200",
+                "version":"2.3",
+                "phonetypeName":"N7105",
+                "os_version":4.0,
+                "language":"cn",
+                "imei":"00000000",
+                "imsi":"00000000",
+                "size":ajaxPara.init_size,
+                "start_position":ajaxPara.start_position,
+                "base64":false
+            },
+            jsonp:'jsoncallback',
+            success:function(data)
+            {
+                if(data.state === 1)//获取成功
+                {
+                    ajaxPara.total_size = data.products.total_size;
+                    recommendList = recommendList.concat(data.product);
+                    $("#app-list-box li").each(function(i,item)
+                    {
+                        var $item = $(this);
+                        fillItem($item, data.product[i], ajaxPara.start_position + i);
+                        $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
+                        $.fn.imglazyload.detect();
+                        //添加点击响应函数
+                        $item.find(".btn").on("tap",function()
+                        {
+                            btnTapHandler($(this));
+                        });
+                    });
+                    ajaxPara.start_position += data.product.length;
+                }
+                else
+                {
+                    console.log("failed to get json data.");
+                }
+            }
+        }
+    );
+
+    //下拉加载
+    $('.appList').refresh(
+        {
+            load:function(dir, type)
+            {
+                var me = this;
+                $.ajax(
+                    {
+                        url:ajaxPara.url,
+                        dataType:'jsonp',
+                        data:
+                        {
+                            "resolution":"200*200",
+                            "version":"2.3",
+                            "phonetypeName":"N7105",
+                            "os_version":4.0,
+                            "language":"cn",
+                            "imei":"00000000",
+                            "imsi":"00000000",
+                            "size":ajaxPara.load_size,
+                            "start_position":ajaxPara.start_position,
+                            "base64":false
+                        },
+                        jsonp:'jsoncallback',
+                        success:function(data)
+                        {
+                            if(data.state === 1 && data.product)
+                            {
+                                var $container = $("#app-list-box");
+                                ajaxPara.total_size = data.products.total_size;
+
+                                recommendList = recommendList.concat(data.product);
+                                var len = data.product.length;
+                                for (var i = 0; i < len; ++i)
+                                {
+                                    var $item = createItem(data.product[i], ajaxPara.start_position + i);
+                                    $container[dir == 'up' ? 'prepend' : 'append']($item);
+                                    $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
+                                    //添加点击响应函数
+                                    $item.find(".btn").on("tap",function()
+                                    {
+                                        btnTapHandler($(this));
+                                    });
+                                }
+                                ajaxPara.start_position += len;
+                                me.afterDataLoading();
+                            }
+                            else
+                            {
+                                me.disable("down", true);
+                            }
+                        },
+                        error:function()
+                        {
+                            console.log("error");
+                        }
+                    }
+                );
+            }
+        }
+    );
+});

@@ -97,7 +97,7 @@
             for (i = pedding.length; i--;) {
                 $image = $(div = pedding[i]);
                 offset = $image.offset();
-                isInViewport(offset) && (splice.call(pedding, i, 1), _load(div));
+                isInViewport(offset) && (splice.call(pedding, i, 1), _load(div)) && console.log('load');
             }
         }
 

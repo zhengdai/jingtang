@@ -72,13 +72,20 @@
 
                     if ($elem.length) {
                         me._status(dir, true);    //初始设置加载状态为可用
-                        if (!elem.childNodes.length || $elem.find('.ui-refresh-icon').length) {    //若内容为空则创建，若不满足icon和label的要求，则不做处理
+                        if (!elem.childNodes.length || ($elem.find('.ui-refresh-icon').length && $elem.find('.ui-refresh-label').length)) {    //若内容为空则创建，若不满足icon和label的要求，则不做处理
                             !elem.childNodes.length && me._createBtn(dir);
                             opts.refreshInfo || (opts.refreshInfo = {});
                             opts.refreshInfo[dir] = {
-                                $icon: $elem.find('.ui-refresh-icon')
+                                $icon: $elem.find('.ui-refresh-icon'),
+                                $label: $elem.find('.ui-refresh-label'),
+                                text: $elem.find('.ui-refresh-label').html()
                             }
                         }
+                        $elem.on('click', function () {
+                            if (!me._status(dir) || opts._actDir) return;         //检查是否处于可用状态，同一方向上的仍在加载中，或者不同方向的还未加载完成 traceID:FEBASE-569
+                            me._setStyle(dir, 'loading');
+                            me._loadingAction(dir, 'click');
+                        });
                     }
                 });
             } );
@@ -102,7 +109,7 @@
         },
 
         _createBtn: function (dir) {
-            this._options['$' + dir + 'Elem'].html('<span class="ui-refresh-icon"></span>');
+            this._options['$' + dir + 'Elem'].html('<span class="ui-refresh-icon"></span><span class="ui-refresh-label">加载更多</span>');
 
             return this;
         },
@@ -125,15 +132,17 @@
 
             switch (state) {
                 case 'loaded':
+                    refreshInfo['$label'].html(refreshInfo['text']);
                     refreshInfo['$icon'].removeClass();
                     opts._actDir = '';
                     break;
                 case 'loading':
+                    refreshInfo['$label'].html('加载中...');
                     refreshInfo['$icon'].addClass('ui-loading');
                     opts._actDir = dir;
                     break;
                 case 'disable':
-                    //refreshInfo['$icon'].html('没有更多内容了');
+                    refreshInfo['$label'].html('没有更多内容了');
                     break;
             }
 

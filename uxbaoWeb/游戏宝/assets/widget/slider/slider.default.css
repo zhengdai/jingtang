@@ -1,5 +1,5 @@
 .ui-slider-item img {
-    display:block;
+    display: block;
 }
 
 .ui-slider-item > a {
@@ -13,21 +13,20 @@
 .ui-slider-dots {
     position: absolute;
     bottom: 6px;
-    right: 25%;
-    left:25%;
+    right: 0;
     padding: 0 6px;
-    text-align: center;
+    text-align: right;
 }
 .ui-slider-dots > b {
     display: inline-block;
     margin: 0 4px;
-    width: 26px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
     background: rgba(198, 198, 198, 0.8);
 }
 
 .ui-slider-dots .ui-state-active {
     background: #f68928;
 }
-
 

@@ -1,0 +1,33 @@
+/* CSS Document */
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#252525; font-size:14px; line-height:20px; height: 100%;}
+
+.type{overflow: hidden; margin:10px 3px;}
+.type ul{width:100%;}
+.type ul li{width: 20%; float: left;}
+.type ul li a,.type ul li a span{color: #636363;display: block;}
+.type ul li a img {border-radius: 6px;height: auto;width:50px; display: block; margin:0 auto;}
+.type ul li a span {height: 24px;line-height: 24px;padding: 2px 0;width: 100%; text-align: center;}
+
+.appList{margin:10px 3px 25px;}
+#app-list-box{width:100%; overflow: hidden;}
+#app-list-box li{width:50%;float:left;margin:5px auto;}
+.itemAll{border:1px solid #e7e7e7;border-radius:6px;margin:0 3px;padding: 3px;overflow: hidden; position: relative;}
+.appInfo{margin-right:30px;}
+.appInfo a{display: block; width: 100%; position: relative; overflow: hidden;}
+.appIcon{width:48px; height: 48px; display: block; border-radius: 6px;position: absolute;}
+.tit{margin-left: 48px; overflow: hidden;}
+.tit strong{display:block;padding: 4px 2px;font-size: 12px;color: #858484;line-height: 22px; overflow:hidden; height: 22px;}
+.tit .items-score{padding:3px 2px;overflow: hidden;}
+.tit .items-score img{display: block; float:left;}
+.btn{display: block;height: 48px;position: absolute;right: 3px; width: 30px; top: 3px;}
+.dlBtn{background: url("../images/jingpin/down.png") top center no-repeat;}
+.cancelBtn{background: url("../images/jingpin/close.png") top center no-repeat;}
+.openBtn{background: url("../images/jingpin/down.png") top center no-repeat;}
+.updateBtn{background: url("../images/jingpin/down.png") top center no-repeat;}
+.installBtn{background: url("../images/jingpin/down.png") top center no-repeat;}
+.btn .state{display: block; margin:26px 0 0;line-height: 22px; text-align: center;font-size: 12px;color: #89bb1c;}
