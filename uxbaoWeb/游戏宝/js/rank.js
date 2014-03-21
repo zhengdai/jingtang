@@ -272,7 +272,7 @@ function updateState(packageName, state)
     }
     else if(state == "pause")
     {
-        $item.find(".btn").removeClass().addClass("dlBtn btn");
+        $item.find(".btn").removeClass().addClass("continueBtn btn");
         $item.find(".state").text("继续");
     }
 }
