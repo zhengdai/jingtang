@@ -29,8 +29,16 @@
                 opts = me._options,
                 $el = me.$el;
 
-            opts.seamless && $(document).on('scrollStop', $.proxy(me._eventHandler, me));
-            $el.on('touchstart touchmove touchend touchcancel', $.proxy(me._eventHandler, me));
+            opts.seamless && $(window).on('scroll',$.throttle(1000, function(e)
+                {
+                    me._eventHandler(e);
+                })
+            );
+            /*$el.on('touchstart touchmove touchend touchcancel', $.throttle(1000, function(e)
+                {
+                    me._eventHandler(e);
+                })
+            );*/
             opts.wrapperH = $el.height();
             opts.wrapperTop = $el.offset().top;
             opts._win = window;
@@ -94,7 +102,7 @@
                     clearTimeout(opts._endTimer);
                     opts._refreshing && me._endHandler();
                     break;
-                case 'scrollStop':
+                case 'scroll':
                     (!opts._refreshing && opts._win.pageYOffset >= opts._body.scrollHeight - opts._win.innerHeight + (opts.threshold || -1)) && me._endHandler();
                     break;
             }

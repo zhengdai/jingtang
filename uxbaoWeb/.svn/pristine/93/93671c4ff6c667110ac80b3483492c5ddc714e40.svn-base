@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>游戏宝专题列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <link type="text/css" rel="stylesheet" href="css/subject.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/loading.default.css" />
+    <link rel="stylesheet" type="text/css" href="assets/widget/refresh/refresh.default.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/extend/touch.js"></script>
+    <script type="text/javascript" src="js/extend/matchMedia.js"></script>
+    <script type="text/javascript" src="js/extend/event.ortchange.js"></script>
+    <script type="text/javascript" src="js/extend/parseTpl.js"></script>
+    <script type="text/javascript" src="js/extend/throttle.js"></script>
+    <script type="text/javascript" src="js/extend/event.scrollStop.js"></script>
+    <script type="text/javascript" src="js/extend/imglazyload.js"></script>
+    <script type="text/javascript" src="js/core/gmu.js"></script>
+    <script type="text/javascript" src="js/core/event.js"></script>
+    <script type="text/javascript" src="js/core/widget.js"></script>
+    <script type="text/javascript" src="js/widget/refresh/refresh.js"></script>
+    <script type="text/javascript" src="js/widget/refresh/$lite.js"></script>
+    <script type="text/javascript" src="js/subject.js"></script>
+</head>
+<body>
+    <div class="subjectList">
+        <ul id="subject-list-box">
+            <li class="subject">
+                <a href="" class="subjectItem">
+                    <img />
+                    <div class="subjectDes">
+                        <p class="description">
+
+                        </p>
+                        <span class="arrow"></span>
+                    </div>
+                </a>
+            </li>
+            <li class="subject">
+                <a href="" class="subjectItem">
+                    <img />
+                    <div class="subjectDes">
+                        <p class="description">
+
+                        </p>
+                        <span class="arrow"></span>
+                    </div>
+                </a>
+            </li>
+            <li class="subject">
+                <a href="" class="subjectItem">
+                    <img />
+                    <div class="subjectDes">
+                        <p class="description">
+
+                        </p>
+                        <span class="arrow"></span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="ui-refresh-down"></div>
+    </div>
+</body>
+</html>

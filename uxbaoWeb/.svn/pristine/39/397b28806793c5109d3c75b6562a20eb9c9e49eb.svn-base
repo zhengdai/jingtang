@@ -1,0 +1,75 @@
+/* CSS Document */
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#252525; font-size:14px; line-height:20px;}
+
+.type{overflow: hidden; margin:10px 3px;}
+.type ul{width:100%;}
+.type ul li{width: 20%; float: left;}
+.type ul li a,.type ul li a span{color: #636363;display: block;}
+.type ul li a img {border-radius: 6px;height: auto;width:50px; display: block; margin:0 auto;}
+.type ul li a span {height: 24px;line-height: 24px;padding: 2px 0;width: 100%; text-align: center;}
+
+.appList{margin:10px 3px 0;}
+#app-list-box{width:100%; overflow: hidden; margin:5px 0;}
+#app-list-box li{width:50%;float:left;margin:5px auto;}
+.itemAll{border:1px solid #e7e7e7;border-radius:6px;margin:0 3px;padding: 3px;overflow: hidden; position: relative;}
+.appInfo{margin-right:26px;}
+.appInfo a{display: block; width: 100%; position: relative; overflow: hidden;}
+.appIcon{width:48px; height: 48px; display: block; border-radius: 6px;position: absolute;}
+.tit{margin-left: 48px; overflow: hidden;}
+.tit strong{display:block;padding: 4px 2px;font-size: 12px;color: #858484;line-height: 22px; overflow:hidden; height: 22px;}
+.tit .items-score{padding:3px 2px;overflow: hidden; height: 12px;}
+.tit .items-score img{display: block; float:left;}
+.btn{display: block;height: 54px;position: absolute;right: 3px; width: 26px; top: 3px;}
+.dlBtn{background: url("../images/jingpin/download.png") top center no-repeat;}
+.cancelBtn{background: url("../images/jingpin/pause.png") top center no-repeat;}
+.openBtn{background: url("../images/jingpin/open.png") top center no-repeat;}
+.updateBtn{background: url("../images/jingpin/download.png") top center no-repeat;}
+.installBtn{background: url("../images/jingpin/install.png") top center no-repeat;}
+.continueBtn{background: url("../images/jingpin/continue.png") top center no-repeat;}
+.btn .state{display: block; margin:26px 0 0;line-height: 22px; text-align: center;font-size: 12px;color: #89bb1c;}
+
+.icon-loading{
+    -webkit-animation-name: loading;
+    -webkit-animation-duration: 1800ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    background:url(data:image/png;base64,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) no-repeat -27px 50%;
+    background-size: auto 27px;
+    -webkit-background-size: auto 27px;
+    display:inline-block;
+    height: 27px;
+    vertical-align:-8px;
+    width: 27px;
+}
+.active .icon-loading{display:inline-block;}
+@-webkit-keyframes loading{
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    100%{
+        -webkit-transform:rotate(360deg);
+    }
+}
+.nav-loading{
+    width: 100%;
+    height: 30px;
+    padding: 5px 0;
+    background-color: #aaa;
+    overflow: hidden;
+}
+.nav-loading-nav {
+    width: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.nav-loading-nav span{
+    color: #2e2e2f;
+    font-weight: normal;
+    font-size: 14px;
+    display: inline-block;
+}
