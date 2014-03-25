@@ -16,7 +16,7 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#2525
 .appList{margin:10px 3px 0;}
 #app-list-box{width:100%; overflow: hidden; margin:5px 0;}
 #app-list-box li{width:50%;float:left;margin:5px auto;}
-.itemAll{border:1px solid #e7e7e7;border-radius:6px;margin:0 3px;padding: 3px;overflow: hidden; position: relative;}
+.itemAll{border:1px solid #e7e7e7;border-radius:6px;margin:0 3px;padding: 3px;overflow: hidden; position: relative; }
 .appInfo{margin-right:26px;}
 .appInfo a{display: block; width: 100%; position: relative; overflow: hidden;}
 .appIcon{width:48px; height: 48px; display: block; border-radius: 6px;position: absolute;}
@@ -24,13 +24,15 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#2525
 .tit strong{display:block;padding: 4px 2px;font-size: 12px;color: #858484;line-height: 22px; overflow:hidden; height: 22px;}
 .tit .items-score{padding:3px 2px;overflow: hidden; height: 12px;}
 .tit .items-score img{display: block; float:left;}
-.btn{display: block;height: 54px;position: absolute;right: 3px; width: 26px; top: 3px;}
-.dlBtn{background: url("../images/jingpin/download.png") top center no-repeat;}
-.cancelBtn{background: url("../images/jingpin/pause.png") top center no-repeat;}
-.openBtn{background: url("../images/jingpin/open.png") top center no-repeat;}
-.updateBtn{background: url("../images/jingpin/download.png") top center no-repeat;}
-.installBtn{background: url("../images/jingpin/install.png") top center no-repeat;}
-.continueBtn{background: url("../images/jingpin/continue.png") top center no-repeat;}
+.btn{display: block;height: 54px;position: absolute;right: 3px; width: 26px; top: 3px;
+    background: url("../images/jingpin/btnbg.png") no-repeat top left;
+}
+.dlBtn{background-position: 0 -76px; width: 26px; height: 26px;}
+.cancelBtn{background-position: 0 -304px; width: 26px; height: 26px;}
+.openBtn{background-position: 0 -228px; width: 26px; height: 26px;}
+.updateBtn{background-position: 0 -76px; width: 26px; height: 26px;}
+.installBtn{background-position: 0 -152px; width: 26px; height: 26px;}
+.continueBtn{background-position: 0 0; width: 26px; height: 26px;}
 .btn .state{display: block; margin:26px 0 0;line-height: 22px; text-align: center;font-size: 12px;color: #89bb1c;}
 
 .more{height: 40px; width: 100%; overflow: hidden; text-align: center;}

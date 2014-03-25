@@ -239,7 +239,8 @@ var ajaxRecommend =
     "language":"cn",
     "imei":"00000000",
     "imsi":"00000000",
-    "base64":false
+    "base64":false,
+    "onRefresh":false
 };
 
 //加载进来的推荐应用列表
@@ -253,26 +254,32 @@ function createItem(itemData, i)
 }
 
 //供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
+//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
 function updateState(packageName, state)
 {
     var $item = $(document.getElementById(packageName));
+    var $btn = $item.find(".btn");
     if(state >= 0 && state <= 100)
     {
+        if(!$btn.hasClass("cancelBtn"))
+        {
+            $btn.removeClass().addClass("cancelBtn btn");
+        }
         $item.find(".state").text(state + "%");
     }
     else if(state == "finishDownload")
     {
-        $item.find(".btn").removeClass().addClass("installBtn btn");
+        $btn.removeClass().addClass("installBtn btn");
         $item.find(".state").text("安装");
     }
     else if(state == "finishInstall")
     {
-        $item.find(".btn").removeClass().addClass("openBtn btn");
+        $btn.removeClass().addClass("openBtn btn");
         $item.find(".state").text("打开");
     }
     else if(state == "pause")
     {
-        $item.find(".btn").removeClass().addClass("continueBtn btn");
+        $btn.removeClass().addClass("continueBtn btn");
         $item.find(".state").text("继续");
     }
 }
@@ -386,7 +393,7 @@ function btnTapHandler($target)
     //通知android下载
     if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
     {
-        $target.removeClass('dlBtn continueBtn').addClass('cancelBtn');
+        $target.removeClass().addClass('cancelBtn btn');
         $target.find(".state").text('暂停');
         window.uxbao.click(
             JSON.stringify(

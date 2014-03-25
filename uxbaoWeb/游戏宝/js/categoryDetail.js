@@ -1,6 +1,9 @@
+/**
+ * Created by zd on 14-3-22.
+ */
 //获取本机数据
-var phoneData = JSON.parse(window.uxbao.init());
-/*var phoneData =
+//var phoneData = JSON.parse(window.uxbao.init());
+var phoneData =
 {
     "downloadList":
         [
@@ -35,7 +38,7 @@ var phoneData = JSON.parse(window.uxbao.init());
                 "author_email": null,
                 "author_id": null,
                 "downLength": null,
-                "downPercent": 100,
+                "downPercent": 20,
                 "downState": null,
                 "resCapacity": null,
                 "resDescription": null,
@@ -219,16 +222,36 @@ var phoneData = JSON.parse(window.uxbao.init());
                 "_id": 0
             }
         ]
-};*/
+};
 
-//推荐应用ajax参数对象
-var ajaxRecommend =
+function GetRequest()
+{
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = {};
+    if (url.indexOf("?") != -1)
+    {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++)
+        {
+            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+
+var request = GetRequest();
+
+//分类详情应用ajax参数对象
+var ajaxCategoryDetail =
 {
     "total_size":0,//总共的应用个数
     "start_position":1,//从第几个开始取
-    "init_size":20,//第一次取的数目
-    "load_size":10,//之后每次下拉加载的数目
-    "url":"http://115.29.177.196:8080/mystore/app/getrecommendproducts.do",
+    "init_size":10,//第一次取的数目
+    "load_size":5,//之后每次下拉加载的数目
+    "order_by":request.order_by,
+    "rescategory_id":request.rescategory_id,
+    "url":"http://115.29.177.196:8080/mystore/appV3/getCategoryProducts.do",
     "resolution":"200*200",
     "version":"2.3",
     "phonetypeName":"N7105",
@@ -236,28 +259,16 @@ var ajaxRecommend =
     "language":"cn",
     "imei":"00000000",
     "imsi":"00000000",
-    "base64":false,
     "onRefresh":false
 };
 
-//首页横幅ajax参数对象
-var ajaxBanner =
-{
-    "url":"http://115.29.177.196:8080/mystore/appV3/getBannerInfo.do",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "imei":"00000000",
-    "imsi":"00000000"
-};
-
 //加载进来的推荐应用列表
-var recommendList = [];
-
-function createItem(itemData)
+var appList = [];
+//空li字符串，创建用
+function createItem(itemData, i)
 {
-    var $item = $(($(".app")[0]).cloneNode(true));
-    fillItem($item,itemData);
+    var $item = $($(".app")[0].cloneNode(true));
+    fillItem($item, itemData, i);
     return $item;
 }
 
@@ -367,7 +378,7 @@ function fillState($item, packageName, phoneData)
 }
 
 //ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
-function fillItem($item, itemData)
+function fillItem($item, itemData, i)
 {
     var packageName = itemData.resPackagename;
     var defaultIcon = "images/jingpin/market.png";
@@ -379,9 +390,11 @@ function fillItem($item, itemData)
         .attr("data-icon", itemData.resIcons)
         .attr("data-name", itemData.resName);
 
+    //$item.find(".number").text(i);
     $item.find(".appIcon").attr("data-icon", itemData.resIcons).attr("src", defaultIcon);
 
     $item.find(".tit strong").text(itemData.resName);
+    $item.find(".tit p").text(itemData.resDeveloper);
 
     //评分
     var rated = itemData.resRated;
@@ -395,7 +408,7 @@ function fillItem($item, itemData)
 function btnTapHandler($target)
 {
     var $item = $target.parent().parent();
-    //通知android下载，显示下载或者继续字样
+    //通知android下载
     if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
     {
         $target.removeClass().addClass('cancelBtn btn');
@@ -413,7 +426,6 @@ function btnTapHandler($target)
             )
         );
     }
-    //显示升级字样
     else if($target.hasClass('updateBtn'))
     {
         $target.removeClass('updateBtn').addClass('cancelBtn');
@@ -431,7 +443,7 @@ function btnTapHandler($target)
             )
         );
     }
-    //通知android暂停下载，显示暂停字样
+    //通知android暂停下载
     else if($target.hasClass('cancelBtn'))
     {
         $target.removeClass('cancelBtn').addClass('continueBtn');
@@ -449,7 +461,7 @@ function btnTapHandler($target)
             )
         );
     }
-    //通知android打开此应用，显示打开字样
+    //通知android打开此应用
     else if($target.hasClass("openBtn"))
     {
         window.uxbao.click(
@@ -465,7 +477,7 @@ function btnTapHandler($target)
             )
         );
     }
-    //通知android安装此应用，显示安装字样
+    //通知android安装此应用
     else if($target.hasClass("installBtn"))
     {
         window.uxbao.click(
@@ -486,25 +498,26 @@ function btnTapHandler($target)
 //加载更多
 function loadMore()
 {
-    if(!ajaxRecommend.onRefresh && ajaxRecommend.start_position <= ajaxRecommend.total_size)
+    if(!ajaxCategoryDetail.onRefresh && ajaxCategoryDetail.start_position <= ajaxCategoryDetail.total_size)
     {
-        ajaxRecommend.onRefresh = true;
+        ajaxCategoryDetail.onRefresh = true;
         $.ajax(
             {
-                url:ajaxRecommend.url,
+                url:ajaxCategoryDetail.url,
                 dataType:'jsonp',
                 data:
                 {
-                    "resolution":ajaxRecommend.resolution,
-                    "version":ajaxRecommend.version,
-                    "phonetypeName":ajaxRecommend.phonetypeName,
-                    "os_version":ajaxRecommend.os_version,
-                    "language":ajaxRecommend.language,
-                    "imei":ajaxRecommend.imei,
-                    "imsi":ajaxRecommend.imsi,
-                    "size":ajaxRecommend.load_size,
-                    "start_position":ajaxRecommend.start_position,
-                    "base64":ajaxRecommend.base64
+                    "resolution":ajaxCategoryDetail.resolution,
+                    "version":ajaxCategoryDetail.version,
+                    "phonetypeName":ajaxCategoryDetail.phonetypeName,
+                    "os_version":ajaxCategoryDetail.os_version,
+                    "language":ajaxCategoryDetail.language,
+                    "imei":ajaxCategoryDetail.imei,
+                    "imsi":ajaxCategoryDetail.imsi,
+                    "size":ajaxCategoryDetail.load_size,
+                    "start_position":ajaxCategoryDetail.start_position,
+                    "order_by":ajaxCategoryDetail.order_by,
+                    "rescategory_id":ajaxCategoryDetail.rescategory_id
                 },
                 jsonp:'jsonRecommend',
                 success:function(data, textStatus, xhr)
@@ -513,7 +526,7 @@ function loadMore()
                     {
                         var $container = $("#app-list-box");
 
-                        recommendList = recommendList.concat(data.product);
+                        appList = appList.concat(data.product);
                         var len = data.product.length;
 
                         for (var i = 0; i < len; ++i)
@@ -529,18 +542,18 @@ function loadMore()
                             });
                         }
 
-                        ajaxRecommend.start_position += len;
+                        ajaxCategoryDetail.start_position += len;
 
-                        if(ajaxRecommend.start_position > ajaxRecommend.total_size)
+                        if(ajaxCategoryDetail.start_position > ajaxCategoryDetail.total_size)
                         {
                             $(".more").hide();
                         }
-                        ajaxRecommend.onRefresh = false;
+                        ajaxCategoryDetail.onRefresh = false;
                     }
                 },
                 error:function(XMLHttpRequest, textStatus, errorThrown)
                 {
-                    ajaxRecommend.onRefresh = false;
+                    ajaxCategoryDetail.onRefresh = false;
                     console.log("failed ajax!");
                     $(".more").hide();
                 }
@@ -552,36 +565,37 @@ function loadMore()
 //页面加载完毕执行函数
 $(function()
 {
-    //最开始ajax加载20个应用
+    //最开始ajax加载10个应用
     $.ajax(
         {
-            url:ajaxRecommend.url,
+            url:ajaxCategoryDetail.url,
             dataType:'jsonp',
             data:
             {
-                "resolution":ajaxRecommend.resolution,
-                "version":ajaxRecommend.version,
-                "phonetypeName":ajaxRecommend.phonetypeName,
-                "os_version":ajaxRecommend.os_version,
-                "language":ajaxRecommend.language,
-                "imei":ajaxRecommend.imei,
-                "imsi":ajaxRecommend.imsi,
-                "size":ajaxRecommend.init_size,
-                "start_position":ajaxRecommend.start_position,
-                "base64":ajaxRecommend.base64
+                "resolution":ajaxCategoryDetail.resolution,
+                "version":ajaxCategoryDetail.version,
+                "phonetypeName":ajaxCategoryDetail.phonetypeName,
+                "os_version":ajaxCategoryDetail.os_version,
+                "language":ajaxCategoryDetail.language,
+                "imei":ajaxCategoryDetail.imei,
+                "imsi":ajaxCategoryDetail.imsi,
+                "size":ajaxCategoryDetail.init_size,
+                "start_position":ajaxCategoryDetail.start_position,
+                "order_by":ajaxCategoryDetail.order_by,
+                "rescategory_id":ajaxCategoryDetail.rescategory_id
             },
-            jsonp:'jsonRecommend',
+            jsonp:'jsoncallback',
             success:function(data)
             {
                 if(data.state === 1)//获取成功
                 {
-                    ajaxRecommend.total_size = data.products.total_size;
-                    recommendList = recommendList.concat(data.product);
-                    ajaxRecommend.start_position += data.product.length;
+                    ajaxCategoryDetail.total_size = data.products.total_size;
+                    appList = appList.concat(data.product);
+                    ajaxCategoryDetail.start_position += data.product.length;
                     $(".app").each(function(i,item)
                     {
                         var $item = $(this);
-                        fillItem($item, data.product[i]);
+                        fillItem($item, data.product[i], ajaxCategoryDetail.start_position - data.product.length + i);
                         $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
                         $.fn.imglazyload.detect();
                         //添加点击响应函数
@@ -592,9 +606,8 @@ $(function()
                         });
                     });
 
-
                     //下拉加载
-                    if(ajaxRecommend.start_position <= ajaxRecommend.total_size)
+                    if(ajaxCategoryDetail.start_position <= ajaxCategoryDetail.total_size)
                     {
                         $(window).on("scroll", function()
                         {
@@ -617,39 +630,7 @@ $(function()
             },
             error:function()
             {
-                console.log("load recommend app list error");
-            }
-        }
-    );
-
-    //顶部Slider
-    $.ajax(
-        {
-            url:ajaxBanner.url,
-            dataType:'jsonp',
-            data:
-            {
-                "version":ajaxBanner.version,
-                "phonetypeName":ajaxBanner.phonetypeName,
-                "os_version":ajaxBanner.os_version,
-                "imei":ajaxBanner.imei,
-                "imsi":ajaxBanner.imsi
-            },
-            jsonp:'jsonBanner',
-            success:function(data)
-            {
-                console.log(data);
-                var $slider = $("#slider");
-                $slider.find("img").each(function(i, item)
-                {
-                    var $item = $(this);
-                    $item.attr('src', data[i].resHomePhoto).attr("data-url", data[i].resHomeTitle);
-                });
-                $slider.slider({ imgZoom: true, loop: true });
-            },
-            error:function()
-            {
-                console.log("load banner data error");
+                console.log("load category app list error");
             }
         }
     );
