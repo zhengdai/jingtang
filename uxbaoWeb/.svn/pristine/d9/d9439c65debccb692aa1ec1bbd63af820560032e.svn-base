@@ -1,0 +1,93 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px;background-color: #f2f2f2;}
+
+.head{ height: 320px; width: 100%; background-color: #f67437; position: relative;}
+.portrait{ position: absolute; right: 0; top: 0; left: 0; bottom: 0; margin: auto;
+    width: 120px; height: 120px; border-radius: 60px; border: 5px solid #f7f7f7;
+    background-color: #e2e1df;
+}
+.portrait img{ display: block;position: absolute; right: 0; top: 0; left: 0; bottom: 0; margin: auto;}
+.logBtn{width:120px; border: 2px solid #ffffff; border-radius: 30px; text-align: center;
+    background-color: rgba(255, 255, 255, 0.3); line-height: 37px; color: #fff; font-size: 24px;
+    position: absolute; top:50%; left:50%; margin-left:-62px; margin-top: 75px;
+}
+
+.btnList{ overflow: hidden;}
+#myInfoList{overflow: hidden; margin: 5px 0;}
+#myInfoList li{ margin: 10px 15px;}
+.itemWrap{ height: 80px; border: 1px solid #dcdcdc; border-radius: 10px;
+    background-image: -webkit-linear-gradient(top, #fcfcfc, #f2f2f2);
+    background-image: linear-gradient(to top, #fcfcfc, #f2f2f2);
+    position: relative;
+}
+.btnTit{ font-size:24px; line-height: 80px; color: #6f6f6f;padding-left: 25px;}
+.state{font-size: 14px; line-height: 80px; color: #c4c4c4; position: absolute; right: 30px;}
+.arrow{position: absolute; top: 0; right: 10px; height: 100%; width: 11px; background: url("../images/fenlei/arrow.png") center no-repeat;}
+
+.onoffswitch {
+    position: absolute; width: 80px; display: inline-block; right: 10px; top: 23px;
+    -webkit-user-select:none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block; overflow: hidden;
+    border: 2px solid #666666; border-radius: 30px;
+}
+
+.onoffswitch-inner {
+    width: 200%; margin-left: -100%;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 16px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    border-radius: 30px;
+    box-shadow: 0px 15px 0px rgba(0,0,0,0.08) inset;
+}
+
+.onoffswitch-inner:before {
+    content: " ";
+    padding-left: 15px;
+    background-color: #f49643; color: #FFFFFF;
+    border-radius: 30px 0 0 30px;
+}
+
+.onoffswitch-inner:after {
+    content: " ";
+    padding-right: 15px;
+    background-color: #FFFFFF; color: #666666;
+    text-align: right;
+    border-radius: 0 30px 30px 0;
+}
+
+.onoffswitch-switch {
+    width: 30px; margin: 0;
+    background: #FFFFFF;
+    border: 2px solid #666666; border-radius: 30px;
+    position: absolute; top: 0; bottom: 0; right: 46px;
+    -webkit-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+    background-image: -webkit-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%);
+    background-image: linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%);
+    box-shadow: 0 1px 1px white inset;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0;
+}

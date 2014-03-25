@@ -1,0 +1,94 @@
+{
+  "categoryList": [
+    {
+      "rescategoryId": 12, 
+      "rescategoryName": "棋牌", 
+      "rescategoryParentcategoryid": 1, 
+      "rescategoryDescription": "", 
+      "rescategoryIcons": "upload/20130803-6105.png", 
+      "rescategoryCreateddate": 1362984154000, 
+      "rescategoryUpdateddate": 1375541407000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 4, 
+      "rescategoryName": "体育", 
+      "rescategoryParentcategoryid": 1, 
+      "rescategoryDescription": "", 
+      "rescategoryIcons": "upload/20130311-8470.png", 
+      "rescategoryCreateddate": 1362984210000, 
+      "rescategoryUpdateddate": 1375539065000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 5, 
+      "rescategoryName": "美女", 
+      "rescategoryParentcategoryid": 1, 
+      "rescategoryDescription": "", 
+      "rescategoryIcons": "upload/20130803-816.png", 
+      "rescategoryCreateddate": 1362984248000, 
+      "rescategoryUpdateddate": 1375542446000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 6, 
+      "rescategoryName": "角色", 
+      "rescategoryParentcategoryid": 1, 
+      "rescategoryDescription": "", 
+      "rescategoryIcons": "upload/20130803-2833.png", 
+      "rescategoryCreateddate": 1362984281000, 
+      "rescategoryUpdateddate": 1375543586000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 19, 
+      "rescategoryName": "动作", 
+      "rescategoryParentcategoryid": 1, 
+      "rescategoryDescription": "", 
+      "rescategoryIcons": "upload/20130803-6393.png", 
+      "rescategoryCreateddate": 1375540815000, 
+      "rescategoryUpdateddate": 1375540815000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 20, 
+      "rescategoryName": "休闲", 
+      "rescategoryParentcategoryid": 1, 
+      "rescategoryDescription": "", 
+      "rescategoryIcons": "upload/20130803-609.png", 
+      "rescategoryCreateddate": 1375541923000, 
+      "rescategoryUpdateddate": 1375541923000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 21, 
+      "rescategoryName": "赛车", 
+      "rescategoryParentcategoryid": 1, 
+      "rescategoryDescription": "", 
+      "rescategoryIcons": "upload/20130803-9450.png", 
+      "rescategoryCreateddate": 1375541958000, 
+      "rescategoryUpdateddate": 1375541958000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 22, 
+      "rescategoryName": "射击", 
+      "rescategoryParentcategoryid": 1, 
+      "rescategoryDescription": "", 
+      "rescategoryIcons": "upload/20130803-2532.png", 
+      "rescategoryCreateddate": 1375541982000, 
+      "rescategoryUpdateddate": 1375542462000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 23, 
+      "rescategoryName": "策略", 
+      "rescategoryParentcategoryid": 1, 
+      "rescategoryDescription": "", 
+      "rescategoryIcons": "upload/20130803-8136.png", 
+      "rescategoryCreateddate": 1375542269000, 
+      "rescategoryUpdateddate": 1375614250000, 
+      "rescategoryStatus": 1
+    }
+  ]
+}

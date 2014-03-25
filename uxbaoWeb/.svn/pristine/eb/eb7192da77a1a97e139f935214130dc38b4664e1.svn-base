@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta content="telephone=no" name="format-detection">
+        <title>游戏宝精品</title>
+        <link type="text/css" rel="stylesheet" href="css/main.css"/>
+        <!--组件依赖css begin-->
+        <link rel="stylesheet" type="text/css" href="assets/widget/slider/slider.css" />
+        <link rel="stylesheet" type="text/css" href="assets/widget/slider/slider.default.css" />
+        <!--组件依赖css end-->
+        <!--组件依赖js begin-->
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/extend/touch.js"></script>
+        <script type="text/javascript" src="js/extend/matchMedia.js"></script>
+        <script type="text/javascript" src="js/extend/event.ortchange.js"></script>
+        <script type="text/javascript" src="js/extend/parseTpl.js"></script>
+        <script type="text/javascript" src="js/extend/throttle.js"></script>
+        <script type="text/javascript" src="js/extend/event.scrollStop.js"></script>
+        <script type="text/javascript" src="js/extend/imglazyload.js"></script>
+        <script type="text/javascript" src="js/core/gmu.js"></script>
+        <script type="text/javascript" src="js/core/event.js"></script>
+        <script type="text/javascript" src="js/core/widget.js"></script>
+        <script type="text/javascript" src="js/widget/slider/slider.js"></script>
+        <script type="text/javascript" src="js/widget/slider/dots.js"></script>
+        <script type="text/javascript" src="js/widget/slider/$touch.js"></script>
+        <script type="text/javascript" src="js/widget/slider/$autoplay.js"></script>
+        <script type="text/javascript" src="js/widget/slider/imgzoom.js"></script>
+        <!--向上拉动插件-->
+        <!--组件依赖js end-->
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body onselectstart="return false">
+    	<!--图片滚动-->
+        <div id="slider">
+            <div>
+                <img class="sliderImg" src="images/jingpin/banner1.png" />
+            </div>
+            <div>
+                <img class="sliderImg"  src="images/jingpin/banner1.png" />
+            </div>
+            <div>
+                <img class="sliderImg" src="images/jingpin/banner1.png" />
+            </div>
+            <div>
+                <img class="sliderImg" src="images/jingpin/banner1.png" />
+            </div>
+        </div>
+        <!--分类-->
+        <div class="type">
+        	<ul>
+            	<li id="meinv">
+                    <img src="images/jingpin/class1.png" />
+                    <span>美女</span>
+                </li>
+                <li id="tafang">
+                    <img src="images/jingpin/class2.png" />
+                    <span>塔防</span>
+                </li>
+                <li id="qipai">
+                    <img src="images/jingpin/class3.png" />
+                    <span>棋牌</span>
+                </li>
+                <li id="xiuxian">
+                    <img src="images/jingpin/class4.png" />
+                    <span>休闲</span>
+                </li>
+                <li id="yizhi">
+                    <img src="images/jingpin/class5.png" />
+                    <span>益智</span>
+                </li>
+            </ul>
+        </div>
+
+        <!--应用列表，下拉加载-->
+        <div class="appList">
+        	<ul id="app-list-box">
+            	<li class="app">
+                	<div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                	</div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/jingpin/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="more">
+            <div class="loading"></div>
+        </div>
+    </body>
+</html>

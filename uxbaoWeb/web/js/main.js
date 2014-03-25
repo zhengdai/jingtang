@@ -424,7 +424,7 @@ function btnTapHandler($target)
                     "type":1,
                     "resPackagename":$item.attr("data-package"),
                     "resId":$item.attr("data-id"),
-                    "resLocation":$item.attr("data-url"),
+                    "resLocation":$item.attr("data-location"),
                     "resIcons":$item.attr("data-icon"),
                     "resName":$item.attr("data-name")
                 }
@@ -442,7 +442,7 @@ function btnTapHandler($target)
                     "type":5,
                     "resPackagename":$item.attr("data-package"),
                     "resId":$item.attr("data-id"),
-                    "resLocation":$item.attr("data-url"),
+                    "resLocation":$item.attr("data-location"),
                     "resIcons":$item.attr("data-icon"),
                     "resName":$item.attr("data-name")
                 }
@@ -458,7 +458,7 @@ function btnTapHandler($target)
                     "type":3,
                     "resPackagename":$item.attr("data-package"),
                     "resId":$item.attr("data-id"),
-                    "resLocation":$item.attr("data-url"),
+                    "resLocation":$item.attr("data-location"),
                     "resIcons":$item.attr("data-icon"),
                     "resName":$item.attr("data-name")
                 }
@@ -474,7 +474,7 @@ function btnTapHandler($target)
                     "type":6,
                     "resPackagename":$item.attr("data-package"),
                     "resId":$item.attr("data-id"),
-                    "resLocation":$item.attr("data-url"),
+                    "resLocation":$item.attr("data-location"),
                     "resIcons":$item.attr("data-icon"),
                     "resName":$item.attr("data-name")
                 }
