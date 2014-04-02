@@ -85,7 +85,11 @@
           current.addClass('readmore-js-section ' + $this.options.collapsedClass).data('collapsedHeight', maxHeight);
 
           var useLink = $this.options.startOpen ? $this.options.lessLink : $this.options.moreLink;
-          current.after($(useLink).on('click', function(event) { $this.toggleSlider(this, current, event) }).addClass('readmore-js-toggle'));
+          current.after($(useLink).on('tap', function(event)
+          {
+              $this.toggleSlider(this, current, event);
+              return false;
+          }).addClass('readmore-js-toggle'));
 
           if(!$this.options.startOpen) {
             current.css({height: maxHeight});
@@ -127,7 +131,11 @@
           // Fire afterToggle callback
           $this.options.afterToggle(trigger, element, expanded);
 
-          $(trigger).replaceWith($($this.options[newLink]).on('click', function(event) { $this.toggleSlider(this, element, event) }).addClass('readmore-js-toggle'));
+          $(trigger).replaceWith($($this.options[newLink]).on('tap', function(event)
+          {
+              $this.toggleSlider(this, element, event);
+              return false;
+          }).addClass('readmore-js-toggle'));
 
           $(this).removeClass($this.options.collapsedClass + ' ' + $this.options.expandedClass).addClass(sectionClass);
         }

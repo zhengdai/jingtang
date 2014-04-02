@@ -1,6 +1,3 @@
-/**
- * Created by zd on 14-3-9.
- */
 //获取本机数据
 //var phoneData = JSON.parse(window.uxbao.init());
 var phoneData =
@@ -38,7 +35,7 @@ var phoneData =
                 "author_email": null,
                 "author_id": null,
                 "downLength": null,
-                "downPercent": 20,
+                "downPercent": 100,
                 "downState": null,
                 "resCapacity": null,
                 "resDescription": null,
@@ -229,8 +226,8 @@ var ajaxRecommend =
 {
     "total_size":0,//总共的应用个数
     "start_position":1,//从第几个开始取
-    "init_size":10,//第一次取的数目
-    "load_size":5,//之后每次下拉加载的数目
+    "init_size":20,//第一次取的数目
+    "load_size":10,//之后每次下拉加载的数目
     "url":"http://115.29.177.196:8080/mystore/app/getrecommendproducts.do",
     "resolution":"200*200",
     "version":"2.3",
@@ -243,13 +240,24 @@ var ajaxRecommend =
     "onRefresh":false
 };
 
+//首页横幅ajax参数对象
+var ajaxBanner =
+{
+    "url":"http://115.29.177.196:8080/mystore/appV3/getBannerInfo.do",
+    "version":"2.3",
+    "phonetypeName":"N7105",
+    "os_version":"4.0",
+    "imei":"00000000",
+    "imsi":"00000000"
+};
+
 //加载进来的推荐应用列表
 var recommendList = [];
-//空li字符串，创建用
-function createItem(itemData, i)
+
+function createItem(itemData)
 {
-    var $item = $($(".app")[0].cloneNode(true));
-    fillItem($item, itemData, i);
+    var $item = $(($(".app")[0]).cloneNode(true));
+    fillItem($item,itemData);
     return $item;
 }
 
@@ -359,7 +367,7 @@ function fillState($item, packageName, phoneData)
 }
 
 //ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
-function fillItem($item, itemData, i)
+function fillItem($item, itemData)
 {
     var packageName = itemData.resPackagename;
     var defaultIcon = "images/jingpin/market.png";
@@ -371,11 +379,9 @@ function fillItem($item, itemData, i)
         .attr("data-icon", itemData.resIcons)
         .attr("data-name", itemData.resName);
 
-    //$item.find(".number").text(i);
     $item.find(".appIcon").attr("data-icon", itemData.resIcons).attr("src", defaultIcon);
 
     $item.find(".tit strong").text(itemData.resName);
-    $item.find(".tit p").text(itemData.resDeveloper);
 
     //评分
     var rated = itemData.resRated;
@@ -389,7 +395,7 @@ function fillItem($item, itemData, i)
 function btnTapHandler($target)
 {
     var $item = $target.parent().parent();
-    //通知android下载
+    //通知android下载，显示下载或者继续字样
     if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
     {
         $target.removeClass().addClass('cancelBtn btn');
@@ -407,6 +413,7 @@ function btnTapHandler($target)
             )
         );
     }
+    //显示升级字样
     else if($target.hasClass('updateBtn'))
     {
         $target.removeClass('updateBtn').addClass('cancelBtn');
@@ -424,7 +431,7 @@ function btnTapHandler($target)
             )
         );
     }
-    //通知android暂停下载
+    //通知android暂停下载，显示暂停字样
     else if($target.hasClass('cancelBtn'))
     {
         $target.removeClass('cancelBtn').addClass('continueBtn');
@@ -442,7 +449,7 @@ function btnTapHandler($target)
             )
         );
     }
-    //通知android打开此应用
+    //通知android打开此应用，显示打开字样
     else if($target.hasClass("openBtn"))
     {
         window.uxbao.click(
@@ -458,7 +465,7 @@ function btnTapHandler($target)
             )
         );
     }
-    //通知android安装此应用
+    //通知android安装此应用，显示安装字样
     else if($target.hasClass("installBtn"))
     {
         window.uxbao.click(
@@ -474,6 +481,23 @@ function btnTapHandler($target)
             )
         );
     }
+}
+
+//进入游戏详情
+function infoTapHandler($info)
+{
+    var $item = $info.parent().parent();
+    var resId = $item.attr("data-id");
+    window.uxbao.click(
+        JSON.stringify(
+            {
+                "type":2,
+                "resId":resId,
+                "url":"http://115.29.177.196/游戏详情.html?resId=" + resId,
+                "resName":$item.attr("data-name")
+            }
+        )
+    );
 }
 
 //加载更多
@@ -547,28 +571,10 @@ function loadMore()
     }
 }
 
-//进入游戏详情
-function infoTapHandler($info)
-{
-    var $item = $info.parent().parent();
-    var resId = $item.attr("data-id");
-    window.uxbao.click(
-        JSON.stringify(
-            {
-                "type":2,
-                "resId":resId,
-                "url":"http://115.29.177.196/游戏详情.html?resId=" + resId,
-                "resName":$item.attr("data-name"),
-                "resPackageName":$item.attr("data-package")
-            }
-        )
-    );
-}
-
 //页面加载完毕执行函数
 $(function()
 {
-    //最开始ajax加载10个应用
+    //最开始ajax加载20个应用
     $.ajax(
         {
             url:ajaxRecommend.url,
@@ -586,7 +592,7 @@ $(function()
                 "start_position":ajaxRecommend.start_position,
                 "base64":ajaxRecommend.base64
             },
-            jsonp:'jsoncallback',
+            jsonp:'jsonRecommend',
             success:function(data)
             {
                 if(data.state === 1)//获取成功
@@ -597,7 +603,7 @@ $(function()
                     $(".app").each(function(i,item)
                     {
                         var $item = $(this);
-                        fillItem($item, data.product[i], ajaxRecommend.start_position - data.product.length + i);
+                        fillItem($item, data.product[i]);
                         $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
                         $.fn.imglazyload.detect();
                         //添加点击响应函数
@@ -612,6 +618,7 @@ $(function()
                             return false;
                         });
                     });
+
 
                     //下拉加载
                     if(ajaxRecommend.start_position <= ajaxRecommend.total_size)
@@ -638,6 +645,38 @@ $(function()
             error:function()
             {
                 console.log("load recommend app list error");
+            }
+        }
+    );
+
+    //顶部Slider
+    $.ajax(
+        {
+            url:ajaxBanner.url,
+            dataType:'jsonp',
+            data:
+            {
+                "version":ajaxBanner.version,
+                "phonetypeName":ajaxBanner.phonetypeName,
+                "os_version":ajaxBanner.os_version,
+                "imei":ajaxBanner.imei,
+                "imsi":ajaxBanner.imsi
+            },
+            jsonp:'jsonBanner',
+            success:function(data)
+            {
+                console.log(data);
+                var $slider = $("#slider");
+                $slider.find("img").each(function(i, item)
+                {
+                    var $item = $(this);
+                    $item.attr('src', data[i].resHomePhoto).attr("data-url", data[i].resHomeTitle);
+                });
+                $slider.slider({ imgZoom: true, loop: true });
+            },
+            error:function()
+            {
+                console.log("load banner data error");
             }
         }
     );

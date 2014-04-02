@@ -2,11 +2,7 @@
  * Created by zd on 2014/3/29 0029.
  */
 
-//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
-function updateState(packageName, state)
-{
-    window.uxbao.update(JSON.stringify(state));
-}
+
 
 function GetRequest()
 {
@@ -128,23 +124,6 @@ function fillComment(commentData)
     });
 }
 
-//进入游戏详情
-function infoTapHandler($info)
-{
-    var resId = $info.attr("data-id");
-    window.uxbao.click(
-        JSON.stringify(
-            {
-                "type":2,
-                "resId":resId,
-                "url":"http://115.29.177.196/游戏详情.html?resId=" + resId,
-                "resName":$info.attr("data-name"),
-                "resPackageName":$info.attr("data-package")
-            }
-        )
-    );
-}
-
 $(function()
 {
     //获取游戏信息
@@ -166,7 +145,8 @@ $(function()
             {
                 if(data.state == 1)//获取成功
                 {
-
+                    //给android传送详情消息
+                    //window.uxbao.getAppInfo(JSON.stringify(data));
                     //图标
                     $('.icon').find('img').attr('src', data.product.resIcons);
                     $('.tit').text(data.product.resName);
@@ -175,32 +155,44 @@ $(function()
 
                     //截图
                     var screenShots = data.product.resScreenshots.split(',');
-                    var screenContent = [];
-                    for(var i = 0; i < screenShots.length; ++i)
+                    var slider = new $.ui.Slider("#slider",
                     {
-                        screenContent.push(
+                        autoPlay:false,
+                        viewNum:2,
+                        travelSize:2,
+                        content:[
                             {
                                 title:"",
                                 href:"#",
-                                pic:screenShots[i]
+                                pic: screenShots[0]
+                            },
+                            {
+                                title:"",
+                                href:"#",
+                                pic: screenShots[1]
+                            },
+                            {
+                                title:"",
+                                href:"#",
+                                pic: screenShots[2]
+                            },
+                            {
+                                title:"",
+                                href:"#",
+                                pic: screenShots[3]
                             }
-                        );
-                    }
-                    var slider = new $.ui.Slider("#slider",
-                        {
-                            autoPlay:false,
-                            viewNum:2,
-                            travelSize:2,
-                            content:screenContent,
-                            imageZoom:true
-                        }
-                    );
+                        ],
+                        imageZoom:true
+                    });
                     //截图点击
                     $('.ui-slider-item').each(function(i, item)
                     {
-                        $(item).on("tap", function()
+                        $(item).on("click", function()
                         {
-                            window.uxbao.showPic(JSON.stringify(i));
+                            window.uxbao.click(JSON.stringify({
+                                "type":11,
+                                "index":i
+                            }));
                         });
                     });
                     //介绍
@@ -220,8 +212,7 @@ $(function()
                     fillRate(parseInt(data.product.rated1), parseInt(data.product.rated2), parseInt(data.product.rated3),
                         parseInt(data.product.rated4), parseInt(data.product.rated5), data.product.resRated);
                     fillComment(data.comments);
-                    //给android传送详情消息
-                    window.uxbao.getAppInfo(JSON.stringify(data));
+
                 }
             },
             error:function(XMLHttpRequest, textStatus, errorThrown)
@@ -253,21 +244,12 @@ $(function()
                     if(data.state === 1)
                     {
                         var len = data.products.length;
-
                         var $icon = $('.appIcon');
                         var $gameName = $('.gameName');
-                        var $appArr =  $("#mayLikeList").find("li");
                         for(var j = 0; j < len; ++j)
                         {
-                            $appArr.eq(j).attr("data-id", data.products[j].resId)
-                                .attr("data-name", data.products[j].resName).attr("data-package", data.products[j].resPackageName);
                             $icon.eq(j).attr("data-icon", data.products[j].resIcons);
                             $gameName.eq(j).text(data.products[j].resName);
-                            $appArr.eq(j).on("tap", function()
-                            {
-                                infoTapHandler($(this));
-                                return false;
-                            });
                         }
                         $icon.imglazyload({"urlName":"data-icon"});
                         $.fn.imglazyload.detect();

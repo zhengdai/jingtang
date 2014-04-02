@@ -2,8 +2,8 @@
  * Created by zd on 14-3-9.
  */
 //获取本机数据
-//var phoneData = JSON.parse(window.uxbao.init());
-var phoneData =
+var phoneData = JSON.parse(window.uxbao.init());
+/*var phoneData =
 {
     "downloadList":
         [
@@ -222,7 +222,7 @@ var phoneData =
                 "_id": 0
             }
         ]
-};
+};*/
 
 //推荐应用ajax参数对象
 var ajaxRecommend =
@@ -253,6 +253,7 @@ function createItem(itemData, i)
     return $item;
 }
 
+//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
 //供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
 function updateState(packageName, state)
 {
@@ -558,8 +559,7 @@ function infoTapHandler($info)
                 "type":2,
                 "resId":resId,
                 "url":"http://115.29.177.196/游戏详情.html?resId=" + resId,
-                "resName":$item.attr("data-name"),
-                "resPackageName":$item.attr("data-package")
+                "resName":$item.attr("data-name")
             }
         )
     );

@@ -175,26 +175,35 @@ $(function()
 
                     //截图
                     var screenShots = data.product.resScreenshots.split(',');
-                    var screenContent = [];
-                    for(var i = 0; i < screenShots.length; ++i)
+                    var slider = new $.ui.Slider("#slider",
                     {
-                        screenContent.push(
+                        autoPlay:false,
+                        viewNum:2,
+                        travelSize:2,
+                        content:[
                             {
                                 title:"",
                                 href:"#",
-                                pic:screenShots[i]
+                                pic: screenShots[0]
+                            },
+                            {
+                                title:"",
+                                href:"#",
+                                pic: screenShots[1]
+                            },
+                            {
+                                title:"",
+                                href:"#",
+                                pic: screenShots[2]
+                            },
+                            {
+                                title:"",
+                                href:"#",
+                                pic: screenShots[3]
                             }
-                        );
-                    }
-                    var slider = new $.ui.Slider("#slider",
-                        {
-                            autoPlay:false,
-                            viewNum:2,
-                            travelSize:2,
-                            content:screenContent,
-                            imageZoom:true
-                        }
-                    );
+                        ],
+                        imageZoom:true
+                    });
                     //截图点击
                     $('.ui-slider-item').each(function(i, item)
                     {

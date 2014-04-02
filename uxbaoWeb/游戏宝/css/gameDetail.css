@@ -37,8 +37,8 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 .rateDetailItem{ position: absolute; height: 100%; top:0; left: 0;}
 .rateDetailItem img{ display: block; float:left;}
 .percent{ margin:6px 50px 6px 100px; height: 4px;}
-.percentLeft{ display: block; float: left; height: 100%; background-color: #747474; width: 30%;}
-.percentRight{ display: block; float: left; height: 100%; background-color: #cfcfcf; width: 70%;}
+.percentLeft{ display: block; float: left; height: 100%; background-color: #747474; width: 50%;}
+.percentRight{ display: block; float: left; height: 100%; background-color: #cfcfcf; width: 50%;}
 .percentNum{ width:50px; display: block; height: 100%; position: absolute; right: 0; top: 0; text-align: center; }
 
 #commentList{ margin:10px 18px;overflow: hidden;}
@@ -47,11 +47,11 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 .userIcon{ position: absolute; height: 100%; width: 60px; border-radius: 6px; top: 0; left: 0;}
 .userIcon img{ height: 100%; width: 100%;}
 .middle{ margin:0 100px 0 70px; height: 100%;}
-.userName{ font-size: 24px; line-height: 30px;}
-.commentDate{ font-size:15px; line-height: 30px; font-weight: lighter;}
+.userName{ font-size: 18px; line-height: 30px;}
+.commentDate{ font-size:12px; line-height: 30px; font-weight: lighter;}
 .grade{ position: absolute; right: 10px; top:10px; height:16px;}
 .grade img{ float: left; display: block;}
-.commentContent{ width:100%; font-size:20px; line-height: 30px; margin:5px 0;}
+.commentContent{ width:100%; font-size:16px; line-height: 30px; margin:5px 0;}
 
 .moreComment{ margin:5px 18px 20px; height: 50px; background-color: #e5e5e5;}
 .moreComment p{ margin:0 40px; text-align: center; font-size: 18px; line-height: 50px;

@@ -47,11 +47,11 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 .userIcon{ position: absolute; height: 100%; width: 60px; border-radius: 6px; top: 0; left: 0;}
 .userIcon img{ height: 100%; width: 100%;}
 .middle{ margin:0 100px 0 70px; height: 100%;}
-.userName{ font-size: 18px; line-height: 30px;}
-.commentDate{ font-size:12px; line-height: 30px; font-weight: lighter;}
+.userName{ font-size: 24px; line-height: 30px;}
+.commentDate{ font-size:15px; line-height: 30px; font-weight: lighter;}
 .grade{ position: absolute; right: 10px; top:10px; height:16px;}
 .grade img{ float: left; display: block;}
-.commentContent{ width:100%; font-size:16px; line-height: 30px; margin:5px 0;}
+.commentContent{ width:100%; font-size:20px; line-height: 30px; margin:5px 0;}
 
 .moreComment{ margin:5px 18px 20px; height: 50px; background-color: #e5e5e5;}
 .moreComment p{ margin:0 40px; text-align: center; font-size: 18px; line-height: 50px;

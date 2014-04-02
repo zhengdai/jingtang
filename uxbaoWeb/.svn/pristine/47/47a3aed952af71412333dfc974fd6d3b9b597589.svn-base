@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>评论</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <link type="text/css" rel="stylesheet" href="css/commentList.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/loading.default.css" />
+    <link rel="stylesheet" type="text/css" href="assets/widget/refresh/refresh.default.css" />
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/extend/touch.js"></script>
+    <script type="text/javascript" src="js/extend/matchMedia.js"></script>
+    <script type="text/javascript" src="js/extend/event.ortchange.js"></script>
+    <script type="text/javascript" src="js/extend/parseTpl.js"></script>
+    <script type="text/javascript" src="js/extend/throttle.js"></script>
+    <script type="text/javascript" src="js/extend/event.scrollStop.js"></script>
+    <script type="text/javascript" src="js/extend/imglazyload.js"></script>
+    <script type="text/javascript" src="js/core/gmu.js"></script>
+    <script type="text/javascript" src="js/core/event.js"></script>
+    <script type="text/javascript" src="js/core/widget.js"></script>
+    <script type="text/javascript" src="js/commentList.js"></script>
+</head>
+<body onselectstart="return false">
+    <div class="commentList">
+        <h3 id="gameName">捕鱼达人</h3>
+        <ul id="comment-list-box">
+            <li class="commentItem">
+                <div class="userInfo">
+                    <div class="userIcon">
+                        <img src="images/xiangqing/icon.png">
+                    </div>
+                    <div class="middle">
+                        <p class="userName">游戏宝用户</p>
+                        <p class="commentDate">1390372730000</p>
+                    </div>
+                    <div class="grade">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                    </div>
+                </div>
+                <div class="commentContent"> 这个太好玩了。</div>
+            </li>
+            <li class="commentItem">
+                <div class="userInfo">
+                    <div class="userIcon">
+                        <img src="images/xiangqing/icon.png">
+                    </div>
+                    <div class="middle">
+                        <p class="userName">王小小</p>
+                        <p class="commentDate">1386582772000</p>
+                    </div>
+                    <div class="grade">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/light_gray_star.png">
+                        <img src="images/xiangqing/light_gray_star.png">
+                        <img src="images/xiangqing/light_gray_star.png">
+                        <img src="images/xiangqing/light_gray_star.png">
+                    </div>
+                </div>
+                <div class="commentContent">ycdx</div>
+            </li>
+            <li class="commentItem">
+                <div class="userInfo">
+                    <div class="userIcon">
+                        <img src="images/xiangqing/icon.png">
+                    </div>
+                    <div class="middle">
+                        <p class="userName">游戏宝用户</p>
+                        <p class="commentDate">1380712833000</p>
+                    </div>
+                    <div class="grade">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/light_gray_star.png">
+                        <img src="images/xiangqing/light_gray_star.png">
+                        <img src="images/xiangqing/light_gray_star.png">
+                        <img src="images/xiangqing/light_gray_star.png">
+                    </div>
+                </div>
+                <div class="commentContent">不过如此</div>
+            </li>
+            <li class="commentItem">
+                <div class="userInfo">
+                    <div class="userIcon">
+                        <img src="images/xiangqing/icon.png">
+                    </div>
+                    <div class="middle">
+                        <p class="userName">游戏宝用户</p>
+                        <p class="commentDate">1380538747000</p>
+                    </div>
+                    <div class="grade">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                    </div>
+                </div>
+                <div class="commentContent">真好玩，各种模式</div>
+            </li>
+            <li class="commentItem">
+                <div class="userInfo">
+                    <div class="userIcon">
+                        <img src="images/xiangqing/icon.png">
+                    </div>
+                    <div class="middle">
+                        <p class="userName">游戏宝用户</p>
+                        <p class="commentDate">1380538747000</p>
+                    </div>
+                    <div class="grade">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                    </div>
+                </div>
+                <div class="commentContent">真好玩，各种模式</div>
+            </li>
+            <li class="commentItem">
+                <div class="userInfo">
+                    <div class="userIcon">
+                        <img src="images/xiangqing/icon.png">
+                    </div>
+                    <div class="middle">
+                        <p class="userName">游戏宝用户</p>
+                        <p class="commentDate">1380538747000</p>
+                    </div>
+                    <div class="grade">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                        <img src="images/xiangqing/little_yellow_star.png">
+                    </div>
+                </div>
+                <div class="commentContent">真好玩，各种模式</div>
+            </li>
+        </ul>
+    </div>
+    <div class="more">
+        <div class="loading"></div>
+    </div>
+</body>
+</html>

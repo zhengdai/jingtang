@@ -254,6 +254,7 @@ function createItem(itemData, i)
 }
 
 //供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
+//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
 function updateState(packageName, state)
 {
     var $item = $(document.getElementById(packageName));
@@ -558,8 +559,7 @@ function infoTapHandler($info)
                 "type":2,
                 "resId":resId,
                 "url":"http://115.29.177.196/游戏详情.html?resId=" + resId,
-                "resName":$item.attr("data-name"),
-                "resPackageName":$item.attr("data-package")
+                "resName":$item.attr("data-name")
             }
         )
     );

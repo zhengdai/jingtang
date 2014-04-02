@@ -558,8 +558,7 @@ function infoTapHandler($info)
                 "type":2,
                 "resId":resId,
                 "url":"http://115.29.177.196/游戏详情.html?resId=" + resId,
-                "resName":$item.attr("data-name"),
-                "resPackageName":$item.attr("data-package")
+                "resName":$item.attr("data-name")
             }
         )
     );
