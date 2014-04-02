@@ -1,0 +1,657 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta name="rating" content="general" />
+<meta name="robots" content="all" />
+<link rel="stylesheet" type="text/css" href="http://www.ttqp.com/style/layout.css" />
+<link rel="stylesheet" type="text/css" href="http://www.ttqp.com/style/global.css" />
+<link rel="stylesheet" type="text/css" href="http://www.ttqp.com/style/reg_layout.css" />
+<link href="http://www.ttqp.com/Jquerystongyong/Login.css" rel="stylesheet" type="text/css" />
+<link href="http://www.ttqp.com/js/jquery_validate/Tooltip.css" rel="stylesheet" type="text/css" />
+<script src="http://www.ttqp.com/js/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="http://www.ttqp.com/JS/passwordStrength.js" type="text/javascript"></script>
+<script src="http://www.ttqp.com/js/inputCheck.js" type="text/javascript"></script>
+<script src="http://www.ttqp.com/js/lhgdialog/lhgdialog.js" type="text/javascript"></script>
+<script src="js/Register.js" type="text/javascript"></script>
+<script src="js/superValidator.js" type="text/javascript"></script>
+<link href="http://www.ttqp.com/CS/css/alert.css" rel="stylesheet" type="text/css" />
+<script src="http://www.ttqp.com/CS/js/alert.js" type="text/javascript"></script>
+<script src="http://www.ttqp.com/js/jquery_validate/JuquerName.js" type="text/javascript"></script>
+<script type="text/javascript">
+function UpdateImage()
+{
+    document.getElementById("picVerifyCode").src = "http://www.ttqp.com/ValidateImage.aspx?r=" + Math.random();
+
+}
+
+$(document).ready(function () {
+    //setIntegeCheck("txtAccounts");
+    $("#txtAccounts").blur(function () {
+
+        if ($("#txtAccounts").val() != "")
+        {
+            var reg = /^[a-zA-Z0-9]{4,10}$/;
+            if (reg.test($("#txtAccounts").val()))
+            {
+                if ($(this).hasClass("tooltipinputerr"))
+                {
+
+                    $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                    $('.contenImage').html($(this).attr('mip'));
+                    $('#tipTable').fadeIn("fast");
+                    $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+                    return false;
+                    //$(this).attr("reg").val("对不起登录名已经被注册！");
+                }
+                else
+                {
+
+                    $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                    $('.contenImage').html($(this).attr('pip'));
+                    $('#tipTable').fadeIn("fast");
+                    return true;
+                    // $(this).attr("reg").val("可以使用！");
+                }
+            }
+            else
+            {
+                $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+                $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                $('.contenImage').html($(this).attr('tip'));
+                $('#tipTable').fadeIn("fast");
+                return false;
+            }
+
+        }
+        else
+        {
+            $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+            $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+            $('.contenImage').html($(this).attr('tip'));
+            $('#tipTable').fadeIn("fast");
+
+            return false;
+        }
+    });
+
+
+
+
+    $("#txtNickname").blur(function () {
+        WidthCheck(this, 10);
+        if ($(this).val() != "")
+        {
+            setUserName(this);
+            if ($(this).hasClass("tooltipinputerr")) {
+                $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                $('.contenImage').html($(this).attr('hip'));
+                $('#tipTable').fadeIn("fast");
+            } else {
+                if (setUserNameYan($(this)) == false) {
+                    $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                    $('.contenImage').html($(this).attr('nimei'));
+                    $('#tipTable').fadeIn("fast");
+                    $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+                } else {
+
+                    if ($(this).hasClass("tooltipinputerr")) {
+                        $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                        $('.contenImage').html($(this).attr('mip'));
+                        $('#tipTable').fadeIn("fast");
+
+                    } else {
+                        $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                        $('.contenImage').html($(this).attr('pip'));
+                        $('#tipTable').fadeIn("fast");
+
+                    }
+
+                }
+            }
+        } else {
+            $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+            $('.contenImage').html($(this).attr('tip'));
+            $('#tipTable').fadeIn("fast");
+            $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+        }
+    });
+
+    $("#TextBox1").blur(function () {
+        if ($(this).val() != "") {
+            ShouJiBangDings(this);
+            if ($(this).hasClass("tooltipinputerr")) {
+                $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                $('.contenImage').html($(this).attr('hip'));
+                $('#tipTable').fadeIn("fast");
+                return true;
+            }
+        } else {
+            $(this).removeClass("tooltipinputok");
+            $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+            $('.contenImage').html($(this).attr('tip'));
+            $('#tipTable').fadeIn("fast");
+
+            return true;
+        }
+    });
+
+
+    //setUserPaw("txtLogonPass");
+    $("#txtLogonPass").blur(function () {
+        if ($(this).val() != "") {
+            setUserPaw(this);
+            if ($(this).hasClass("tooltipinputerr")) {
+                $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                $('.contenImage').html($(this).attr('hip'));
+                $('#tipTable').fadeIn("fast");
+            }
+        } else {
+            $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+            $('.contenImage').html($(this).attr('tip'));
+            $('#tipTable').fadeIn("fast");
+            $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+        }
+    });
+    // setUserPaw("txtLogonPass2");
+    //确认密码
+    $("#txtLogonPass2").blur(function () {
+        if ($(this).val() != "") {
+            Mima(this, $("#txtLogonPass"), 1);
+            if ($(this).hasClass("tooltipinputerr")) {
+                $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                $('.contenImage').html($(this).attr('hip'));
+                $('#tipTable').fadeIn("fast");
+            }
+        } else {
+            $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+            $('.contenImage').html($(this).attr('tip'));
+            $('#tipTable').fadeIn("fast");
+            $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+        }
+    });
+
+    $('#btnRegister').click(function () {
+        if (putong() || setUserName($("#txtNickname")) || setUserPaw($("#txtLogonPass")) && Mima($("#txtLogonPass2"), $("#txtLogonPass"), 2) || UserName($("#txtCompellation")) && checkCard())
+        {
+            if (putong() == false) {
+                hiAlert("对不起该用户已经被注册！");
+                return false;
+            } else if ($("#txtNickname").hasClass("tooltipinputerr")) {
+                hiAlert("对不起该昵称已经被使用！");
+                return false;
+            } else if (setUserPaw($("#txtLogonPass")) == false)
+            {
+                hiAlert("对不起您输入的密码不正确！");
+                return false;
+            } else if (Mima($("#txtLogonPass2"), $("#txtLogonPass"), 2) == false) {
+                hiAlert("对不起您输入的确认密码不正确！");
+                return false;
+            } else if (UserName($("#txtCompellation")) == false) {
+                hiAlert("对不起您输入的真实姓名不正确！");
+                return false;
+            } else if (checkCard() == false) {
+                hiAlert("对不起您输入的身份证不正确！");
+                return false;
+            } else if (ShouJiBangDings($("#TextBox1")) == false) {
+                hiAlert("对不起您输入的手机号码不正确！");
+                return false;
+            } else {
+                $("#txtAccounts").attr("value", "");
+                $("#txtNickname").attr("value", "");
+                $("#txtLogonPass").attr("value", "");
+                $("#txtLogonPass2").attr("value", "");
+                $("#txtCompellation").attr("value", "");
+                $("#TextBox1").attr("value", "");
+                $("#txtCode").attr("value", "");
+                UpdateImage();
+                hiAlert("注册成功！");
+                return false;
+            }
+        }
+        else
+        {
+            hiAlert("请将信息填写完整");
+            return false;
+        }
+    });
+    // settxtCompellation("txtCompellation");
+    //  settxtCode("txtCode");
+    $("#txtCompellation").blur(function () {
+        if ($(this).val() != "") {
+            UserName(this);
+            if ($(this).hasClass("tooltipinputerr")) {
+                $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                $('.contenImage').html($(this).attr('hip'));
+                $('#tipTable').fadeIn("fast");
+            } else {
+                if (setUserNameYan($(this)) == false) {
+                    $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                    $('.contenImage').html($(this).attr('nimei'));
+                    $('#tipTable').fadeIn("fast");
+                    $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+                }
+            }
+        } else {
+            $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+            $('.contenImage').html($(this).attr('tip'));
+            $('#tipTable').fadeIn("fast");
+            $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+        }
+    })
+
+
+    $("#ddlGender").change(function () {
+        $.dialog({ id: 'winUserfaceList' }).close();
+        if ($(this).val() == 1) {
+            $.dialog({ id: 'winUserfaceList', timer: 2, title: '更换头像', top: 200, content: 'url:/FaceListW.aspx' });
+            $("#picFace").show();
+            $("#Img1").hide();
+        } else {
+            $.dialog({ id: 'winUserfaceList', timer: 2, title: '更换头像', top: 200, content: 'url:/FaceList.aspx' });
+            $("#picFace").hide();
+            $("#Img1").show();
+        }
+    });
+
+    $("#txtPassPortID").blur(function () {
+        if ($(this).val() != "") {
+            checkCard();
+            if ($("#txtPassPortID").hasClass("tooltipinputerr")) {
+                $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                $('.contenImage').html($(this).attr('hip'));
+                $('#tipTable').fadeIn("fast");
+            }
+        } else {
+            $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+            $('.contenImage').html($(this).attr('tip'));
+            $('#tipTable').fadeIn("fast");
+            $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+        }
+    });
+
+
+
+    function checkVerifyCode() {
+        if ($("#txtCode").val() != "") {
+            var reg = /^\d{4}$/;
+            if (reg.test($("#txtCode").val())) {
+                $("#txtCode").removeClass('tooltipinputerr').addClass('tooltipinputok');
+                return true;
+            } else {
+                $("#txtCode").removeClass('tooltipinputok').addClass('tooltipinputerr');
+                return false;
+            }
+        } else {
+            $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+            $('.contenImage').html($(this).attr('hip'));
+            $('#tipTable').fadeIn("fast");
+            $("#txtCode").removeClass('tooltipinputok').addClass('tooltipinputerr');
+            return false;
+        }
+    }
+
+});
+
+
+function WidthCheck(str, maxLen) {
+    var w = 0;
+    var tempCount = 0;
+    //length 获取字数数，不区分汉子和英文
+    for (var i = 0; i < str.value.length; i++) {
+        //charCodeAt()获取字符串中某一个字符的编码
+        var c = str.value.charCodeAt(i);
+        //单字节加1
+        if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
+            w++;
+        }
+        else {
+            w += 2;
+        }
+        if (w > maxLen) {
+            str.value = str.value.substr(0, i);
+            break;
+        }
+    }
+}
+function CheckInput(strs) {
+    var str = strs.value;
+    if (/[\u4e00-\u9fa5]/.test(str)) {
+        strs.value = "";
+    }
+}
+
+
+</script>
+<style type="text/css">
+    .style4
+    {
+        font-size: 16px;
+        font-weight: bold;
+        width: 142px;
+    }
+    .style9
+    {
+        font-size: 16px;
+        font-weight: bold;
+        width: 176px;
+        height: 44px;
+    }
+    .style10
+    {
+        height: 44px;
+    }
+    .style17
+    {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .style19
+    {
+        font-size: 16px;
+        font-weight: bold;
+        width: 263px;
+    }
+    .style22
+    {
+        font-size: 16px;
+        font-weight: bold;
+        width: 178px;
+    }
+    .style24
+    {
+        font-size: 16px;
+        font-weight: bold;
+        width: 163px;
+    }
+    table tr
+    {
+        height: 20px;
+    }
+    .style25
+    {
+        font-size: 16px;
+        font-weight: bold;
+        width: 163px;
+        height: 39px;
+    }
+    .bb, .style4
+    {
+        vertical-align: middle;
+    }
+    .bb
+    {
+        _margin-left: -50px;
+    }
+    #txtCode, #picVerifyCode
+    {
+        vertical-align: middle;
+    }
+    .style39
+    {
+        font-size: 16px;
+        font-weight: bold;
+        width: 178px;
+        height: 34px;
+    }
+    .style40
+    {
+        width: 226px;
+        height: 34px;
+    }
+    .reg_input
+    {
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .style42
+    {
+        font-size: 16px;
+        font-weight: bold;
+        width: 163px;
+        height: 29px;
+    }
+    .style43
+    {
+        width: 216px;
+    }
+    .style44
+    {
+        height: 39px;
+        width: 216px;
+    }
+    .style45
+    {
+        width: 216px;
+        height: 29px;
+    }
+    .style46
+    {
+        font-size: 16px;
+        font-weight: bold;
+        width: 178px;
+        height: 37px;
+    }
+    .style47
+    {
+        width: 226px;
+        height: 37px;
+    }
+    .main{
+        color: #000;
+    }
+</style>
+<script type="text/javascript" src="http://www.ttqp.com/js/Common.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>游戏宝-注册</title>
+<meta name="keywords" content="游戏,手机游戏,免费下载">
+<meta name="description" content="涵盖单机/网游/休闲/社交四个大类数百款精品游戏，给玩家更完美的手机客户端体验。">
+<link rel="stylesheet" href="http://www.gambao.com/css/style_com.css">
+</head>
+<body>
+<!--  show header -->
+<div class="mod-header">
+    <div class="main_back" onclick="javascript:history.go(-1);"></div>
+    <div class="main_logo" onclick="location='http://223.6.252.145/'">		<h2 ></h2></div>
+    <div class="main_down">
+        <a href="Uxbao.apk"><img src="http://www.gambao.com/image/tgself.gif" style="width: 100%;height: 42px;"></a>
+    </div>
+</div>
+
+<form name="fmStep1" method="post" id="fmStep1">
+<!--头部开始-->
+
+<!--头部结束-->
+<script type="text/javascript">
+    //收藏网站
+    function addFavorites(pageName) {
+        var pageUrl = location.href;
+        if (document.all) {
+            window.external.addFavorite(pageUrl, pageName);
+        }
+        else if (window.sidebar) {
+            window.sidebar.addPanel(pageName, pageUrl, "");
+        }
+    }
+
+    //设为主页
+    function setHomepage() {
+        if (document.all) {
+            document.body.style.behavior = 'url(#default#homepage)';
+            document.body.setHomePage(location.href);
+        }
+        else if (window.sidebar) {
+            if (window.netscape) {
+                try {
+                    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                }
+                catch (e) {
+                    alert("该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值改为true");
+                }
+            }
+            var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+            prefs.setCharPref('browser.startup.homepage', location.href);
+        }
+    }
+</script>
+
+
+<!--页面主体开始-->
+<div class="main" style="margin-top: 10px;">
+    <div class="regBody">
+        <div class="regTitle">
+        </div>
+        <div class="regBg">
+            <!--创建帐号开始-->
+            <div class="title lan f14 bold">
+                创建帐号</div>
+            <div align="center">
+                <table border="0" cellpadding="0" cellspacing="0" class="mtop13" style="margin: auto;">
+                    <tr>
+                        <td align="right" class="style9">
+                            登录账号：
+                        </td>
+                        <td class="style10">
+                            <input name="txtAccounts" type="text" maxlength="10" id="txtAccounts" class="text width200 reg_input" pip="可以使用！" mip="对不起登录名已经被注册！" onkeyup="CheckInput(this)" aip="您输入的的登录账户不正确" tip="请输入登录账户" check="2" />
+                            <span class="hong">*</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="style9">
+                            用户昵称：
+                        </td>
+                        <td class="style10">
+                            <input name="txtNickname" type="text" maxlength="10" id="txtNickname" class="text width200 reg_input" hip="对不起您输入的不正确" tip="请输入昵称" check="2" pip="可以使用！" mip="对不起该昵称已经被注册！" nimei="您输入的是非法字符" onkeyup="WidthCheck(this,10);" onkeydown="if(event.keyCode==32)event.returnValue=null;" /><span class="hong">*</span>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+            </div>
+            <!--创建帐号结束-->
+            <!--登录密码开始-->
+            <div class="title lan f14 bold mtop13">
+                登录密码</div>
+            <div align="center">
+                <table border="0" cellpadding="0" cellspacing="0" class="mtop13">
+                    <tr>
+                        <td align="right" class="style42">
+                            <div align="right">
+                                安全等级：</div>
+                        </td>
+                        <td class="style45">
+                            <span class="safe0" id="lblLogonPassSafeRank"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="style25">
+                            登录密码：
+                        </td>
+                        <td class="style44">
+                            <input name="txtLogonPass" type="password" maxlength="14" id="txtLogonPass" class="text width200 reg_input" tip="请输入密码" hip="您输入的密码不正确" check="2" /><span class="hong">*</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="style24">
+                            确认密码：
+                        </td>
+                        <td class="style43">
+                            <input name="txtLogonPass2" type="password" maxlength="14" id="txtLogonPass2" class="text width200 reg_input" tip="请输入确认密码" hip="两次密码不正确" check="2" /><span class="hong">*</span>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <!--登录密码结束-->
+            <!--推荐人开始-->
+            <div class="title lan f14 bold mtop13">
+                个人资料</div>
+            <div align="center">
+                <table border="0" cellpadding="0" cellspacing="0" class="mtop13">
+                    <tr>
+                        <td align="right" class="style39">
+                            真实姓名：
+                        </td>
+                        <td class="style40">
+                            <input name="txtCompellation" type="text" maxlength="5" id="txtCompellation" class="text width200 reg_input" hip="请输入中文" tip="文化部规定正规游戏必须填写" nimei="您输入的是非法字符" check="2" /><span
+                                class="hong">*</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" class="style46">
+                            身份证号：
+                        </td>
+                        <td class="style47">
+                            <input name="txtPassPortID" type="text" maxlength="18" id="txtPassPortID" class="text width200 reg_input" tip="文化部规定正规游戏必须填写" check="2" hip="身份证号不正确" aip="请将信息填写完整" /><span
+                                class="hong">*</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="style39">
+                            手机号码：
+                        </td>
+                        <td class="style40">
+                            <input name="TextBox1" type="text" maxlength="11" id="TextBox1" class="text width200 reg_input" mip="对不起该手机已经被绑定！" hip="对不起手机号码不正确" tip="手机号码可不输入" check="2" />&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" class="style22">
+                            验&nbsp;证&nbsp;码：
+                        </td>
+                        <td class="style47">
+                            <input name="txtCode" type="text" maxlength="4" id="txtCode" class="text width110 reg_input " autocomplete="off" hip="请输入验证码" />
+                            <img src="http://www.ttqp.com/ValidateImage.aspx" onfocus="this.blur()" id="picVerifyCode" height="23px"
+                                 onclick="UpdateImage()" title="点击更换验证码图片!" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--推荐人结束-->
+            <!--服务条款开始-->
+            <div>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="mtop13 mbottom10">
+                    <tr>
+                        <td align="right" class="style19">
+                            &nbsp;
+                        </td>
+                        <td class="padding15">
+                            <input type="submit" name="btnRegister" value="" id="btnRegister" class="btnstts11" onfocus="this.blur()" />&nbsp;&nbsp;&nbsp;
+                            <input name="reg" type="hidden" id="reg" value="true" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--服务条款结束-->
+            <div class="clear">
+            </div>
+            <div class="pay_tips">
+                <p>
+                    &nbsp;</p>
+                <p id="pnlContinue" style="text-align: center;">
+                    &nbsp;
+                </p>
+            </div>
+        </div>
+        <div class="regBottom">
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+</div>
+<!--页面主体结束-->
+
+
+<!--底部开始-->
+<div class="foot-sub-ad">
+    <a href="Uxbao.apk" target="_blank"><img src="http://www.gambao.com/image/banner.png" width="100%" height="40px"></a>
+</div>
+<!--底部结束-->
+
+</form>
+</body>
+</html>

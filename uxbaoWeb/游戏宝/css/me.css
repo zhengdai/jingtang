@@ -4,7 +4,8 @@ a{text-decoration:none; color:#252525;}
 .clear{clear:both;}
 ul,li{list-style:none;}
 body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
-    color:#252525; font-size:14px; line-height:20px;background-color: #f2f2f2;}
+    color:#252525; font-size:14px; line-height:20px;background-color: #f2f2f2;-webkit-user-select: none;
+}
 
 .head{ height: 250px; width: 100%; background-color: #f67437; position: relative;}
 .portrait{ position: absolute; right: 0; top: 0; left: 0; bottom: 0; margin: auto;

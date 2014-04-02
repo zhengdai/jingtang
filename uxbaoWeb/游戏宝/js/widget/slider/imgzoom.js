@@ -39,7 +39,14 @@
 
         function imgZoom( e ) {
             var img = e.target || this;
-            img.style.width = me.width + 'px';
+            if(me._options.viewNum == 1)
+            {
+                img.style.width = me.width  + 'px';
+            }
+            else
+            {
+                img.style.width = (me.width / me._options.viewNum - 6) + 'px'
+            }
         }
 
         me.on( 'ready dom.change', watch );

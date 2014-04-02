@@ -1,0 +1,56 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px;-webkit-user-select: none;
+}
+
+
+#categoryList{ margin: 10px 10px 0; overflow: hidden;}
+.category{ margin-bottom:10px; overflow: hidden; position: relative; height: 64px;}
+.categoryDes{ width: 118px; height: 64px; position: absolute;}
+.des{ display: block; padding-left:54px;width: 64px; height: 100%; text-align: center; line-height: 64px;font-size: 18px;}
+#xiuxian .categoryDes{background: url("../images/fenlei/xiuxianbg2.png") center no-repeat;}
+#xiuxian .des{color: #5b6f2f;}
+#meinv .categoryDes{background: url("../images/fenlei/meinvbg2.png") center no-repeat;}
+#meinv .des{color: #000;}
+#saiche .categoryDes{background: url("../images/fenlei/meinvbg2.png") center no-repeat;}
+#saiche .des{color: #000;}
+#juese .categoryDes{background: url("../images/fenlei/meinvbg2.png") center no-repeat;}
+#juese .des{color: #000;}
+#dongzuo .categoryDes{background: url("../images/fenlei/meinvbg2.png") center no-repeat;}
+#dongzuo .des{color: #000;}
+#celve .categoryDes{background: url("../images/fenlei/celvebg2.png") center no-repeat;}
+#celve .des{color: #257f95;}
+#qipai .categoryDes{background: url("../images/fenlei/qipaibg2.png") center no-repeat;}
+#qipai .des{color: #6b6666;}
+#tiyu .categoryDes{background: url("../images/fenlei/qipaibg2.png") center no-repeat;}
+#tiyu .des{color: #6b6666;}
+#sheji .categoryDes{background: url("../images/fenlei/shejibg2.png") center no-repeat;}
+#sheji .des{color: #9a7423;}
+#kapai .categoryDes{background: url("../images/fenlei/shejibg2.png") center no-repeat;}
+#kapai .des{color: #9a7423;}
+#shejiao .categoryDes{background: url("../images/fenlei/shejibg2.png") center no-repeat;}
+#shejiao .des{color: #9a7423;}
+#jishi .categoryDes{background: url("../images/fenlei/shejibg2.png") center no-repeat;}
+#jishi .des{color: #9a7423;}
+
+
+
+
+.gameIcon{ position: absolute; right: 0; padding: 3px 20px 3px 5px;
+    background-color: #f7f7f7;
+    top: 0; border: 1px solid #ececec; border-radius: 9px;
+    width: 240px;
+    overflow: hidden;
+    margin:3px 0;
+    height: 50px;
+    background-image: -webkit-linear-gradient(top, #fcfcfc, #f2f2f2);
+    background-image: linear-gradient(to top, #fcfcfc, #f2f2f2);
+}
+.arrow{ position: absolute; top: 0; right: 5px; height: 100%; width: 11px; background: url("../images/fenlei/arrow.png") center no-repeat;}
+.gameIconList{ width: 100%; overflow: hidden; height: 100%;}
+.gameIconList li{ float: left; width: 60px; position: relative; overflow:hidden; height: 100%;}
+.appIcon{ width: 48px; height: 48px; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; display: block;}

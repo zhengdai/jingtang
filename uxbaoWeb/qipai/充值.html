@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <link rel="stylesheet" type="text/css" href="http://www.ttqp.com/style/layout.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.ttqp.com/style/global.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.ttqp.com/style/pay_layout.css" />
+    <link href="http://www.ttqp.com/js/jquery_validate/Tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="http://www.ttqp.com/js/jquery-1.5.2.min.js" type="text/javascript"></script>
+    <script src="http://www.ttqp.com/js/FormatMoney.js" type="text/javascript"></script>
+    <script src="http://www.ttqp.com/js/PayBankJquery.js" type="text/javascript"></script>
+
+    <link href="http://www.ttqp.com/CS/css/alert.css" rel="stylesheet" type="text/css" />
+    <script src="http://www.ttqp.com/CS/js/alert.js" type="text/javascript"></script>
+    <script src="js/superValidator.js" type="text/javascript"></script>
+    <style type="text/css">
+        .reg_input
+        {
+            color: #000;
+            float: left;
+        }
+        .spans
+        {
+            float: left;
+            display: block;
+            padding-top: 20px;
+        }
+        .inputst
+        {
+            width: 250px;
+        }
+        #TextBox1{ width:50px;}
+        #content{
+            float: none;
+            margin: 0 auto;
+        }
+        .main{
+            color: #000;
+        }
+        .content{overflow:hidden; width: auto; height: auto;margin: 20px auto;}
+        .banklayout{width: auto;}
+        .banklayout ul{margin:0 10px; width:auto;}
+        .content_btn{margin-top: 20px;}
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtPayAccounts").blur(function () {
+                if ($(this).val() != "") {
+                    setIntegeCheckss(this);
+                    if ($(this).hasClass("tooltipinputerr")) {
+                        $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                        $('.contenImage').html($(this).attr('hip'));
+                        $('#tipTable').fadeIn("fast");
+                    }
+                } else {
+                    $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                    $('.contenImage').html($(this).attr('tip'));
+                    $('#tipTable').fadeIn("fast");
+                    $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+                }
+            });
+            // setUserPaw("txtLogonPass2");
+            //确认密码
+            $("#txtPayReAccounts").blur(function () {
+                if ($(this).val() != "") {
+                    Mima(this, $("#txtPayAccounts"), 1);
+                    if ($(this).hasClass("tooltipinputerr")) {
+                        $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                        $('.contenImage').html($(this).attr('hip'));
+                        $('#tipTable').fadeIn("fast");
+                    }
+                } else {
+                    $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                    $('.contenImage').html($(this).attr('tip'));
+                    $('#tipTable').fadeIn("fast");
+                    $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+                }
+            });
+            $("#TextBox1").blur(function () {
+                if ($(this).val() != "") {
+                    shuzi(this);
+                    if ($(this).hasClass("tooltipinputerr")) {
+                        $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                        $('.contenImage').html($(this).attr('hip'));
+                        $('#tipTable').fadeIn("fast");
+                    }
+                } else {
+                    $('#tipTable').css({ left: $.getLeft(this) + 'px', top: $.getTop(this) + 'px' });
+                    $('.contenImage').html($(this).attr('tip'));
+                    $('#tipTable').fadeIn("fast");
+                    $(this).removeClass('tooltipinputok').addClass('tooltipinputerr');
+                }
+            })
+            function shuzi(dome) {
+                if ($(dome).val() != "") {
+                    var reg = /^[1-9]\d{0,}$/;
+                    if (reg.test($(dome).val())) {
+                        $(dome).removeClass('tooltipinputerr').addClass('tooltipinputok');
+                        return true;
+                    } else {
+                        $(dome).removeClass('tooltipinputok').addClass('tooltipinputerr');
+                        return false;
+                    }
+                } else {
+                    $(dome).removeClass('tooltipinputok').addClass('tooltipinputerr');
+                }
+            }
+            $('#btnPay').click(function () {
+                if (setIntegeCheckss($("#txtPayAccounts")) && Mima($("#txtPayReAccounts"), $("#txtPayAccounts"), 2) && shuzi($("#TextBox1"))) {
+                    hiAlert("用户不存在！");
+                    return false;
+                }
+                else {
+                    hiAlert("请将信息填写完整！");
+                    return false;
+                }
+
+            })
+        });
+    </script>
+    <title>游戏宝-充值</title>
+    <meta name="keywords" content="游戏,手机游戏,免费下载">
+    <meta name="description" content="涵盖单机/网游/休闲/社交四个大类数百款精品游戏，给玩家更完美的手机客户端体验。">
+    <link rel="stylesheet" href="http://www.gambao.com/css/style_com.css">
+</head>
+<body>
+
+
+
+<!--头部开始-->
+
+<div class="mod-header">
+    <div class="main_back" onclick="javascript:history.go(-1);"></div>
+    <div class="main_logo" onclick="location='http://223.6.252.145/'">		<h2 ></h2></div>
+    <div class="main_down">
+        <a href="Uxbao.apk"><img src="http://www.gambao.com/image/tgself.gif" style="width: 100%;height: 42px;"></a>
+    </div>
+</div>
+<div class="clear"></div>
+<!--头部结束-->
+
+<script type="text/javascript">
+    //收藏网站
+    function addFavorites(pageName) {
+        var pageUrl = location.href;
+        if (document.all) {
+            window.external.addFavorite(pageUrl, pageName);
+        }
+        else if (window.sidebar) {
+            window.sidebar.addPanel(pageName, pageUrl, "");
+        }
+    }
+
+    //设为主页
+    function setHomepage() {
+        if (document.all) {
+            document.body.style.behavior = 'url(#default#homepage)';
+            document.body.setHomePage(location.href);
+        }
+        else if (window.sidebar) {
+            if (window.netscape) {
+                try {
+                    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                }
+                catch (e) {
+                    alert("该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值改为true");
+                }
+            }
+            var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+            prefs.setCharPref('browser.startup.homepage', location.href);
+        }
+    }
+
+    $(function () {
+
+
+        $(".qr-popup").show();
+        $(".testgame").click(function () {
+            $(".qr-popup").hide();
+        });
+
+    });
+</script>
+
+
+<!--页面主体开始-->
+<div class="main" style="margin-top: 8px;">
+    <!--左边部分开始-->
+    <!--左边部分开始-->
+
+    <!--左边部分结束-->
+    <!--左边部分结束-->
+    <!--右边开始-->
+    <div id="content">
+        <!--右边内容头部-->
+        <div class="top">
+            您的位置：<a href="http://www.gambao.com" onfocus="this.blur()">首页</a>&nbsp;<span class="arrow">»</span>&nbsp;<a href="PayBank.aspx">帐号充值</a></div>
+        <!--右边内容中部-->
+        <div class="center">
+            <div class="payRechargeTitle" style="text-align: left; padding-top: 5px;">
+                &nbsp;&nbsp; 您选择了<span id="spnWay" class="hong"></span>充值方式</div>
+            <form name="fmStep1" method="post" id="fmStep1">
+
+                <input name="hdfSalePrice" type="hidden" id="hdfSalePrice" value="10" />
+                <div class="content">
+                    <p style="padding-bottom: 8px;">
+                        <span style="padding-top: 5px;">充值用户：</span>
+                        <label>
+                            <input name="txtPayAccounts" type="text" maxlength="11" id="txtPayAccounts" class="text width206 reg_input" tip="请输入登录账户" hip="登录账户格式不正确" check="2" /><span class="spans">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</label>
+                        <label id="txtPayAccountsTips" style="padding-top: 5px; color: Red">
+                        </label>
+                    </p>
+                    <p style="padding-bottom: 8px;">
+                        <span style="padding-top: 5px;">确认用户：</span>
+                        <label>
+                            <input name="txtPayReAccounts" type="text" maxlength="11" id="txtPayReAccounts" class="text width206 reg_input" tip="请输入确认登录账户" hip="确认登录账户不一致" check="2" /><span class="spans">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</label>
+                        <label id="txtPayReAccountsTips" style="color: Red; padding-top: 5px;">
+                        </label>
+                    </p>
+                    <p>
+                        <span style="padding-top: 5px;">充值金额： </span>
+                        <span style=" margin-top:5px;"><input name="TextBox1" type="text" value="10" maxlength="5" id="TextBox1" class="text width206 reg_input" tip="请输入充值金额" hip="充值金额不正确" check="2" /><span style=" margin-top:5px;">1元=1金币</span></span>
+                    </p>
+                    <p style="padding-bottom: 8px;">
+                        <span style="padding-top: 5px;">&nbsp;&nbsp; 支付银行：</span>
+                    </p>
+                    <div class="banklayout">
+                        <ul id="tabBank">
+                            <li>
+                                <div class="bankradio">
+                                    <input value="ICBC-NET-B2C" name="radBank" type="radio" id="radBank_3" onfocus="this.blur()" checked="checked" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankicbc.gif' reg="radBank_3" onfocus="this.blur()" /></div>
+                            </li>
+                            <li>
+                                <div class="bankradio">
+                                    <input value="ABC-NET-B2C" name="radBank" type="radio" id="radBank_2" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankabc.gif'  onfocus="this.blur()" reg="radBank_2"/></div>
+                            </li>
+                            <li>
+                                <div class="bankradio">
+                                    <input value="CCB-NET-B2C" name="radBank" type="radio" id="radBank_4" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankccb.gif' onfocus="this.blur()" reg="radBank_4" /></div>
+                            </li>
+
+                            <li>
+                                <div class="bankradio">
+                                    <input value="BOC-NET-B2C" name="radBank" type="radio" id="radBank_1" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/zhongguoyinhang.gif' onfocus="this.blur()" onfocus="this.blur()" reg="radBank_1" /></div>
+                            </li>
+
+
+
+                            <li>
+                                <div class="bankradio">
+                                    <input value="CMBCHINA-NET-B2C" name="radBank" type="radio" id="radBank_5" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankcmb.gif'  onfocus="this.blur()" reg="radBank_5" /></div>
+                            </li>
+                            <li>
+                                <div class="bankradio">
+                                    <input value="BOCO-NET-B2C" name="radBank" type="radio" id="radBank_7" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankbcc.gif' onfocus="this.blur()" reg="radBank_7" /></div>
+                            </li>
+
+                            <li>
+                                <div class="bankradio">
+                                    <input value="POST-NET-B2C" name="radBank" type="radio" id="radBank_21" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankpost.gif' onfocus="this.blur()" reg="radBank_21" /></div>
+                            </li>
+
+                            <li>
+                                <div class="bankradio">
+                                    <input value="SPDB-NET-B2C" name="radBank" type="radio" id="radBank_22" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankshpd.gif' onfocus="this.blur()" reg="radBank_22" /></div>
+                            </li>
+                            <li>
+                                <div class="bankradio">
+                                    <input value="BCCB-NET-B2C" name="radBank" type="radio" id="radBank_23" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankbj.gif' onfocus="this.blur()" reg="radBank_23" /></div>
+                            </li>
+
+
+                            <li>
+                                <div class="bankradio">
+                                    <input value="CIB-NET-B2C" name="radBank" type="radio" id="radBank_8" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankcib.gif' onfocus="this.blur()" reg="radBank_8" /></div>
+                            </li>
+                            <li>
+                                <div class="bankradio">
+                                    <input value="CMBC-NET-B2C" name="radBank" type="radio" id="radBank_10" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/bankcmbc.gif' onfocus="this.blur()" reg="radBank_10" /></div>
+                            </li>
+                            <li>
+                                <div class="bankradio">
+                                    <input value="CEB-NET-B2C" name="radBank" type="radio" id="radBank_11" onfocus="this.blur()" /></div>
+                                <div class="bankpic">
+                                    <img src='http://www.ttqp.com/images/banks/guangda.gif' onfocus="this.blur()" reg="radBank_11" /></div>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div id="pBankMore" class="banklayout">
+
+                    </div>
+                    <div id="pBankMoreDetail" class="banklayout" style="display: none;">
+
+                    </div>
+                </div>
+                <!--content结束-->
+                <div class="content_btn">
+                    <input type="submit" name="btnPay" value="确 定" id="btnPay" class="btnstts" onfocus="this.blur()" />
+                    <input type="hidden" name="hidRate" id="hidRate" value="0" />
+                </div>
+                <div class="pay_tips_t" style="text-align: left;">
+                    <span>&nbsp;&nbsp; 温馨提示：</span>
+                    <p style="padding-bottom: 8px;">
+                        1、请确保您填写的用户名正确无误，如玩家输入错误而导致任何损失由用户自行承担。</p>
+                    <p style="padding-bottom: 8px;">
+                        2、充值过程中，浏览器会跳转至银行页面，支付成功后，会自动返回，如果没有跳转或是弹出充值成功的页面，请您不要关闭充值窗口。</p>
+                    <p style="margin-bottom: 20px;">
+                        3、遇到任何充值问题，请您及时联系客服中心。</p>
+                </div>
+                <input name="hidBank" type="hidden" id="hidBank" />
+            </form>
+
+        </div>
+    </div>
+</div>
+<!--中间结束-->
+<div class="clear">
+</div>
+<div class="clear12">
+</div>
+
+<!--页面主体结束-->
+
+
+<!--底部开始-->
+
+<div class="foot-sub-ad">
+    <a href="Uxbao.apk" target="_blank"><img src="http://www.gambao.com/image/banner.png" width="100%" height="40px"></a>
+</div>
+<!--底部结束-->
+
+</body>
+</html>

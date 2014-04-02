@@ -77,8 +77,8 @@
         },
 
         template: {
-            item: '<div class="ui-slider-item"><a href="<%= href %>">' +
-                    '<img src="<%= pic %>" alt="" /></a>' +
+            item: '<div class="ui-slider-item"><div href="<%= href %>">' +
+                    '<img src="<%= pic %>" alt="" /></div>' +
                     '<% if( title ) { %><p><%= title %></p><% } %>' +
                     '</div>'
         },

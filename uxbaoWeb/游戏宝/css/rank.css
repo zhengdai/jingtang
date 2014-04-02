@@ -4,7 +4,9 @@ fieldset,img {border: 0;}
 a{text-decoration:none; color:#252525;}
 .clear{clear:both;}
 ul,li{list-style:none;}
-body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#252525; font-size:14px; line-height:20px;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px;-webkit-user-select: none;
+}
 
 .appList{margin:10px 20px 0;}
 #app-list-box{width:100%; overflow: hidden;}

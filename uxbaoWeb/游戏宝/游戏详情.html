@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <title>游戏详情</title>
+        <!--组件依赖css begin-->
+        <link rel="stylesheet" type="text/css" href="assets/widget/slider/slider.css" />
+        <link rel="stylesheet" type="text/css" href="assets/widget/slider/slider.default.css" />
+        <link type="text/css" rel="stylesheet" href="css/gameDetail.css"/>
+        <!--组件依赖css end-->
+        <!--组件依赖js begin-->
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/data.js"></script>
+        <script type="text/javascript" src="js/extend/touch.js"></script>
+        <script type="text/javascript" src="js/extend/matchMedia.js"></script>
+        <script type="text/javascript" src="js/extend/event.ortchange.js"></script>
+        <script type="text/javascript" src="js/extend/parseTpl.js"></script>
+        <script type="text/javascript" src="js/extend/throttle.js"></script>
+        <script type="text/javascript" src="js/extend/event.scrollStop.js"></script>
+        <script type="text/javascript" src="js/extend/imglazyload.js"></script>
+        <script type="text/javascript" src="js/core/gmu.js"></script>
+        <script type="text/javascript" src="js/core/event.js"></script>
+        <script type="text/javascript" src="js/core/widget.js"></script>
+        <script type="text/javascript" src="js/widget/slider/slider.js"></script>
+        <script type="text/javascript" src="js/widget/slider/dots.js"></script>
+        <script type="text/javascript" src="js/widget/slider/$multiview.js"></script>
+        <script type="text/javascript" src="js/widget/slider/$touch.js"></script>
+        <script type="text/javascript" src="js/widget/slider/$autoplay.js"></script>
+        <script type="text/javascript" src="js/widget/slider/imgzoom.js"></script>
+        <script type="text/javascript" src="js/readmore.js"></script>
+        <!--向上拉动插件-->
+        <!--组件依赖js end-->
+        <script type="text/javascript" src="js/gameDetail.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <!--图片滚动-->
+        <div id="slider">
+            <!--游戏简要信息-->
+            <div id="briefInfo">
+                <div class="icon">
+                    <img src="images/xiangqing/icon.png" />
+                </div>
+                <div class="info">
+                    <p class="tit">
+                        雷霆战机
+                    </p>
+                    <p class="company">
+                        26.8MB | 北京游道易网络文化有限公司
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--游戏介绍-->
+        <div id="gameIntro">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">游戏介绍</h3>
+            </div>
+            <div class="intro">
+                <p>2014年迪士尼电影同名手游《冰雪奇缘：冰纷乐》将带你进入极具魔幻色彩的冰雪王国，开启一段传奇的冒险旅程！</p>
+                <p>现在就来免费下载，与安娜、艾莎，以及其他你喜爱的电影角色，携手踏上104关的冰雪解谜旅程！</p>
+                <p>- 刺激的三消游戏玩法：手指滑动美丽的冰雪水晶，挑战你的消除技能！</p>
+                <p>- 解锁更多人物：以小艾莎和安娜开始你的冒险，随着故事的推进解锁长大后的姐妹。伴随游戏故事主线发展，解锁更多的电影角色！</p>
+                <p>- 每个角色独有的升级系统：使用安娜的“火焰消除”烧尽整排冰晶，或者用艾莎的“冰雪粉碎”来消除所有同色冰晶！尝试汉斯的“宝剑”击碎冰晶，通过探密深入，获得更多炫酷技能！</p>
+            </div>
+        </div>
+
+        <!--评论-->
+        <div id="commentArea">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">评论<span class="commentNum">（163人）</span></h3>
+            </div>
+
+            <!--总评-->
+            <div id="rate">
+                <img src="images/xiangqing/big_yellow_star.png" />
+                <img src="images/xiangqing/big_yellow_star.png" />
+                <img src="images/xiangqing/big_yellow_star.png" />
+                <img src="images/xiangqing/big_yellow_star.png" />
+                <img src="images/xiangqing/big_gray_star.png" />
+                <span>4.0分</span>
+            </div>
+
+            <!--打分百分比-->
+            <ul id="rateDetail">
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                    </div>
+                    <div class="percent" id="fiveStar">
+                        <span class="percentLeft"></span>
+                        <span class="percentRight"></span>
+                    </div>
+                    <span id="fivePer" class="percentNum">35%</span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="fourStar">
+                        <span class="percentLeft"></span>
+                        <span class="percentRight"></span>
+                    </div>
+                    <span id="fourPer" class="percentNum">20%</span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="threeStar">
+                        <span class="percentLeft"></span>
+                        <span class="percentRight"></span>
+                    </div>
+                    <span id="threePer" class="percentNum">20%</span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="twoStar">
+                        <span class="percentLeft"></span>
+                        <span class="percentRight"></span>
+                    </div>
+                    <span id="twoPer" class="percentNum">10%</span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/xiangqing/deep_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                        <img src="images/xiangqing/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="oneStar">
+                        <span class="percentLeft"></span>
+                        <span class="percentRight"></span>
+                    </div>
+                    <span id="onePer" class="percentNum">15%</span>
+                </li>
+            </ul>
+
+            <!--评论列表-->
+            <ul id="commentList">
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                                dddd
+                            </p>
+                            <p class="commentDate">
+                                2014.03.05
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                        很好玩的一款游戏，推荐大家下载，特别是两个人玩。
+                    </div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                                dddd
+                            </p>
+                            <p class="commentDate">
+                                2014.03.05
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                        很好玩的一款游戏，推荐大家下载，特别是两个人玩。
+                    </div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                                dddd
+                            </p>
+                            <p class="commentDate">
+                                2014.03.05
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                            <img src="images/xiangqing/light_gray_star.png" />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                        很好玩的一款游戏，推荐大家下载，特别是两个人玩。
+                    </div>
+                </li>
+            </ul>
+
+            <!--查看更多-->
+            <div class="moreComment">
+                <p>查看全部评论（<span>168</span>）</p>
+            </div>
+        </div>
+
+        <!--猜你喜欢-->
+        <div id="mayLike">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">猜你喜欢</h3>
+            </div>
+            <ul id="mayLikeList">
+                <li>
+                    <img class="appIcon" src="images/fenlei/icon.png" />
+                    <span class="gameName">冰雪奇缘之冰雪大冒险</span>
+                </li>
+                <li>
+                    <img class="appIcon" src="images/fenlei/icon.png" />
+                    <span class="gameName">游戏宝</span>
+                </li>
+                <li>
+                    <img class="appIcon" src="images/fenlei/icon.png" />
+                    <span class="gameName">游戏宝</span>
+                </li>
+                <li>
+                    <img class="appIcon" src="images/fenlei/icon.png" />
+                    <span class="gameName">游戏宝</span>
+                </li>
+                <li>
+                    <img class="appIcon" src="images/fenlei/icon.png" />
+                    <span class="gameName">游戏宝</span>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

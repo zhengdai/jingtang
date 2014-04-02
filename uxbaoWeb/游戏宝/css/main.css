@@ -4,7 +4,9 @@ fieldset,img {border: 0;}
 a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
 .clear{clear:both;}
 ul,li{list-style:none;}
-body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#252525; font-size:14px; line-height:20px;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+}
 
 .type{overflow: hidden; margin:10px 3px;}
 .type ul{width:100%;}
@@ -43,6 +45,8 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; color:#2525
     height: 40px;
     margin: 0 auto;
     background: url('../images/jingpin/ui-loading.png') 0 0 no-repeat;
+    background-size: 40px 40px;
+
     -webkit-background-size: 40px 40px;
     -webkit-animation-name: ui-loading-anim;
     -webkit-animation-duration: 1s;

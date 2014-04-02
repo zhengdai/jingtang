@@ -4,7 +4,9 @@ a{text-decoration:none; color:#252525;}
 .clear{clear:both;}
 ul,li{list-style:none;}
 body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
-    color:#252525; font-size:14px; line-height:20px;}
+    color:#252525; font-size:14px; line-height:20px;-webkit-user-select: none;
+}
+
 
 #categoryList{ margin: 10px 10px 0; overflow: hidden;}
 .category{ margin-bottom:10px; overflow: hidden; position: relative; height: 64px;}
@@ -45,10 +47,10 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     overflow: hidden;
     margin:3px 0;
     height: 50px;
-    background-image: -webkit-linear-gradient(top, #fcfcfc, #f2f2f2);
+    background-image: -webkit-linear-gradient(to top, #fcfcfc, #f2f2f2);
     background-image: linear-gradient(to top, #fcfcfc, #f2f2f2);
 }
 .arrow{ position: absolute; top: 0; right: 5px; height: 100%; width: 11px; background: url("../images/fenlei/arrow.png") center no-repeat;}
 .gameIconList{ width: 100%; overflow: hidden; height: 100%;}
-.gameIconList li{ float: left; width: 25%; position: relative; overflow:hidden; height: 100%;}
+.gameIconList li{ float: right; width: 60px; position: relative; overflow:hidden; height: 100%;}
 .appIcon{ width: 48px; height: 48px; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; display: block;}

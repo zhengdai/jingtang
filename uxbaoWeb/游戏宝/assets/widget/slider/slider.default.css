@@ -1,5 +1,6 @@
 .ui-slider-item img {
     display: block;
+    margin:0 auto;
 }
 
 .ui-slider-item > a {

@@ -1,0 +1,4 @@
+1、resources 添加了rated1-5 并初始化为0
+2、customer_remark 添加customer_name varchar 50
+   评论加几个43开头的
+3、resources 添加了relatedId varchar 50

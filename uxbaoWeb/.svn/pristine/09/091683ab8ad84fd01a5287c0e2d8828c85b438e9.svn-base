@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>网游分类</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/category.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/extend/touch.js"></script>
+        <script type="text/javascript" src="js/extend/matchMedia.js"></script>
+        <script type="text/javascript" src="js/extend/event.ortchange.js"></script>
+        <script type="text/javascript" src="js/extend/parseTpl.js"></script>
+        <script type="text/javascript" src="js/extend/throttle.js"></script>
+        <script type="text/javascript" src="js/extend/event.scrollStop.js"></script>
+        <script type="text/javascript" src="js/extend/imglazyload.js"></script>
+        <script type="text/javascript" src="js/core/gmu.js"></script>
+        <script type="text/javascript" src="js/core/event.js"></script>
+        <script type="text/javascript" src="js/core/widget.js"></script>
+        <script type="text/javascript" src="js/category.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <ul id="categoryList">
+            <li class="category" id="kapai" data-category="卡牌">
+                <div class="gameIcon">
+                    <ul class="gameIconList">
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                    </ul>
+                    <div class="arrow"></div>
+                </div>
+                <div class="categoryDes">
+                    <span class="des">卡牌</span>
+                </div>
+            </li>
+            <li class="category" id="shejiao" data-category="社交">
+                <div class="gameIcon">
+                    <ul class="gameIconList">
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                    </ul>
+                    <div class="arrow"></div>
+                </div>
+                <div class="categoryDes">
+                    <span class="des">社交</span>
+                </div>
+            </li>
+            <li class="category" id="jishi" data-category="即时">
+                <div class="gameIcon">
+                    <ul class="gameIconList">
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                    </ul>
+                    <div class="arrow"></div>
+                </div>
+                <div class="categoryDes">
+                    <span class="des">即时</span>
+                </div>
+            </li>
+            <li class="category" id="celve" data-category="策略">
+                <div class="gameIcon">
+                    <ul class="gameIconList">
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                    </ul>
+                    <div class="arrow"></div>
+                </div>
+                <div class="categoryDes">
+                    <span class="des">策略</span>
+                </div>
+            </li>
+            <li class="category" id="juese" data-category="角色">
+                <div class="gameIcon">
+                    <ul class="gameIconList">
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                        <li>
+                            <img class="appIcon" src="images/fenlei/market.png" />
+                        </li>
+                    </ul>
+                    <div class="arrow"></div>
+                </div>
+                <div class="categoryDes">
+                    <span class="des">角色</span>
+                </div>
+            </li>
+        </ul>
+    </body>
+</html>
