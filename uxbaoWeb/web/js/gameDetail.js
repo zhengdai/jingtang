@@ -7,7 +7,6 @@ function updateState(packageName, state)
     window.uxbao.update(JSON.stringify(state));
 }
 
-
 function GetRequest()
 {
     var url = location.search; //获取url中"?"符后的字串
@@ -91,6 +90,31 @@ function fillRate(rated1, rated2, rated3, rated4, rated5, rated)
     $averageRate.find('span').text(rated.toFixed(1) + '分');
 }
 
+function getDateStr(date)
+{
+    var dateStr = "";
+    dateStr += date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if(month < 10)
+    {
+        dateStr += '-0' + month;
+    }
+    else
+    {
+        dateStr += '-' + month;
+    }
+    if(day < 10)
+    {
+        dateStr += '-0' + day;
+    }
+    else
+    {
+        dateStr += '-' + day;
+    }
+    return dateStr
+}
+
 //填充评论
 function fillComment(commentData)
 {
@@ -107,7 +131,8 @@ function fillComment(commentData)
             {
                 $me.find('.userName').text('游戏宝用户')
             }
-            $me.find('.commentDate').text(commentData[i].custremarkCreatedate);
+            var date = new Date(parseInt(commentData[i].custremarkCreatedate));
+            $me.find('.commentDate').text(getDateStr(date));
             $me.find('.commentContent').text(commentData[i].custremarkContent);
             $me.find('.grade').find('img').each(function(j, imgItem)
             {
@@ -175,6 +200,7 @@ $(function()
 
                     //截图
                     var screenShots = data.product.resScreenshots.split(',');
+
                     var screenContent = [];
                     for(var i = 0; i < screenShots.length; ++i)
                     {
@@ -186,23 +212,43 @@ $(function()
                             }
                         );
                     }
-                    var slider = new $.ui.Slider("#slider",
-                        {
-                            autoPlay:false,
-                            viewNum:2,
-                            travelSize:2,
-                            content:screenContent,
-                            imageZoom:true
-                        }
-                    );
-                    //截图点击
-                    $('.ui-slider-item').each(function(i, item)
+
+                    var img = new Image();
+                    img.src = screenShots[0];
+
+                    img.onload = function()
                     {
-                        $(item).on("tap", function()
+                        var viewnum;
+                        if(img.width > img.height)
                         {
-                            window.uxbao.showPic(JSON.stringify(i));
+                            viewnum = 1;
+                        }
+                        else
+                        {
+                            viewnum = 2;
+                        }
+                        var slider = new $.ui.Slider("#slider",
+                            {
+                                autoPlay:false,
+                                viewNum:viewnum,
+                                travelSize:viewnum,
+                                content:screenContent,
+                                imageZoom:true
+                            }
+                        );
+
+
+                        //截图点击
+                        $('.ui-slider-item').each(function(i, item)
+                        {
+                            $(item).on("tap", function()
+                            {
+                                window.uxbao.showPic(JSON.stringify(i));
+                            });
                         });
-                    });
+                    };
+
+
                     //介绍
                     var introList = data.product.resDescription.split("\n");
                     $.each(introList, function(index, item)

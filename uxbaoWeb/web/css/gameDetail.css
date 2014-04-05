@@ -7,10 +7,9 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
     background-color: #d1d1d1;
 }
-#slider{position: relative;}
+#slider{position:relative;}
 .ui-slider-dots{ bottom: 50px;}
-#briefInfo{background-image: -webkit-linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+#briefInfo{background: url("../images/xiangqing/title_bg.png") left bottom repeat-x;
     position: absolute; bottom:0; height: 80px; z-index: 100; width: 100%;}
 .icon{ height: 100%; width: 80px; position: absolute;}
 .icon img{ width: 60px; height: 60px; margin:10px auto; display: block;}

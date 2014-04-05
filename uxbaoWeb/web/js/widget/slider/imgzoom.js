@@ -39,13 +39,14 @@
 
         function imgZoom( e ) {
             var img = e.target || this;
+            var heightTop;
             if(me._options.viewNum == 1)
             {
                 img.style.width = me.width  + 'px';
             }
             else
             {
-                img.style.width = (me.width / me._options.viewNum - 6) + 'px'
+                img.style.width = (me.width / me._options.viewNum - 6) + 'px';
             }
         }
 

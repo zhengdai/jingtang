@@ -31,7 +31,7 @@ $(function()
         window.uxbao.click(
             JSON.stringify(
                 {
-                    "type":8,
+                    "type":9,
                     "open":assist
                 }
             )

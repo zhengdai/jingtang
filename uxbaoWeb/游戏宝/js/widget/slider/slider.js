@@ -178,7 +178,7 @@
             me.width = width;
             me._arrange( width, index );
             me.height = $el.height();
-            me.trigger( 'width.change' );
+            me.trigger( 'width.change');
         },
 
         // 重排items

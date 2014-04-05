@@ -1,3 +1,4 @@
+
 //获取本机数据
 var phoneData = JSON.parse(window.uxbao.init());
 /*var phoneData =
