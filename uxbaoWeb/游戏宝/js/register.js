@@ -1,8 +1,8 @@
 /**
- * Created by zd on 2014/4/4 0004.
+ * Created by zd on 2014/4/7 0007.
  */
-var ajaxLogin = {
-    "url":"http://115.29.177.196:8080/mystore/userV3/userLogin.do",
+var ajaxRegister = {
+    "url":"http://115.29.177.196:8080/mystore/userV3/userRegister.do",
     "version":"2.3",
     "phonetypeName":"N7105",
     "os_version":"4.0",
@@ -10,7 +10,7 @@ var ajaxLogin = {
     "imsi":"00000000"
 };
 
-function login()
+function register()
 {
     var mobileNo = $('#J_mobileNo'), password = $('#J_password'), errHolder = $('#msg_err');
     var mobile = mobileNo.get(0);
@@ -28,17 +28,17 @@ function login()
     }
     $.ajax(
         {
-            url:ajaxLogin.url,
+            url:ajaxRegister.url,
             dataType:"jsonp",
             data:
             {
                 "mobileNum":mobile.value,
                 "password":password.val(),
-                "version": ajaxLogin.version,
-                "phonetypeName": ajaxLogin.phonetypeName,
-                "os_version": ajaxLogin.os_version,
-                "imei": ajaxLogin.imei,
-                "imsi": ajaxLogin.imsi
+                "version": ajaxRegister.version,
+                "phonetypeName": ajaxRegister.phonetypeName,
+                "os_version": ajaxRegister.os_version,
+                "imei": ajaxRegister.imei,
+                "imsi": ajaxRegister.imsi
             },
             jsonp:'jsonpcallback',
             success:function(data)
@@ -46,11 +46,11 @@ function login()
                 //注册成功
                 if(data.status == 1)
                 {
-                    console.log("登录成功");
+                    console.log("注册成功");
                 }
                 else
                 {
-                    errHolder.text('密码错误').show();
+                    errHolder.text('您输入的手机号已经注册').show();
                 }
             }
         }
@@ -59,8 +59,8 @@ function login()
 
 $(function()
 {
-    //注册url
-    var registerUrl = "http://115.29.177.196/注册.html";
+    //登录url
+    var loginUrl = "http://115.29.177.196/登录.html";
     //获得焦点边框变红，失去焦点恢复
     $('#J_mobileNo').on("focusin", function()
     {
@@ -76,17 +76,16 @@ $(function()
     {
         $(this).parent().removeClass('active');
     });
-
-    //点击登录
+    //点击注册
     $("#J_submit").on('tap', function()
     {
-        login();
+        register();
     });
 
-    //点击注册链接
-    $("#to_register").on("tap", function()
+    //点击登录链接
+    $("#to_login").on("tap", function()
     {
-        window.uxbao.skinTo(registerUrl);
-        window.location.href = registerUrl;
+        window.uxbao.skinTo(loginUrl);
+        window.location.href = loginUrl;
     });
 });

@@ -1,3 +1,5 @@
 3.15 
 添加数据的表resources_category(添加了专题页的专题内容)
 没有做专题编辑页面
+4.5
+image目录下上传user.png图片

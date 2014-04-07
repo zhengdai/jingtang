@@ -42,9 +42,18 @@ var ajaxGameDetail =
 function fillRate(rated1, rated2, rated3, rated4, rated5, rated)
 {
     var total = rated1 + rated2 + rated3 + rated4 + rated5;
-    $('.commentNum').text('（' + total + '人）');
-    $('.moreComment').find('span').text(total.toString());
 
+    $('.commentNum').text('（' + total + '人）');
+
+    if(total == 0)
+    {
+        $('.moreComment').find('p').removeClass('able').text("暂无更多评论");
+        total = 1;
+    }
+    else
+    {
+        $('.moreComment').find('span').text(total.toString());
+    }
     var rated1Per = (rated1 * 100 / total).toFixed(0);
     $('#onePer').text(rated1Per + '%');
     var $rated1Star = $('#oneStar');
