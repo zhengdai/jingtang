@@ -8,8 +8,7 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
 .logo{ margin:5px 15px; background: url("../images/login/tit.png") left center no-repeat;
     border-bottom: 1px #d3d9d5 dashed; height: 60px; }
-#login_form{margin:15px;}
-#register_form{margin:15px;}
+#login_form,#register_form{margin:15px;}
 
 .err-holder{
     line-height: 22px;
@@ -30,6 +29,13 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     padding:10px;
     color: #828282;
     font-size: 16px;
+    line-height: 30px;
+}
+.input-box label{
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
 }
 .login-frame .active, .register-frame .active
 {
@@ -48,18 +54,17 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     color: #323232;
     background: #f9f9f9;
     font-size: 16px;
-    line-height: 30px;
-}
-input::-webkit-input-placeholder
-{
-    line-height: 30px;
+    height: 30px;
+    line-height: normal;
+    display: block;
+    float: left;
+    margin-left: 5px;
 }
 
 textarea, input {
     resize: none;
     outline: none;
     -webkit-tap-highlight-color: rgba(255,0,0,0);
-    border:none;
 }
 .icon-btn {
     display: block;
