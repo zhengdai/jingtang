@@ -1,6 +1,7 @@
 /**
  * Created by zd on 2014/4/7 0007.
  */
+
 var ajaxRegister = {
     "url":"http://115.29.177.196:8080/mystore/userV3/userRegister.do",
     "version":"2.3",
@@ -44,13 +45,15 @@ function register()
             success:function(data)
             {
                 //注册成功
-                if(data.status == 1)
+                if(data.state == 1)
                 {
-                    console.log("注册成功");
+                    console.log("登录成功");
+					errHolder.text("登录成功").show();
+					window.uxbao.onLogin(JSON.stringify(data.userInfo));
                 }
                 else
                 {
-                    errHolder.text('您输入的手机号已经注册').show();
+                    errHolder.text(data.message).show();
                 }
             }
         }
@@ -59,6 +62,10 @@ function register()
 
 $(function()
 {
+	var userInfo = JSON.parse(window.uxbao.userInfo());
+	var phoneNum = userInfo.userInfo.mobile;
+	//填写默认手机号码
+	$('#J_mobileNo').get(0).value = phoneNum;
     //登录url
     var loginUrl = "http://115.29.177.196/登录.html";
     //获得焦点边框变红，失去焦点恢复
@@ -85,7 +92,7 @@ $(function()
     //点击登录链接
     $("#to_login").on("tap", function()
     {
-        window.uxbao.skinTo(loginUrl);
-        window.location.href = loginUrl;
+        window.uxbao.skipTo("login");
+        //window.location.href = loginUrl;
     });
 });

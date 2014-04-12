@@ -8,3 +8,5 @@
 4.5
 customer数据库添加了CUSTOMER_MOBILENUM的唯一索引
 添加CUSTOMER_IMG
+4.12
+CustomerRemark 的resId、评分的索引
