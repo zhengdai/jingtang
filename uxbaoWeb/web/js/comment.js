@@ -19,8 +19,20 @@ function GetRequest()
 
 var request = GetRequest();
 
+var ajaxComment =
+{
+    "url":"http://115.29.177.196:8080/mystore/appV3/sendCustomerRemark.do",
+    "resId":request.resId,
+    "version":"2.3",
+    "phonetypeName":"N7105",
+    "os_version":"4.0",
+    "imei":"00000000",
+    "imsi":"00000000"
+};
+
 $(function()
 {
+    $('.comment-frame').height(document.documentElement.clientHeight - 30);
     var $star = $(".comm-star"), $star_holder = $("#J_star_holder"), $submit = $("#J_submit");
     $star.each(function(i, item) {
         $(item).on('tap', function(){
@@ -39,6 +51,47 @@ $(function()
         })
     });
     $submit.on('tap', function(e) {
-        console.log(request.resId);
+        ajaxComment.resRated = $star_holder.val();
+        ajaxComment.userId = "dd";
+        ajaxComment.nickName = "dd";
+        ajaxComment.commentContent = $("#J_describe").text().trim();
+        $.ajax(
+            {
+                url:ajaxComment.url,
+                dataType:"jsonp",
+                data:
+                {
+                    "resRated":ajaxComment.resRated,
+                    "userId":ajaxComment.userId,
+                    "resId":ajaxComment.resId,
+                    "type":ajaxComment.type,
+                    "version":ajaxComment.version,
+                    "phonetypeName":ajaxComment.phonetypeName,
+                    "os_version":ajaxComment.os_version,
+                    "imei":ajaxComment.imei,
+                    "imsi":ajaxComment.imsi,
+                    "size":ajaxComment.load_size,
+                    "start_position":ajaxComment.start_position
+                },
+                success:function(data)
+                {
+                    //提交成功
+                    if(data.status == 1)
+                    {
+
+                    }
+                    //过快评论
+                    else if(data.status == -1)
+                    {
+
+                    }
+                    //其他错误
+                    else if(data.status == 0)
+                    {
+
+                    }
+                }
+            }
+        );
     });
 });

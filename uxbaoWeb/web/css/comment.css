@@ -7,8 +7,10 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
     background-color: #f3f3f3;
 }
+
 .comment-frame{
     margin:15px;
+    position: relative;
 }
 .grade{margin:5px 0;overflow: hidden; }
 .comm-star{float:left;
@@ -18,10 +20,16 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
 .star-cur{background: url("../images/xiangqing/big_yellow_star.png") center no-repeat;}
 .grade span{font-size: 14px; margin-left: 5px;line-height: 25px; color: #d4d4d4;}
-.wrap{border:1px #bbbbbb solid;margin: 10px 0; border-radius:3px;}
-#J_describe{ display: block;  height: 100px; background-color: #e4e4e4;
-    width:90%; line-height: normal;font-size:16px;
+.wrap{border:1px #bbbbbb solid; border-radius:3px; position: absolute; top: 45px; bottom: 50px;left: 0; right: 0;}
+#J_describe{ display: block; background-color: #e4e4e4;
+    line-height: normal;font-size:16px;
+    position: absolute;
     padding: 10px 5%;
+    width: 90%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     border: 0;
     resize:none;
 }
@@ -32,6 +40,9 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 
 .icon-btn {
     display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     height: 40px;
     line-height: 40px;
     text-align: center;

@@ -19,7 +19,7 @@ function GetRequest()
 
 var request = GetRequest();
 
-var ajaxComment = {
+var ajaxCommentList = {
     "resId":request.resId,
     "total_size":0,//总共的应用个数
     "start_position":1,//从第几个开始取
@@ -35,11 +35,11 @@ var ajaxComment = {
 };
 if(request.type)
 {
-    ajaxComment.type = request.type;//不传或该值为空则返回所有结果“Good”返回好评结果(大小写敏感)“Bad”返回差评结果
+    ajaxCommentList.type = request.type;//不传或该值为空则返回所有结果“Good”返回好评结果(大小写敏感)“Bad”返回差评结果
 }
 else
 {
-    ajaxComment.type = "";
+    ajaxCommentList.type = "";
 }
 
 function getDateStr(date)
@@ -120,24 +120,24 @@ function createCommentItem(data)
 //加载更多
 function loadMore()
 {
-    if(!ajaxComment.onRefresh && ajaxComment.start_position <= ajaxComment.total_size)
+    if(!ajaxCommentList.onRefresh && ajaxCommentList.start_position <= ajaxCommentList.total_size)
     {
-        ajaxComment.onRefresh = true;
+        ajaxCommentList.onRefresh = true;
         $.ajax(
             {
-                url:ajaxComment.url,
+                url:ajaxCommentList.url,
                 dataType:'jsonp',
                 data:
                 {
-                    "resId":ajaxComment.resId,
-                    "type":ajaxComment.type,
-                    "version":ajaxComment.version,
-                    "phonetypeName":ajaxComment.phonetypeName,
-                    "os_version":ajaxComment.os_version,
-                    "imei":ajaxComment.imei,
-                    "imsi":ajaxComment.imsi,
-                    "size":ajaxComment.load_size,
-                    "start_position":ajaxComment.start_position
+                    "resId":ajaxCommentList.resId,
+                    "type":ajaxCommentList.type,
+                    "version":ajaxCommentList.version,
+                    "phonetypeName":ajaxCommentList.phonetypeName,
+                    "os_version":ajaxCommentList.os_version,
+                    "imei":ajaxCommentList.imei,
+                    "imsi":ajaxCommentList.imsi,
+                    "size":ajaxCommentList.load_size,
+                    "start_position":ajaxCommentList.start_position
                 },
                 jsonp:'jsonpcallback',
                 success:function(data, textStatus, xhr)
@@ -145,7 +145,7 @@ function loadMore()
                     if(data.state === 1)
                     {
                         var $container = $("#comment-list-box");
-                        ajaxComment.total_size = data.comments.total_size;
+                        ajaxCommentList.total_size = data.comments.total_size;
                         var len = data.comment.length;
 
                         for (var i = 0; i < len; ++i)
@@ -154,18 +154,18 @@ function loadMore()
                             $container.append($item);
                         }
 
-                        ajaxComment.start_position += len;
+                        ajaxCommentList.start_position += len;
 
-                        if(ajaxComment.start_position > ajaxComment.total_size)
+                        if(ajaxCommentList.start_position > ajaxCommentList.total_size)
                         {
                             $(".more").hide();
                         }
-                        ajaxComment.onRefresh = false;
+                        ajaxCommentList.onRefresh = false;
                     }
                 },
                 error:function(XMLHttpRequest, textStatus, errorThrown)
                 {
-                    ajaxComment.onRefresh = false;
+                    ajaxCommentList.onRefresh = false;
                     console.log("failed ajax!");
                     $(".more").hide();
                 }
@@ -180,31 +180,31 @@ $(function()
     //最开始ajax加载5个评论
     $.ajax(
         {
-            url:ajaxComment.url,
+            url:ajaxCommentList.url,
             dataType:'jsonp',
             data:
             {
-                "resId":ajaxComment.resId,
-                "type":ajaxComment.type,
-                "version":ajaxComment.version,
-                "phonetypeName":ajaxComment.phonetypeName,
-                "os_version":ajaxComment.os_version,
-                "imei":ajaxComment.imei,
-                "imsi":ajaxComment.imsi,
-                "size":ajaxComment.init_size,
-                "start_position":ajaxComment.start_position
+                "resId":ajaxCommentList.resId,
+                "type":ajaxCommentList.type,
+                "version":ajaxCommentList.version,
+                "phonetypeName":ajaxCommentList.phonetypeName,
+                "os_version":ajaxCommentList.os_version,
+                "imei":ajaxCommentList.imei,
+                "imsi":ajaxCommentList.imsi,
+                "size":ajaxCommentList.init_size,
+                "start_position":ajaxCommentList.start_position
             },
             jsonp:'jsoncallback',
             success:function(data)
             {
                 if(data.state === 1)//获取成功
                 {
-                    ajaxComment.total_size = data.comments.total_size;
-                    ajaxComment.start_position += data.comment.length;
+                    ajaxCommentList.total_size = data.comments.total_size;
+                    ajaxCommentList.start_position += data.comment.length;
                     fillCommentList($(".commentItem"), data.comment);
 
                     //下拉加载
-                    if(ajaxComment.start_position <= ajaxComment.total_size)
+                    if(ajaxCommentList.start_position <= ajaxCommentList.total_size)
                     {
                         $(window).on("scroll", function()
                         {
