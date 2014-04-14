@@ -1,3 +1,234 @@
 /**
  * Created by zd on 2014/4/2 0002.
  */
+function GetRequest()
+{
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = {};
+    if (url.indexOf("?") != -1)
+    {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++)
+        {
+            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+
+var request = GetRequest();
+
+var ajaxComment = {
+    "resId":request.resId,
+    "total_size":0,//总共的应用个数
+    "start_position":1,//从第几个开始取
+    "init_size":5,//第一次取的数目
+    "load_size":5,//之后每次下拉加载的数目
+    "url":"http://115.29.177.196:8080/mystore/appV3/getCustomerRemark.do",
+    "version":"2.3",
+    "phonetypeName":"N7105",
+    "os_version":"4.0",
+    "imei":"00000000",
+    "imsi":"00000000",
+    "onRefresh":false
+};
+if(request.type)
+{
+    ajaxComment.type = request.type;//不传或该值为空则返回所有结果“Good”返回好评结果(大小写敏感)“Bad”返回差评结果
+}
+else
+{
+    ajaxComment.type = "";
+}
+
+function getDateStr(date)
+{
+    var dateStr = "";
+    dateStr += date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if(month < 10)
+    {
+        dateStr += '-0' + month;
+    }
+    else
+    {
+        dateStr += '-' + month;
+    }
+    if(day < 10)
+    {
+        dateStr += '-0' + day;
+    }
+    else
+    {
+        dateStr += '-' + day;
+    }
+    return dateStr
+}
+
+//填充一个评论
+function fillItem($item, data)
+{
+    if(data.customerName)
+    {
+        $item.find('.userName').text(data.customerName);
+    }
+    else
+    {
+        $item.find('.userName').text('游戏宝用户')
+    }
+    var date = new Date(parseInt(data.custremarkCreatedate));
+    $item.find('.commentDate').text(getDateStr(date));
+    $item.find('.commentContent').text(data.custremarkContent);
+    $item.find('.grade').find('img').each(function(j, imgItem)
+    {
+        if(j - data.custremarkCustrated < -0.5)
+        {
+            $(imgItem).attr("src", "images/xiangqing/little_yellow_star.png");
+        }
+        else
+        {
+            $(imgItem).attr("src", "images/xiangqing/light_gray_star.png");
+        }
+    });
+}
+
+//填充初始评论列表
+function fillCommentList($items, commentData)
+{
+    $items.each(function(i, commentItem)
+    {
+        var $me = $(commentItem);
+        if(commentData[i])
+        {
+            fillItem($me, commentData[i]);
+        }
+        else
+        {
+            $me.hide();
+        }
+    });
+}
+
+function createCommentItem(data)
+{
+    var $me = $($('.commentItem')[0].cloneNode(true));
+    return $me;
+}
+
+//加载更多
+function loadMore()
+{
+    if(!ajaxComment.onRefresh && ajaxComment.start_position <= ajaxComment.total_size)
+    {
+        ajaxComment.onRefresh = true;
+        $.ajax(
+            {
+                url:ajaxComment.url,
+                dataType:'jsonp',
+                data:
+                {
+                    "resId":ajaxComment.resId,
+                    "type":ajaxComment.type,
+                    "version":ajaxComment.version,
+                    "phonetypeName":ajaxComment.phonetypeName,
+                    "os_version":ajaxComment.os_version,
+                    "imei":ajaxComment.imei,
+                    "imsi":ajaxComment.imsi,
+                    "size":ajaxComment.load_size,
+                    "start_position":ajaxComment.start_position
+                },
+                jsonp:'jsonpcallback',
+                success:function(data, textStatus, xhr)
+                {
+                    if(data.state === 1)
+                    {
+                        var $container = $("#comment-list-box");
+                        ajaxComment.total_size = data.comments.total_size;
+                        var len = data.comment.length;
+
+                        for (var i = 0; i < len; ++i)
+                        {
+                            var $item = createCommentItem(data.comment[i]);
+                            $container.append($item);
+                        }
+
+                        ajaxComment.start_position += len;
+
+                        if(ajaxComment.start_position > ajaxComment.total_size)
+                        {
+                            $(".more").hide();
+                        }
+                        ajaxComment.onRefresh = false;
+                    }
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown)
+                {
+                    ajaxComment.onRefresh = false;
+                    console.log("failed ajax!");
+                    $(".more").hide();
+                }
+            }
+        );
+    }
+}
+
+//页面加载完毕执行函数
+$(function()
+{
+    //最开始ajax加载5个评论
+    $.ajax(
+        {
+            url:ajaxComment.url,
+            dataType:'jsonp',
+            data:
+            {
+                "resId":ajaxComment.resId,
+                "type":ajaxComment.type,
+                "version":ajaxComment.version,
+                "phonetypeName":ajaxComment.phonetypeName,
+                "os_version":ajaxComment.os_version,
+                "imei":ajaxComment.imei,
+                "imsi":ajaxComment.imsi,
+                "size":ajaxComment.init_size,
+                "start_position":ajaxComment.start_position
+            },
+            jsonp:'jsoncallback',
+            success:function(data)
+            {
+                if(data.state === 1)//获取成功
+                {
+                    ajaxComment.total_size = data.comments.total_size;
+                    ajaxComment.start_position += data.comment.length;
+                    fillCommentList($(".commentItem"), data.comment);
+
+                    //下拉加载
+                    if(ajaxComment.start_position <= ajaxComment.total_size)
+                    {
+                        $(window).on("scroll", function()
+                        {
+                            var lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()) + parseFloat($('.more').height());
+                            if ($(document).height() <= lazyheight)
+                            {
+                                loadMore();
+                            }
+                        });
+                    }
+                    else
+                    {
+                        $(".more").hide();
+                    }
+                }
+                else
+                {
+                    console.log("There is no app to load.");
+                }
+            },
+            error:function()
+            {
+                console.log("load recommend app list error");
+            }
+        }
+    );
+});

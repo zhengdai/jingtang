@@ -13,7 +13,7 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; -webkit-use
 .subjectItem{display: block; overflow: hidden; border: #d4d4d4 1px solid;}
 .subjectItem img{display: block; width: 100%;}
 .subjectDes{width: 100%; padding:5px; background-color: #fefefe; overflow: hidden; position: relative;}
-.description{margin-right:30px; line-height: 22px; font-size: 14px; height: 44px; overflow: hidden; color: #8e8e8e;}
+.description{margin-right:30px; line-height: 22px; font-size: 14px; height: 44px; overflow: hidden; color: #636363;}
 .arrow{display: block;position: absolute; height: 44px; width: 30px;
     background: url("../images/zhuanti/arraw.png") center no-repeat;top:5px;right: 5px;
 }

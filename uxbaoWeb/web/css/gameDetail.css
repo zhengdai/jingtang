@@ -14,23 +14,23 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 .icon{ height: 100%; width: 80px; position: absolute;}
 .icon img{ width: 60px; height: 60px; margin:10px auto; display: block;}
 .info{ margin-left:80px; padding: 10px 0;color: #f1f1f1;}
-.tit{ font-size: 24px; line-height: 30px;}
+.tit{ font-size: 20px; line-height: 30px;}
 .company{ font-size:14px; line-height: 30px;}
 
 #gameIntro{ position: relative; overflow: hidden; background-color: #f3f3f3; margin:0 auto 8px;}
 .header .left{display: block; width:8px; height: 41px; background-color: #f49643; position: absolute;}
-.header .title{ margin:0 12px 0 18px; line-height: 40px; border-bottom: 1px dashed #d3d9d5; color: #7a7a7a; font-size: 24px; height: 40px;}
-.intro{margin:10px 12px 0 18px; font-size: 18px; line-height: 24px; color: #4b4b4b;}
+.header .title{ margin:0 12px 0 18px; line-height: 40px; border-bottom: 1px dashed #d3d9d5; color: #000; font-size: 18px; height: 40px;font-weight: normal;}
+.intro{margin:10px 12px 0 18px; font-size: 16px; line-height: 24px; color: #4b4b4b;}
 .readmore-js-toggle{ height: 30px; margin:0 16px;}
 .readMore{ background: url("../images/xiangqing/bottom_arrow.png") right center no-repeat;}
-.closeMore{ background: url("../images/xiangqing/bottom_arrow.png") right center no-repeat;}
+.closeMore{ background: url("../images/xiangqing/top_arrow.png") right center no-repeat;}
 .readmore-js-section { overflow: hidden;}
 
 #commentArea{background-color: #f3f3f3;margin:0 auto 8px;color: #2f2f2f; overflow: hidden;}
 .commentNum{ font-size: 18px; font-weight:lighter; line-height: 40px;}
 #rate{ height: 25px; margin:10px 18px; line-height: 24px; font-size:20px; color: #f49643;}
 #rate img{display: block; float: left;}
-#rate span{margin-left:10px; display: block; float: left; margin-top:1px; height: 24px;}
+#rate span{margin-left:10px; display: block; float: left; margin-top:1px; height: 22px;}
 #rateDetail{margin: 5px 18px;}
 #rateDetail li{ width: 100%; height: 16px; margin:3px 0; overflow: hidden; position: relative;}
 .rateDetailItem{ position: absolute; height: 100%; top:0; left: 0;}
@@ -42,15 +42,15 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 
 #commentList{ margin:10px 18px;overflow: hidden;}
 .commentItem{ width: 100%; border-top: 1px dashed #d3d9d5;padding:5px 0; color: #2f2f2f;}
-.userInfo{ height: 60px; width:100%; overflow: hidden; position: relative;}
-.userIcon{ position: absolute; height: 100%; width: 60px; border-radius: 6px; top: 0; left: 0;}
-.userIcon img{ height: 100%; width: 100%;}
-.middle{ margin:0 100px 0 70px; height: 100%;}
-.userName{ font-size: 18px; line-height: 30px;}
-.commentDate{ font-size:12px; line-height: 30px; font-weight: lighter;}
+.userInfo{ height: 48px; width:100%; overflow: hidden; position: relative;}
+.userIcon{ position: absolute; height: 100%; width: 48px; border-radius: 6px; top: 0; left: 0;}
+.userIcon img{ height: 100%; width: 100%;border-radius: 24px;}
+.middle{ margin:0 100px 0 60px; height: 100%;}
+.userName{ font-size: 16px; line-height: 26px;color: #9d9d9d;}
+.commentDate{ font-size:12px; line-height: 22px; font-weight: lighter;color: #9d9d9d;}
 .grade{ position: absolute; right: 10px; top:10px; height:16px;}
 .grade img{ float: left; display: block;}
-.commentContent{ width:100%; font-size:16px; line-height: 30px; margin:5px 0;}
+.commentContent{ font-size:14px; line-height: 24px; margin:5px 0 5px 60px;}
 
 .moreComment{ margin:5px 18px 20px; height: 50px; background-color: #e5e5e5;}
 .moreComment p{ margin:0 40px; text-align: center; font-size: 18px; line-height: 50px;}
@@ -62,3 +62,8 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 .gameName{ display: block; font-size:14px; line-height: 30px; text-align: center; overflow: hidden; height: 30px;}
 
 #mayLike{background-color: #f3f3f3; overflow: hidden;}
+
+div#rate img {
+    height: 23px;
+    width: 23px;
+}

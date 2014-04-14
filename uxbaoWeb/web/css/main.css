@@ -23,8 +23,11 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 .appInfo a{display: block; width: 100%; position: relative; overflow: hidden;}
 .appIcon{width:48px; height: 48px; display: block; border-radius: 6px;position: absolute;}
 .tit{margin-left: 48px; overflow: hidden;}
-.tit strong{display:block;padding: 4px 2px;font-size: 12px;color: #858484;line-height: 22px; overflow:hidden; height: 22px;}
-.tit .items-score{padding:3px 2px;overflow: hidden; height: 12px;}
+.tit strong{display:block;padding:0 2px;font-size:14px;color: #636363;
+    line-height: 20px; overflow:hidden; height: 20px;font-weight: normal;
+}
+.company{padding:0 2px;color: #c4c4c4;line-height: 16px; overflow: hidden; height: 16px; font-size: 12px;}
+.tit .items-score{padding:0 2px;overflow: hidden; height: 12px;}
 .tit .items-score img{display: block; float:left;}
 .btn{display: block;height: 54px;position: absolute;right: 3px; width: 26px; top: 3px;
     background: url("../images/jingpin/btnbg.png") no-repeat top left;

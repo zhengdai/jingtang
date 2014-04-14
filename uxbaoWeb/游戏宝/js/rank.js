@@ -375,7 +375,8 @@ function fillItem($item, itemData, i)
     $item.find(".appIcon").attr("data-icon", itemData.resIcons).attr("src", defaultIcon);
 
     $item.find(".tit strong").text(itemData.resName);
-    $item.find(".tit p").text(itemData.resDeveloper);
+    var ca = (itemData.resCapacity/(1024 * 1024)).toFixed(1);
+    $item.find(".tit p").text(ca + 'MB | ' + itemData.resDeveloper);
 
     //评分
     var rated = itemData.resRated;
@@ -618,7 +619,7 @@ $(function()
                     {
                         $(window).on("scroll", function()
                         {
-                            lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()) + parseFloat($('.more').height());
+                            var lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()) + parseFloat($('.more').height());
                             if ($(document).height() <= lazyheight)
                             {
                                 loadMore();

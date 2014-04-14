@@ -383,7 +383,8 @@ function fillItem($item, itemData)
     $item.find(".appIcon").attr("data-icon", itemData.resIcons).attr("src", defaultIcon);
 
     $item.find(".tit strong").text(itemData.resName);
-
+    var ca = (itemData.resCapacity/(1024 * 1024)).toFixed(1);
+    $item.find('.company').text(ca + 'MB');
     //评分
     var rated = itemData.resRated;
     fillRate($item, rated);

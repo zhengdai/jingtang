@@ -35,8 +35,12 @@ var ajaxGameDetail =
     "phonetypeName":"N7105",
     "os_version":"4.0",
     "imei":"00000000",
-    "imsi":"00000000"
+    "imsi":"00000000",
+    "commentListUrl":"http://115.29.177.196/评论列表.html",
+    "commentUrl":"http://115.29.177.196/评论.html"
 };
+
+
 
 //填充打分
 function fillRate(rated1, rated2, rated3, rated4, rated5, rated)
@@ -52,7 +56,15 @@ function fillRate(rated1, rated2, rated3, rated4, rated5, rated)
     }
     else
     {
-        $('.moreComment').find('span').text(total.toString());
+        $('.moreComment').on('tap', function()
+        {
+            window.uxbao.moreComment(JSON.stringify({
+                "allUrl":ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId,
+                "goodUrl":ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId + "&type=Good",
+                "badUrl":ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId + "&type=Bad",
+                "commentUrl":ajaxGameDetail.commentUrl + "?resId=" + ajaxGameDetail.resId
+            }));
+        }).find('span').text(total.toString());
     }
     var rated1Per = (rated1 * 100 / total).toFixed(0);
     $('#onePer').text(rated1Per + '%');
@@ -275,6 +287,7 @@ $(function()
                     fillRate(parseInt(data.product.rated1), parseInt(data.product.rated2), parseInt(data.product.rated3),
                         parseInt(data.product.rated4), parseInt(data.product.rated5), data.product.resRated);
                     fillComment(data.comments);
+                    data.commentUrl = ajaxGameDetail.commentUrl + "?resId=" + ajaxGameDetail.resId;
                     //给android传送详情消息
                     window.uxbao.getAppInfo(JSON.stringify(data));
                 }

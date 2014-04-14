@@ -11,20 +11,28 @@
         <!--组件依赖js begin-->
         <script type="text/javascript" src="js/zepto.js"></script>
         <script type="text/javascript" src="js/extend/touch.js"></script>
-        <script type="text/javascript" src="js/extend/matchMedia.js"></script>
-        <script type="text/javascript" src="js/extend/event.ortchange.js"></script>
-        <script type="text/javascript" src="js/extend/parseTpl.js"></script>
-        <script type="text/javascript" src="js/extend/throttle.js"></script>
-        <script type="text/javascript" src="js/extend/event.scrollStop.js"></script>
-        <script type="text/javascript" src="js/extend/imglazyload.js"></script>
-        <script type="text/javascript" src="js/core/gmu.js"></script>
-        <script type="text/javascript" src="js/core/event.js"></script>
-        <script type="text/javascript" src="js/core/widget.js"></script>
-        <!--向上拉动插件-->
         <!--组件依赖js end-->
         <script type="text/javascript" src="js/comment.js"></script>
     </head>
     <body onselectstart="return false">
-
+        <form id="comment-form">
+            <div class="comment-frame">
+                <div class="grade">
+                    <input id="J_star_holder" type="hidden" name="star" value="3">
+                    <div class="comm-star star-cur" data-star="1"></div>
+                    <div class="comm-star star-cur" data-star="2"></div>
+                    <div class="comm-star star-cur" data-star="3"></div>
+                    <div class="comm-star" data-star="4"></div>
+                    <div class="comm-star" data-star="5"></div>
+                    <span>点击星星打分</span>
+                </div>
+                <div class="wrap">
+                    <textarea id="J_describe" placeholder="说说你的感受吧..."></textarea>
+                </div>
+                <div class="btn">
+                    <div id="J_submit" class="icon-btn">发表</div>
+                </div>
+            </div>
+        </form>
     </body>
 </html>
