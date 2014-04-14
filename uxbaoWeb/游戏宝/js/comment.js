@@ -54,6 +54,7 @@ $(function()
         ajaxComment.resRated = $star_holder.val();
         ajaxComment.userId = "dd";
         ajaxComment.nickName = "dd";
+        ajaxComment.commentContent = $("#J_describe").text().trim();
         $.ajax(
             {
                 url:ajaxComment.url,
@@ -71,6 +72,24 @@ $(function()
                     "imsi":ajaxComment.imsi,
                     "size":ajaxComment.load_size,
                     "start_position":ajaxComment.start_position
+                },
+                success:function(data)
+                {
+                    //提交成功
+                    if(data.status == 1)
+                    {
+
+                    }
+                    //过快评论
+                    else if(data.status == -1)
+                    {
+
+                    }
+                    //其他错误
+                    else if(data.status == 0)
+                    {
+
+                    }
                 }
             }
         );

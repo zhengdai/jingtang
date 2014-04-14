@@ -1,0 +1,16 @@
+{
+  "message": "µÇÂ¼³É¹¦£¡", 
+  "state": 1, 
+  "userInfo": {
+    "customerId": 16, 
+    "customerName": "15210584369", 
+    "customerPassword": "93279E3308BDBBEED946FC965017F67A", 
+    "customerRegTime": 1396690865000, 
+    "customerState": 1, 
+    "customerToken": "15210584369", 
+    "customerTokencreatedate": 1396690865000, 
+    "customerMobileNum": "15210584369", 
+    "customerQqNum": "", 
+    "customerImg": "http://223.6.254.27:8080/mystore/image/user.png"
+  }
+}
