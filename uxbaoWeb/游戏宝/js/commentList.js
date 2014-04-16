@@ -23,7 +23,7 @@ var ajaxCommentList = {
     "resId":request.resId,
     "total_size":0,//总共的应用个数
     "start_position":1,//从第几个开始取
-    "init_size":5,//第一次取的数目
+    "init_size":8,//第一次取的数目
     "load_size":5,//之后每次下拉加载的数目
     "url":"http://115.29.177.196:8080/mystore/appV3/getCustomerRemark.do",
     "version":"2.3",

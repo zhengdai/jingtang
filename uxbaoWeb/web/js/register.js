@@ -1,7 +1,15 @@
 /**
  * Created by zd on 2014/4/7 0007.
  */
-
+var isUxbao;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
 var ajaxRegister = {
     "url":"http://115.29.177.196:8080/mystore/userV3/userRegister.do",
     "version":"2.3",
@@ -62,8 +70,11 @@ function register()
 
 $(function()
 {
-	var userInfo = JSON.parse(window.uxbao.userInfo());
-	var phoneNum = userInfo.userInfo.mobile;
+	if(isUxbao)
+    {
+        var userInfo = JSON.parse(window.uxbao.userInfo());
+        var phoneNum = userInfo.userInfo.mobile;
+    }
 	//填写默认手机号码
 	$('#J_mobileNo').get(0).value = phoneNum;
     //登录url
@@ -92,7 +103,7 @@ $(function()
     //点击登录链接
     $("#to_login").on("tap", function()
     {
-        window.uxbao.skipTo("login");
+        isUxbao && window.uxbao.skipTo("login");
         //window.location.href = loginUrl;
     });
 });

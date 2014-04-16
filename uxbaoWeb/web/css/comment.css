@@ -54,4 +54,5 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     font-weight: bold;
     background: url(../images/login/btn_bg.png);
 }
+.grade .err{color:#f68521;}
 /*.gray{ background-image: none;background-color: #e4e4e4;}*/

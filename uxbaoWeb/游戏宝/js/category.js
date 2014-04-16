@@ -1,6 +1,15 @@
 /**
  * Created by zd on 14-3-21.
  */
+var isUxbao;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
 var ajaxCategory =
 {
     "url":"http://115.29.177.196:8080/mystore/appV3/getCategory.do",
@@ -32,7 +41,7 @@ function categoryTapHandler($item)
 {
     console.log("http://115.29.177.196/分类详情.html?order_by=hot&rescategory_id=" + $item.attr('data-rescategory_id'));
     console.log("http://115.29.177.196/分类详情.html?order_by=new&rescategory_id=" + $item.attr('data-rescategory_id'));
-    window.uxbao.click(
+    isUxbao && window.uxbao.click(
         JSON.stringify(
             {
                 "type":4,

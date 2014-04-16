@@ -1,10 +1,19 @@
 /**
  * Created by zd on 2014/3/29 0029.
  */
+var isUxbao;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
 //供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
 function updateState(packageName, state)
 {
-    window.uxbao.update(JSON.stringify(state));
+    isUxbao && window.uxbao.update(JSON.stringify(state));
 }
 
 function GetRequest()
@@ -58,12 +67,16 @@ function fillRate(rated1, rated2, rated3, rated4, rated5, rated)
     {
         $('.moreComment').on('tap', function()
         {
-            window.uxbao.moreComment(JSON.stringify({
-                "allUrl":ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId,
-                "goodUrl":ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId + "&type=Good",
-                "badUrl":ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId + "&type=Bad",
-                "commentUrl":ajaxGameDetail.commentUrl + "?resId=" + ajaxGameDetail.resId
-            }));
+            isUxbao && window.uxbao.moreComment(
+                JSON.stringify(
+                    {
+                        "allUrl":ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId,
+                        "goodUrl":ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId + "&type=Good",
+                        "badUrl":ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId + "&type=Bad",
+                        "commentUrl":ajaxGameDetail.commentUrl + "?resId=" + ajaxGameDetail.resId
+                    }
+                )
+            );
         }).find('span').text(total.toString());
     }
     var rated1Per = (rated1 * 100 / total).toFixed(0);
@@ -178,7 +191,7 @@ function fillComment(commentData)
 function infoTapHandler($info)
 {
     var resId = $info.attr("data-id");
-    window.uxbao.click(
+    isUxbao && window.uxbao.click(
         JSON.stringify(
             {
                 "type":2,
@@ -264,7 +277,7 @@ $(function()
                         {
                             $(item).on("tap", function()
                             {
-                                window.uxbao.showPic(JSON.stringify(i));
+                                isUxbao && window.uxbao.showPic(JSON.stringify(i));
                             });
                         });
                     };
@@ -289,7 +302,7 @@ $(function()
                     fillComment(data.comments);
                     data.commentUrl = ajaxGameDetail.commentUrl + "?resId=" + ajaxGameDetail.resId;
                     //给android传送详情消息
-                    window.uxbao.getAppInfo(JSON.stringify(data));
+                    isUxbao && window.uxbao.getAppInfo(JSON.stringify(data));
                 }
             },
             error:function(XMLHttpRequest, textStatus, errorThrown)

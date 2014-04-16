@@ -1,8 +1,16 @@
 /**
  * Created by zd on 2014/4/4 0004.
  */
- 
 
+var isUxbao;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
 
 var ajaxLogin = {
     "url":"http://115.29.177.196:8080/mystore/userV3/userLogin.do",
@@ -96,7 +104,7 @@ $(function()
     //点击注册链接
     $("#to_register").on("tap", function()
     {
-        window.uxbao.skipTo("register");
+        isUxbao && window.uxbao.skipTo("register");
         //window.location.href = registerUrl;
     });
 });

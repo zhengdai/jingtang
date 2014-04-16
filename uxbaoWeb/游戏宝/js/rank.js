@@ -2,227 +2,242 @@
  * Created by zd on 14-3-9.
  */
 //获取本机数据
-//var phoneData = JSON.parse(window.uxbao.init());
-var phoneData =
+var isUxbao, phoneData;
+if(window.uxbao)
 {
-    "downloadList":
-        [
-            {
-                "userresPaystatus": null,
-                "author_email": null,
-                "author_id": null,
-                "downLength": null,
-                "downPercent": 30,
-                "downState": null,
-                "resCapacity": null,
-                "resDescription": null,
-                "resDeveloper": null,
-                "resDownloadnum": null,
-                "resIcons": null,
-                "resId": null,
-                "resLocation": null,
-                "resName": null,
-                "resPackagename": "com.chukong.brave",
-                "resPrice": null,
-                "resRated": null,
-                "resRecommendflag": null,
-                "resScreenshots": null,
-                "resVersion": null,
-                "resVersionCode": 2,
-                "rescategoryId": null,
-                "totalLength": null,
-                "_id": 0
-            },
-            {
-                "userresPaystatus": null,
-                "author_email": null,
-                "author_id": null,
-                "downLength": null,
-                "downPercent": 20,
-                "downState": null,
-                "resCapacity": null,
-                "resDescription": null,
-                "resDeveloper": null,
-                "resDownloadnum": null,
-                "resIcons": null,
-                "resId": null,
-                "resLocation": null,
-                "resName": null,
-                "resPackagename": "com.uxbao",
-                "resPrice": null,
-                "resRated": null,
-                "resRecommendflag": null,
-                "resScreenshots": null,
-                "resVersion": null,
-                "resVersionCode": 4,
-                "rescategoryId": null,
-                "totalLength": null,
-                "_id": 0
-            },
-            {
-                "userresPaystatus": null,
-                "author_email": null,
-                "author_id": null,
-                "downLength": null,
-                "downPercent": 45,
-                "downState": null,
-                "resCapacity": null,
-                "resDescription": null,
-                "resDeveloper": null,
-                "resDownloadnum": null,
-                "resIcons": null,
-                "resId": null,
-                "resLocation": null,
-                "resName": null,
-                "resPackagename": "com.koogame.zaiyiqi",
-                "resPrice": null,
-                "resRated": null,
-                "resRecommendflag": null,
-                "resScreenshots": null,
-                "resVersion": null,
-                "resVersionCode": 5,
-                "rescategoryId": null,
-                "totalLength": null,
-                "_id": 0
-            }
-        ],
-    "updateList":
-        [
-            {
-                "userresPaystatus": null,
-                "author_email": null,
-                "author_id": null,
-                "downLength": null,
-                "downPercent": null,
-                "downState": null,
-                "resCapacity": null,
-                "resDescription": null,
-                "resDeveloper": null,
-                "resDownloadnum": null,
-                "resIcons": null,
-                "resId": null,
-                "resLocation": null,
-                "resName": null,
-                "resPackagename": "com.supreme.tanks",
-                "resPrice": null,
-                "resRated": null,
-                "resRecommendflag": null,
-                "resScreenshots": null,
-                "resVersion": null,
-                "resVersionCode": 20,
-                "rescategoryId": null,
-                "totalLength": null,
-                "_id": 0
-            },
-            {
-                "userresPaystatus": null,
-                "author_email": null,
-                "author_id": null,
-                "downLength": null,
-                "downPercent": null,
-                "downState": null,
-                "resCapacity": null,
-                "resDescription": null,
-                "resDeveloper": null,
-                "resDownloadnum": null,
-                "resIcons": null,
-                "resId": null,
-                "resLocation": null,
-                "resName": null,
-                "resPackagename": "org.cocos2dx.FishingJoy2",
-                "resPrice": null,
-                "resRated": null,
-                "resRecommendflag": null,
-                "resScreenshots": null,
-                "resVersion": null,
-                "resVersionCode": 105,
-                "rescategoryId": null,
-                "totalLength": null,
-                "_id": 0
-            },
-            {
-                "userresPaystatus": null,
-                "author_email": null,
-                "author_id": null,
-                "downLength": null,
-                "downPercent": null,
-                "downState": null,
-                "resCapacity": null,
-                "resDescription": null,
-                "resDeveloper": null,
-                "resDownloadnum": null,
-                "resIcons": null,
-                "resId": null,
-                "resLocation": null,
-                "resName": null,
-                "resPackagename": "com.TongBanStudio.JTDDZ",
-                "resPrice": null,
-                "resRated": null,
-                "resRecommendflag": null,
-                "resScreenshots": null,
-                "resVersion": null,
-                "resVersionCode": 5,
-                "rescategoryId": null,
-                "totalLength": null,
-                "_id": 0
-            }
-        ],
-    "installList":
-        [
-            {
-                "userresPaystatus": null,
-                "author_email": null,
-                "author_id": null,
-                "downLength": null,
-                "downPercent": null,
-                "downState": null,
-                "resCapacity": null,
-                "resDescription": null,
-                "resDeveloper": null,
-                "resDownloadnum": null,
-                "resIcons": null,
-                "resId": null,
-                "resLocation": null,
-                "resName": null,
-                "resPackagename": "com.andbase",
-                "resPrice": null,
-                "resRated": null,
-                "resRecommendflag": null,
-                "resScreenshots": null,
-                "resVersion": null,
-                "resVersionCode": 14,
-                "rescategoryId": null,
-                "totalLength": null,
-                "_id": 0
-            },
-            {
-                "userresPaystatus": null,
-                "author_email": null,
-                "author_id": null,
-                "downLength": null,
-                "downPercent": null,
-                "downState": null,
-                "resCapacity": null,
-                "resDescription": null,
-                "resDeveloper": null,
-                "resDownloadnum": null,
-                "resIcons": null,
-                "resId": null,
-                "resLocation": null,
-                "resName": null,
-                "resPackagename": "com.aspire.mm",
-                "resPrice": null,
-                "resRated": null,
-                "resRecommendflag": null,
-                "resScreenshots": null,
-                "resVersion": null,
-                "resVersionCode": 32,
-                "rescategoryId": null,
-                "totalLength": null,
-                "_id": 0
-            }
-        ]
-};
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
+if(isUxbao)
+{
+    phoneData = JSON.parse(window.uxbao.init());
+}
+else
+{
+    phoneData =
+    {
+        "downloadList":
+            [
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": 30,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.chukong.brave",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 2,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": 20,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.uxbao",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 4,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": 45,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.koogame.zaiyiqi",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 5,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                }
+            ],
+        "updateList":
+            [
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.supreme.tanks",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 20,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "org.cocos2dx.FishingJoy2",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 105,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.TongBanStudio.JTDDZ",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 5,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                }
+            ],
+        "installList":
+            [
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.andbase",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 14,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.aspire.mm",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 32,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                }
+            ]
+    };
+}
 
 //推荐应用ajax参数对象
 var ajaxRecommend =
@@ -395,7 +410,7 @@ function btnTapHandler($target)
     {
         $target.removeClass().addClass('cancelBtn btn');
         $target.find(".state").text('暂停');
-        window.uxbao.click(
+        isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
                     "type":1,
@@ -412,7 +427,7 @@ function btnTapHandler($target)
     {
         $target.removeClass('updateBtn').addClass('cancelBtn');
         $target.find(".state").text('暂停');
-        window.uxbao.click(
+        isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
                     "type":1,
@@ -430,7 +445,7 @@ function btnTapHandler($target)
     {
         $target.removeClass('cancelBtn').addClass('continueBtn');
         $target.find(".state").text('继续');
-        window.uxbao.click(
+        isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
                     "type":5,
@@ -446,7 +461,7 @@ function btnTapHandler($target)
     //通知android打开此应用
     else if($target.hasClass("openBtn"))
     {
-        window.uxbao.click(
+        isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
                     "type":3,
@@ -462,7 +477,7 @@ function btnTapHandler($target)
     //通知android安装此应用
     else if($target.hasClass("installBtn"))
     {
-        window.uxbao.click(
+        isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
                     "type":6,
@@ -553,7 +568,7 @@ function infoTapHandler($info)
 {
     var $item = $info.parent().parent();
     var resId = $item.attr("data-id");
-    window.uxbao.click(
+    isUxbao && window.uxbao.click(
         JSON.stringify(
             {
                 "type":2,

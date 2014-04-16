@@ -1,15 +1,27 @@
 /**
  * Created by zd on 14-3-21.
  */
+var isUxbao, phoneData;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
 
 $(function()
 {
     var assist = $("#myonoffswitch").attr("checked");
-	var userInfo = JSON.parse(window.uxbao.userInfo());
-	var userName = userInfo.userInfo.userName;
+	if(isUxbao)
+    {
+        var userInfo = JSON.parse(window.uxbao.userInfo());
+        var userName = userInfo.userInfo.userName;
+    }
     $("#infoCenter").on('tap', function()
     {
-        window.uxbao.click(
+        isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
                     "type":7
@@ -19,7 +31,7 @@ $(function()
     });
     $("#gameCenter").on('tap', function()
     {
-        window.uxbao.click(
+        isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
                     "type":8
@@ -29,7 +41,7 @@ $(function()
     });
 	$(".logBtn").on('tap', function()
     {
-        window.uxbao.click(
+        isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
                     "type":11
@@ -40,7 +52,7 @@ $(function()
     $(".onoffswitch").on('tap', function()
     {
         assist = !assist;
-        window.uxbao.click(
+        isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
                     "type":9,

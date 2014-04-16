@@ -1,6 +1,15 @@
 /**
  * Created by zd on 2014/4/2 0002.
  */
+var isUxbao;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
 function GetRequest()
 {
     var url = location.search; //获取url中"?"符后的字串
@@ -54,44 +63,52 @@ $(function()
         ajaxComment.resRated = $star_holder.val();
         ajaxComment.userId = "dd";
         ajaxComment.nickName = "dd";
-        ajaxComment.commentContent = $("#J_describe").text().trim();
-        $.ajax(
-            {
-                url:ajaxComment.url,
-                dataType:"jsonp",
-                data:
+        ajaxComment.commentContent = $("#J_describe").val().trim();
+        if(ajaxComment.commentContent)
+        {
+            $.ajax(
                 {
-                    "resRated":ajaxComment.resRated,
-                    "userId":ajaxComment.userId,
-                    "resId":ajaxComment.resId,
-                    "type":ajaxComment.type,
-                    "version":ajaxComment.version,
-                    "phonetypeName":ajaxComment.phonetypeName,
-                    "os_version":ajaxComment.os_version,
-                    "imei":ajaxComment.imei,
-                    "imsi":ajaxComment.imsi,
-                    "size":ajaxComment.load_size,
-                    "start_position":ajaxComment.start_position
-                },
-                success:function(data)
-                {
-                    //提交成功
-                    if(data.status == 1)
+                    url:ajaxComment.url,
+                    dataType:"jsonp",
+                    data:
                     {
-
-                    }
-                    //过快评论
-                    else if(data.status == -1)
+                        "resRated":ajaxComment.resRated,
+                        "userId":ajaxComment.userId,
+                        "resId":ajaxComment.resId,
+                        "type":ajaxComment.type,
+                        "version":ajaxComment.version,
+                        "phonetypeName":ajaxComment.phonetypeName,
+                        "os_version":ajaxComment.os_version,
+                        "imei":ajaxComment.imei,
+                        "imsi":ajaxComment.imsi,
+                        "size":ajaxComment.load_size,
+                        "start_position":ajaxComment.start_position,
+                        "custremarkContent":ajaxComment.commentContent
+                    },
+                    success:function(data)
                     {
+                        //提交成功
+                        if(data.status == 1)
+                        {
 
-                    }
-                    //其他错误
-                    else if(data.status == 0)
-                    {
+                        }
+                        //过快评论
+                        else if(data.status == -1)
+                        {
 
+                        }
+                        //其他错误
+                        else if(data.status == 0)
+                        {
+                            console.log("unknown error.");
+                        }
                     }
                 }
-            }
-        );
+            );
+        }
+        else
+        {
+            $('.grade').find('span').addClass('err').text("请填写评论");
+        }
     });
 });

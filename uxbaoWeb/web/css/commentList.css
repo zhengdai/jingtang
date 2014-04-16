@@ -5,7 +5,9 @@ a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0)
 ul,li{list-style:none;}
 body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #f3f3f3;
 }
+
 #commentList{ margin:10px 18px;overflow: hidden;}
 .commentItem{ width: 100%; border-top: 1px dashed #d3d9d5;padding:5px 0; color: #2f2f2f;}
 .userInfo{ height: 48px; width:100%; overflow: hidden; position: relative;}
@@ -31,6 +33,11 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     -webkit-animation-duration: 1s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: step-start;
+}
+
+div#rate img {
+    height: 23px;
+    width: 23px;
 }
 
 @-webkit-keyframes ui-loading-anim {
