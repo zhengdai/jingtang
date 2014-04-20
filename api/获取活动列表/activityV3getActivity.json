@@ -1,0 +1,46 @@
+{
+  "state": 1, 
+  "activities": {
+    "total_size": 3, 
+    "current_size": 3
+  }, 
+  "activity": [
+    {
+      "acId": 3, 
+      "acName": "[赢话费斗地主]有奖留言活动", 
+      "resId": 51, 
+      "acType": 2, 
+      "acContent": "到论坛中留言即可抽奖", 
+      "acStartTime": 1397549847000, 
+      "acEndTime": 1402042657000, 
+      "acUseDesc": "参与活动领取金币", 
+      "acIcon": "http://223.6.254.27:8080/mystore/upload/20130804-997138.png"
+    }, 
+    {
+      "acId": 2, 
+      "acName": "[捕鱼达人]五一礼包", 
+      "resId": 43, 
+      "acType": 1, 
+      "acTotalNum": 100, 
+      "acUseNum": 55, 
+      "acContent": "1、4000金币*1 2、激光导弹*4", 
+      "acStartTime": 1397463335000, 
+      "acEndTime": 1399104946000, 
+      "acUseDesc": "金币商城领取", 
+      "acIcon": "http://223.6.254.27:8080/mystore/upload/20131109-848812.png"
+    }, 
+    {
+      "acId": 1, 
+      "acName": "[狂斩三国]游戏宝独家礼包", 
+      "resId": 90, 
+      "acType": 1, 
+      "acTotalNum": 100, 
+      "acUseNum": 30, 
+      "acContent": "1、5000金币*1 2、20玉玺*1", 
+      "acStartTime": 1397549571000, 
+      "acEndTime": 1398845580000, 
+      "acUseDesc": "游戏指引结束后在选关主界面点击“礼包兑换”按钮输入您获取的正确的兑换码即可领取", 
+      "acIcon": "http://223.6.254.27:8080/mystore/upload/20130907-374277.png"
+    }
+  ]
+}

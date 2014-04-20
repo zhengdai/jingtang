@@ -1,0 +1,14 @@
+{
+  "state": 1, 
+  "activity": {
+    "acId": 3, 
+    "acName": "[赢话费斗地主]有奖留言活动", 
+    "resId": 51, 
+    "acType": 2, 
+    "acContent": "到论坛中留言即可抽奖", 
+    "acStartTime": 1397549847000, 
+    "acEndTime": 1402042657000, 
+    "acUseDesc": "参与活动领取金币", 
+    "acIcon": "http://223.6.254.27:8080/mystore/upload/20130804-997138.png"
+  }
+}
