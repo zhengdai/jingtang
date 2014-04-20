@@ -50,19 +50,19 @@ function getDateStr(date)
     var day = date.getDate();
     if(month < 10)
     {
-        dateStr += '-0' + month;
+        dateStr += '.0' + month;
     }
     else
     {
-        dateStr += '-' + month;
+        dateStr += '.' + month;
     }
     if(day < 10)
     {
-        dateStr += '-0' + day;
+        dateStr += '.0' + day;
     }
     else
     {
-        dateStr += '-' + day;
+        dateStr += '.' + day;
     }
     return dateStr
 }
@@ -177,7 +177,7 @@ function loadMore()
 //页面加载完毕执行函数
 $(function()
 {
-    //最开始ajax加载5个评论
+    //最开始ajax加载8个评论
     $.ajax(
         {
             url:ajaxCommentList.url,

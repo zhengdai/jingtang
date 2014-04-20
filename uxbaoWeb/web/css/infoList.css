@@ -8,17 +8,24 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     background-color: #f3f3f3;
 }
 
-.commentList{ margin:10px 18px;overflow: hidden;}
-.commentItem{ width: 100%; border-top: 1px dashed #d3d9d5;padding:5px 0; color: #2f2f2f;}
-.userInfo{ height: 48px; width:100%; overflow: hidden; position: relative;}
-.userIcon{ position: absolute; height: 100%; width: 48px; border-radius: 6px; top: 0; left: 0;}
-.userIcon img{ height: 100%; width: 100%;border-radius: 24px;}
-.middle{ margin:0 100px 0 60px; height: 100%;}
-.userName{ font-size: 16px; line-height: 26px;color: #9d9d9d;}
-.commentDate{ font-size:12px; line-height: 22px; font-weight: lighter;color: #9d9d9d;}
-.grade{ position: absolute; right: 10px; top:10px; height:16px;}
-.grade img{ float: left; display: block;}
-.commentContent{ font-size:14px; line-height: 24px; margin:5px 0 5px 60px;}
+.infoList{ margin:5px 10px;overflow: hidden; }
+.infoItem{ width: 100%; padding:5px 0 8px; color: #2f2f2f;
+    background: url("../images/zixun/split.png") bottom center no-repeat;
+    background-size: 100%;
+}
+.info{ height: 48px; width:100%; overflow: hidden; position: relative; border-bottom:1px #d3d9d5 dashed; padding-bottom: 10px;}
+.infoIcon{ position: absolute; height: 48px; width: 48px; border-radius: 6px; top: 0; left: 0;}
+.infoIcon img{ height: 100%; width: 100%;border-radius: 6px;}
+.middle{ margin:0 35px 0 60px; height: 100%;}
+.infoName{ font-size: 16px;line-height: 26px;color: #353535;height: 26px;overflow: hidden;}
+.infoDate{ font-size:12px; line-height: 22px; font-weight: lighter;color: #9d9d9d;}
+.arrow{display: block;position: absolute; height: 48px; width: 30px;
+    background: url("../images/zhuanti/arraw.png") center no-repeat;top:0;right: 5px;
+}
+.infoContent{ font-size:14px; line-height: 21px; margin:5px; color: #8e8e8e;height: 84px; overflow: hidden; position: relative;}
+.tit{color: #494949;}
+.text{margin:0 125px 0 0; height: 100%; overflow: hidden;}
+.infoContent img{ display: block; position: absolute; right: 4px; top: 2px;}
 
 .more{height: 40px; width: 100%; overflow: hidden; text-align: center;}
 

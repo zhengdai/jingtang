@@ -34,7 +34,7 @@ function GetRequest()
 
 var request = GetRequest();
 
-//分类详情应用ajax参数对象
+//游戏详情应用ajax参数对象
 var ajaxGameDetail =
 {
     "resId":request.resId,
@@ -83,31 +83,26 @@ function fillRate(rated1, rated2, rated3, rated4, rated5, rated)
     $('#onePer').text(rated1Per + '%');
     var $rated1Star = $('#oneStar');
     $rated1Star.find('.percentLeft').width(rated1Per + '%');
-    $rated1Star.find('.percentRight').width((100 - rated1Per) + '%');
 
     var rated2Per = (rated2 * 100 / total).toFixed(0);
     $('#twoPer').text(rated2Per + '%');
     var $rated2Star = $('#twoStar');
     $rated2Star.find('.percentLeft').width(rated2Per + '%');
-    $rated2Star.find('.percentRight').width((100 - rated2Per) + '%');
 
     var rated3Per = (rated3 * 100 / total).toFixed(0);
     $('#threePer').text(rated3Per + '%');
     var $rated3Star = $('#threeStar');
     $rated3Star.find('.percentLeft').width(rated3Per + '%');
-    $rated3Star.find('.percentRight').width((100 - rated3Per) + '%');
 
     var rated4Per = (rated4 * 100 / total).toFixed(0);
     $('#fourPer').text(rated4Per + '%');
     var $rated4Star = $('#fourStar');
     $rated4Star.find('.percentLeft').width(rated4Per + '%');
-    $rated4Star.find('.percentRight').width((100 - rated4Per) + '%');
 
     var rated5Per = (rated5 * 100 / total).toFixed(0);
     $('#fivePer').text(rated5Per + '%');
     var $rated5Star = $('#fiveStar');
     $rated5Star.find('.percentLeft').width(rated5Per + '%');
-    $rated5Star.find('.percentRight').width((100 - rated5Per) + '%');
 
     var $averageRate = $('#rate');
     $averageRate.find('img').each(function(j, imgItem)
@@ -132,19 +127,19 @@ function getDateStr(date)
     var day = date.getDate();
     if(month < 10)
     {
-        dateStr += '-0' + month;
+        dateStr += '.0' + month;
     }
     else
     {
-        dateStr += '-' + month;
+        dateStr += '.' + month;
     }
     if(day < 10)
     {
-        dateStr += '-0' + day;
+        dateStr += '.0' + day;
     }
     else
     {
-        dateStr += '-' + day;
+        dateStr += '.' + day;
     }
     return dateStr
 }
@@ -225,7 +220,6 @@ $(function()
             {
                 if(data.state == 1)//获取成功
                 {
-
                     //图标
                     $('.icon').find('img').attr('src', data.product.resIcons);
                     $('.tit').text(data.product.resName);

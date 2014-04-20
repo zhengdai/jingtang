@@ -52,17 +52,29 @@ $(function()
             {
                 $($star[j]).addClass("star-cur");
             }
-//            if($submit.hasClass("gray"))
-//            {
-//                //此时才可以提交
-//
-//            }
         })
     });
     $submit.on('tap', function(e) {
         ajaxComment.resRated = $star_holder.val();
-        ajaxComment.userId = "dd";
-        ajaxComment.nickName = "dd";
+        if(isUxbao)
+        {
+            var userInfo = JSON.parse(window.uxbao.userInfo());
+            if(userInfo.userInfo.userName)
+            {
+                ajaxComment.userId = userInfo.userInfo.userName;
+                ajaxComment.nickName = userInfo.userInfo.nickName;
+            }
+            else
+            {
+                ajaxComment.userId = "";
+                ajaxComment.nickName = "";
+            }
+        }
+        else
+        {
+            ajaxComment.userId = "";
+            ajaxComment.nickName = "";
+        }
         ajaxComment.commentContent = $("#J_describe").val().trim();
         if(ajaxComment.commentContent)
         {
@@ -74,6 +86,7 @@ $(function()
                     {
                         "resRated":ajaxComment.resRated,
                         "userId":ajaxComment.userId,
+                        "nickName":ajaxComment.nickName,
                         "resId":ajaxComment.resId,
                         "type":ajaxComment.type,
                         "version":ajaxComment.version,
@@ -88,17 +101,17 @@ $(function()
                     success:function(data)
                     {
                         //提交成功
-                        if(data.status == 1)
+                        if(data.state == 1)
                         {
                             isUxbao && window.uxbao.comment("0");
                         }
                         //过快评论
-                        else if(data.status == -1)
+                        else if(data.state == -1)
                         {
                             isUxbao && window.uxbao.comment("2");
                         }
                         //其他错误
-                        else if(data.status == 0)
+                        else if(data.state == 0)
                         {
                             console.log("unknown error.");
                             isUxbao && window.uxbao.comment("3");

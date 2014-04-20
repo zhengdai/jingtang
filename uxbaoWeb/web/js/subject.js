@@ -8,20 +8,20 @@
 //ajax参数对象
 var ajaxSubject =
 {
-    "total_size":0,//总共的应用个数
+    "total_size":0,//总共的专题个数
     "start_position":1,//从第几个开始取
     "init_size":3,//第一次取的数目
     "load_size":2,//之后每次下拉加载的数目
     "url":"http://115.29.177.196:8080/mystore/appV3/getTopic.do",
-    "resolution":"200*200",
     "version":"2.3",
     "phonetypeName":"N7105",
     "os_version":4.0,
     "imei":"00000000",
-    "imsi":"00000000"
+    "imsi":"00000000",
+    "onRefresh":false
 };
 
-//加载进来的推荐应用列表
+//加载进来的专题列表
 var subjectList = [];
 //空li字符串，创建用
 function createItem(itemData)
@@ -81,9 +81,9 @@ function loadMore()
                         {
                             var $item = createItem(data.product[i]);
                             $container.append($item);
-                            $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
+                            $item.find("img").imglazyload({"urlName":"data-icon"});
                             //添加点击响应函数
-                            $item.find(".btn").on("tap",function()
+                            $item.find(".subjectItem").on("tap",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
@@ -155,7 +155,7 @@ $(function()
                     {
                         $(window).on("scroll", function()
                         {
-                            lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()) + parseFloat($('.more').height());
+                            var lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()) + parseFloat($('.more').height());
                             if ($(document).height() <= lazyheight)
                             {
                                 loadMore();
