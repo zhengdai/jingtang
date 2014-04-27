@@ -1,0 +1,64 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #d1d1d1;
+}
+#slider{position:relative;}
+.ui-slider-dots{ bottom: 50px;}
+#briefInfo{background: url("../images/xiangqing/title_bg.png") left bottom repeat-x;
+    position: absolute; bottom:0; height: 80px; z-index: 100; width: 100%;}
+.icon{ height: 100%; width: 80px; position: absolute;}
+.icon img{ width: 60px; height: 60px; margin:10px auto; display: block;}
+.info{ margin-left:80px; padding: 10px 0;color: #f1f1f1;}
+.tit{ font-size: 20px; line-height: 30px;}
+.company{ font-size:14px; line-height: 30px;}
+
+#gameIntro{ position: relative; overflow: hidden; background-color: #f3f3f3; margin:0 auto 8px;}
+.header .left{display: block; width:8px; height: 41px; background-color: #f49643; position: absolute;}
+.header .title{ margin:0 12px 0 18px; line-height: 40px; border-bottom: 1px dashed #d3d9d5; color: #7a7a7a; font-size: 18px; height: 40px;font-weight: normal;}
+.intro{margin:10px 12px 0 18px; font-size: 16px; line-height: 24px; color: #4b4b4b;}
+.readmore-js-toggle{ height: 30px; margin:0 16px;}
+.readMore{ background: url("../images/xiangqing/bottom_arrow.png") right center no-repeat;}
+.closeMore{ background: url("../images/xiangqing/bottom_arrow.png") right center no-repeat;}
+.readmore-js-section { overflow: hidden;}
+
+#commentArea{background-color: #f3f3f3;margin:0 auto 8px;color: #2f2f2f; overflow: hidden;}
+.commentNum{ font-size: 18px; font-weight:lighter; line-height: 40px;}
+#rate{ height: 25px; margin:10px 18px; line-height: 24px; font-size:20px; color: #f49643;}
+#rate img{display: block; float: left;}
+#rate span{margin-left:10px; display: block; float: left; margin-top:1px; height: 24px;}
+#rateDetail{margin: 5px 18px;}
+#rateDetail li{ width: 100%; height: 16px; margin:3px 0; overflow: hidden; position: relative;}
+.rateDetailItem{ position: absolute; height: 100%; top:0; left: 0;}
+.rateDetailItem img{ display: block; float:left;}
+.percent{ margin:6px 50px 6px 100px; height: 4px;}
+.percentLeft{ display: block; float: left; height: 100%; background-color: #747474; width: 50%;}
+.percentRight{ display: block; float: left; height: 100%; background-color: #cfcfcf; width: 50%;}
+.percentNum{ width:50px; display: block; height: 100%; position: absolute; right: 0; top: 0; text-align: center; }
+
+#commentList{ margin:10px 18px;overflow: hidden;}
+.commentItem{ width: 100%; border-top: 1px dashed #d3d9d5;padding:5px 0; color: #2f2f2f;}
+.userInfo{ height: 60px; width:100%; overflow: hidden; position: relative;}
+.userIcon{ position: absolute; height: 100%; width: 60px; border-radius: 6px; top: 0; left: 0;}
+.userIcon img{ height: 100%; width: 100%;}
+.middle{ margin:0 100px 0 70px; height: 100%;}
+.userName{ font-size: 18px; line-height: 30px;}
+.commentDate{ font-size:12px; line-height: 30px; font-weight: lighter;}
+.grade{ position: absolute; right: 10px; top:10px; height:16px;}
+.grade img{ float: left; display: block;}
+.commentContent{ width:100%; font-size:16px; line-height: 30px; margin:5px 0;}
+
+.moreComment{ margin:5px 18px 20px; height: 50px; background-color: #e5e5e5;}
+.moreComment p{ margin:0 40px; text-align: center; font-size: 18px; line-height: 50px;}
+.moreComment p.able{background: url("../images/xiangqing/right-arrow.png") center right  no-repeat;}
+
+#mayLikeList{ margin:10px 18px; overflow: hidden;}
+#mayLikeList li{ width: 20%; overflow: hidden; float: left;}
+.appIcon{ width: 50px; height: 50px; margin:5px auto; display: block; border-radius: 6px;}
+.gameName{ display: block; font-size:14px; line-height: 30px; text-align: center; overflow: hidden; height: 30px;}
+
+#mayLike{background-color: #f3f3f3; overflow: hidden;}

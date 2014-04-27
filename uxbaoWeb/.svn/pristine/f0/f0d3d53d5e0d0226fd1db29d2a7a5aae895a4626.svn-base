@@ -1,0 +1,109 @@
+/**
+ * Created by zd on 14-3-21.
+ */
+var isUxbao, userInfo = {};
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
+
+if(isUxbao)
+{
+    userInfo = JSON.parse(window.uxbao.userInfo()).userInfo;
+}
+
+function updateInfo()
+{
+    userInfo = JSON.parse(window.uxbao.userInfo()).userInfo;
+    console.log(userInfo);
+    $(".logBtn").text(userInfo.nickName);
+    $(".portrait").find('img').attr('src', userInfo.icon);
+    $(".logBtn, .portrait, #personConfig").on('tap', function()
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":9
+                }
+            )
+        );
+        return false;
+    });
+}
+
+$(function()
+{
+    if(userInfo.nickName)
+    {
+        $(".logBtn").text(userInfo.nickName);
+        $(".portrait").find('img').attr('src', userInfo.icon);
+        $(".logBtn, .portrait, #personConfig").on('tap', function()
+        {
+            isUxbao && window.uxbao.click(
+                JSON.stringify(
+                    {
+                        "type":9
+                    }
+                )
+            );
+            return false;
+        });
+    }
+    else
+    {
+        $(".logBtn, .portrait, #personConfig").on('tap', function()
+        {
+            isUxbao && window.uxbao.click(
+                JSON.stringify(
+                    {
+                        "type":11
+                    }
+                )
+            );
+            return false;
+        });
+    }
+
+    $(".itemWrap").button();
+
+    $("#gameCenter").on('tap', function()
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":7
+                }
+            )
+        );
+        return false;
+    });
+
+    $("#systemConfig").on('tap', function()
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":8
+                }
+            )
+        );
+        return false;
+    });
+
+    $("#aboutUs").on('tap', function()
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":10
+                }
+            )
+        );
+        return false;
+    });
+
+});

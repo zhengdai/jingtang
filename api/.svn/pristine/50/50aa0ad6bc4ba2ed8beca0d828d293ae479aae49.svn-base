@@ -1,0 +1,9 @@
+{
+  "state": 1, 
+  "activityItem": {
+    "acItemId": 7, 
+    "acId": 4, 
+    "itemIsUsed": 0, 
+    "itemCustNum": "7332FDFS4FEF" //显示给用户的号码
+  }
+}

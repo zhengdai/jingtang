@@ -1,0 +1,57 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #f3f3f3;
+}
+
+.comment-frame{
+    margin:15px;
+    position: relative;
+}
+.grade{margin:5px 0;overflow: hidden; }
+.comm-star{float:left;
+    background: url("../images/xiangqing/big_gray_star.png") center no-repeat;
+    width: 26px;
+    height: 25px;
+}
+.star-cur{background: url("../images/xiangqing/big_yellow_star.png") center no-repeat;}
+.grade span{font-size: 14px; margin-left: 5px;line-height: 25px; color: #d4d4d4;}
+.wrap{border:1px #bbbbbb solid; border-radius:3px; position: absolute; top: 45px; bottom: 50px;left: 0; right: 0;}
+#J_describe{ display: block; background-color: #e4e4e4;
+    line-height: normal;font-size:16px;
+    position: absolute;
+    padding: 10px 5%;
+    width: 90%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 0;
+    resize:none;
+}
+#J_describe::-webkit-input-placeholder{
+    color:#b7b7b7;
+    font-size:16px;
+}
+
+.icon-btn {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    background: url(../images/login/btn_bg.png);
+}
+/*.gray{ background-image: none;background-color: #e4e4e4;}*/

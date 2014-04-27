@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>评论列表</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/commentList.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/loading.default.css" />
+        <link rel="stylesheet" type="text/css" href="assets/widget/refresh/refresh.default.css" />
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/extend/touch.js"></script>
+        <script type="text/javascript" src="js/extend/matchMedia.js"></script>
+        <script type="text/javascript" src="js/extend/event.ortchange.js"></script>
+        <script type="text/javascript" src="js/extend/parseTpl.js"></script>
+        <script type="text/javascript" src="js/extend/throttle.js"></script>
+        <script type="text/javascript" src="js/extend/event.scrollStop.js"></script>
+        <script type="text/javascript" src="js/extend/imglazyload.js"></script>
+        <script type="text/javascript" src="js/core/gmu.js"></script>
+        <script type="text/javascript" src="js/core/event.js"></script>
+        <script type="text/javascript" src="js/core/widget.js"></script>
+        <script type="text/javascript" src="js/commentList.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <div class="commentList">
+            <ul id="comment-list-box">
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="userName"></p>
+                            <p class="commentDate"></p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent"></div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="userName"></p>
+                            <p class="commentDate"></p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent"></div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="userName"></p>
+                            <p class="commentDate"></p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent"></div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="userName"></p>
+                            <p class="commentDate"></p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent"></div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="userName"></p>
+                            <p class="commentDate"></p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent"></div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="userName"></p>
+                            <p class="commentDate"></p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent"></div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="userName"></p>
+                            <p class="commentDate"></p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent"></div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="userName"></p>
+                            <p class="commentDate"></p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="more">
+            <div class="loading"></div>
+        </div>
+    </body>
+</html>

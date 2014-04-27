@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>资讯详情</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/info.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/extend/touch.js"></script>
+        <script type="text/javascript" src="js/extend/imglazyload.js"></script>
+        <script type="text/javascript" src="js/info.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <!--详情头-->
+        <div class="infoHead">
+            <div class="infoIcon">
+                <img src="images/xiangqing/icon.png">
+            </div>
+            <div class="middle">
+                <p class="gameName">紫川传</p>
+                <p class="cor">腾讯科技</p>
+                <div class="items-score">
+                    <img />
+                    <img />
+                    <img />
+                    <img />
+                    <img />
+                </div>
+            </div>
+            <div class="btn">查看</div>
+        </div>
+
+        <!--资讯内容-->
+        <div class="infoContent">
+            <div class="header">
+                <h3 class="tit">紫川传上线，谁与争锋</h3>
+                <p class="author">2014.4.5 来自腾讯游戏</p>
+            </div>
+            <div class="content">
+                <p style="TEXT-INDENT: 2em">
+                    说起我叫MT<!--keyword-->(<span class="infoMblog"><a target="_blank" href="http://t.qq.com/iammt178#pref=qqcom.keyword" class="a-tips-Article-QQ" rel="iammt178" reltitle="我叫MT">微博</a></span>)
+                    <!--/keyword-->就不得不说说<!--keyword--><a class="a-tips-Article-QQ" href="http://games.qq.com/d/onlinegame/1/13/" target="_blank"><!--/keyword-->魔兽世界<!--keyword--></a><!--/keyword-->，这款游戏陪伴着我们80后走过了快10个年头。当时的游戏画面、乐曲配音、副本难度都让我们震惊不已。我叫MT是魔兽世界衍生的一部作品，当时在魔兽世界玩家中大受好评，人物幽默的配音、Q版的造型、已经对时下热门人物事件的吐槽都在不同层次上吸引了广大魔兽玩家。而这款游戏也是我叫MT首次在iOS上推出的卡牌游戏，下面就让小编我仔细带大家来看看这款游戏。
+                </p>
+                <p style="TEXT-INDENT: 2em">画面：8.0 就卡牌游戏来说画面还算不错</p>
+                <p style="TEXT-INDENT: 2em">音乐：7.0 BGM算不上很出色 总是在循环也没有配音</p>
+                <p style="TEXT-INDENT: 2em">操作：8.0 按键够大 但是重复操作过多</p>
+                <p style="TEXT-INDENT: 2em">创新：8.5 社交性十足的一款卡牌游戏</p>
+                <p style="TEXT-INDENT: 2em">总分：8.0 同名人气改编 对于流量富裕的你是绝佳选择</p>
+                <p style="TEXT-INDENT: 2em">下载：<a target="_blank" href="http://mobile.91.com/Soft/iPhone/com.locojoy.91.immt-a-chs-0.22.3.0-0.22.3.0.html " _fcksavedurl="http://mobile.91.com/Soft/iPhone/com.locojoy.91.immt-a-chs-0.22.3.0-0.22.3.0.html ">点击下载</a></p>
+                <p style="TEXT-ALIGN: center">
+                    <div class="mbArticleSharePic   " style="width: 554px;">
+                        <div class="mbArticleShareBtn">
+                            <span>转播到腾讯微博</span>
+                        </div>
+                        <img style="WIDTH: 554px; HEIGHT: 738px" alt="【游戏评测】我叫MT：口袋魔兽 消遣用的绝佳作品" src="http://img1.gtimg.com/gamezone/pics/hv1/125/190/1196/77818475.gif" />
+                    </div>
+                </p>
+                <p style="TEXT-INDENT: 2em">
+                    如果你指望这是动作或冒险游戏那可能就要失望了，不过不要担心这款游戏采用了时下热门的网络卡牌游戏的玩法，玩家要收集各个动画中的人物来为自己所用。MT、傻馒、呆贼等都可以在游戏中收集到，而且不仅仅是这些动画角色，BOSS也是可以被收服的哦。玩家要通过刷FB来进行游戏，每次通关都会有相应的奖励，推到最终BOSS就是我们游戏的目标。
+                </p>
+                <p style="TEXT-ALIGN: center">
+                    <div class="mbArticleSharePic  " style="width: 554px;">
+                        <div class="mbArticleShareBtn">
+                            <span>转播到腾讯微博</span>
+                        </div>
+                        <img style="WIDTH: 554px; HEIGHT: 738px" alt="【游戏评测】我叫MT：口袋魔兽 消遣用的绝佳作品" src="http://img1.gtimg.com/gamezone/pics/hv1/141/190/1196/77818491.gif" />
+                    </div>
+                </p>
+                <p style="TEXT-INDENT: 2em">
+                    游戏的画面怎么说呢，与其去评论画面不如说这款游戏没什么画面。卡牌游戏你还想怎样？不过游戏中的UI设计很有魔兽的风格，让玩家即时再简单的游戏中也能够体会到原来的那种激情。另一个值得一提的就是他的怪物设定，游戏中的怪物除了动画中出现的还有很多开发商后来加入的怪物，风格与原作相差无几。虽然不知道他们是谁但是也可以看得出游戏的用心程度。
+                </p>
+            </div>
+        </div>
+
+    </body>
+</html>

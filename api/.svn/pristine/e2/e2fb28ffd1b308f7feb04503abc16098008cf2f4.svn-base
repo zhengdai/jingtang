@@ -1,0 +1,15 @@
+3.15 
+添加数据的表resources_category(添加了专题页的专题内容)
+3.20
+1、resources 添加了rated1-5 并初始化为0
+2、customer_remark 添加customer_name varchar 50
+   评论加几个43开头的
+3、resources 添加了relatedId varchar 50
+4.5
+customer数据库添加了CUSTOMER_MOBILENUM的唯一索引
+添加CUSTOMER_IMG
+4.12
+CustomerRemark 的resId、评分的索引
+2.19
+重构了 information
+新建了 Activity Activity_item

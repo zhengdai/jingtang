@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <title>评论</title>
+        <!--组件依赖css begin-->
+        <link type="text/css" rel="stylesheet" href="css/comment.css"/>
+        <!--组件依赖css end-->
+        <!--组件依赖js begin-->
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/extend/touch.js"></script>
+        <!--组件依赖js end-->
+        <script type="text/javascript" src="js/comment.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <div class="comment-frame">
+            <div class="grade">
+                <div class="comm-star"></div>
+                <div class="comm-star"></div>
+                <div class="comm-star"></div>
+                <div class="comm-star"></div>
+                <div class="comm-star"></div>
+                <span>点击星星打分</span>
+            </div>
+            <textarea id="J_describe" rows="8">
+
+            </textarea>
+        </div>
+    </body>
+</html>

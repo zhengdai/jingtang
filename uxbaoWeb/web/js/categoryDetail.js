@@ -396,7 +396,6 @@ function fillState($item, packageName, phoneData)
 function fillItem($item, itemData, i)
 {
     var packageName = itemData.resPackagename;
-    var defaultIcon = "images/jingpin/market.png";
     //使用包名作为id
     $item.attr("id", itemData.resPackagename)
         .attr("data-location", itemData.resLocation)
@@ -406,7 +405,7 @@ function fillItem($item, itemData, i)
         .attr("data-name", itemData.resName);
 
     //$item.find(".number").text(i);
-    $item.find(".appIcon").attr("data-icon", itemData.resIcons).attr("src", defaultIcon);
+    $item.find(".appIcon").attr("data-icon", itemData.resIcons).attr("src", default_icon);
 
     $item.find(".tit strong").text(itemData.resName);
     var ca = (itemData.resCapacity/(1024 * 1024)).toFixed(1);
@@ -601,9 +600,12 @@ function loadMore()
     }
 }
 
+var default_icon;
+
 //页面加载完毕执行函数
 $(function()
 {
+    default_icon = $('.app').eq(0).find(".appIcon").attr("src");
     //最开始ajax加载10个应用
     $.ajax(
         {

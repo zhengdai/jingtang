@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>资讯列表</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/infoList.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/loading.default.css" />
+        <link rel="stylesheet" type="text/css" href="assets/widget/refresh/refresh.default.css" />
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/extend/touch.js"></script>
+        <script type="text/javascript" src="js/extend/matchMedia.js"></script>
+        <script type="text/javascript" src="js/extend/event.ortchange.js"></script>
+        <script type="text/javascript" src="js/extend/parseTpl.js"></script>
+        <script type="text/javascript" src="js/extend/throttle.js"></script>
+        <script type="text/javascript" src="js/extend/event.scrollStop.js"></script>
+        <script type="text/javascript" src="js/extend/imglazyload.js"></script>
+        <script type="text/javascript" src="js/core/gmu.js"></script>
+        <script type="text/javascript" src="js/core/event.js"></script>
+        <script type="text/javascript" src="js/core/widget.js"></script>
+        <script type="text/javascript" src="js/infoList.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <div class="infoList">
+            <ul id="info-list-box">
+                <li class="infoItem">
+                    <div class="info">
+                        <div class="infoIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="infoName"></p>
+                            <p class="infoDate"></p>
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="infoContent">
+                        <p class="text">
+                            <span class="tit"></span>
+                            <span class="content"></span>
+                        </p>
+                        <img class="figure" src="images/zixun/zixun_pic.png" height="80"/>
+                    </div>
+                </li>
+                <li class="infoItem">
+                    <div class="info">
+                        <div class="infoIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="infoName"></p>
+                            <p class="infoDate"></p>
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="infoContent">
+                        <p class="text">
+                            <span class="tit"></span>
+                            <span class="content"></span>
+                        </p>
+                        <img class="figure" src="images/zixun/zixun_pic.png" height="80"/>
+                    </div>
+                </li>
+                <li class="infoItem">
+                    <div class="info">
+                        <div class="infoIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="infoName"></p>
+                            <p class="infoDate"></p>
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="infoContent">
+                        <p class="text">
+                            <span class="tit"></span>
+                            <span class="content"></span>
+                        </p>
+                        <img class="figure" src="images/zixun/zixun_pic.png" height="80"/>
+                    </div>
+                </li>
+                <li class="infoItem">
+                    <div class="info">
+                        <div class="infoIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="infoName"></p>
+                            <p class="infoDate"></p>
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="infoContent">
+                        <p class="text">
+                            <span class="tit"></span>
+                            <span class="content"></span>
+                        </p>
+                        <img class="figure" src="images/zixun/zixun_pic.png" height="80"/>
+                    </div>
+                </li>
+                <li class="infoItem">
+                    <div class="info">
+                        <div class="infoIcon">
+                            <img src="images/xiangqing/icon.png">
+                        </div>
+                        <div class="middle">
+                            <p class="infoName"></p>
+                            <p class="infoDate"></p>
+                        </div>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="infoContent">
+                        <p class="text">
+                            <span class="tit"></span>
+                            <span class="content"></span>
+                        </p>
+                        <img class="figure" src="images/zixun/zixun_pic.png" height="80"/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="more">
+            <div class="loading"></div>
+        </div>
+    </body>
+</html>

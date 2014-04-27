@@ -1,0 +1,25 @@
+/**
+ * Created by zd on 2014/4/2 0002.
+ */
+$(function()
+{
+    var $star = $(".comm-star"), $star_holder = $("#J_star_holder"), $submit = $("#J_submit");
+    $star.each(function(i, item) {
+        $(item).on('tap', function(){
+            var grade = $(this).attr("data-star");
+            $star.removeClass("star-cur");
+            $star_holder.val(grade);
+            for (var j = 0; j <= i; j++)
+            {
+                $($star[j]).addClass("star-cur");
+            }
+            if($submit.hasClass("gray"))
+            {
+                //此时才可以提交
+                $submit.removeClass("gray").on('tap', function(e) {
+
+                });
+            }
+        })
+    });
+});

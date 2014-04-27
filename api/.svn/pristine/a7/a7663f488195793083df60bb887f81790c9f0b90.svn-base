@@ -1,0 +1,51 @@
+{
+  "news": [
+    {
+      "infoId": 3, 
+      "infoTitle": "兄弟萌快速提升战斗力方法介绍", 
+      "infoCreateddate": 1397896433000, 
+      "infoStatus": 1, 
+      "infoHits": 0, 
+      "infoSource": "游戏宝评测", 
+      "resId": 242, 
+      "infoUp": 0, 
+      "infoDown": 0, 
+      "infoAbstract": "【游戏特色】 一、英雄一出 谁与争锋 ◇英雄分为 人杰、鬼雄、英豪三种属性，不同的属性间相生相克，多种英雄搭配玩法有趣多变。 ◇不同的英雄之间可以组成不同的组合，每个组合都有不同的组合加成!英雄惜英雄，不仅可搞基还可大大提高整体", 
+      "resIcon": "http://223.6.254.27:8080/mystore/upload/20131116-228681.png", 
+      "infoImg": "http://223.6.254.27:8080/mystore/upload/news3.jpg"
+    }, 
+    {
+      "infoId": 2, 
+      "infoTitle": "《我叫MT》综合评测", 
+      "infoCreateddate": 1397896293000, 
+      "infoStatus": 1, 
+      "infoHits": 0, 
+      "infoSource": "游戏宝评测", 
+      "resId": 52, 
+      "infoUp": 0, 
+      "infoDown": 0, 
+      "infoAbstract": "《我叫MT》是以“我叫MT”动画片为素材改编的第一款iOS平台上的卡牌社交网游，是根据同名动漫《我叫MT》改编而成的卡牌养成类手机网游。作为中国当下最好玩的手机网游，其活跃用户已突破100万", 
+      "resIcon": "http://223.6.254.27:8080/mystore/upload/20131109-10783.png", 
+      "infoImg": "http://223.6.254.27:8080/mystore/upload/news2.jpg"
+    }, 
+    {
+      "infoId": 1, 
+      "infoTitle": "捕鱼达人2评测", 
+      "infoCreateddate": 1397896159000, 
+      "infoStatus": 1, 
+      "infoHits": 0, 
+      "infoSource": "游戏宝评测", 
+      "resId": 43, 
+      "infoUp": 0, 
+      "infoDown": 0, 
+      "infoAbstract": "《捕鱼达人2》让人感觉是一个装有各种鱼的海洋馆，而玩家不只是羡慕游来游去的小双锯鱼（小丑鱼），还可以用炮弹来捕捉。鱼的体积越大，获得的金币越多，每发炮弹也是要消耗金币的。", 
+      "resIcon": "http://223.6.254.27:8080/mystore/upload/20131109-848812.png", 
+      "infoImg": "http://223.6.254.27:8080/mystore/upload/news1.jpg"
+    }
+  ], 
+  "state": 1, 
+  "allNews": {
+    "total_size": 3, 
+    "current_size": 3
+  }
+}

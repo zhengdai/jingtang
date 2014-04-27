@@ -4,6 +4,15 @@
 /**
  * Created by zd on 14-3-9.
  */
+var isUxbao;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
 
 //ajax参数对象
 var ajaxSubject =
@@ -18,7 +27,8 @@ var ajaxSubject =
     "os_version":4.0,
     "imei":"00000000",
     "imsi":"00000000",
-    "onRefresh":false
+    "onRefresh":false,
+    "subjectDetailUrl":"http://115.29.177.196/专题详情.html"
 };
 
 //加载进来的专题列表
@@ -35,7 +45,7 @@ function createItem(itemData)
 function fillItem($item, itemData)
 {
     //$item.find(".subjectItem").attr("href", itemData.rescategoryName);
-    $item.find("img").attr("data-pic", itemData.rescategoryIcons);
+    $item.find("img").attr("data-pic", itemData.rescategoryIcons).attr('src', default_icon);
     $item.find(".description").text(itemData.rescategoryDescription);
 
 }
@@ -43,8 +53,15 @@ function fillItem($item, itemData)
 //点击函数
 function btnTapHandler($target)
 {
-    var $item = $target.parent().parent();
-
+    isUxbao && window.uxbao.click(JSON.stringify
+        (
+            {
+                "type":15,
+                "title":"专题详情",
+                "url":ajaxSubject.subjectDetailUrl
+            }
+        )
+    );
 }
 
 //加载更多
@@ -67,7 +84,7 @@ function loadMore()
                     "size":ajaxSubject.load_size,
                     "start_position":ajaxSubject.start_position
                 },
-                jsonp:'jsonRecommend',
+                jsonp:'jsonSubject',
                 success:function(data, textStatus, xhr)
                 {
                     if(data.state === 1 && data.product)
@@ -83,7 +100,7 @@ function loadMore()
                             $container.append($item);
                             $item.find("img").imglazyload({"urlName":"data-icon"});
                             //添加点击响应函数
-                            $item.find(".subjectItem").on("tap",function()
+                            $item.on("tap",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
@@ -110,9 +127,12 @@ function loadMore()
     }
 }
 
+var default_icon;
+
 //页面加载完毕执行函数
 $(function()
 {
+    default_icon = $(".subject").eq(0).find('img').attr(src);
     //最开始ajax加载3个专题
     $.ajax(
         {
@@ -143,9 +163,10 @@ $(function()
                         $item.find("img").imglazyload({"urlName":"data-pic"});
                         $.fn.imglazyload.detect();
                         //添加点击响应函数
-                        $item.find(".subjectItem").on("tap",function()
+                        $item.on("tap",function()
                         {
                             btnTapHandler($(this));
+                            return false;
                         });
                     });
 

@@ -1,0 +1,17 @@
+{
+  "message": "ÐÞ¸Ä³É¹¦£¡", 
+  "state": 1, 
+  "userInfo": {
+    "customerId": 16, 
+    "customerName": "lulu", 
+    "customerPassword": "93279E3308BDBBEED946FC965017F67A", 
+    "customerRegTime": 1396690865000, 
+    "customerUpdatedate": 1397912881000, 
+    "customerState": 1, 
+    "customerToken": "15210584369", 
+    "customerTokencreatedate": 1396690865000, 
+    "customerMobileNum": "15210584369", 
+    "customerQqNum": "12345", 
+    "customerImg": "http://223.6.254.27:8080/mystore/image/user.png"
+  }
+}

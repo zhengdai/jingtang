@@ -1,0 +1,149 @@
+/**
+ * Created by zd on 14-3-21.
+ */
+var isUxbao;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
+var ajaxCategory =
+{
+    "url":"http://115.29.177.196:8080/mystore/appV3/getCategory.do",
+    "version":"2.3",
+    "phonetypeName":"N7105",
+    "os_version":"4.0",
+    "imei":"00000000",
+    "imsi":"00000000"
+};
+
+var ajaxCategoryIcon =
+{
+    "url":"http://115.29.177.196:8080/mystore/appV3/getCategoryProducts.do",
+    "version":"2.3",
+    "phonetypeName":"N7105",
+    "os_version":"4.0",
+    "imei":"00000000",
+    "imsi":"00000000",
+    "start_position":"1",
+    "order_by":"hot",
+    "size":"4",
+    "resolution":"200*200",
+    "language":"cn"
+};
+
+var categoryInfo, categoryTag = {};
+
+function categoryTapHandler($item)
+{
+    console.log("http://115.29.177.196/分类详情.html?order_by=hot&rescategory_id=" + $item.attr('data-rescategory_id'));
+    console.log("http://115.29.177.196/分类详情.html?order_by=new&rescategory_id=" + $item.attr('data-rescategory_id'));
+    isUxbao && window.uxbao.click(
+        JSON.stringify(
+            {
+                "type":4,
+                "hotUrl":"http://115.29.177.196/分类详情.html?order_by=hot&rescategory_id=" + $item.attr('data-rescategory_id'),
+                "newUrl":"http://115.29.177.196/分类详情.html?order_by=new&rescategory_id=" + $item.attr('data-rescategory_id'),
+                "name":$item.attr('data-category')
+            }
+        )
+    );
+}
+
+$(function()
+{
+    //获取单机分类信息
+    if($('title').text() == "单机分类")
+    {
+        ajaxCategory.category = "1";
+    }
+    else if($('title').text() == "网游分类")
+    {
+        ajaxCategory.category = "2";
+    }
+    $.ajax(
+        {
+            url:ajaxCategory.url,
+            dataType:"jsonp",
+            data:
+            {
+                "category":ajaxCategory.category,
+                "version":ajaxCategory.version,
+                "phonetypeName":ajaxCategory.phonetypeName,
+                "os_version":ajaxCategory.os_version,
+                "imei":ajaxCategory.imei,
+                "imsi":ajaxCategory.imsi
+            },
+            jsonp:'jsonCategory',
+            success:function(data)
+            {
+                var len = data.product.length;
+                categoryInfo = data.product;
+
+                for(var i = 0; i < len; ++i)
+                {
+                    categoryTag[categoryInfo[i].rescategoryName] = categoryInfo[i].rescategoryId;
+                }
+                $(".category").each(function()
+                {
+                    var $item = $(this);
+                    $item.attr('data-rescategory_id', categoryTag[$item.attr("data-category")]);
+                    $item.on("tap", function()
+                    {
+                        categoryTapHandler($item);
+                        return false;
+                    });
+                    ajaxCategoryIcon.rescategory_id = categoryTag[$item.attr("data-category")];
+                    $.ajax(
+                        {
+                            url:ajaxCategoryIcon.url,
+                            dataType:"jsonp",
+                            data:
+                            {
+                                "rescategory_id":ajaxCategoryIcon.rescategory_id,
+                                "size":ajaxCategoryIcon.size,
+                                "start_position":ajaxCategoryIcon.start_position,
+                                "order_by":ajaxCategoryIcon.order_by,
+                                "version":ajaxCategoryIcon.version,
+                                "phonetypeName":ajaxCategoryIcon.phonetypeName,
+                                "os_version":ajaxCategoryIcon.os_version,
+                                "imei":ajaxCategoryIcon.imei,
+                                "imsi":ajaxCategoryIcon.imsi,
+                                "language":ajaxCategoryIcon.language,
+                                "resolution":ajaxCategoryIcon.resolution
+                            },
+                            jsonp:'jsonCategoryIcon',
+                            success:function(data)
+                            {
+                                if(data.state === 1)
+                                {
+                                    var len = data.product.length;
+                                    var $icon = $item.find('.appIcon');
+                                    for(var j = 0; j < len; ++j)
+                                    {
+                                        $icon.eq(j).attr("data-icon", data.product[j].resIcons);
+                                    }
+                                    $icon.imglazyload({"urlName":"data-icon"});
+                                    $.fn.imglazyload.detect();
+                                }
+                                else
+                                {
+                                    console.log("there is no category data in " + $item.attr("data-category") + ".");
+                                }
+                            }
+
+                        }
+                    );
+                });
+            },
+            error:function()
+            {
+                console.log("load category data error.");
+            }
+        }
+    );
+
+});

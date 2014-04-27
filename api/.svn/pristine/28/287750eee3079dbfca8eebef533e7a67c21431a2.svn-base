@@ -1,0 +1,54 @@
+{
+  "state": 1, 
+  "comment": [
+    {
+      "custremarkId": 24, 
+      "resId": 43, 
+      "imei": "353845056749345", 
+      "custremarkContent": "可以玩啊，我这里没有问题", 
+      "custremarkCreatedate": 1377221952000, 
+      "custremarkStatus": 1, 
+      "custRemarkAnony": 1, 
+      "custremarkCustrated": 5, 
+      "imsi": "460015650645950"
+    }, 
+    {
+      "custremarkId": 22, 
+      "resId": 43, 
+      "imei": "353845056749345", 
+      "custremarkContent": "挺好玩的", 
+      "custremarkCreatedate": 1376976514000, 
+      "custremarkStatus": 1, 
+      "custRemarkAnony": 1, 
+      "custremarkCustrated": 4, 
+      "imsi": "460015650645950"
+    }, 
+    {
+      "custremarkId": 20, 
+      "resId": 43, 
+      "imei": "868582012522510", 
+      "custremarkContent": "为什么下载完之后打不开，不能玩啊亲，谁能告诉我原因啊？", 
+      "custremarkCreatedate": 1376869311000, 
+      "custremarkStatus": 1, 
+      "custRemarkAnony": 1, 
+      "custremarkCustrated": 1, 
+      "imsi": "460006301442295"
+    }, 
+    {
+      "custremarkId": 19, 
+      "resId": 43, 
+      "imei": "355868050111484", 
+      "custremarkContent": "经典游戏", 
+      "custremarkCreatedate": 1376223789000, 
+      "custremarkStatus": 1, 
+      "custRemarkAnony": 1, 
+      "custremarkCustrated": 5, 
+      "customerName": "王小小", 
+      "imsi": ""
+    }
+  ], 
+  "comments": {
+    "total_size": 4, 
+    "current_size": 4
+  }
+}

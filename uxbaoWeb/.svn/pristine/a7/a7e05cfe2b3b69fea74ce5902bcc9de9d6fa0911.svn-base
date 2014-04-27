@@ -1,0 +1,93 @@
+/**
+ * Created by zd on 14-3-21.
+ */
+var isUxbao, phoneData;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
+
+if(isUxbao)
+{
+    var userInfo = JSON.parse(window.uxbao.userInfo());
+    console.log(userInfo);
+    var userName = userInfo.userInfo.nickName;
+    var icon = userInfo.userInfo.icon;
+}
+
+$(function()
+{
+    if(userName)
+    {
+        $(".logBtn").text(userName);
+        $(".portrait").find('img').attr('src', icon);
+        $("#personConfig").on('tap', function()
+        {
+            isUxbao && window.uxbao.click(
+                JSON.stringify(
+                    {
+                        "type":9
+                    }
+                )
+            );
+        });
+    }
+    else
+    {
+        $(".logBtn").on('tap', function()
+        {
+            isUxbao && window.uxbao.click(
+                JSON.stringify(
+                    {
+                        "type":11
+                    }
+                )
+            );
+        });
+        $("#personConfig").on('tap', function()
+        {
+            isUxbao && window.activity.skipTo("register");
+        });
+    }
+
+    $(".itemWrap").button();
+
+    $("#gameCenter").on('tap', function()
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":7
+                }
+            )
+        );
+    });
+
+    $("#systemConfig").on('tap', function()
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":8
+                }
+            )
+        );
+    });
+
+    $("#aboutUs").on('tap', function()
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":10
+                }
+            )
+        );
+    });
+
+    updateNum(4);
+});

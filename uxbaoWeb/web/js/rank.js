@@ -581,9 +581,12 @@ function infoTapHandler($info)
     );
 }
 
+var default_icon;
+
 //页面加载完毕执行函数
 $(function()
 {
+    default_icon = $(".app").eq(0).find('.appIcon').attr("src");
     //最开始ajax加载10个应用
     $.ajax(
         {
@@ -628,6 +631,8 @@ $(function()
                             return false;
                         });
                     });
+
+                    $(window).trigger("scroll");
 
                     //下拉加载
                     if(ajaxRecommend.start_position <= ajaxRecommend.total_size)

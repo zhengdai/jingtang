@@ -1,0 +1,47 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #f3f3f3;
+}
+.comment-frame{
+    margin:15px;
+}
+.grade{margin:5px 0;overflow: hidden; }
+.comm-star{float:left;
+    background: url("http://si1.s1.dpfile.com/m/css/app/dianping/img/sprite.9ec0ddce8e45a7bb63af2d17a4b0790e.png") no-repeat;
+    background-position:0 -347px;
+    width: 36px;
+    height: 36px;
+    background-size: 215px auto;
+}
+.star-cur{background-position: -1px -310px;}
+.grade span{font-size: 16px; margin-left: 5px;line-height: 36px; color: #d4d4d4;}
+.wrap{border:1px #bbbbbb solid;margin: 10px 0; border-radius:3px;}
+#J_describe{ display: block;  height: 250px; background-color: #e4e4e4;
+    width:90%; line-height: normal;font-size:16px;
+    padding: 10px 5%;
+    border: none;
+}
+#J_describe::-webkit-input-placeholder{
+    color:#b7b7b7;
+    font-size:16px;
+}
+
+.icon-btn {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    background: url(../images/login/btn_bg.png);
+}
+.gray{ background-image: none;background-color: #e4e4e4;}
