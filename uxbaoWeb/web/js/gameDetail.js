@@ -1,19 +1,13 @@
 /**
  * Created by zd on 2014/3/29 0029.
  */
-var isUxbao;
-if(window.uxbao)
-{
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
-}
 //供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
 function updateState(packageName, state)
 {
-    isUxbao && window.activity.update(JSON.stringify(state));
+    if(packageName === ajaxGameDetail.resPackagename)
+    {
+        isUxbao && window.activity.update(JSON.stringify(state));
+    }
 }
 
 function GetRequest()
@@ -38,24 +32,18 @@ var request = GetRequest();
 var ajaxGameDetail =
 {
     "resId":request.resId,
-    "detailUrl":"http://115.29.177.196:8080/mystore/appV3/getProductAndTopComment.do",
-    "relatedUrl":"http://115.29.177.196:8080/mystore/appV3/getRelatedApp.do",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "imei":"00000000",
-    "imsi":"00000000",
-    "commentListUrl":"http://115.29.177.196/评论列表.html",
-    "commentUrl":"http://115.29.177.196/评论.html"
+    "detailUrl": $.apiRoot + "appV3/getProductAndTopComment.do",
+    "relatedUrl": $.apiRoot + "appV3/getRelatedApp.do",
+    "commentListUrl": $.htmlRoot + "comment_list.html",
+    "commentUrl": $.htmlRoot + "comment.html",
+    "gameDetailUrl": $.htmlRoot + "game_detail.html"
 };
 
 
 
 //填充打分
-function fillRate(rated1, rated2, rated3, rated4, rated5, rated)
+function fillRate(rated1, rated2, rated3, rated4, rated5, rated, total)
 {
-    var total = rated1 + rated2 + rated3 + rated4 + rated5;
-
     $('.commentNum').text('（' + total + '人）');
 
     if(total == 0)
@@ -111,11 +99,11 @@ function fillRate(rated1, rated2, rated3, rated4, rated5, rated)
     {
         if(j - rated < -0.5)
         {
-            $(imgItem).attr("src", "images/xiangqing/big_yellow_star.png");
+            $(imgItem).attr("src", big_yellow_star);
         }
         else
         {
-            $(imgItem).attr("src", "images/xiangqing/big_gray_star.png");
+            $(imgItem).attr("src", big_gray_star);
         }
     });
     $averageRate.find('span').text(rated.toFixed(1) + '分');
@@ -162,24 +150,30 @@ function fillComment(commentData)
             {
                 $me.find('.userName').text('游戏宝用户')
             }
-            var date = new Date(parseInt(commentData[i].custremarkCreatedate));
+            if(commentData[i].customerImg)
+            {
+                $me.find('.userIcon').find('img').data('icon', commentData[i].customerImg)
+                    .imglazyload({"urlName":"data-icon"});
+            }
+            var date = new Date(commentData[i].custremarkCreatedate);
             $me.find('.commentDate').text(getDateStr(date));
             $me.find('.commentContent').text(commentData[i].custremarkContent);
             $me.find('.grade').find('img').each(function(j, imgItem)
             {
                 if(j - commentData[i].custremarkCustrated < -0.5)
                 {
-                    $(imgItem).attr("src", "images/xiangqing/little_yellow_star.png");
+                    $(imgItem).attr("src", little_yellow_star);
                 }
                 else
                 {
-                    $(imgItem).attr("src", "images/xiangqing/light_gray_star.png");
+                    $(imgItem).attr("src", light_gray_star);
                 }
             });
+
         }
         else
         {
-            $me.hide();
+            $me.remove();
         }
     });
 }
@@ -187,22 +181,30 @@ function fillComment(commentData)
 //进入游戏详情
 function infoTapHandler($info)
 {
-    var resId = $info.attr("data-id");
+    var resId = $info.data("id");
     isUxbao && window.uxbao.click(
         JSON.stringify(
             {
                 "type":2,
                 "resId":resId,
-                "url":"http://115.29.177.196/游戏详情.html?resId=" + resId,
-                "resName":$info.attr("data-name"),
-                "resPackagename":$info.attr("data-package")
+                "url":ajaxGameDetail.gameDetailUrl + "?resId=" + resId,
+                "resName":$info.data("name"),
+                "resPackagename":$info.data("package")
             }
         )
     );
 }
 
+var little_yellow_star, light_gray_star, big_yellow_star, big_gray_star;
+
 $(function()
 {
+    var $default_big_star = $("#rate").find('img');
+    big_yellow_star = $default_big_star.eq(0).attr('src');
+    big_gray_star = $default_big_star.eq(1).attr('src');
+    var $default_star = $(".grade").eq(0).find('img');
+    little_yellow_star = $default_star.eq(0).attr('src');
+    light_gray_star = $default_star.eq(1).attr('src');
     //获取游戏信息
     $.ajax(
         {
@@ -210,14 +212,14 @@ $(function()
             dataType: 'jsonp',
             data:
             {
-                "version": ajaxGameDetail.version,
-                "phonetypeName": ajaxGameDetail.phonetypeName,
-                "os_version": ajaxGameDetail.os_version,
-                "imei": ajaxGameDetail.imei,
-                "imsi": ajaxGameDetail.imsi,
+                "version": userInfo.version,
+                "phonetypeName": userInfo.phonetypeName,
+                "os_version": userInfo.os_version,
+                "imei": userInfo.imei,
+                "imsi": userInfo.imsi,
                 "resId": ajaxGameDetail.resId
             },
-            jsonp: 'jsoncallback',
+            jsonp: 'jsonGame',
             success: function (data)
             {
                 if(data.state == 1)//获取成功
@@ -239,7 +241,7 @@ $(function()
                         screenContent.push(
                             {
                                 title:"",
-                                href:"#",
+                                href:"javascript:void(0);",
                                 pic:screenShots[i]
                             }
                         );
@@ -254,10 +256,18 @@ $(function()
                         if(img.width > img.height)
                         {
                             viewnum = 1;
+                            $(screenContent).each(function(i, item)
+                            {
+                                item.default_icon = $.localRoot + "images/local/default_bg_800480.png";
+                            });
                         }
                         else
                         {
                             viewnum = 2;
+                            $(screenContent).each(function(i, item)
+                            {
+                                item.default_icon = $.localRoot + "images/local/default_bg_480800.png";
+                            });
                         }
                         var slider = new $.ui.Slider("#slider",
                             {
@@ -295,10 +305,11 @@ $(function()
                     });
 
                     //评论
-                    fillRate(parseInt(data.product.rated1), parseInt(data.product.rated2), parseInt(data.product.rated3),
-                        parseInt(data.product.rated4), parseInt(data.product.rated5), data.product.resRated);
+                    fillRate(data.product.rated1, data.product.rated2, data.product.rated3,
+                        data.product.rated4, data.product.rated5, data.product.resRated, data.product.resCustratednum);
                     fillComment(data.comments);
                     data.commentUrl = ajaxGameDetail.commentUrl + "?resId=" + ajaxGameDetail.resId;
+
                     //给android传送详情消息
                     isUxbao && window.activity.getAppInfo(JSON.stringify(data));
                 }
@@ -317,11 +328,11 @@ $(function()
             dataType: 'jsonp',
             data:
             {
-                "version": ajaxGameDetail.version,
-                "phonetypeName": ajaxGameDetail.phonetypeName,
-                "os_version": ajaxGameDetail.os_version,
-                "imei": ajaxGameDetail.imei,
-                "imsi": ajaxGameDetail.imsi,
+                "version": userInfo.version,
+                "phonetypeName": userInfo.phonetypeName,
+                "os_version": userInfo.os_version,
+                "imei": userInfo.imei,
+                "imsi": userInfo.imsi,
                 "resId": ajaxGameDetail.resId
             },
             jsonp: 'jsoncallback',
@@ -338,9 +349,10 @@ $(function()
                         var $appArr =  $("#mayLikeList").find("li");
                         for(var j = 0; j < len; ++j)
                         {
-                            $appArr.eq(j).attr("data-id", data.products[j].resId)
-                                .attr("data-name", data.products[j].resName).attr("data-package", data.products[j].resPackagename);
-                            $icon.eq(j).attr("data-icon", data.products[j].resIcons);
+                            $appArr.eq(j).data("id", data.products[j].resId)
+                                .data("name", data.products[j].resName).
+                                data("package", data.products[j].resPackagename);
+                            $icon.eq(j).data("icon", data.products[j].resIcons);
                             $gameName.eq(j).text(data.products[j].resName);
                             $appArr.eq(j).on("tap", function()
                             {
@@ -353,7 +365,7 @@ $(function()
                     }
                     else
                     {
-                        console.log("there is no category data in " + $item.attr("data-category") + ".");
+                        console.log("no ajax data");
                     }
                 }
             },

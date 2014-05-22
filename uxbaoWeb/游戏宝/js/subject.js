@@ -1,27 +1,19 @@
 /**
  * Created by zd on 14-3-11.
  */
-/**
- * Created by zd on 14-3-9.
- */
-
 //ajax参数对象
 var ajaxSubject =
 {
-    "total_size":0,//总共的应用个数
+    "total_size":0,//总共的专题个数
     "start_position":1,//从第几个开始取
     "init_size":3,//第一次取的数目
     "load_size":2,//之后每次下拉加载的数目
-    "url":"http://115.29.177.196:8080/mystore/appV3/getTopic.do",
-    "resolution":"200*200",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":4.0,
-    "imei":"00000000",
-    "imsi":"00000000"
+    "url": $.apiRoot + "appV3/getTopic.do",
+    "onRefresh":false,
+    "subjectDetailUrl": $.htmlRoot + "topic_detail.html"
 };
 
-//加载进来的推荐应用列表
+//加载进来的专题列表
 var subjectList = [];
 //空li字符串，创建用
 function createItem(itemData)
@@ -31,20 +23,53 @@ function createItem(itemData)
     return $item;
 }
 
-//ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
+//将日期对象转换成日期字符串如2014.03.15
+function getDateStr(date)
+{
+    var dateStr = "";
+    dateStr += date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if(month < 10)
+    {
+        dateStr += '.0' + month;
+    }
+    else
+    {
+        dateStr += '.' + month;
+    }
+    if(day < 10)
+    {
+        dateStr += '.0' + day;
+    }
+    else
+    {
+        dateStr += '.' + day;
+    }
+    return dateStr;
+}
+
+//ajax填充一个专题的信息，$item是一个zepto对象，itemData提供填充数据
 function fillItem($item, itemData)
 {
-    //$item.find(".subjectItem").attr("href", itemData.rescategoryName);
-    $item.find("img").attr("data-pic", itemData.rescategoryIcons);
+    $item.data('rescategoryId', itemData.rescategoryId).find(".subjectTime").text(getDateStr(new Date(itemData.rescategoryCreateddate)));
+    $item.data('name', itemData.rescategoryName).find(".subjectName").text(itemData.rescategoryName);
+    $item.find("img").data("pic", itemData.rescategoryIcons).attr('src', default_icon);
     $item.find(".description").text(itemData.rescategoryDescription);
-
 }
 
 //点击函数
 function btnTapHandler($target)
 {
-    var $item = $target.parent().parent();
-
+    isUxbao && window.uxbao.click(JSON.stringify
+        (
+            {
+                "type":15,
+                "title":$target.data('name'),
+                "url":ajaxSubject.subjectDetailUrl + '?categoryId=' + $target.data('rescategoryId')
+            }
+        )
+    );
 }
 
 //加载更多
@@ -59,15 +84,15 @@ function loadMore()
                 dataType:'jsonp',
                 data:
                 {
-                    "version":ajaxSubject.version,
-                    "phonetypeName":ajaxSubject.phonetypeName,
-                    "os_version":ajaxSubject.os_version,
-                    "imei":ajaxSubject.imei,
-                    "imsi":ajaxSubject.imsi,
+                    "version":userInfo.version,
+                    "phonetypeName":userInfo.phonetypeName,
+                    "os_version":userInfo.os_version,
+                    "imei":userInfo.imei,
+                    "imsi":userInfo.imsi,
                     "size":ajaxSubject.load_size,
                     "start_position":ajaxSubject.start_position
                 },
-                jsonp:'jsonRecommend',
+                jsonp:'jsonSubject',
                 success:function(data, textStatus, xhr)
                 {
                     if(data.state === 1 && data.product)
@@ -81,9 +106,9 @@ function loadMore()
                         {
                             var $item = createItem(data.product[i]);
                             $container.append($item);
-                            $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
+                            $item.find("img").imglazyload({"urlName":"data-pic"});
                             //添加点击响应函数
-                            $item.find(".btn").on("tap",function()
+                            $item.on("tap",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
@@ -110,9 +135,12 @@ function loadMore()
     }
 }
 
+var default_icon;
+
 //页面加载完毕执行函数
 $(function()
 {
+    default_icon = $(".subject").eq(0).find('img').attr("src");
     //最开始ajax加载3个专题
     $.ajax(
         {
@@ -120,11 +148,11 @@ $(function()
             dataType:'jsonp',
             data:
             {
-                "version":ajaxSubject.version,
-                "phonetypeName":ajaxSubject.phonetypeName,
-                "os_version":ajaxSubject.os_version,
-                "imei":ajaxSubject.imei,
-                "imsi":ajaxSubject.imsi,
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi,
                 "size":ajaxSubject.init_size,
                 "start_position":ajaxSubject.start_position
             },
@@ -139,23 +167,32 @@ $(function()
                     $(".subject").each(function(i,item)
                     {
                         var $item = $(this);
-                        fillItem($item, data.product[i]);
-                        $item.find("img").imglazyload({"urlName":"data-pic"});
-                        $.fn.imglazyload.detect();
-                        //添加点击响应函数
-                        $item.find(".subjectItem").on("tap",function()
+                        if(data.product[i])
                         {
-                            btnTapHandler($(this));
-                        });
+                            fillItem($item, data.product[i]);
+                            $item.find("img").imglazyload({"urlName":"data-pic"});
+
+                            //添加点击响应函数
+                            $item.on("tap",function()
+                            {
+                                btnTapHandler($(this));
+                                return false;
+                            });
+                        }
+                        else
+                        {
+                            $item.remove();
+                        }
                     });
 
+                    $.fn.imglazyload.detect();
 
                     //下拉加载
                     if(ajaxSubject.start_position <= ajaxSubject.total_size)
                     {
                         $(window).on("scroll", function()
                         {
-                            lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()) + parseFloat($('.more').height());
+                            var lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()) + parseFloat($('.more').height());
                             if ($(document).height() <= lazyheight)
                             {
                                 loadMore();

@@ -1,22 +1,8 @@
 /**
  * Created by zd on 2014/4/7 0007.
  */
-var isUxbao;
-if(window.uxbao)
-{
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
-}
 var ajaxRegister = {
-    "url":"http://115.29.177.196:8080/mystore/userV3/userRegister.do",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "imei":"00000000",
-    "imsi":"00000000"
+    "url": $.apiRoot + "userV3/userRegister.do"
 };
 
 function register()
@@ -43,11 +29,11 @@ function register()
             {
                 "mobileNum":mobile.value,
                 "password":password.val(),
-                "version": ajaxRegister.version,
-                "phonetypeName": ajaxRegister.phonetypeName,
-                "os_version": ajaxRegister.os_version,
-                "imei": ajaxRegister.imei,
-                "imsi": ajaxRegister.imsi
+                "version": userInfo.version,
+                "phonetypeName": userInfo.phonetypeName,
+                "os_version": userInfo.os_version,
+                "imei": userInfo.imei,
+                "imsi": userInfo.imsi
             },
             jsonp:'jsonpcallback',
             success:function(data)
@@ -73,12 +59,10 @@ $(function()
 	if(isUxbao)
     {
         var userInfo = JSON.parse(window.uxbao.userInfo());
-        var phoneNum = userInfo.userInfo.mobile;
+        //填写默认手机号码
+        $('#J_mobileNo').get(0).value = userInfo.userInfo.mobile;
     }
-	//填写默认手机号码
-	$('#J_mobileNo').get(0).value = phoneNum;
-    //登录url
-    var loginUrl = "http://115.29.177.196/登录.html";
+
     //获得焦点边框变红，失去焦点恢复
     $('#J_mobileNo').on("focusin", function()
     {
@@ -103,6 +87,7 @@ $(function()
     //点击登录链接
     $("#to_login").on("tap", function()
     {
+
         isUxbao && window.activity.skipTo("login");
         //window.location.href = loginUrl;
     });

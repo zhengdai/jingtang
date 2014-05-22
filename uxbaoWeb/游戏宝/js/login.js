@@ -2,23 +2,8 @@
  * Created by zd on 2014/4/4 0004.
  */
 
-var isUxbao;
-if(window.uxbao)
-{
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
-}
-
 var ajaxLogin = {
-    "url":"http://115.29.177.196:8080/mystore/userV3/userLogin.do",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "imei":"00000000",
-    "imsi":"00000000"
+    "url": $.apiRoot + "userV3/userLogin.do"
 };
 
 function login()
@@ -45,11 +30,11 @@ function login()
             {
                 "mobileNum":mobile.value,
                 "password":password.val(),
-                "version": ajaxLogin.version,
-                "phonetypeName": ajaxLogin.phonetypeName,
-                "os_version": ajaxLogin.os_version,
-                "imei": ajaxLogin.imei,
-                "imsi": ajaxLogin.imsi
+                "version": userInfo.version,
+                "phonetypeName": userInfo.phonetypeName,
+                "os_version": userInfo.os_version,
+                "imei": userInfo.imei,
+                "imsi": userInfo.imsi
             },
             jsonp:'jsonpcallback',
             success:function(data)
@@ -57,7 +42,6 @@ function login()
                 //注册成功
                 if(data.state == 1)
                 {
-                    console.log("登录成功");
 					errHolder.text("登录成功").show();
 					window.uxbao.onLogin(JSON.stringify(data.userInfo));
                 }
@@ -76,8 +60,6 @@ $(function()
 	var phoneNum = userInfo.userInfo.mobile;
 	//var phoneNum  = "15210584368";
 
-    //注册url
-    var registerUrl = "http://115.29.177.196/注册.html";
     //获得焦点边框变红，失去焦点恢复
     //填写默认手机号码
     $('#J_mobileNo').val(phoneNum).on("focusin", function()
@@ -104,7 +86,6 @@ $(function()
     //点击注册链接
     $("#to_register").on("tap", function()
     {
-        isUxbao && window.uxbao.skipTo("register");
-        //window.location.href = registerUrl;
+        isUxbao && window.activity.skipTo("register");
     });
 });

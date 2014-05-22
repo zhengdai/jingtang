@@ -1,0 +1,17 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #f0f0f0;
+}
+
+.title{ margin: 10px 15px 5px; font-size: 16px; color: #514e4e;}
+.hot-search-list{ margin:0 10px 5px; overflow: hidden;}
+.hot-search-list li{ width: 33.3%; float: left; margin: 5px 0;}
+.hot-search-list li span{ display: block; margin: 0 5px; line-height: 40px; color: #fce9e1; font-size: 16px; text-align: center;}
+.hot-search-list li:nth-child(3n+1) span{background-color: #ea753c;}
+.hot-search-list li:nth-child(3n+2) span{background-color: #ea8e3c;}
+.hot-search-list li:nth-child(3n) span{background-color: #eaa23c;}

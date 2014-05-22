@@ -1,0 +1,11 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; background-color: #eaeaea;
+    color:#252525; font-size:14px; line-height:20px;-webkit-user-select: none;
+}
+.tip{ display: block; line-height: 30px; text-align: center; color: #b6b6b6;margin: 100px auto 0;
+    padding: 178px 0 0; background: url("../images/local/load_err.png") center top no-repeat;
+}

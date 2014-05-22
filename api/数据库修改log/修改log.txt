@@ -15,3 +15,5 @@ CustomerRemark 的resId、评分的索引
 新建了 Activity Activity_item
 4.22
 RES RES_CUSTRATEDNUM添加索引
+5.5
+RESOURCES_CATEGORY 添加了必玩分类

@@ -14,11 +14,11 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
 .grade{margin:5px 0;overflow: hidden; }
 .comm-star{float:left;
-    background: url("../images/xiangqing/big_gray_star.png") center no-repeat;
+    background: url("../images/local/big_gray_star.png") center no-repeat;
     width: 26px;
     height: 25px;
 }
-.star-cur{background: url("../images/xiangqing/big_yellow_star.png") center no-repeat;}
+.star-cur{background: url("../images/local/big_yellow_star.png") center no-repeat;}
 .grade span{font-size: 14px; margin-left: 5px;line-height: 25px; color: #d4d4d4;}
 .wrap{border:1px #bbbbbb solid; border-radius:3px; position: absolute; top: 45px; bottom: 50px;left: 0; right: 0;}
 #J_describe{ display: block; background-color: #e4e4e4;
@@ -52,7 +52,7 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     width: 100%;
     font-size: 16px;
     font-weight: bold;
-    background: url(../images/login/btn_bg.png);
+    background: url(../images/local/btn_bg.png);
 }
 .grade .err{color:#f68521;}
 /*.gray{ background-image: none;background-color: #e4e4e4;}*/

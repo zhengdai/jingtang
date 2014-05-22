@@ -4,33 +4,19 @@
 /**
  * Created by zd on 2014/4/16 0016.
  */
-var isUxbao;
-if(window.uxbao)
-{
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
-}
 
 var ajaxCommunity = {
     "total_size":0,//总共的社区个数
     "start_position":1,//从第几个开始取
     "init_size":5,//第一次取的数目
     "load_size":3,//之后每次下拉加载的数目
-    "url":"http://115.29.177.196:8080/mystore/appV3/getCommunityResources.do",
-    "commentListUrl":"http://115.29.177.196/评论列表.html",
-    "commentUrl":"http://115.29.177.196/评论.html",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":4.0,
-    "imei":"00000000",
-    "imsi":"00000000",
+    "url": $.apiRoot + "appV3/getCommunityResources.do",
+    "commentListUrl": $.htmlRoot + "comment_list.html",
+    "commentUrl": $.htmlRoot + "comment.html",
     "onRefresh":false
 };
 
-//加载进来的专题列表
+//加载进来的社区列表
 var communityList = [];
 //空li字符串，创建用
 function createItem(itemData)
@@ -47,8 +33,9 @@ function fillItem($item, itemData)
     $item.data("resIcons", itemData.resIcons);
     $item.data("resPackagename", itemData.resPackagename);
     $item.find(".communityName").text(itemData.resName);
-    $item.find(".gameIcon").find("img").data("pic", itemData.resIcons);
-    $item.find(".communityNum").text((itemData.rated1 + itemData.rated2 + itemData.rated3 + itemData.rated4 + itemData.rated5) + "次评论");
+    $item.find(".content").text(itemData.topRemark);
+    $item.find(".gameIcon").find("img").data("pic", itemData.resIcons).attr('src', default_icon);
+    $item.find(".communityNum").text(itemData.resCustratednum + "次评论");
 }
 
 //点击社区函数
@@ -81,11 +68,11 @@ function loadMore()
                 dataType:'jsonp',
                 data:
                 {
-                    "version":ajaxCommunity.version,
-                    "phonetypeName":ajaxCommunity.phonetypeName,
-                    "os_version":ajaxCommunity.os_version,
-                    "imei":ajaxCommunity.imei,
-                    "imsi":ajaxCommunity.imsi,
+                    "version":userInfo.version,
+                    "phonetypeName":userInfo.phonetypeName,
+                    "os_version":userInfo.os_version,
+                    "imei":userInfo.imei,
+                    "imsi":userInfo.imsi,
                     "size":ajaxCommunity.load_size,
                     "start_position":ajaxCommunity.start_position
                 },
@@ -131,9 +118,12 @@ function loadMore()
     }
 }
 
+var default_icon;
+
 //页面加载完毕执行函数
 $(function()
 {
+    default_icon = $(".communityItem").eq(0).find('.gameIcon').find('img').attr('src');
     //最开始ajax加载5个活动
     $.ajax(
         {
@@ -141,11 +131,11 @@ $(function()
             dataType:'jsonp',
             data:
             {
-                "version":ajaxCommunity.version,
-                "phonetypeName":ajaxCommunity.phonetypeName,
-                "os_version":ajaxCommunity.os_version,
-                "imei":ajaxCommunity.imei,
-                "imsi":ajaxCommunity.imsi,
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi,
                 "size":ajaxCommunity.init_size,
                 "start_position":ajaxCommunity.start_position
             },
@@ -172,7 +162,7 @@ $(function()
                         }
                         else
                         {
-                            $item.hide();
+                            $item.remove();
                         }
                     });
                     $.fn.imglazyload.detect();

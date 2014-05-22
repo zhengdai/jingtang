@@ -1,43 +1,27 @@
 /**
  * Created by zd on 2014/4/16 0016.
  */
-var isUxbao, receiveList = [];
-
-if(window.uxbao)
-{
-    isUxbao = true;
-    receiveList = JSON.parse(window.uxbao.activityInfo()).activityInfoList;
-}
-else
-{
-    isUxbao = false;
-}
 
 var ajaxGift = {
-    "total_size":0,//总共的专题个数
+    "total_size":0,//总共的礼包个数
     "start_position":1,//从第几个开始取
     "init_size":8,//第一次取的数目
     "load_size":3,//之后每次下拉加载的数目
-    "url":"http://115.29.177.196:8080/mystore/activityV3/getActivity.do",
-    "detailUrl":"http://115.29.177.196/礼包详情.html",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":4.0,
-    "imei":"00000000",
-    "imsi":"00000000",
+    "url": $.apiRoot + "activityV3/getActivity.do",
+    "detailUrl": $.htmlRoot + "gift_detail.html",
     "onRefresh":false,
     "now":new Date().getTime()
 };
 
-//加载进来的专题列表
+//加载进来的活动列表
 var giftList = [];
 
 function isReceive(acId)
 {
-    var len = receiveList.length;
+    var len = myGiftData.length;
     for(var i = 0; i < len; ++i)
     {
-        if(acId == receiveList[i].acId)
+        if(acId == myGiftData[i].acId)
         {
             return i;
         }
@@ -60,7 +44,7 @@ function updateGift(acId, acNum)
 //ajax填充一个活动的信息，$item是一个zepto对象，itemData提供填充数据
 function fillItem($item, itemData)
 {
-    $item.data("acId", itemData.acId).attr("id", itemData.acId);
+    $item.data("acId", itemData.acId).attr("id", itemData.acId).data('acTitle', itemData.acName);
     $item.find(".percent").show();
     //活动
     if(itemData.acType == 2)
@@ -107,7 +91,7 @@ function fillItem($item, itemData)
             var index = isReceive(itemData.acId);
             if(index != -1)
             {
-                var num = receiveList[index].giftNo;
+                var num = myGiftData[index].giftNo;
                 $item.find('.btn').text("已领过").addClass('gray').data("num", num);
             }
             //没领过但光了
@@ -128,7 +112,7 @@ function fillItem($item, itemData)
         }
     }
 
-    $item.find(".giftIcon").find('img').attr("data-pic", itemData.acIcon);
+    $item.find(".giftIcon").find('img').attr("data-pic", itemData.acIcon).attr('src', default_icon);
     $item.find(".giftName").text(itemData.acName);
 
 
@@ -168,7 +152,7 @@ function itemTapHandler($target, type)
                 (
                     {
                         "type":12,
-                        "title":"礼包详情",
+                        "title":$target.data("acTitle"),
                         "url":ajaxGift.detailUrl +  "?acId=" + $target.data("acId") + "&num=" + num
                     }
                 )
@@ -180,7 +164,7 @@ function itemTapHandler($target, type)
                 (
                     {
                         "type":12,
-                        "title":"礼包详情",
+                        "title":$target.data("acTitle"),
                         "url":ajaxGift.detailUrl +  "?acId=" + $target.data("acId")
                     }
                 )
@@ -194,7 +178,7 @@ function itemTapHandler($target, type)
             (
                 {
                     "type":12,
-                    "title":"活动详情",
+                    "title":$target.data("acTitle"),
                     "url":ajaxGift.detailUrl +  "?acId=" + $target.data("acId")
                 }
             )
@@ -214,11 +198,11 @@ function loadMore()
                 dataType:'jsonp',
                 data:
                 {
-                    "version":ajaxGift.version,
-                    "phonetypeName":ajaxGift.phonetypeName,
-                    "os_version":ajaxGift.os_version,
-                    "imei":ajaxGift.imei,
-                    "imsi":ajaxGift.imsi,
+                    "version":userInfo.version,
+                    "phonetypeName":userInfo.phonetypeName,
+                    "os_version":userInfo.os_version,
+                    "imei":userInfo.imei,
+                    "imsi":userInfo.imsi,
                     "size":ajaxGift.load_size,
                     "start_position":ajaxGift.start_position
                 },
@@ -228,7 +212,6 @@ function loadMore()
                     if(data.state === 1 && data.activity)
                     {
                         var $container = $("#gift-list-box");
-                        $(".giftItem").removeClass("lastItem");
                         giftList = giftList.concat(data.activity);
                         var len = data.activity.length;
 
@@ -239,7 +222,7 @@ function loadMore()
                             $item.find("img").imglazyload({"urlName":"data-pic"});
                         }
 
-                        $(".giftItem").eq(-1).addClass("lastItem");
+                        $(".giftItem").removeClass("lastItem").eq(-1).addClass("lastItem");
 
                         ajaxGift.start_position += len;
 
@@ -261,9 +244,12 @@ function loadMore()
     }
 }
 
+var default_icon;
+
 //页面加载完毕执行函数
 $(function()
 {
+    default_icon = $(".giftItem").eq(0).find("img").attr('src');
     //最开始ajax加载5个活动
     $.ajax(
         {
@@ -271,11 +257,11 @@ $(function()
             dataType:'jsonp',
             data:
             {
-                "version":ajaxGift.version,
-                "phonetypeName":ajaxGift.phonetypeName,
-                "os_version":ajaxGift.os_version,
-                "imei":ajaxGift.imei,
-                "imsi":ajaxGift.imsi,
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi,
                 "size":ajaxGift.init_size,
                 "start_position":ajaxGift.start_position
             },
@@ -293,12 +279,13 @@ $(function()
                         if(data.activity[i])
                         {
                             fillItem($item, data.activity[i]);
-                            $item.find("img").imglazyload({"urlName": "data-pic"});
+                            $item.find("img").imglazyload({"urlName": "data-pic", "threshold":400});
                         }
                         else
                         {
-                            $item.hide();
+                            $item.remove();
                         }
+
                     });
                     $(".giftItem").eq(-1).addClass("lastItem");
 

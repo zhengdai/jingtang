@@ -1,20 +1,13 @@
 /**
  * Created by zd on 2014/4/19 0019.
  */
-var isUxbao;
-if(window.uxbao)
-{
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
-}
-
 //供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
 function updateState(packageName, state)
 {
-    isUxbao && window.activity.update(JSON.stringify(state));
+    if(packageName === ajaxInfoDetail.resPackagename)
+    {
+        isUxbao && window.activity.update(JSON.stringify(state));
+    }
 }
 
 //进入游戏详情
@@ -26,7 +19,7 @@ function infoTapHandler($info)
             {
                 "type":2,
                 "resId":resId,
-                "url":"http://115.29.177.196/游戏详情.html?resId=" + resId,
+                "url":ajaxInfoDetail.detailUrl + "?resId=" + resId,
                 "resName":$info.data("resName"),
                 "resPackagename":$info.data("resPackagename")
             }
@@ -56,12 +49,8 @@ var request = GetRequest();
 var ajaxInfoDetail =
 {
     "infoId":request.infoId,
-    "url":"http://115.29.177.196:8080/mystore/ newsV3/getNewsById.do",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "imei":"00000000",
-    "imsi":"00000000"
+    "url": $.apiRoot + "newsV3/getNewsById.do",
+    "detailUrl": $.htmlRoot + "game_detail.html"
 };
 
 function getDateStr(date)
@@ -95,28 +84,33 @@ function fillScore(score, $scoreList)
     {
         if(j - score < -0.5)
         {
-            $(imgItem).attr("src", "images/jingpin/star_01.png");
+            $(imgItem).attr("src", star_01);
         }
         else
         {
-            $(imgItem).attr("src", "images/jingpin/star_03.png");
+            $(imgItem).attr("src", star_03);
         }
     });
 }
 
+var star_01, star_03;
+
 $(function()
 {
+    var $default_stars = $('.items-score').eq(0).find('img');
+    star_01 = $default_stars.eq(0).attr('src');
+    star_03 = $default_stars.eq(1).attr('src');
     $.ajax(
         {
             url:ajaxInfoDetail.url,
             dataType:"jsonp",
             data:
             {
-                "version": ajaxInfoDetail.version,
-                "phonetypeName": ajaxInfoDetail.phonetypeName,
-                "os_version": ajaxInfoDetail.os_version,
-                "imei": ajaxInfoDetail.imei,
-                "imsi": ajaxInfoDetail.imsi,
+                "version": userInfo.version,
+                "phonetypeName": userInfo.phonetypeName,
+                "os_version": userInfo.os_version,
+                "imei": userInfo.imei,
+                "imsi": userInfo.imsi,
                 "newsId": ajaxInfoDetail.infoId
             },
             jsonp: 'jsoncallback',
@@ -125,6 +119,9 @@ $(function()
                 if(data.state == 1)
                 {
                     $('.infoIcon').find("img").data("pic", data.information.resIcon).imglazyload({"urlName":"data-pic"});
+                    ajaxInfoDetail.resPackagename = data.app.resPackagename;
+                    $.fn.imglazyload.detect();
+
                     $('.gameName').text(data.app.resName);
                     $('.cor').text(data.app.resDeveloper);
 

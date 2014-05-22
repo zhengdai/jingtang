@@ -10,12 +10,20 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; -webkit-use
 
 .subjectList{margin:10px;  overflow: hidden;}
 #subject-list-box li{margin:0 auto 10px; width: 100%;}
-.subjectItem{display: block; overflow: hidden; border: #d4d4d4 1px solid;}
+.subjectItem{display: block; overflow: hidden; border: #d4d4d4 1px solid; box-shadow: 0 2px 2px #dadada;}
 .subjectItem img{display: block; width: 100%;}
+.subjectHead{position: relative;}
+.subjectTit{ position: absolute; height: 30px; overflow: hidden; width: 100%; bottom: 0; left: 0;
+    background-color: rgba(100, 100, 100, 0.6);
+}
+.subjectName{ line-height: 30px; font-size:14px; color:#fff; margin-right: 80px; height: 30px; overflow: hidden; padding:0 5px;}
+.subjectTime{line-height: 30px; font-size:12px; color:#fff;
+    position: absolute; height: 30px; overflow: hidden; right:0; top: 0; padding: 0 5px;
+}
 .subjectDes{width: 100%; padding:5px; background-color: #fefefe; overflow: hidden; position: relative;}
-.description{margin-right:30px; line-height: 22px; font-size: 14px; height: 44px; overflow: hidden; color: #636363;}
+.description{margin-right:30px; line-height: 22px; font-size: 12px; height: 44px; overflow: hidden; color: #8e8e8e;}
 .arrow{display: block;position: absolute; height: 44px; width: 30px;
-    background: url("../images/zhuanti/arraw.png") center no-repeat;top:5px;right: 5px;
+    background: url("../images/local/arrow.png") center no-repeat;top:5px;right: 5px;
 }
 
 .more{height: 40px; width: 100%; overflow: hidden; text-align: center;}
@@ -25,7 +33,7 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; -webkit-use
     width: 40px;
     height: 40px;
     margin: 0 auto;
-    background: url('../images/jingpin/ui-loading.png') 0 0 no-repeat;
+    background: url('../images/local/ui-loading.png') 0 0 no-repeat;
     -webkit-background-size: 40px 40px;
     -webkit-animation-name: ui-loading-anim;
     -webkit-animation-duration: 1s;

@@ -1,244 +1,6 @@
 /**
  * Created by zd on 14-3-22.
  */
-//获取本机数据
-var isUxbao, phoneData;
-if(window.uxbao)
-{
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
-}
-if(isUxbao)
-{
-    phoneData = JSON.parse(window.uxbao.init());
-}
-else
-{
-    phoneData =
-    {
-        "downloadList":
-            [
-                {
-                    "userresPaystatus": null,
-                    "author_email": null,
-                    "author_id": null,
-                    "downLength": null,
-                    "downPercent": 30,
-                    "downState": null,
-                    "resCapacity": null,
-                    "resDescription": null,
-                    "resDeveloper": null,
-                    "resDownloadnum": null,
-                    "resIcons": null,
-                    "resId": null,
-                    "resLocation": null,
-                    "resName": null,
-                    "resPackagename": "com.chukong.brave",
-                    "resPrice": null,
-                    "resRated": null,
-                    "resRecommendflag": null,
-                    "resScreenshots": null,
-                    "resVersion": null,
-                    "resVersionCode": 2,
-                    "rescategoryId": null,
-                    "totalLength": null,
-                    "_id": 0
-                },
-                {
-                    "userresPaystatus": null,
-                    "author_email": null,
-                    "author_id": null,
-                    "downLength": null,
-                    "downPercent": 20,
-                    "downState": null,
-                    "resCapacity": null,
-                    "resDescription": null,
-                    "resDeveloper": null,
-                    "resDownloadnum": null,
-                    "resIcons": null,
-                    "resId": null,
-                    "resLocation": null,
-                    "resName": null,
-                    "resPackagename": "com.uxbao",
-                    "resPrice": null,
-                    "resRated": null,
-                    "resRecommendflag": null,
-                    "resScreenshots": null,
-                    "resVersion": null,
-                    "resVersionCode": 4,
-                    "rescategoryId": null,
-                    "totalLength": null,
-                    "_id": 0
-                },
-                {
-                    "userresPaystatus": null,
-                    "author_email": null,
-                    "author_id": null,
-                    "downLength": null,
-                    "downPercent": 45,
-                    "downState": null,
-                    "resCapacity": null,
-                    "resDescription": null,
-                    "resDeveloper": null,
-                    "resDownloadnum": null,
-                    "resIcons": null,
-                    "resId": null,
-                    "resLocation": null,
-                    "resName": null,
-                    "resPackagename": "com.koogame.zaiyiqi",
-                    "resPrice": null,
-                    "resRated": null,
-                    "resRecommendflag": null,
-                    "resScreenshots": null,
-                    "resVersion": null,
-                    "resVersionCode": 5,
-                    "rescategoryId": null,
-                    "totalLength": null,
-                    "_id": 0
-                }
-            ],
-        "updateList":
-            [
-                {
-                    "userresPaystatus": null,
-                    "author_email": null,
-                    "author_id": null,
-                    "downLength": null,
-                    "downPercent": null,
-                    "downState": null,
-                    "resCapacity": null,
-                    "resDescription": null,
-                    "resDeveloper": null,
-                    "resDownloadnum": null,
-                    "resIcons": null,
-                    "resId": null,
-                    "resLocation": null,
-                    "resName": null,
-                    "resPackagename": "com.supreme.tanks",
-                    "resPrice": null,
-                    "resRated": null,
-                    "resRecommendflag": null,
-                    "resScreenshots": null,
-                    "resVersion": null,
-                    "resVersionCode": 20,
-                    "rescategoryId": null,
-                    "totalLength": null,
-                    "_id": 0
-                },
-                {
-                    "userresPaystatus": null,
-                    "author_email": null,
-                    "author_id": null,
-                    "downLength": null,
-                    "downPercent": null,
-                    "downState": null,
-                    "resCapacity": null,
-                    "resDescription": null,
-                    "resDeveloper": null,
-                    "resDownloadnum": null,
-                    "resIcons": null,
-                    "resId": null,
-                    "resLocation": null,
-                    "resName": null,
-                    "resPackagename": "org.cocos2dx.FishingJoy2",
-                    "resPrice": null,
-                    "resRated": null,
-                    "resRecommendflag": null,
-                    "resScreenshots": null,
-                    "resVersion": null,
-                    "resVersionCode": 105,
-                    "rescategoryId": null,
-                    "totalLength": null,
-                    "_id": 0
-                },
-                {
-                    "userresPaystatus": null,
-                    "author_email": null,
-                    "author_id": null,
-                    "downLength": null,
-                    "downPercent": null,
-                    "downState": null,
-                    "resCapacity": null,
-                    "resDescription": null,
-                    "resDeveloper": null,
-                    "resDownloadnum": null,
-                    "resIcons": null,
-                    "resId": null,
-                    "resLocation": null,
-                    "resName": null,
-                    "resPackagename": "com.TongBanStudio.JTDDZ",
-                    "resPrice": null,
-                    "resRated": null,
-                    "resRecommendflag": null,
-                    "resScreenshots": null,
-                    "resVersion": null,
-                    "resVersionCode": 5,
-                    "rescategoryId": null,
-                    "totalLength": null,
-                    "_id": 0
-                }
-            ],
-        "installList":
-            [
-                {
-                    "userresPaystatus": null,
-                    "author_email": null,
-                    "author_id": null,
-                    "downLength": null,
-                    "downPercent": null,
-                    "downState": null,
-                    "resCapacity": null,
-                    "resDescription": null,
-                    "resDeveloper": null,
-                    "resDownloadnum": null,
-                    "resIcons": null,
-                    "resId": null,
-                    "resLocation": null,
-                    "resName": null,
-                    "resPackagename": "com.andbase",
-                    "resPrice": null,
-                    "resRated": null,
-                    "resRecommendflag": null,
-                    "resScreenshots": null,
-                    "resVersion": null,
-                    "resVersionCode": 14,
-                    "rescategoryId": null,
-                    "totalLength": null,
-                    "_id": 0
-                },
-                {
-                    "userresPaystatus": null,
-                    "author_email": null,
-                    "author_id": null,
-                    "downLength": null,
-                    "downPercent": null,
-                    "downState": null,
-                    "resCapacity": null,
-                    "resDescription": null,
-                    "resDeveloper": null,
-                    "resDownloadnum": null,
-                    "resIcons": null,
-                    "resId": null,
-                    "resLocation": null,
-                    "resName": null,
-                    "resPackagename": "com.aspire.mm",
-                    "resPrice": null,
-                    "resRated": null,
-                    "resRecommendflag": null,
-                    "resScreenshots": null,
-                    "resVersion": null,
-                    "resVersionCode": 32,
-                    "rescategoryId": null,
-                    "totalLength": null,
-                    "_id": 0
-                }
-            ]
-    };
-}
-
 function GetRequest()
 {
     var url = location.search; //获取url中"?"符后的字串
@@ -266,24 +28,18 @@ var ajaxCategoryDetail =
     "load_size":5,//之后每次下拉加载的数目
     "order_by":request.order_by,
     "rescategory_id":request.rescategory_id,
-    "url":"http://115.29.177.196:8080/mystore/appV3/getCategoryProducts.do",
-    "resolution":"200*200",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "language":"cn",
-    "imei":"00000000",
-    "imsi":"00000000",
+    "url": $.apiRoot + "appV3/getCategoryProducts.do",
+    "detailUrl": $.htmlRoot + "game_detail.html",
     "onRefresh":false
 };
 
 //加载进来的推荐应用列表
 var appList = [];
 //空li字符串，创建用
-function createItem(itemData, i)
+function createItem(itemData)
 {
     var $item = $($(".app")[0].cloneNode(true));
-    fillItem($item, itemData, i);
+    fillItem($item, itemData);
     return $item;
 }
 
@@ -339,15 +95,15 @@ function fillRate($item, score)
     {
         if(j - score < -0.5)
         {
-            $(imgItem).attr("src", "images/jingpin/star_01.png");
+            $(imgItem).attr("src", star_01);
         }
         else if(j - score == -0.5)
         {
-            $(imgItem).attr("src", "images/jingpin/star_02.png");
+            $(imgItem).attr("src", star_02);
         }
         else
         {
-            $(imgItem).attr("src", "images/jingpin/star_03.png");
+            $(imgItem).attr("src", star_03);
         }
     });
 }
@@ -393,19 +149,19 @@ function fillState($item, packageName, phoneData)
 }
 
 //ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
-function fillItem($item, itemData, i)
+function fillItem($item, itemData)
 {
     var packageName = itemData.resPackagename;
     //使用包名作为id
     $item.attr("id", itemData.resPackagename)
-        .attr("data-location", itemData.resLocation)
-        .attr("data-id", itemData.resId)
-        .attr("data-package", packageName)
-        .attr("data-icon", itemData.resIcons)
-        .attr("data-name", itemData.resName);
+        .data("location", itemData.resLocation)
+        .data("id", itemData.resId)
+        .data("package", packageName)
+        .data("icon", itemData.resIcons)
+        .data("name", itemData.resName);
 
     //$item.find(".number").text(i);
-    $item.find(".appIcon").attr("data-icon", itemData.resIcons).attr("src", default_icon);
+    $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
 
     $item.find(".tit strong").text(itemData.resName);
     var ca = (itemData.resCapacity/(1024 * 1024)).toFixed(1);
@@ -432,11 +188,11 @@ function btnTapHandler($target)
             JSON.stringify(
                 {
                     "type":1,
-                    "resPackagename":$item.attr("data-package"),
-                    "resId":$item.attr("data-id"),
-                    "resLocation":$item.attr("data-location"),
-                    "resIcons":$item.attr("data-icon"),
-                    "resName":$item.attr("data-name")
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
                 }
             )
         );
@@ -449,11 +205,11 @@ function btnTapHandler($target)
             JSON.stringify(
                 {
                     "type":1,
-                    "resPackagename":$item.attr("data-package"),
-                    "resId":$item.attr("data-id"),
-                    "resLocation":$item.attr("data-location"),
-                    "resIcons":$item.attr("data-icon"),
-                    "resName":$item.attr("data-name")
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
                 }
             )
         );
@@ -467,11 +223,11 @@ function btnTapHandler($target)
             JSON.stringify(
                 {
                     "type":5,
-                    "resPackagename":$item.attr("data-package"),
-                    "resId":$item.attr("data-id"),
-                    "resLocation":$item.attr("data-location"),
-                    "resIcons":$item.attr("data-icon"),
-                    "resName":$item.attr("data-name")
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
                 }
             )
         );
@@ -483,11 +239,11 @@ function btnTapHandler($target)
             JSON.stringify(
                 {
                     "type":3,
-                    "resPackagename":$item.attr("data-package"),
-                    "resId":$item.attr("data-id"),
-                    "resLocation":$item.attr("data-location"),
-                    "resIcons":$item.attr("data-icon"),
-                    "resName":$item.attr("data-name")
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
                 }
             )
         );
@@ -499,11 +255,11 @@ function btnTapHandler($target)
             JSON.stringify(
                 {
                     "type":6,
-                    "resPackagename":$item.attr("data-package"),
-                    "resId":$item.attr("data-id"),
-                    "resLocation":$item.attr("data-location"),
-                    "resIcons":$item.attr("data-icon"),
-                    "resName":$item.attr("data-name")
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
                 }
             )
         );
@@ -514,15 +270,15 @@ function btnTapHandler($target)
 function infoTapHandler($info)
 {
     var $item = $info.parent().parent();
-    var resId = $item.attr("data-id");
+    var resId = $item.data("id");
     isUxbao && window.uxbao.click(
         JSON.stringify(
             {
                 "type":2,
                 "resId":resId,
-                "url":"http://115.29.177.196/游戏详情.html?resId=" + resId,
-                "resName":$item.attr("data-name"),
-                "resPackageName":$item.attr("data-package")
+                "url": ajaxCategoryDetail.detailUrl + "?resId=" + resId,
+                "resName":$item.data("name"),
+                "resPackageName":$item.data("package")
             }
         )
     );
@@ -540,13 +296,13 @@ function loadMore()
                 dataType:'jsonp',
                 data:
                 {
-                    "resolution":ajaxCategoryDetail.resolution,
-                    "version":ajaxCategoryDetail.version,
-                    "phonetypeName":ajaxCategoryDetail.phonetypeName,
-                    "os_version":ajaxCategoryDetail.os_version,
-                    "language":ajaxCategoryDetail.language,
-                    "imei":ajaxCategoryDetail.imei,
-                    "imsi":ajaxCategoryDetail.imsi,
+                    "resolution":userInfo.resolution,
+                    "version":userInfo.version,
+                    "phonetypeName":userInfo.phonetypeName,
+                    "os_version":userInfo.os_version,
+                    "language":userInfo.language,
+                    "imei":userInfo.imei,
+                    "imsi":userInfo.imsi,
                     "size":ajaxCategoryDetail.load_size,
                     "start_position":ajaxCategoryDetail.start_position,
                     "order_by":ajaxCategoryDetail.order_by,
@@ -600,12 +356,16 @@ function loadMore()
     }
 }
 
-var default_icon;
+var default_icon, star_01, star_02, star_03;
 
 //页面加载完毕执行函数
 $(function()
 {
     default_icon = $('.app').eq(0).find(".appIcon").attr("src");
+    var $default_stars = $('.items-score').eq(0).find('img');
+    star_01 = $default_stars.eq(0).attr('src');
+    star_02 = $default_stars.eq(1).attr('src');
+    star_03 = $default_stars.eq(2).attr('src');
     //最开始ajax加载10个应用
     $.ajax(
         {
@@ -613,13 +373,13 @@ $(function()
             dataType:'jsonp',
             data:
             {
-                "resolution":ajaxCategoryDetail.resolution,
-                "version":ajaxCategoryDetail.version,
-                "phonetypeName":ajaxCategoryDetail.phonetypeName,
-                "os_version":ajaxCategoryDetail.os_version,
-                "language":ajaxCategoryDetail.language,
-                "imei":ajaxCategoryDetail.imei,
-                "imsi":ajaxCategoryDetail.imsi,
+                "resolution":userInfo.resolution,
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "language":userInfo.language,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi,
                 "size":ajaxCategoryDetail.init_size,
                 "start_position":ajaxCategoryDetail.start_position,
                 "order_by":ajaxCategoryDetail.order_by,
@@ -636,22 +396,28 @@ $(function()
                     $(".app").each(function(i,item)
                     {
                         var $item = $(this);
-                        fillItem($item, data.product[i], ajaxCategoryDetail.start_position - data.product.length + i);
-                        $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
-                        $.fn.imglazyload.detect();
-                        //添加点击响应函数
-                        $item.find(".btn").on("tap",function()
+                        if(data.product[i])
                         {
-                            btnTapHandler($(this));
-                            return false;
-                        });
-                        $item.find(".appInfo").on('tap', function()
+                            fillItem($item, data.product[i]);
+                            $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
+                            //添加点击响应函数
+                            $item.find(".btn").on("tap",function()
+                            {
+                                btnTapHandler($(this));
+                                return false;
+                            });
+                            $item.find(".appInfo").on('tap', function()
+                            {
+                                infoTapHandler($(this));
+                                return false;
+                            });
+                        }
+                        else
                         {
-                            infoTapHandler($(this));
-                            return false;
-                        });
+                            $item.remove();
+                        }
                     });
-
+                    $.fn.imglazyload.detect();
                     //下拉加载
                     if(ajaxCategoryDetail.start_position <= ajaxCategoryDetail.total_size)
                     {

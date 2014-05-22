@@ -1,25 +1,65 @@
 /**
  * Created by zd on 14-3-21.
  */
-var isUxbao, phoneData;
-if(window.uxbao)
+
+var giftDetailUrl = $.htmlRoot + "my_gift.html";
+
+//供android调用
+function updateInfo()
 {
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
+    userInfo = JSON.parse(window.uxbao.userInfo()).userInfo;
+    $(".logBtn").text(userInfo.nickName);
+    $(".portrait").find('img').attr('src', userInfo.icon);
+
+    $(".logBtn, .portrait, #personConfig").off('tap').on('tap', function()
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":9
+                }
+            )
+        );
+        return false;
+    });
 }
 
 $(function()
 {
-    var assist = $("#myonoffswitch").attr("checked");
-	if(isUxbao)
+    if(userInfo.nickName)
     {
-        var userInfo = JSON.parse(window.uxbao.userInfo());
-        var userName = userInfo.userInfo.userName;
+        $(".logBtn").text(userInfo.nickName);
+        $(".portrait").find('img').attr('src', userInfo.icon);
+        $(".logBtn, .portrait, #personConfig").on('tap', function()
+        {
+            isUxbao && window.uxbao.click(
+                JSON.stringify(
+                    {
+                        "type":9
+                    }
+                )
+            );
+            return false;
+        });
     }
-    $("#infoCenter").on('tap', function()
+    else
+    {
+        $(".logBtn, .portrait, #personConfig").on('tap', function()
+        {
+            isUxbao && window.uxbao.click(
+                JSON.stringify(
+                    {
+                        "type":11
+                    }
+                )
+            );
+            return false;
+        });
+    }
+
+    $(".itemWrap").button();
+
+    $("#gameCenter").on('tap', function()
     {
         isUxbao && window.uxbao.click(
             JSON.stringify(
@@ -28,8 +68,10 @@ $(function()
                 }
             )
         );
+        return false;
     });
-    $("#gameCenter").on('tap', function()
+
+    $("#systemConfig").on('tap', function()
     {
         isUxbao && window.uxbao.click(
             JSON.stringify(
@@ -38,27 +80,33 @@ $(function()
                 }
             )
         );
+        return false;
     });
-	$(".logBtn").on('tap', function()
+
+    $("#aboutUs").on('tap', function()
     {
         isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
-                    "type":11
+                    "type":10
                 }
             )
         );
+        return false;
     });
-    $(".onoffswitch").on('tap', function()
+
+    $("#myGift").on('tap', function()
     {
-        assist = !assist;
         isUxbao && window.uxbao.click(
             JSON.stringify(
                 {
-                    "type":9,
-                    "open":assist
+                    "type":15,
+                    "title":"我的礼包",
+                    "url":giftDetailUrl
                 }
             )
         );
+        return false;
     });
+
 });

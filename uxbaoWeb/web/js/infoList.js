@@ -1,16 +1,6 @@
 /**
  * Created by zd on 2014/4/16 0016.
  */
-var isUxbao;
-if(window.uxbao)
-{
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
-}
-
 function getDateStr(date)
 {
     var dateStr = "";
@@ -41,13 +31,8 @@ var ajaxInfo = {
     "start_position":1,//从第几个开始取
     "init_size":5,//第一次取的数目
     "load_size":3,//之后每次下拉加载的数目
-    "url":"http://115.29.177.196:8080/mystore/newsV3/getNews.do",
-    "detailUrl":"http://115.29.177.196/资讯详情.html",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":4.0,
-    "imei":"00000000",
-    "imsi":"00000000",
+    "url": $.apiRoot + "newsV3/getNews.do",
+    "detailUrl": $.htmlRoot + "info_detail.html",
     "onRefresh":false
 };
 
@@ -64,14 +49,14 @@ function createItem(itemData)
 //ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
 function fillItem($item, itemData)
 {
-    $item.data("infoId", itemData.infoId);
+    $item.data("infoId", itemData.infoId).data('infoTitle', itemData.infoTitle);
     $item.find(".infoName").text(itemData.infoTitle);
-    $item.find(".infoIcon").find("img").data("pic", itemData.resIcon);
+    $item.find(".infoIcon").find("img").data("pic", itemData.resIcon).attr('src', default_icon);
     var date = new Date(parseInt(itemData.infoCreateddate));
     $item.find(".infoDate").text(getDateStr(date));
     $item.find(".tit").text("【摘要】");
     $item.find(".content").text(itemData.infoAbstract);
-    $item.find(".figure").data("pic", itemData.infoImg);
+    $item.find(".figure").data("pic", itemData.infoImg).attr('src', default_pic);
 }
 
 //点击领号函数
@@ -96,7 +81,7 @@ function itemTapHandler($target)
             (
                 {
                     "type":14,
-                    "title":"资讯详情",
+                    "title":$target.data('infoTitle'),
                     "url":ajaxInfo.detailUrl +  "?infoId=" + $target.data("infoId")
                 }
             )
@@ -115,11 +100,11 @@ function loadMore()
                 dataType:'jsonp',
                 data:
                 {
-                    "version":ajaxInfo.version,
-                    "phonetypeName":ajaxInfo.phonetypeName,
-                    "os_version":ajaxInfo.os_version,
-                    "imei":ajaxInfo.imei,
-                    "imsi":ajaxInfo.imsi,
+                    "version":userInfo.version,
+                    "phonetypeName":userInfo.phonetypeName,
+                    "os_version":userInfo.os_version,
+                    "imei":userInfo.imei,
+                    "imsi":userInfo.imsi,
                     "size":ajaxInfo.load_size,
                     "start_position":ajaxInfo.start_position
                 },
@@ -165,9 +150,14 @@ function loadMore()
     }
 }
 
+var default_icon, default_pic;
+
 //页面加载完毕执行函数
 $(function()
 {
+    var $default_info = $(".infoItem").eq(0);
+    default_icon = $default_info.find('.infoIcon').find('img').attr('src');
+    default_pic = $default_info.find('.figure').attr('src');
     //最开始ajax加载5个活动
     $.ajax(
         {
@@ -175,11 +165,11 @@ $(function()
             dataType:'jsonp',
             data:
             {
-                "version":ajaxInfo.version,
-                "phonetypeName":ajaxInfo.phonetypeName,
-                "os_version":ajaxInfo.os_version,
-                "imei":ajaxInfo.imei,
-                "imsi":ajaxInfo.imsi,
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi,
                 "size":ajaxInfo.init_size,
                 "start_position":ajaxInfo.start_position
             },
@@ -207,7 +197,7 @@ $(function()
                         }
                         else
                         {
-                            $item.hide();
+                            $item.remove();
                         }
                     });
 

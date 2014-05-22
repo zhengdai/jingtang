@@ -1,15 +1,7 @@
 /**
  * Created by zd on 2014/4/2 0002.
  */
-var isUxbao;
-if(window.uxbao)
-{
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
-}
+$.apiRoot = 'http://apk.gambao.com:8080/mystore/';
 function GetRequest()
 {
     var url = location.search; //获取url中"?"符后的字串
@@ -30,13 +22,8 @@ var request = GetRequest();
 
 var ajaxComment =
 {
-    "url":"http://115.29.177.196:8080/mystore/appV3/sendCustomerRemark.do",
-    "resId":request.resId,
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "imei":"00000000",
-    "imsi":"00000000"
+    "url": $.apiRoot + "appV3/sendCustomerRemark.do",
+    "resId":request.resId
 };
 
 $(function()
@@ -45,27 +32,31 @@ $(function()
     var $star = $(".comm-star"), $star_holder = $("#J_star_holder"), $submit = $("#J_submit");
     $star.each(function(i, item) {
         $(item).on('tap', function(){
-            var grade = $(this).attr("data-star");
+            var grade = $(this).data("star");
             $star.removeClass("star-cur");
             $star_holder.val(grade);
             for (var j = 0; j <= i; j++)
             {
                 $($star[j]).addClass("star-cur");
             }
-//            if($submit.hasClass("gray"))
-//            {
-//                //此时才可以提交
-//
-//            }
         })
     });
     $submit.on('tap', function(e) {
         ajaxComment.resRated = $star_holder.val();
-        ajaxComment.userId = "dd";
-        ajaxComment.nickName = "dd";
+        if(userInfo.id)
+        {
+            ajaxComment.userId = userInfo.id;
+            ajaxComment.nickName = userInfo.nickName;
+        }
+        else
+        {
+            ajaxComment.userId = "";
+            ajaxComment.nickName = "";
+        }
         ajaxComment.commentContent = $("#J_describe").val().trim();
         if(ajaxComment.commentContent)
         {
+            console.log(ajaxComment.url);
             $.ajax(
                 {
                     url:ajaxComment.url,
@@ -74,34 +65,37 @@ $(function()
                     {
                         "resRated":ajaxComment.resRated,
                         "userId":ajaxComment.userId,
+                        "nickName":ajaxComment.nickName,
                         "resId":ajaxComment.resId,
-                        "type":ajaxComment.type,
-                        "version":ajaxComment.version,
-                        "phonetypeName":ajaxComment.phonetypeName,
-                        "os_version":ajaxComment.os_version,
-                        "imei":ajaxComment.imei,
-                        "imsi":ajaxComment.imsi,
-                        "size":ajaxComment.load_size,
-                        "start_position":ajaxComment.start_position,
+                        "version":userInfo.version,
+                        "phonetypeName":userInfo.phonetypeName,
+                        "os_version":userInfo.os_version,
+                        "imei":userInfo.imei,
+                        "imsi":userInfo.imsi,
                         "custremarkContent":ajaxComment.commentContent
                     },
                     success:function(data)
                     {
                         //提交成功
-                        if(data.status == 1)
+                        if(data.state == 1)
                         {
-
+                            isUxbao && window.uxbao.comment("0");
                         }
                         //过快评论
-                        else if(data.status == -1)
+                        else if(data.state == -1)
                         {
-
+                            isUxbao && window.uxbao.comment("2");
                         }
                         //其他错误
-                        else if(data.status == 0)
+                        else if(data.state == 0)
                         {
                             console.log("unknown error.");
+                            isUxbao && window.uxbao.comment("3");
                         }
+                    },
+                    error:function()
+                    {
+                        isUxbao && window.uxbao.comment("1");
                     }
                 }
             );

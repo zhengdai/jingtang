@@ -1,53 +1,31 @@
 /**
  * Created by zd on 14-3-21.
  */
-var isUxbao;
-if(window.uxbao)
-{
-    isUxbao = true;
-}
-else
-{
-    isUxbao = false;
-}
 var ajaxCategory =
 {
-    "url":"http://115.29.177.196:8080/mystore/appV3/getCategory.do",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "imei":"00000000",
-    "imsi":"00000000"
+    "url": $.apiRoot + "appV3/getCategory.do",
+    "detailUrl": $.htmlRoot + "category_detail.html"
 };
 
 var ajaxCategoryIcon =
 {
-    "url":"http://115.29.177.196:8080/mystore/appV3/getCategoryProducts.do",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "imei":"00000000",
-    "imsi":"00000000",
+    "url":$.apiRoot + "appV3/getCategoryProducts.do",
     "start_position":"1",
     "order_by":"hot",
-    "size":"4",
-    "resolution":"200*200",
-    "language":"cn"
+    "size":"4"
 };
 
 var categoryInfo, categoryTag = {};
 
 function categoryTapHandler($item)
 {
-    console.log("http://115.29.177.196/分类详情.html?order_by=hot&rescategory_id=" + $item.attr('data-rescategory_id'));
-    console.log("http://115.29.177.196/分类详情.html?order_by=new&rescategory_id=" + $item.attr('data-rescategory_id'));
     isUxbao && window.uxbao.click(
         JSON.stringify(
             {
                 "type":4,
-                "hotUrl":"http://115.29.177.196/分类详情.html?order_by=hot&rescategory_id=" + $item.attr('data-rescategory_id'),
-                "newUrl":"http://115.29.177.196/分类详情.html?order_by=new&rescategory_id=" + $item.attr('data-rescategory_id'),
-                "name":$item.attr('data-category')
+                "hotUrl": ajaxCategory.detailUrl + "?order_by=hot&rescategory_id=" + $item.data('rescategory_id'),
+                "newUrl": ajaxCategory.detailUrl + "?order_by=new&rescategory_id=" + $item.data('rescategory_id'),
+                "name":$item.data('category')
             }
         )
     );
@@ -56,11 +34,12 @@ function categoryTapHandler($item)
 $(function()
 {
     //获取单机分类信息
-    if($('title').text() == "单机分类")
+    var title_text = $('title').text();
+    if(title_text == "单机分类")
     {
         ajaxCategory.category = "1";
     }
-    else if($('title').text() == "网游分类")
+    else if(title_text == "网游分类")
     {
         ajaxCategory.category = "2";
     }
@@ -71,11 +50,11 @@ $(function()
             data:
             {
                 "category":ajaxCategory.category,
-                "version":ajaxCategory.version,
-                "phonetypeName":ajaxCategory.phonetypeName,
-                "os_version":ajaxCategory.os_version,
-                "imei":ajaxCategory.imei,
-                "imsi":ajaxCategory.imsi
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi
             },
             jsonp:'jsonCategory',
             success:function(data)
@@ -90,13 +69,13 @@ $(function()
                 $(".category").each(function()
                 {
                     var $item = $(this);
-                    $item.attr('data-rescategory_id', categoryTag[$item.attr("data-category")]);
+                    $item.data('rescategory_id', categoryTag[$item.data("category")]);
                     $item.on("tap", function()
                     {
                         categoryTapHandler($item);
                         return false;
                     });
-                    ajaxCategoryIcon.rescategory_id = categoryTag[$item.attr("data-category")];
+                    ajaxCategoryIcon.rescategory_id = categoryTag[$item.data("category")];
                     $.ajax(
                         {
                             url:ajaxCategoryIcon.url,
@@ -107,13 +86,13 @@ $(function()
                                 "size":ajaxCategoryIcon.size,
                                 "start_position":ajaxCategoryIcon.start_position,
                                 "order_by":ajaxCategoryIcon.order_by,
-                                "version":ajaxCategoryIcon.version,
-                                "phonetypeName":ajaxCategoryIcon.phonetypeName,
-                                "os_version":ajaxCategoryIcon.os_version,
-                                "imei":ajaxCategoryIcon.imei,
-                                "imsi":ajaxCategoryIcon.imsi,
-                                "language":ajaxCategoryIcon.language,
-                                "resolution":ajaxCategoryIcon.resolution
+                                "version":userInfo.version,
+                                "phonetypeName":userInfo.phonetypeName,
+                                "os_version":userInfo.os_version,
+                                "imei":userInfo.imei,
+                                "imsi":userInfo.imsi,
+                                "language":userInfo.language,
+                                "resolution":userInfo.resolution
                             },
                             jsonp:'jsonCategoryIcon',
                             success:function(data)
@@ -124,14 +103,14 @@ $(function()
                                     var $icon = $item.find('.appIcon');
                                     for(var j = 0; j < len; ++j)
                                     {
-                                        $icon.eq(j).attr("data-icon", data.product[j].resIcons);
+                                        $icon.eq(j).data("icon", data.product[j].resIcons);
                                     }
                                     $icon.imglazyload({"urlName":"data-icon"});
                                     $.fn.imglazyload.detect();
                                 }
                                 else
                                 {
-                                    console.log("there is no category data in " + $item.attr("data-category") + ".");
+                                    console.log("there is no category data in " + $item.data("category") + ".");
                                 }
                             }
 

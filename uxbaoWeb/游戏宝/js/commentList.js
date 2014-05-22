@@ -1,6 +1,7 @@
 /**
  * Created by zd on 2014/4/2 0002.
  */
+
 function GetRequest()
 {
     var url = location.search; //获取url中"?"符后的字串
@@ -25,12 +26,7 @@ var ajaxCommentList = {
     "start_position":1,//从第几个开始取
     "init_size":8,//第一次取的数目
     "load_size":5,//之后每次下拉加载的数目
-    "url":"http://115.29.177.196:8080/mystore/appV3/getCustomerRemark.do",
-    "version":"2.3",
-    "phonetypeName":"N7105",
-    "os_version":"4.0",
-    "imei":"00000000",
-    "imsi":"00000000",
+    "url": $.apiRoot + "appV3/getCustomerRemark.do",
     "onRefresh":false
 };
 if(request.type)
@@ -50,19 +46,19 @@ function getDateStr(date)
     var day = date.getDate();
     if(month < 10)
     {
-        dateStr += '-0' + month;
+        dateStr += '.0' + month;
     }
     else
     {
-        dateStr += '-' + month;
+        dateStr += '.' + month;
     }
     if(day < 10)
     {
-        dateStr += '-0' + day;
+        dateStr += '.0' + day;
     }
     else
     {
-        dateStr += '-' + day;
+        dateStr += '.' + day;
     }
     return dateStr
 }
@@ -78,6 +74,16 @@ function fillItem($item, data)
     {
         $item.find('.userName').text('游戏宝用户')
     }
+    if(data.customerImg)
+    {
+        ajaxCommentList.imgLazyload = true;
+        $item.find('.userIcon').find('img').data('icon', data.customerImg)
+            .attr('src', user_icon).imglazyload({"urlName":"data-icon"});
+    }
+    else
+    {
+        $item.find('.userIcon').find('img').attr('src', user_icon);
+    }
     var date = new Date(parseInt(data.custremarkCreatedate));
     $item.find('.commentDate').text(getDateStr(date));
     $item.find('.commentContent').text(data.custremarkContent);
@@ -85,28 +91,11 @@ function fillItem($item, data)
     {
         if(j - data.custremarkCustrated < -0.5)
         {
-            $(imgItem).attr("src", "images/xiangqing/little_yellow_star.png");
+            $(imgItem).attr("src", little_yellow_star);
         }
         else
         {
-            $(imgItem).attr("src", "images/xiangqing/light_gray_star.png");
-        }
-    });
-}
-
-//填充初始评论列表
-function fillCommentList($items, commentData)
-{
-    $items.each(function(i, commentItem)
-    {
-        var $me = $(commentItem);
-        if(commentData[i])
-        {
-            fillItem($me, commentData[i]);
-        }
-        else
-        {
-            $me.hide();
+            $(imgItem).attr("src", light_gray_star);
         }
     });
 }
@@ -114,6 +103,7 @@ function fillCommentList($items, commentData)
 function createCommentItem(data)
 {
     var $me = $($('.commentItem')[0].cloneNode(true));
+    fillItem($me, data);
     return $me;
 }
 
@@ -131,15 +121,15 @@ function loadMore()
                 {
                     "resId":ajaxCommentList.resId,
                     "type":ajaxCommentList.type,
-                    "version":ajaxCommentList.version,
-                    "phonetypeName":ajaxCommentList.phonetypeName,
-                    "os_version":ajaxCommentList.os_version,
-                    "imei":ajaxCommentList.imei,
-                    "imsi":ajaxCommentList.imsi,
+                    "version":userInfo.version,
+                    "phonetypeName":userInfo.phonetypeName,
+                    "os_version":userInfo.os_version,
+                    "imei":userInfo.imei,
+                    "imsi":userInfo.imsi,
                     "size":ajaxCommentList.load_size,
                     "start_position":ajaxCommentList.start_position
                 },
-                jsonp:'jsonpcallback',
+                jsonp:'jsonpCommentList',
                 success:function(data, textStatus, xhr)
                 {
                     if(data.state === 1)
@@ -174,10 +164,16 @@ function loadMore()
     }
 }
 
+var little_yellow_star, light_gray_star, user_icon;
+
 //页面加载完毕执行函数
 $(function()
 {
-    //最开始ajax加载5个评论
+    user_icon = $('.userIcon').eq(0).find('img').attr('src');
+    var $default_star = $(".grade").find('img');
+    little_yellow_star = $default_star.eq(0).attr("src");
+    light_gray_star = $default_star.eq(1).attr("src");
+    //最开始ajax加载8个评论
     $.ajax(
         {
             url:ajaxCommentList.url,
@@ -186,22 +182,37 @@ $(function()
             {
                 "resId":ajaxCommentList.resId,
                 "type":ajaxCommentList.type,
-                "version":ajaxCommentList.version,
-                "phonetypeName":ajaxCommentList.phonetypeName,
-                "os_version":ajaxCommentList.os_version,
-                "imei":ajaxCommentList.imei,
-                "imsi":ajaxCommentList.imsi,
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi,
                 "size":ajaxCommentList.init_size,
                 "start_position":ajaxCommentList.start_position
             },
-            jsonp:'jsoncallback',
+            jsonp:'jsonpCommentList',
             success:function(data)
             {
                 if(data.state === 1)//获取成功
                 {
                     ajaxCommentList.total_size = data.comments.total_size;
                     ajaxCommentList.start_position += data.comment.length;
-                    fillCommentList($(".commentItem"), data.comment);
+                    $('.commentItem').each(function(i, commentItem)
+                    {
+                        var $item = $(this);
+                        if(data.comment[i])
+                        {
+                            fillItem($item, data.comment[i]);
+                        }
+                        else
+                        {
+                            $item.remove();
+                        }
+                    });
+                    if(ajaxCommentList.imgLazyload)
+                    {
+                        $.fn.imglazyload.detect();
+                    }
 
                     //下拉加载
                     if(ajaxCommentList.start_position <= ajaxCommentList.total_size)

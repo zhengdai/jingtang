@@ -1,0 +1,5 @@
+api:线上：http://apk.gambao.com:8080/mystore/
+    测试：http://115.29.177.196:8080/mystore/
+html:线上：http://115.29.177.196/local/V300/
+    测试：http://115.29.177.196/
+css与js本地路径：content://uxbao.local/web/

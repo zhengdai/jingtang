@@ -34,7 +34,7 @@
       return accumulator
     }
 
-})()
+})();
 
 //     Zepto.js
 //     (c) 2010-2012 Thomas Fuchs
@@ -821,17 +821,17 @@ var Zepto = (function() {
   $.zepto = zepto
 
   return $
-})()
+})();
 
 // If `$` is not yet defined, point it to `Zepto`
-window.Zepto = Zepto
-'$' in window || (window.$ = Zepto)
+window.Zepto = Zepto;
+'$' in window || (window.$ = Zepto);
 
 //     Zepto.js
 //     (c) 2010-2012 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
 
-;(function($){
+(function($){
   function detect(ua){
     var os = this.os = {}, browser = this.browser = {},
       webkit = ua.match(/WebKit\/([\d.]+)/),
@@ -881,13 +881,13 @@ window.Zepto = Zepto
   // make available to unit tests
   $.__detect = detect
 
-})(Zepto)
+})(Zepto);
 
 //     Zepto.js
 //     (c) 2010-2012 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
 
-;(function($){
+(function($){
   var $$ = $.zepto.qsa, handlers = {}, _zid = 1, specialEvents={},
       hover = { mouseenter: 'mouseover', mouseleave: 'mouseout' }
 
@@ -1130,13 +1130,13 @@ window.Zepto = Zepto
     return event
   }
 
-})(Zepto)
+})(Zepto);
 
 //     Zepto.js
 //     (c) 2010-2012 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
 
-;(function($){
+(function($){
   var jsonpID = 0,
       document = window.document,
       key,
@@ -1445,13 +1445,13 @@ window.Zepto = Zepto
     serialize(params, obj, traditional)
     return params.join('&').replace(/%20/g, '+')
   }
-})(Zepto)
+})(Zepto);
 
 //     Zepto.js
 //     (c) 2010-2012 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
 
-;(function ($) {
+(function ($) {
   $.fn.serializeArray = function () {
     var result = [], el
     $( Array.prototype.slice.call(this.get(0).elements) ).each(function () {
@@ -1486,13 +1486,13 @@ window.Zepto = Zepto
     return this
   }
 
-})(Zepto)
+})(Zepto);
 
 //     Zepto.js
 //     (c) 2010-2012 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
 
-;(function($, undefined){
+(function($, undefined){
   var prefix = '', eventPrefix, endEventName, endAnimationName,
     vendors = { Webkit: 'webkit', Moz: '', O: 'o', ms: 'MS' },
     document = window.document, testEl = document.createElement('div'),
@@ -1589,4 +1589,251 @@ window.Zepto = Zepto
   }
 
   testEl = null
-})(Zepto)
+})(Zepto);
+
+//获取本机数据
+var isUxbao, phoneData, userInfo, myGiftData, receiveList;
+if(window.uxbao)
+{
+    isUxbao = true;
+    userInfo = JSON.parse(window.uxbao.userInfo()).userInfo;
+    phoneData = JSON.parse(window.uxbao.init());
+    myGiftData = JSON.parse(window.uxbao.activityInfo()).activityInfoList;
+}
+else
+{
+    isUxbao = false;
+    userInfo = {
+        "version": "3.0",
+        "imei": "00000000",
+        "imsi": "00000000",
+        "language": "zh",
+        "os_version": "4.0",
+        "phonetypeName": "N7105",
+        "resolution": "200*200"
+    };
+    phoneData =
+    {
+        "downloadList":
+            [
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": 30,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.chukong.brave",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 2,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": 20,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.uxbao",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 4,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": 45,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.koogame.zaiyiqi",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 5,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                }
+            ],
+        "updateList":
+            [
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.supreme.tanks",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 20,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "org.cocos2dx.FishingJoy2",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 105,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.TongBanStudio.JTDDZ",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 5,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                }
+            ],
+        "installList":
+            [
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.andbase",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 14,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                },
+                {
+                    "userresPaystatus": null,
+                    "author_email": null,
+                    "author_id": null,
+                    "downLength": null,
+                    "downPercent": null,
+                    "downState": null,
+                    "resCapacity": null,
+                    "resDescription": null,
+                    "resDeveloper": null,
+                    "resDownloadnum": null,
+                    "resIcons": null,
+                    "resId": null,
+                    "resLocation": null,
+                    "resName": null,
+                    "resPackagename": "com.aspire.mm",
+                    "resPrice": null,
+                    "resRated": null,
+                    "resRecommendflag": null,
+                    "resScreenshots": null,
+                    "resVersion": null,
+                    "resVersionCode": 32,
+                    "rescategoryId": null,
+                    "totalLength": null,
+                    "_id": 0
+                }
+            ]
+    };
+    myGiftData = [];
+}
+$.apiRoot = 'http://apk.gambao.com:8080/mystore/';
+$.htmlRoot = 'http://115.29.177.196/';
+$.localRoot = '';
