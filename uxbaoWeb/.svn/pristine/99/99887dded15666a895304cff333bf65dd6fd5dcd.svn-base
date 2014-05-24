@@ -1,0 +1,43 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px;background-color: #f2f2f2;-webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.head{ height: 250px; width: 100%; background:url("../images/local/me_bg.png") center no-repeat;
+    position: relative; background-size: 100% 100%;
+}
+.portrait{ position: absolute; right: 0; top: 0; left: 0; bottom: 0; margin: auto;
+    width: 100px; height: 100px; border-radius: 55px; border: 5px solid #f7f7f7;
+    background-color: #e2e1df; overflow: hidden;
+}
+.portrait img{ display: block;position: absolute; border-radius: 50px;
+    right: 0; top: 0; left: 0; bottom: 0; margin: auto; width: 100px; height: 100px;
+}
+.log{ width: 100%; position: absolute; height: 34px; top:50%; margin-top: 65px; text-align: center;}
+.logBtn{border: 2px solid #ffffff; border-radius: 30px; text-align: center;
+    background-color: rgba(255, 255, 255, 0.3); line-height: 30px; color: #fff; font-size: 20px;
+    padding: 0 10px; display: inline-block;
+}
+
+.btnList{ overflow: hidden;}
+#myInfoList{overflow: hidden; margin: 5px 0;}
+#myInfoList li{ margin: 10px 15px;}
+.itemWrap{ height: 50px; border: 1px solid #dcdcdc; border-radius: 10px;
+    background-image: -webkit-linear-gradient(bottom, #fcfcfc, #f2f2f2);
+    background-image: linear-gradient(to top, #fcfcfc, #f2f2f2);
+    position: relative;display: block;
+}
+
+.ui-state-hover{background-image: -webkit-linear-gradient(bottom, #ececec, #e2e2e2);
+    background-image: linear-gradient(to top, #ececec, #e2e2e2);}
+
+.ui-btn-text{ font-size:20px; line-height: 50px; color: #6f6f6f;padding-left: 25px;}
+.state{font-size: 14px; line-height: 50px; color: #c4c4c4; position: absolute; right: 30px;}
+.ui-btn-text:after{position: absolute; top: 0; right: 10px; height: 100%; width: 11px;
+    background: url("../images/local/arrow.png") center no-repeat;content: "";
+}

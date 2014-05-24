@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>礼包详情</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/gift.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/gift.js"></script>
+</head>
+    <body onselectstart="return false">
+        <!--详情头-->
+        <div class="giftHead">
+            <div class="giftInfo">
+                <div class="giftIcon">
+                    <img src="images/local/market.png">
+                </div>
+                <div class="middle">
+                    <p class="giftName"></p>
+                    <span class="giftDes"></span>
+                </div>
+                <div class="btn"></div>
+            </div>
+            <div class="giftState">
+                <p class="state"></p>
+                <div class="percent">
+                    <span class="percentLeft"></span>
+                </div>
+            </div>
+
+            <div class="giftNum">
+                <p class="num"></p>
+                <div class="copy">复制</div>
+            </div>
+        </div>
+
+        <!--礼包内容-->
+        <div class="giftContent">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">礼包内容</h3>
+            </div>
+            <div class="content">
+                <p>1、20元宝</p>
+                <p>2、20元宝</p>
+                <p>3、20元宝</p>
+                <p>4、20元宝</p>
+            </div>
+        </div>
+
+        <!--兑换日期-->
+        <div class="giftDate">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">兑换日期</h3>
+            </div>
+            <div class="date">
+                2014年5月11日——2014年9月11日
+            </div>
+        </div>
+
+        <!--使用方法-->
+        <div class="giftUse">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">使用方法</h3>
+            </div>
+            <div class="steps">
+                <p>1、20元宝</p>
+                <p>2、20元宝</p>
+                <p>3、20元宝</p>
+                <p>4、20元宝</p>
+            </div>
+        </div>
+
+    </body>
+</html>

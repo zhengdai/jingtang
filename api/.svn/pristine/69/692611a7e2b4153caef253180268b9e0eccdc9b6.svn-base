@@ -1,0 +1,12 @@
+{
+  "state": 1, 
+  "ResourcesCategory": {
+    "rescategoryId": 27, 
+    "rescategoryName": "性感美女等你来", 
+    "rescategoryParentcategoryid": 25, 
+    "rescategoryDescription": "游戏宝美女大放送，海量美女等你来玩！", 
+    "rescategoryIcons": "http://223.6.254.27:8080/mystore/upload/zhuanti2.jpg", 
+    "rescategoryCreateddate": 1394821511000, 
+    "rescategoryStatus": 1
+  }
+}

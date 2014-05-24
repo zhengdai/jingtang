@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <title>评论</title>
+        <link type="text/css" rel="stylesheet" href="content://uxbao.local/web/css/comment.css"/>
+        <script type="text/javascript" src="content://uxbao.local/web/js/zepto.js"></script>
+        <script type="text/javascript" src="content://uxbao.local/web/js/gmu.merge.js"></script>
+        <script type="text/javascript" src="content://uxbao.local/web/js/comment.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <form id="comment-form">
+            <div class="comment-frame">
+                <div class="grade">
+                    <input id="J_star_holder" type="hidden" name="star" value="3">
+                    <div class="comm-star star-cur" data-star="1"></div>
+                    <div class="comm-star star-cur" data-star="2"></div>
+                    <div class="comm-star star-cur" data-star="3"></div>
+                    <div class="comm-star" data-star="4"></div>
+                    <div class="comm-star" data-star="5"></div>
+                    <span>点击星星打分</span>
+                </div>
+                <div class="wrap">
+                    <textarea id="J_describe" placeholder="说说你的感受吧..."></textarea>
+                </div>
+                <div class="btn">
+                    <div id="J_submit" class="icon-btn">发表</div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

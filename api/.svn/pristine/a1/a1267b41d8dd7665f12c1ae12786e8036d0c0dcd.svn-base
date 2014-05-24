@@ -1,0 +1,8 @@
+3.15 
+添加数据的表resources_category(添加了专题页的专题内容)
+没有做专题编辑页面
+4.5
+image目录下上传user.png图片
+5.5
+修改了menu.jsp
+添加了rescat_must.jsp\rescat_edit_must.jsp 后台可以修改必玩页面

@@ -1,0 +1,84 @@
+/**
+ * Created by zd on 2014/5/7 0007.
+ */
+var isUxbao;
+if(window.activity)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
+
+var ajaxDefaultSearch = {
+    "url":"http://115.29.177.196:8080/mystore/appV3/getTopSearch.do",
+    "version":"2.3",
+    "phonetypeName":"N7105",
+    "os_version":"4.0",
+    "imei":"00000000",
+    "imsi":"00000000",
+    "resolution":"200*200",
+    "language":"cn"
+};
+
+function createItem(itemData)
+{
+    var $item = $(($(".hot-search-list").find('li')[0]).cloneNode(true));
+    $item.find('span').text(itemData);
+    return $item;
+}
+
+$(function(){
+    $.ajax({
+        url:ajaxDefaultSearch.url,
+        dataType:"jsonp",
+        data:{
+            "version":ajaxDefaultSearch.version,
+            "phonetypeName":ajaxDefaultSearch.phonetypeName,
+            "os_version":ajaxDefaultSearch.os_version,
+            "imei":ajaxDefaultSearch.imei,
+            "imsi":ajaxDefaultSearch.imsi,
+            "resolution":ajaxDefaultSearch.resolution,
+            "language":ajaxDefaultSearch.language
+        },
+        jsonp:'jsonDefault',
+        success:function(data)
+        {
+            if(data.state === 1)
+            {
+                var len = data.keywords.length;
+                var $container = $('.hot-search-list');
+                var $default_item = $container.find("li");
+                for(var i = 0; i < len; ++i)
+                {
+                    var $item;
+                    if($default_item[i])
+                    {
+                        $default_item.eq(i).find('span').text(data.keywords[i]);
+                    }
+                    else
+                    {
+                        $item = createItem(data.keywords[i]);
+                        $container.append($item);
+                    }
+                }
+                for(var j = len; j < $default_item.length; ++j)
+                {
+                    $default_item.eq(j).remove();
+                }
+
+                $container.find('span').on('tap', function()
+                {
+                    isUxbao && window.activity.clickTip($(this).text());
+                    return false;
+                });
+            }
+        },
+        error:function()
+        {
+            console.log("load search key words failed.")
+        }
+    });
+
+});

@@ -1,0 +1,152 @@
+/* CSS Document */
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px;-webkit-user-select: none;
+    background-color: #ececec; position: relative;
+}
+.ver-line{ position: absolute; top:10px; bottom: 40px; width: 4px; background-color: #f68521; left: 13px;}
+.load-complete{ bottom: 0;}
+.appList{margin:10px 10px 10px 30px; overflow: visible; }
+.no-game{text-align: center; font-size: 16px; line-height: 30px;}
+#app-list-box{width:100%; overflow: visible; border-bottom: 1px solid #e4e4e4;}
+.date{ position: relative; left: -24px; overflow: hidden; line-height: 30px; padding:5px 0; }
+.date-circle-wrap{overflow: hidden;float: left; margin:5px 0; background-color: #ececec; padding:0 3px;}
+.date-circle{ height: 12px; width: 12px; background-color: #f4bb42; border-radius: 6px;
+      box-shadow: 0 0 3px 3px #f2dcae; margin: 4px 0;
+}
+.date-arr{border-top:5px solid transparent;
+    border-right:10px solid #f4bb42;
+    border-bottom:5px solid transparent;
+    width:0;
+    height:0;
+    float: left;
+    margin: 10px 0;
+}
+.date-content{ padding: 0 10px; border-radius: 4px; background-color: #f4bb42; float: left; color: #fff;}
+
+.today .date-circle{box-shadow: 0 0 3px 3px #f2c59d; background-color: #f68521;}
+.today .date-content{ background-color: #f68521;}
+.today .date-arr{ border-right-color: #f68521;}
+.yesterday .date-circle{box-shadow: 0 0 3px 3px #f2d1aa; background-color: #f4a242;}
+.yesterday .date-content{ background-color: #f4a242;}
+.yesterday .date-arr{ border-right-color: #f4a242;}
+
+.app{border-bottom:1px solid #e4e4e4; position: relative;
+    border-right: 1px solid #e4e4e4; border-left: 1px solid #e4e4e4;background-color: #fff;
+    padding:5px; box-shadow: 0 2px 2px #dadada;
+}
+
+
+.itemAll{overflow: hidden; position: relative;}
+.appInfo{margin-right: 35px;}
+.appIcon{width:56px; height: 56px; display: block; position: absolute; border-radius: 9px; left:3px;}
+.tit{margin-left: 75px; overflow: hidden;}
+.tit strong{display:block;padding:0 3px;font-size: 16px;color: #636363;line-height: 22px; overflow:hidden; height: 22px; font-weight: normal;}
+.tit p{display: block;padding: 0 3px; font-size: 12px; color: #c4c4c4; line-height: 18px; overflow: hidden; height: 18px;}
+.tit .items-score{padding:2px 3px; overflow: hidden; height: 12px;}
+.tit .items-score img{display: block; float:left;}
+.btn{display: block;height: 56px;position: absolute;right: 3px; width: 32px; top: 3px; overflow: hidden;}
+.dlBtn{background: url("../images/local/download.png") top center no-repeat;}
+.cancelBtn{background: url("../images/local/pause.png") top center no-repeat;}
+.openBtn{background: url("../images/local/open.png") top center no-repeat;}
+.updateBtn{background: url("../images/local/download.png") top center no-repeat;}
+.installBtn{background: url("../images/local/install.png") top center no-repeat;}
+.continueBtn{background: url("../images/local/continue.png") top center no-repeat;}
+.btn .state{display: block; margin:32px 0 0;line-height: 24px; text-align: center;font-size: 14px; color: #89bb1c;}
+
+.more{height: 40px; width: 100%; overflow: hidden; text-align: center;}
+
+.loading
+{
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background: url('../images/local/ui-loading.png') 0 0 no-repeat;
+    -webkit-background-size: 40px 40px;
+    -webkit-animation-name: ui-loading-anim;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: step-start;
+}
+
+@-webkit-keyframes ui-loading-anim {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    8.32% {
+        -webkit-transform: rotate(0deg);
+    }
+    8.33% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.65% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.66% {
+        -webkit-transform: rotate(60deg);
+    }
+    24.99% {
+        -webkit-transform: rotate(60deg);
+    }
+    25% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.32% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.33% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.65% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.66% {
+        -webkit-transform: rotate(150deg);
+    }
+    49.99% {
+        -webkit-transform: rotate(150deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.32% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.33% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.65% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.66% {
+        -webkit-transform: rotate(240deg);
+    }
+    74.99% {
+        -webkit-transform: rotate(240deg);
+    }
+    75% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.32% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.33% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.65% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.66% {
+        -webkit-transform: rotate(330deg);
+    }
+    99.99% {
+        -webkit-transform: rotate(330deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "product": [
+    {
+      "rescategoryId": 30, 
+      "rescategoryName": "网游必玩", 
+      "rescategoryParentcategoryid": 29, 
+      "rescategoryDescription": "必玩专题网游必玩", 
+      "rescategoryIcons": "http://223.6.254.27:8080/mystore/upload/mystore.png", 
+      "rescategoryCreateddate": 1398605361000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 31, 
+      "rescategoryName": "棋牌必玩", 
+      "rescategoryParentcategoryid": 29, 
+      "rescategoryDescription": "必玩专题棋牌必玩", 
+      "rescategoryIcons": "http://223.6.254.27:8080/mystore/upload/mystore.png", 
+      "rescategoryCreateddate": 1398605388000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 32, 
+      "rescategoryName": "如厕必玩", 
+      "rescategoryParentcategoryid": 29, 
+      "rescategoryDescription": "必玩专题如厕必玩", 
+      "rescategoryIcons": "http://223.6.254.27:8080/mystore/upload/mystore.png", 
+      "rescategoryCreateddate": 1398605450000, 
+      "rescategoryStatus": 1
+    }, 
+    {
+      "rescategoryId": 33, 
+      "rescategoryName": "睡前必玩", 
+      "rescategoryParentcategoryid": 29, 
+      "rescategoryDescription": "必玩专题睡前必玩", 
+      "rescategoryIcons": "http://223.6.254.27:8080/mystore/upload/mystore.png", 
+      "rescategoryCreateddate": 1398605492000, 
+      "rescategoryStatus": 1
+    }
+  ]
+}

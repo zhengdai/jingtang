@@ -1,0 +1,20 @@
+/**
+ * Created by zd on 2014/5/7 0007.
+ */
+var isUxbao;
+if(window.activity)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
+
+$(function(){
+    $('.hot-search-list').find('span').on('tap', function()
+    {
+        isUxbao && window.activity.clickTip($(this).text());
+        return false;
+    });
+});

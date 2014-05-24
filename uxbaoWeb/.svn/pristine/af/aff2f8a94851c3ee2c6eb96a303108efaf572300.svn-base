@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <title>必玩</title>
+        <link type="text/css" rel="stylesheet" href="css/mustPlay.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/mustPlay.js"></script>
+    </head>
+    <body onselectstart="return false">
+
+        <!--网游必玩列表-->
+        <div class="appList" id="online-list">
+            <div class="list-top">
+                <span>网游必玩</span>
+            </div>
+            <ul class="app-list-box">
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="images/local/star_01.png" />
+                                    <img src="images/local/star_02.png" />
+                                    <img src="images/local/star_03.png" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!--棋牌必玩列表-->
+        <div class="appList" id="chess-list">
+            <div class="list-top">
+                <span>棋牌必玩</span>
+            </div>
+            <ul class="app-list-box">
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="images/local/star_01.png" />
+                                    <img src="images/local/star_02.png" />
+                                    <img src="images/local/star_03.png" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!--如厕必玩列表-->
+        <div class="appList" id="toilet-list">
+            <div class="list-top">
+                <span>如厕必玩</span>
+            </div>
+            <ul class="app-list-box">
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="images/local/star_01.png" />
+                                    <img src="images/local/star_02.png" />
+                                    <img src="images/local/star_03.png" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!--睡前必玩列表-->
+        <div class="appList" id="sleep-list">
+            <div class="list-top">
+                <span>睡前必玩</span>
+            </div>
+            <ul class="app-list-box">
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="images/local/star_01.png" />
+                                    <img src="images/local/star_02.png" />
+                                    <img src="images/local/star_03.png" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p class="company"></p>
+                                <div class="items-score">
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>

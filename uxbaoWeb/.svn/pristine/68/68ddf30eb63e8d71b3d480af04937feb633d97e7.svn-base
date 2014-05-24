@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>我的礼包</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/myGift.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/myGift.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <div class="myGiftList">
+            <ul id="gift-list-box">
+                <li class="giftItem">
+                    <div class="giftInfo">
+                        <div class="giftIcon">
+                            <img src="images/local/market.png">
+                        </div>
+                        <div class="middle">
+                            <p class="giftName"></p>
+                            <div class="percent">
+                                <span class="percentLeft"></span>
+                                <span class="percentRight"></span>
+                            </div>
+                            <span class="giftState"></span>
+                        </div>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="giftContent">
+                        <span class="giftTit"></span><span class="content"></span>
+                    </div>
+                </li>
+                <li class="giftItem">
+                    <div class="giftInfo">
+                        <div class="giftIcon">
+                            <img src="images/local/market.png">
+                        </div>
+                        <div class="middle">
+                            <p class="giftName"></p>
+                            <div class="percent">
+                                <span class="percentLeft"></span>
+                                <span class="percentRight"></span>
+                            </div>
+                            <span class="giftState"></span>
+                        </div>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="giftContent">
+                        <span class="giftTit"></span><span class="content"></span>
+                    </div>
+                </li>
+                <li class="giftItem">
+                    <div class="giftInfo">
+                        <div class="giftIcon">
+                            <img src="images/local/market.png">
+                        </div>
+                        <div class="middle">
+                            <p class="giftName"></p>
+                            <div class="percent">
+                                <span class="percentLeft"></span>
+                                <span class="percentRight"></span>
+                            </div>
+                            <span class="giftState"></span>
+                        </div>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="giftContent">
+                        <span class="giftTit"></span><span class="content"></span>
+                    </div>
+                </li>
+                <li class="giftItem">
+                    <div class="giftInfo">
+                        <div class="giftIcon">
+                            <img src="images/local/market.png">
+                        </div>
+                        <div class="middle">
+                            <p class="giftName"></p>
+                            <div class="percent">
+                                <span class="percentLeft"></span>
+                                <span class="percentRight"></span>
+                            </div>
+                            <span class="giftState"></span>
+                        </div>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="giftContent">
+                        <span class="giftTit"></span><span class="content"></span>
+                    </div>
+                </li>
+                <li class="giftItem">
+                    <div class="giftInfo">
+                        <div class="giftIcon">
+                            <img src="images/local/market.png">
+                        </div>
+                        <div class="middle">
+                            <p class="giftName"></p>
+                            <div class="percent">
+                                <span class="percentLeft"></span>
+                                <span class="percentRight"></span>
+                            </div>
+                            <span class="giftState"></span>
+                        </div>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="giftContent">
+                        <span class="giftTit"></span><span class="content"></span>
+                    </div>
+                </li>
+                <li class="giftItem">
+                    <div class="giftInfo">
+                        <div class="giftIcon">
+                            <img src="images/local/market.png">
+                        </div>
+                        <div class="middle">
+                            <p class="giftName"></p>
+                            <div class="percent">
+                                <span class="percentLeft"></span>
+                                <span class="percentRight"></span>
+                            </div>
+                            <span class="giftState"></span>
+                        </div>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="giftContent">
+                        <span class="giftTit"></span><span class="content"></span>
+                    </div>
+                </li>
+                <li class="giftItem">
+                    <div class="giftInfo">
+                        <div class="giftIcon">
+                            <img src="images/local/market.png">
+                        </div>
+                        <div class="middle">
+                            <p class="giftName"></p>
+                            <div class="percent">
+                                <span class="percentLeft"></span>
+                                <span class="percentRight"></span>
+                            </div>
+                            <span class="giftState"></span>
+                        </div>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="giftContent">
+                        <span class="giftTit"></span><span class="content"></span>
+                    </div>
+                </li>
+                <li class="giftItem">
+                    <div class="giftInfo">
+                        <div class="giftIcon">
+                            <img src="images/local/market.png">
+                        </div>
+                        <div class="middle">
+                            <p class="giftName"></p>
+                            <div class="percent">
+                                <span class="percentLeft"></span>
+                                <span class="percentRight"></span>
+                            </div>
+                            <span class="giftState"></span>
+                        </div>
+                        <div class="btn"></div>
+                    </div>
+                    <div class="giftContent">
+                        <span class="giftTit"></span><span class="content"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="more">
+            <div class="loading"></div>
+        </div>
+    </body>
+</html>

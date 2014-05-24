@@ -1,0 +1,190 @@
+/**
+ * Created by zd on 2014/5/7 0007.
+ */
+var isUxbao, myGiftData;
+if(window.uxbao)
+{
+    isUxbao = true;
+}
+else
+{
+    isUxbao = false;
+}
+if(isUxbao)
+{
+    myGiftData = JSON.parse(window.uxbao.activityInfo()).activityInfoList;
+}
+else
+{
+    myGiftData = [
+            {
+                'localInfo': {
+                    "state": 1,
+                    "activityItem": {
+                        "acItemId": 2,
+                        "acId": 4,
+                        "itemIsUsed": 0,
+                        "itemCustImei": "223132",
+                        "itemCustImsi": "34234",
+                        "itemCustNum": "2332FDFS4FEF"
+                    },
+                    "localInfo": {
+                        "app": {
+                            "resId": 43,
+                            "resLocation": "http://118.244.202.119/upload/20131109-848812.apk",
+                            "resPackagename": "org.cocos2dx.FishingJoy2",
+                            "resName": "捕鱼达人2",
+                            "resIcons": "http://223.6.254.27:8080/mystore/upload/20131109-848812.png",
+                            "resStatus": 1,
+                            "resDescription": "捕鱼达人2推出好友挑战模式，赢得每周一次的排行榜，做一个名副其实的捕鱼达人！捕鱼达人2是一款经典休闲游戏。使用各具特色的多种武器，捕获各种海洋鱼类，赚取丰厚金币奖励。精美的画面、简单的操作、轻松的节奏，无论何时何地，都可以拿起设备来一次舒适的海底旅程。全新加入的好友挑战模式，让捕鱼达人2不再只能单打独斗。与好友共同游戏，用排行榜得分来证明自己的技术和运气吧。全新的互动方式，简单地邀请新浪微博好友加入就能体验。",
+                            "resFreepaid": 0,
+                            "resPrice": 0,
+                            "resReleasedate": 1375584703000,
+                            "resUpdatedate": 1397383825000,
+                            "resVersionCode": 105,
+                            "resVersion": "1.1.8",
+                            "resDownloadnum": 3323,
+                            "resCapacity": 44837000,
+                            "resDeveloper": "触控科技",
+                            "resRated": 4,
+                            "resCustrated": 8,
+                            "resCustratednum": 2,
+                            "resCustratedavg": 0,
+                            "resScreenshots": "http://223.6.254.27:8080/mystore/ss/20130830-7569.jpg,http://223.6.254.27:8080/mystore/ss/20130830-56725.jpg,http://223.6.254.27:8080/mystore/ss/20130830-28767.jpg,http://223.6.254.27:8080/mystore/ss/20130830-94529.jpg",
+                            "resRecommendflag": 1,
+                            "rated1": 5,
+                            "rated2": 3,
+                            "rated3": 1,
+                            "rated4": 2,
+                            "rated5": 0,
+                            "relatedId": "41,46,53,56"
+                        },
+                        "activity": {
+                            "acId": 4,
+                                "acName": "[捕鱼达人]五一礼包",
+                                "resId": 43,
+                                "acType": 1,
+                                "acTotalNum": 55,
+                                "acUseNum": 7,
+                                "acContent": "1、4000金币*1 2、激光导弹*4",
+                                "acStartTime": 1396955397000,
+                                "acEndTime": 1400152201000,
+                                "acUseDesc": "金币商城领取",
+                                "acIcon": "http://223.6.254.27:8080/mystore/upload/20131109-848812.png"
+                        }
+                    }
+                },
+                'giftNo': "1111111",
+                'acId': 14,
+                '_id': 1
+            }
+        ];
+}
+
+var myGift = {
+    detailUrl:'http://115.29.177.196/礼包详情.html',
+    now:new Date().getTime(),
+    default_icon:""
+};
+
+//点击进入礼包详情
+function itemTapHandler($target)
+{
+    var num = $target.find(".btn").data("num");
+    if(num)
+    {
+        console.log("进入详情");
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":12,
+                    "title":"礼包详情",
+                    "url":myGift.detailUrl +  "?acId=" + $target.data("acId") + "&num=" + num
+                }
+            )
+        );
+    }
+    else
+    {
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":12,
+                    "title":"礼包详情",
+                    "url":myGift.detailUrl +  "?acId=" + $target.data("acId")
+                }
+            )
+        );
+    }
+}
+
+function fillItem($item, itemData)
+{
+    $item.data("acId", itemData.acId).attr("id", itemData.acId);
+    $item.find(".percent").show();
+    if(isUxbao)
+    {
+        var localInfo = JSON.parse(itemData.localInfo);
+    }
+    else
+    {
+        var localInfo = itemData.localInfo;
+    }
+    $item.find(".giftTit").text("【礼包内容】");
+    //已过期
+    if(myGift.now > localInfo.localInfo.activity.acEndTime)
+    {
+        $item.find('.btn').text("已过期").addClass('gray');
+    }
+    //正在进行
+    else
+    {
+        $item.find('.btn').text("已领过").addClass('gray').data('num', itemData.giftNo);
+    }
+
+    $item.find(".giftIcon").find('img').attr("data-pic", localInfo.localInfo.activity.acIcon).attr('src', myGift.default_icon);
+    $item.find(".giftName").text(localInfo.localInfo.activity.acName);
+
+    $item.find(".content").text(localInfo.localInfo.activity.acContent);
+
+    $item.find(".num").find('span').text(itemData.giftNo);
+
+    $item.find('.copy').on('tap', function()
+    {
+        isUxbao && window.activity.copy($item.find(".num").find('span').text());
+        return false;
+    });
+
+    $item.on("tap", function()
+    {
+        itemTapHandler($item);
+        return false;
+    });
+}
+
+$(function()
+{
+    var $defaultItem = $(".giftItem");
+    myGift.default_icon = $defaultItem.eq(0).find("img").attr('src');
+    var $container = $("#gift-list-box");
+    for(var i = 0; i < myGiftData.length; ++i)
+    {
+        if($defaultItem[i])
+        {
+            var $item = $defaultItem.eq(i);
+            fillItem($item, myGiftData[i]);
+            $item.find("img").imglazyload({"urlName": "data-pic"});
+        }
+        else
+        {
+            var $item = createItem(myGiftData[i]);
+            $container.append($item);
+            $item.find("img").imglazyload({"urlName":"data-pic"});
+        }
+    }
+    for(var j = myGiftData.length; j < $defaultItem.length; ++j)
+    {
+        $defaultItem.eq(j).remove();
+    }
+    $(".giftItem").eq(-1).addClass("lastItem");
+});
