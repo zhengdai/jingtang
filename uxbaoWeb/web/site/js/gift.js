@@ -136,7 +136,7 @@ $(function()
                                 $('.btn').text("已领过").addClass('gray');
                                 $(".num").find('span').text(request.num);
                                 $(".giftNum").show();
-                                $(".copy").on("tap",function()
+                                $(".copy").on("click",function()
                                 {
                                     isUxbao && window.activity.copy($(".num").find('span').text());
                                     return false;
@@ -154,7 +154,7 @@ $(function()
                             {
                                 $(".giftState").show();
                                 //添加点击响应函数
-                                $('.btn').text("领号").on("tap",function()
+                                $('.btn').text("领号").on("click",function()
                                 {
                                     btnTapHandler($(this));
                                     return false;
@@ -172,7 +172,7 @@ $(function()
                         $(".giftState").hide();
                         $(".btn").text("查看").data('id', data.app.resId)
                             .data('name', data.app.resName).data('package', data.app.resPackagename)
-                            .on('tap', function()
+                            .on('click', function()
                         {
                             var $item = $(this);
                             var resId = $item.data("id");

@@ -9,7 +9,15 @@
         <script type="text/javascript" src="content://uxbao.local/web/js/zepto.js"></script>
         <script type="text/javascript" src="content://uxbao.local/web/js/gmu.merge.js"></script>
         <script type="text/javascript" src="content://uxbao.local/web/js/readmore.js"></script>
-        <script type="text/javascript" src="content://uxbao.local/web/js/gameDetail.js"></script>
+        <script type="text/javascript" src="gameDetail.zip.js"></script>
+        <style>
+            #gameGift,#gameInfo{ margin: 5px 0;}
+            .header{background-color: #fff;}
+            #activityList, #infoList{ overflow: hidden; padding: 5px 20px; background-color: #f3f3f3;}
+            #activityList li, #infoList li{ font-size: 16px; line-height: 24px; height: 24px; overflow: hidden;}
+            #activityList .content{ display: block; float: left; width: 70%; overflow: hidden; height: 100%;}
+            #activityList .date{display: block; float: right; overflow: hidden; width: 30%; font-size: 14px; height: 100%;}
+        </style>
     </head>
     <body onselectstart="return false">
         <!--图片滚动-->
@@ -38,6 +46,28 @@
             </div>
             <div class="intro">
             </div>
+        </div>
+
+        <!--活动-->
+        <div id="gameGift">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">活动</h3>
+            </div>
+            <ul id="activityList">
+                <li><span class="content"></span><span class="date"></span></li>
+            </ul>
+        </div>
+
+        <!--资讯-->
+        <div id="gameInfo">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">资讯</h3>
+            </div>
+            <ul id="infoList">
+                <li></li>
+            </ul>
         </div>
 
         <!--评论-->

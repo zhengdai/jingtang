@@ -202,12 +202,12 @@ function fillListItem($listItem, listItemData)
                         $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
 
                         //添加点击响应函数
-                        $item.find(".btn").on("tap",function()
+                        $item.find(".btn").on("click",function()
                         {
                             btnTapHandler($(this));
                             return false;
                         });
-                        $item.find(".appInfo").on('tap', function()
+                        $item.find(".appInfo").on('click', function()
                         {
                             infoTapHandler($(this));
                             return false;

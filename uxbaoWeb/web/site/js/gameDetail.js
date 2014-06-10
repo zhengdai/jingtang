@@ -53,7 +53,7 @@ function fillRate(rated1, rated2, rated3, rated4, rated5, rated, total)
     }
     else
     {
-        $('.moreComment').on('tap', function()
+        $('.moreComment').on('click', function()
         {
             window.location.href = ajaxGameDetail.commentListUrl + "?resId=" + ajaxGameDetail.resId;
         }).find('span').text(total.toString());
@@ -262,7 +262,7 @@ $(function()
                         //截图点击
                         $('.ui-slider-item').each(function(i, item)
                         {
-                            $(item).on("tap", function()
+                            $(item).on("click", function()
                             {
                                 isUxbao && window.activity.showPic(JSON.stringify(i));
                             });
@@ -333,7 +333,7 @@ $(function()
                                 data("package", data.products[j].resPackagename);
                             $icon.eq(j).data("icon", data.products[j].resIcons);
                             $gameName.eq(j).text(data.products[j].resName);
-                            $appArr.eq(j).on("tap", function()
+                            $appArr.eq(j).on("click", function()
                             {
                                 infoTapHandler($(this));
                                 return false;

@@ -78,11 +78,17 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 .tit{ font-size: 20px; line-height: 30px;}
 .company{ font-size:14px; line-height: 30px;}
 
+#gameGift,#gameInfo{ margin: 5px 0;}
 #gameIntro{ position: relative; overflow: hidden; background-color: #f3f3f3; margin:0 auto 8px;}
+.header{background-color: #fff;}
 .header .left{display: block; width:8px; height: 41px; background-color: #f49643; position: absolute;}
 .header .title{ margin:0 12px 0 18px; line-height: 40px; border-bottom: 1px dashed #d3d9d5; color: #000;
     font-size: 18px; height: 40px;font-weight: normal;
 }
+#activityList, #infoList{ overflow: hidden; padding: 5px 20px; background-color: #f3f3f3;}
+#activityList li, #infoList li{ font-size: 16px; line-height: 24px; height: 24px; overflow: hidden;}
+#activityList .content{ display: block; float: left; width: 70%; overflow: hidden; height: 100%;}
+#activityList .date{display: block; float: right; overflow: hidden; width: 30%; font-size: 14px; height: 100%;}
 .intro{margin:10px 12px 0 18px; font-size: 16px; line-height: 24px; color: #4b4b4b;}
 .readmore-js-toggle{ height: 30px; margin:0 16px;}
 .readMore{ background: url("../images/local/bottom_arrow.png") right center no-repeat;}

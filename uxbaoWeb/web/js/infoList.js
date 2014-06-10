@@ -214,6 +214,7 @@ $(function()
                                 loadMore();
                             }
                         });
+                        $(window).trigger('scroll');
                     }
                     else
                     {

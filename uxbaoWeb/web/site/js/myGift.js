@@ -59,13 +59,13 @@ function fillItem($item, itemData)
 
     $item.find(".num").find('span').text(itemData.giftNo);
 
-    $item.find('.copy').on('tap', function()
+    $item.find('.copy').on('click', function()
     {
         isUxbao && window.activity.copy($item.find(".num").find('span').text());
         return false;
     });
 
-    $item.on("tap", function()
+    $item.on("click", function()
     {
         itemTapHandler($item);
         return false;

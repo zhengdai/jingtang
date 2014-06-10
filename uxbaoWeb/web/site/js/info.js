@@ -123,7 +123,7 @@ $(function()
 
                     $('.btn').data('resId', data.app.resId)
                         .data('resName', data.app.resName)
-                        .data('resPackagename', data.app.resPackagename).on('tap', function()
+                        .data('resPackagename', data.app.resPackagename).on('click', function()
                     {
                         infoTapHandler($(this));
                         return false;

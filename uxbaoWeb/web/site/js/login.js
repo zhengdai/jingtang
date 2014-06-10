@@ -79,13 +79,13 @@ $(function()
     });
 
     //点击登录
-    $("#J_submit").on('tap', function()
+    $("#J_submit").on('click', function()
     {
         login();
     });
 
     //点击注册链接
-    $("#to_register").on("tap", function()
+    $("#to_register").on("click", function()
     {
         window.location.href = ajaxLogin.registerUrl;
         //isUxbao && window.activity.skipTo("register");

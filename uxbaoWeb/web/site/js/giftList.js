@@ -103,7 +103,7 @@ function fillItem($item, itemData)
             else
             {
                 //添加点击响应函数
-                $item.find('.btn').text("领号").on("tap",function()
+                $item.find('.btn').text("领号").on("click",function()
                 {
                     btnTapHandler($(this));
                     return false;
@@ -118,7 +118,7 @@ function fillItem($item, itemData)
 
     $item.find(".content").text(itemData.acContent);
 
-    $item.on("tap", function()
+    $item.on("click", function()
     {
         itemTapHandler($item, itemData.acType);
         return false;

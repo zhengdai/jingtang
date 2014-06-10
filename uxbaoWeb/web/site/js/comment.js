@@ -31,7 +31,7 @@ $(function()
     $('.comment-frame').height(document.documentElement.clientHeight - 30);
     var $star = $(".comm-star"), $star_holder = $("#J_star_holder"), $submit = $("#J_submit");
     $star.each(function(i, item) {
-        $(item).on('tap', function(){
+        $(item).on('click', function(){
             var grade = $(this).data("star");
             $star.removeClass("star-cur");
             $star_holder.val(grade);
@@ -41,7 +41,7 @@ $(function()
             }
         })
     });
-    $submit.on('tap', function(e) {
+    $submit.on('click', function(e) {
         ajaxComment.resRated = $star_holder.val();
         if(userInfo.id)
         {

@@ -11,7 +11,7 @@ function updateInfo()
     $(".logBtn").text(userInfo.nickName);
     $(".portrait").find('img').attr('src', userInfo.icon);
 
-    $(".logBtn, .portrait, #personConfig").off('tap').on('tap', function()
+    $(".logBtn, .portrait, #personConfig").off('click').on('click', function()
     {
         isUxbao && window.uxbao.click(
             JSON.stringify(
@@ -30,7 +30,7 @@ $(function()
     {
         $(".logBtn").text(userInfo.nickName);
         $(".portrait").find('img').attr('src', userInfo.icon);
-        $(".logBtn, .portrait, #personConfig").on('tap', function()
+        $(".logBtn, .portrait, #personConfig").on('click', function()
         {
             isUxbao && window.uxbao.click(
                 JSON.stringify(
@@ -44,7 +44,7 @@ $(function()
     }
     else
     {
-        $(".logBtn, .portrait, #personConfig").on('tap', function()
+        $(".logBtn, .portrait, #personConfig").on('click', function()
         {
             isUxbao && window.uxbao.click(
                 JSON.stringify(
@@ -59,7 +59,7 @@ $(function()
 
     $(".itemWrap").button();
 
-    $("#gameCenter").on('tap', function()
+    $("#gameCenter").on('click', function()
     {
         isUxbao && window.uxbao.click(
             JSON.stringify(
@@ -71,7 +71,7 @@ $(function()
         return false;
     });
 
-    $("#systemConfig").on('tap', function()
+    $("#systemConfig").on('click', function()
     {
         isUxbao && window.uxbao.click(
             JSON.stringify(
@@ -83,7 +83,7 @@ $(function()
         return false;
     });
 
-    $("#aboutUs").on('tap', function()
+    $("#aboutUs").on('click', function()
     {
         isUxbao && window.uxbao.click(
             JSON.stringify(
@@ -95,7 +95,7 @@ $(function()
         return false;
     });
 
-    $("#myGift").on('tap', function()
+    $("#myGift").on('click', function()
     {
         isUxbao && window.uxbao.click(
             JSON.stringify(

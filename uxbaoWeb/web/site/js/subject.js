@@ -100,7 +100,7 @@ function loadMore()
                             $container.append($item);
                             $item.find("img").imglazyload({"urlName":"data-pic"});
                             //添加点击响应函数
-                            $item.on("tap",function()
+                            $item.on("click",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
@@ -165,7 +165,7 @@ $(function()
                             $item.find("img").imglazyload({"urlName":"data-pic"});
 
                             //添加点击响应函数
-                            $item.on("tap",function()
+                            $item.on("click",function()
                             {
                                 btnTapHandler($(this));
                                 return false;

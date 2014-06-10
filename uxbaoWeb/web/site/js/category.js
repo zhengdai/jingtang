@@ -61,7 +61,7 @@ $(function()
                 {
                     var $item = $(this);
                     $item.data('rescategory_id', categoryTag[$item.data("category")]);
-                    $item.on("tap", function()
+                    $item.on("click", function()
                     {
                         categoryTapHandler($item);
                         return false;

@@ -155,6 +155,19 @@ function fillState($item, packageName, phoneData)
     }
 }
 
+function indexOfGift(acId)
+{
+    var len = myGiftData.length;
+    for(var i = 0; i < len; ++i)
+    {
+        if(myGiftData[i].acId === acId)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 //ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
 function fillItem($item, itemData)
 {
@@ -166,7 +179,48 @@ function fillItem($item, itemData)
         .data("package", packageName)
         .data("icon", itemData.resIcons)
         .data("name", itemData.resName);
-
+    if(itemData.acId)
+    {
+        var index = indexOfGift(itemData.acId);
+        //领过了
+        if(index != -1)
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId + "&num=" + myGiftData[index].giftNo
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+        //没领过
+        else
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+    }
+    else
+    {
+        $item.find('.relate-gift').hide().off('tap');
+    }
     //$item.find(".number").text(i);
     $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
 

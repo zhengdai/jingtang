@@ -97,7 +97,7 @@ function loadMore()
                         for (var i = 0; i < len; ++i)
                         {
                             var $item = createItem(data.news[i]);
-                            $item.on("tap", function()
+                            $item.on("click", function()
                             {
                                 itemTapHandler($(this));
                                 return false;
@@ -164,7 +164,7 @@ $(function()
                         if(data.news[i])
                         {
                             fillItem($item, data.news[i]);
-                            $item.on("tap", function()
+                            $item.on("click", function()
                             {
                                 itemTapHandler($(this));
                                 return false;

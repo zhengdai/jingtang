@@ -76,7 +76,7 @@ function loadMore()
                         for (var i = 0; i < len; ++i)
                         {
                             var $item = createItem(data.product[i]);
-                            $item.on('tap', function()
+                            $item.on('click', function()
                             {
                                 btnTapHandler($(this));
                                 return false;
@@ -142,7 +142,7 @@ $(function()
                         {
                             fillItem($item, data.product[i]);
                             $item.find(".gameIcon").find("img").imglazyload({"urlName": "data-pic"});
-                            $item.on('tap', function()
+                            $item.on('click', function()
                             {
                                 btnTapHandler($(this));
                                 return false;

@@ -36,7 +36,9 @@ var ajaxGameDetail =
     "relatedUrl": $.apiRoot + "appV3/getRelatedApp.do",
     "commentListUrl": $.htmlRoot + "comment_list.html",
     "commentUrl": $.htmlRoot + "comment.html",
-    "gameDetailUrl": $.htmlRoot + "game_detail.html"
+    "gameDetailUrl": $.htmlRoot + "game_detail.html",
+    "giftUrl":$.htmlRoot + "gift_detail.html",
+    "infoUrl":$.htmlRoot + "info_detail.html"
 };
 
 
@@ -195,6 +197,19 @@ function infoTapHandler($info)
     );
 }
 
+function isReceive(acId)
+{
+    var len = myGiftData.length;
+    for(var i = 0; i < len; ++i)
+    {
+        if(acId == myGiftData[i].acId)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 var little_yellow_star, light_gray_star, big_yellow_star, big_gray_star;
 
 $(function()
@@ -231,6 +246,100 @@ $(function()
                     $('.tit').text(data.product.resName);
                     var ca = (data.product.resCapacity/(1024 * 1024)).toFixed(1);
                     $('.company').text(ca + 'MB | ' + data.product.resDeveloper);
+
+                    //礼包
+                    var $gift = $('#activityList');
+                    if(data.activity)
+                    {
+                        var activityList = data.activity;
+                        var $giftTpl = $($gift.find('li')[0].cloneNode(true));
+                        $gift.empty();
+                        $(activityList).each(function(i, activity)
+                        {
+                            $giftTpl.find('.content').text(activity.acName);
+                            $giftTpl.find('.date').text(getDateStr(new Date(activity.acStartTime)));
+                            $giftTpl.on('tap', function()
+                            {
+                                //礼包
+                                if(activity.acType === 1)
+                                {
+                                    var i = isReceive(activity.acId);
+                                    if(i != -1)
+                                    {
+                                        isUxbao && window.uxbao.click(JSON.stringify
+                                            (
+                                                {
+                                                    "type":12,
+                                                    "title":activity.acName,
+                                                    "url":ajaxGameDetail.giftUrl +  "?acId=" + activity.acId + "&num=" + myGiftData[index].giftNo
+                                                }
+                                            )
+                                        );
+                                    }
+                                    else
+                                    {
+                                        isUxbao && window.uxbao.click(JSON.stringify
+                                            (
+                                                {
+                                                    "type":12,
+                                                    "title":activity.acName,
+                                                    "url":ajaxGameDetail.giftUrl +  "?acId=" + activity.acId
+                                                }
+                                            )
+                                        );
+                                    }
+                                }
+                                //活动
+                                else if(activity.acType === 2)
+                                {
+                                    isUxbao && window.uxbao.click(JSON.stringify
+                                        (
+                                            {
+                                                "type":12,
+                                                "title":activity.acName,
+                                                "url":ajaxGameDetail.giftUrl +  "?acId=" + activity.acId
+                                            }
+                                        )
+                                    );
+                                }
+                            });
+                            $gift.append($giftTpl);
+                        });
+                    }
+                    else
+                    {
+                        $('#gameGift').remove();
+                    }
+
+                    //资讯
+                    var $news = $('#infoList');
+                    if(data.news)
+                    {
+                        var newsList = data.news;
+                        var $newsTpl = $($news.find('li')[0].cloneNode(true));
+                        $news.empty();
+                        $(newsList).each(function(i, newsData)
+                        {
+                            $newsTpl.text(newsData.infoTitle);
+                            $newsTpl.on('tap', function ()
+                            {
+                                isUxbao && window.uxbao.click(JSON.stringify
+                                    (
+                                        {
+                                            "type":14,
+                                            "title":newsData.infoTitle,
+                                            "url":ajaxGameDetail.infoUrl +  "?infoId=" + newsData.infoId
+                                        }
+                                    )
+                                );
+                            });
+                            $news.append($newsTpl);
+                        });
+                    }
+                    else
+                    {
+                        $("#gameInfo").remove();
+                    }
 
                     //截图
                     var screenShots = data.product.resScreenshots.split(',');

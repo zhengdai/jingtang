@@ -107,7 +107,7 @@ function fillItem($item, itemData)
                 {
                     btnTapHandler($(this));
                     return false;
-                });
+                }).removeClass('gray');
             }
         }
     }
@@ -301,6 +301,7 @@ $(function()
                                 loadMore();
                             }
                         });
+                        $(window).trigger('scroll');
                     }
                     else
                     {

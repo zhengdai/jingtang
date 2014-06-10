@@ -80,13 +80,13 @@ $(function()
         $(this).parent().removeClass('active');
     });
     //点击注册
-    $("#J_submit").on('tap', function()
+    $("#J_submit").on('click', function()
     {
         register();
     });
 
     //点击登录链接
-    $("#to_login").on("tap", function()
+    $("#to_login").on("click", function()
     {
         window.location.href = ajaxRegister.loginUrl;
         //isUxbao && window.activity.skipTo("login");

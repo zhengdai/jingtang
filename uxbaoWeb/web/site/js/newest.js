@@ -276,12 +276,12 @@ function loadMore()
                             $container.append($item);
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
                             //添加点击响应函数
-                            $item.find(".btn").on("tap",function()
+                            $item.find(".btn").on("click",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
                             });
-                            $item.find(".appInfo").on('tap', function()
+                            $item.find(".appInfo").on('click', function()
                             {
                                 infoTapHandler($(this));
                                 return false;
@@ -380,12 +380,12 @@ $(function()
                             fillItem($default_app, data.product[i]);
                             $default_app.find(".appIcon").imglazyload({"urlName":"data-icon"});
                             //添加点击响应函数
-                            $default_app.find(".btn").on("tap",function()
+                            $default_app.find(".btn").on("click",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
                             });
-                            $default_app.find(".appInfo").on('tap', function()
+                            $default_app.find(".appInfo").on('click', function()
                             {
                                 infoTapHandler($(this));
                                 return false;
@@ -414,12 +414,12 @@ $(function()
                             $container.append($item);
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
                             //添加点击响应函数
-                            $item.find(".btn").on("tap",function()
+                            $item.find(".btn").on("click",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
                             });
-                            $item.find(".appInfo").on('tap', function()
+                            $item.find(".appInfo").on('click', function()
                             {
                                 infoTapHandler($(this));
                                 return false;

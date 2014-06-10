@@ -53,7 +53,7 @@ $(function(){
                     $default_item.eq(j).remove();
                 }
 
-                $container.find('span').on('tap', function()
+                $container.find('span').on('click', function()
                 {
                     window.location.href = ajaxDefaultSearch.searchUrl + '?search_text=' + $(this).text();
                     return false;

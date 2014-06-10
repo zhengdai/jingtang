@@ -67,8 +67,8 @@
                         <span class="split-top"></span>
                         <span class="split-bottom"></span>
                     </p>
-                    <img src="content://uxbao.local/web/images/local/key.png" />
-                    <span class="type-tit">开服</span>
+                    <img src="images/local/ball.jpg" />
+                    <span class="type-tit">世界杯</span>
                     <p class="right-split">
                         <span class="split-top"></span>
                         <span class="split-bottom"></span>
@@ -543,4 +543,57 @@
             <div class="loading"></div>
         </div>
     </body>
+    <script>
+        function worldCupAc()
+        {
+            $("#kaifu").off("tap").on("tap", function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                        (
+                                {
+                                    "type":15,
+                                    "title":"世界杯-玩游戏-赢多重好礼",
+                                    "url": $.htmlRoot + "world_cup_pre.html"
+                                }
+                        )
+                );
+                return false;
+            });
+
+            $('#slider').find('img').off('tap').on('tap', function()
+            {
+                if($(this).data('resName').indexOf('世界杯') !== -1)
+                {
+                    isUxbao && window.uxbao.click(JSON.stringify
+                            (
+                                    {
+                                        "type":15,
+                                        "title":$(this).data('resName'),
+                                        "url": $.htmlRoot + "world_cup_pre.html"
+                                    }
+                            )
+                    );
+                }
+                else
+                {
+                    isUxbao && window.uxbao.click(JSON.stringify
+                            (
+                                    {
+                                        "type":2,
+                                        "url":ajaxRecommend.detailUrl + "?resId=" + $(this).data('id'),
+                                        "resId":$(this).data('id'),
+                                        "resName":$(this).data('resName')
+                                    }
+                            )
+                    );
+                }
+
+                return false;
+            });
+        }
+        $(function()
+        {
+            setTimeout(worldCupAc, 1000);
+        });
+    </script>
 </html>

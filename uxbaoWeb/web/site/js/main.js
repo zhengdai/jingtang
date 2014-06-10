@@ -262,12 +262,12 @@ function loadMore()
                             $container.append($item);
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
                             //添加点击响应函数
-                            $item.find(".btn").on("tap",function()
+                            $item.find(".btn").on("click",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
                             });
-                            $item.find(".appInfo").on('tap', function()
+                            $item.find(".appInfo").on('click', function()
                             {
                                 infoTapHandler($(this));
                                 return false;
@@ -338,12 +338,12 @@ $(function()
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
 
                             //添加点击响应函数
-                            $item.find(".btn").on("tap",function()
+                            $item.find(".btn").on("click",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
                             });
-                            $item.find(".appInfo").on('tap', function()
+                            $item.find(".appInfo").on('click', function()
                             {
                                 infoTapHandler($(this));
                                 return false;
@@ -386,30 +386,30 @@ $(function()
         }
     );
 
-    $("#biwan").on("tap", function()
+    $("#biwan").on("click", function()
     {
         window.location.href = ajaxRecommend.biwanUrl;
         return false;
     });
 
-    $("#zuixin").on("tap", function()
+    $("#zuixin").on("click", function()
     {
         window.location.href = ajaxRecommend.zuixinUrl;
         return false;
     });
 
-    $("#kaifu").on("tap", function()
+    $("#kaifu").on("click", function()
     {
         window.location.href = ajaxRecommend.kaifuUrl;
         return false;
     });
 
-    $("#qipai").on("tap", function()
+    $("#qipai").on("click", function()
     {
         window.location.href = ajaxRecommend.qipaiUrl;
         return false;
     });
-    $("#libao").on("tap", function()
+    $("#libao").on("click", function()
     {
         window.location.href = ajaxRecommend.libaoUrl;
         return false;
@@ -438,7 +438,7 @@ $(function()
                     $item.attr('lazyload', data[i].resHomePhoto)
                         .data('id', data[i].resId)
                         .data('resName', data[i].resHomeTitle);
-                    $item.on('tap', function()
+                    $item.on('click', function()
                     {
                         window.location.href = ajaxRecommend.detailUrl + "?resId=" + $(this).data('id');
                         return false;
@@ -455,7 +455,7 @@ $(function()
     );
 
     //每日推荐
-    $(".recommend-his").on('tap', function()
+    $(".recommend-his").on('click', function()
     {
         window.location.href = ajaxRecommend.historyUrl;
         return false;
@@ -484,12 +484,12 @@ $(function()
                     fillRecommend($recommend, data.product[0]);
                     $recommend.find('.recommend-icon').imglazyload({"urlName":"data-icon"});
                     //添加点击响应函数
-                    $recommend.find(".btn").on("tap",function()
+                    $recommend.find(".btn").on("click",function()
                     {
                         btnTapHandler($(this));
                         return false;
                     });
-                    $recommend.find(".recommend-info").on('tap', function()
+                    $recommend.find(".recommend-info").on('click', function()
                     {
                         recommendTapHandler($(this));
                         return false;
