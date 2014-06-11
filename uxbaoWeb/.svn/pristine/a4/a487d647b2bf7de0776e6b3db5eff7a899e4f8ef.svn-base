@@ -82,7 +82,7 @@
                                     {
                                         "type":15,
                                         "title":$(this).data('name'),
-                                        "url": $.htmlRoot + "world_cup_pre.html"
+                                        "url": $.htmlRoot + "world_cp_pre.html"
                                     }
                             )
                     );
@@ -94,7 +94,7 @@
                                     {
                                         "type":15,
                                         "title":$(this).data('name'),
-                                        "url":ajaxSubject.subjectDetailUrl + '?categoryId=' + $(this).data('rescategoryId')
+                                        "url":ajaxSubject.subjectDetailUrl + '?categoryId=' + $target.data('rescategoryId')
                                     }
                             )
                     );
@@ -103,7 +103,7 @@
         }
         $(function()
         {
-            setTimeout( worldCupAc, 1000);
+            setTimeout(1000, worldCupAc);
         });
     </script>
 </html>

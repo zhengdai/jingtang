@@ -94,7 +94,7 @@
                                     {
                                         "type":15,
                                         "title":$(this).data('name'),
-                                        "url":ajaxSubject.subjectDetailUrl + '?categoryId=' + $(this).data('rescategoryId')
+                                        "url":ajaxSubject.subjectDetailUrl + '?categoryId=' + $target.data('rescategoryId')
                                     }
                             )
                     );

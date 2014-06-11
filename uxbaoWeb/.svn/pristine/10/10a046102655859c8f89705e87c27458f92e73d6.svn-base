@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <title>游戏详情</title>
+        <link type="text/css" rel="stylesheet" href="content://uxbao.local/web/css/gameDetail.css"/>
+        <script type="text/javascript" src="content://uxbao.local/web/js/zepto.js"></script>
+        <script type="text/javascript" src="content://uxbao.local/web/js/gmu.merge.js"></script>
+        <script type="text/javascript" src="content://uxbao.local/web/js/readmore.js"></script>
+        <script type="text/javascript" src="gameDetail.zip.js"></script>
+        <style>
+            #gameGift,#gameInfo{ margin: 5px 0;}
+            .header{background-color: #fff;}
+            #activityList, #infoList{ overflow: hidden; padding: 5px 20px; background-color: #f3f3f3;}
+            #activityList li, #infoList li{ font-size: 16px; line-height: 24px; height: 24px; overflow: hidden;}
+            #activityList .content{ display: block; float: left; width: 70%; overflow: hidden; height: 100%;}
+            #activityList .date{display: block; float: right; overflow: hidden; width: 30%; font-size: 14px; height: 100%;}
+        </style>
+    </head>
+    <body onselectstart="return false">
+        <!--图片滚动-->
+        <div id="slider">
+            <!--游戏简要信息-->
+            <div id="briefInfo">
+                <div class="icon">
+                    <img src="content://uxbao.local/web/images/local/market.png" />
+                </div>
+                <div class="info">
+                    <p class="tit">
+                    </p>
+                    <p class="company">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--游戏介绍-->
+        <div id="gameIntro">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">游戏介绍</h3>
+            </div>
+            <div class="intro">
+            </div>
+        </div>
+
+        <!--活动-->
+        <div id="gameGift">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">活动</h3>
+            </div>
+            <ul id="activityList">
+                <li><span class="content"></span><span class="date"></span></li>
+            </ul>
+        </div>
+
+        <!--资讯-->
+        <div id="gameInfo">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">资讯</h3>
+            </div>
+            <ul id="infoList">
+                <li></li>
+            </ul>
+        </div>
+
+        <!--评论-->
+        <div id="commentArea">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">评论<span class="commentNum"></span></h3>
+            </div>
+
+            <!--总评-->
+            <div id="rate">
+                <img src="content://uxbao.local/web/images/local/big_yellow_star.png" />
+                <img src="content://uxbao.local/web/images/local/big_gray_star.png" />
+                <img />
+                <img />
+                <img />
+                <span></span>
+            </div>
+
+            <!--打分百分比-->
+            <ul id="rateDetail">
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                    </div>
+                    <div class="percent" id="fiveStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="fivePer" class="percentNum"></span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="fourStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="fourPer" class="percentNum"></span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="threeStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="threePer" class="percentNum"></span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="twoStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="twoPer" class="percentNum"></span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="content://uxbao.local/web/images/local/deep_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                        <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="oneStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="onePer" class="percentNum"></span>
+                </li>
+            </ul>
+
+            <!--评论列表-->
+            <ul id="commentList">
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="content://uxbao.local/web/images/local/alien.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                            </p>
+                            <p class="commentDate">
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img src="content://uxbao.local/web/images/local/little_yellow_star.png" />
+                            <img src="content://uxbao.local/web/images/local/light_gray_star.png" />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                    </div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="content://uxbao.local/web/images/local/alien.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                            </p>
+                            <p class="commentDate">
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                    </div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="content://uxbao.local/web/images/local/alien.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                            </p>
+                            <p class="commentDate">
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                    </div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="content://uxbao.local/web/images/local/alien.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                            </p>
+                            <p class="commentDate">
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                    </div>
+                </li>
+            </ul>
+
+            <!--查看更多-->
+            <div class="moreComment">
+                <p class="able">查看全部评论（<span></span>）</p>
+            </div>
+        </div>
+
+        <!--猜你喜欢-->
+        <div id="mayLike">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">猜你喜欢</h3>
+            </div>
+            <ul id="mayLikeList">
+                <li>
+                    <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+                <li>
+                    <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+                <li>
+                    <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+                <li>
+                    <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+                <li>
+                    <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

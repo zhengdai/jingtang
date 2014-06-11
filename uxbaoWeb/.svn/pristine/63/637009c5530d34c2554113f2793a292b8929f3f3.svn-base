@@ -5,10 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
         <meta content="telephone=no" name="format-detection">
-        <link type="text/css" rel="stylesheet" href="content://uxbao.local/web/css/subject.css"/>
-        <script type="text/javascript" src="content://uxbao.local/web/js/zepto.js"></script>
-        <script type="text/javascript" src="content://uxbao.local/web/js/gmu.merge.js"></script>
-        <script type="text/javascript" src="content://uxbao.local/web/js/subject.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/subject.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/subject.js"></script>
     </head>
     <body onselectstart="return false">
         <div class="subjectList">
@@ -16,7 +16,7 @@
                 <li class="subject">
                     <div class="subjectItem">
                         <div class="subjectHead">
-                            <img src="content://uxbao.local/web/images/local/default_bg.png" />
+                            <img src="images/local/default_bg.png" />
                             <div class="subjectTit">
                                 <p class="subjectName"></p>
                                 <p class="subjectTime"></p>
@@ -33,7 +33,7 @@
                 <li class="subject">
                     <div class="subjectItem">
                         <div class="subjectHead">
-                            <img src="content://uxbao.local/web/images/local/default_bg.png" />
+                            <img src="images/local/default_bg.png" />
                             <div class="subjectTit">
                                 <p class="subjectName"></p>
                                 <p class="subjectTime"></p>
@@ -50,7 +50,7 @@
                 <li class="subject">
                     <div class="subjectItem">
                         <div class="subjectHead">
-                            <img src="content://uxbao.local/web/images/local/default_bg.png" />
+                            <img src="images/local/default_bg.png" />
                             <div class="subjectTit">
                                 <p class="subjectName"></p>
                                 <p class="subjectTime"></p>
@@ -94,7 +94,7 @@
                                     {
                                         "type":15,
                                         "title":$(this).data('name'),
-                                        "url":ajaxSubject.subjectDetailUrl + '?categoryId=' + $(this).data('rescategoryId')
+                                        "url":ajaxSubject.subjectDetailUrl + '?categoryId=' + $target.data('rescategoryId')
                                     }
                             )
                     );
@@ -103,7 +103,7 @@
         }
         $(function()
         {
-            setTimeout( worldCupAc, 1000);
+            setTimeout(worldCupAc, 1000);
         });
     </script>
 </html>

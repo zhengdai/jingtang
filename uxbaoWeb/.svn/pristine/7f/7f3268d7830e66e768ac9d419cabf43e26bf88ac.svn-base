@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>世界杯-玩游戏-赢多重好礼</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/subjectDetail.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script>
+            $(function()
+            {
+                $('.headPic').attr('src', $.htmlRoot + 'images/world_cup_head.jpg');
+            });
+        </script>
+    </head>
+    <body onselectstart="return false">
+        <!--专题头图-->
+        <img class="headPic" src="images/local/default_bg.png" />
+
+        <!--专题描述-->
+        <div class="subjectInfo">
+            <div class="subjectTit">
+                <p class="subjectName">回馈游戏宝用户</p>
+                <p class="subjectTime">2014.6.13-2014.7.14</p>
+            </div>
+            <div class="subjectDes">
+                <p class="description">
+                    在世界杯期间，将持续进行抽奖活动,神秘大奖。等你来拿！
+                </p>
+            </div>
+        </div>
+
+        <img id="pre-con" src="images/world_cup_pre.png" />
+    </body>
+</html>
