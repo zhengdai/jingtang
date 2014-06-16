@@ -1,0 +1,509 @@
+/**
+ * Created by zd on 2014/6/14 0014.
+ */
+window.requestAnimFrame = (function() {
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame
+        || window.mozRequestAnimationFrame || window.oRequestAnimationFrame
+        || window.msRequestAnimationFrame ||
+        function(callback) {
+            window.setTimeout(callback, 1000 / 60)
+        }
+})();
+
+//专题应用ajax参数对象
+var ajaxLottery =
+{
+    "total_size":5,//总共的应用个数
+    "start_position":1,//从第几个开始取
+    "rescategory_id":request.categoryId,
+    'order_by':"hot",
+    "appUrl": $.apiRoot + "appV3/getCategoryProducts.do",
+    "detailUrl": $.htmlRoot + "game_detail.html",
+    "countUrl": $.apiRoot + "worldcup/getLotteryCnt.do",
+    "lotteryUrl": $.apiRoot + ""
+};
+
+
+
+//专题应用ajax参数对象
+var ajaxSubjectGame =
+{
+    "total_size":0,//总共的应用个数
+    "start_position":1,//从第几个开始取
+    "init_size":10,//第一次取的数目
+    "load_size":5,//之后每次下拉加载的数目
+    "rescategory_id":request.categoryId,
+    'order_by':"hot",
+    "url": $.apiRoot + "appV3/getCategoryProducts.do",
+    "onRefresh":false,
+    "detailUrl": $.htmlRoot + "game_detail.html"
+};
+
+//加载进来的专题应用列表
+var subjectGameList = [];
+//空li字符串，创建用
+function createItem(itemData)
+{
+    var $item = $($(".app")[0].cloneNode(true));
+    fillItem($item, itemData);
+    return $item;
+}
+
+//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
+function updateState(packageName, state)
+{
+    var $item = $(document.getElementById(packageName));
+    var $btn = $item.find(".btn");
+    if(state >= 0 && state <= 100)
+    {
+        if(!$btn.hasClass("cancelBtn"))
+        {
+            $btn.removeClass().addClass("cancelBtn btn");
+        }
+        $item.find(".state").text(state + "%");
+    }
+    else if(state == "finishDownload")
+    {
+        $btn.removeClass().addClass("installBtn btn");
+        $item.find(".state").text("安装");
+    }
+    else if(state == "finishInstall")
+    {
+        $btn.removeClass().addClass("openBtn btn");
+        $item.find(".state").text("打开");
+    }
+    else if(state == "pause")
+    {
+        $btn.removeClass().addClass("continueBtn btn");
+        $item.find(".state").text("继续");
+    }
+}
+
+//判断packageName是否在list中，在的话返回索引，不在的话返回-1
+function indexList(packageName, list)
+{
+    var len = list.length;
+    for(var i = 0; i < len; ++i)
+    {
+        if(packageName == list[i].resPackagename)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//ajax填充打分
+function fillRate($item, score)
+{
+    //分数
+    $item.find(".items-score img").each(function(j, imgItem)
+    {
+        if(j - score < -0.5)
+        {
+            $(imgItem).attr("src", star_01);
+        }
+        else if(j - score == -0.5)
+        {
+            $(imgItem).attr("src", star_02);
+        }
+        else
+        {
+            $(imgItem).attr("src", star_03);
+        }
+    });
+}
+
+//根据本机信息填充状态
+function fillState($item, packageName, phoneData)
+{
+    //在下载列表里
+    var downloadIndex = indexList(packageName, phoneData.downloadList);
+    if(downloadIndex != -1)
+    {
+        //下载完成。显示安装状态
+        if(phoneData.downloadList[downloadIndex].downPercent == 100)
+        {
+            $item.find(".state").text("安装");
+            $item.find(".btn").removeClass().addClass("btn installBtn");
+        }
+        //下载未完成，显示继续
+        else
+        {
+            $item.find(".state").text("继续");
+            $item.find(".btn").removeClass().addClass("btn continueBtn");
+        }
+    }
+    //在升级列表里
+    else if(indexList(packageName, phoneData.updateList) != -1)
+    {
+        $item.find(".state").text("升级");
+        $item.find(".btn").removeClass().addClass("btn updateBtn");
+    }
+    //在已安装列表
+    else if(indexList(packageName, phoneData.installList) != -1)
+    {
+        $item.find(".state").text("打开");
+        $item.find(".btn").removeClass().addClass("btn openBtn");
+    }
+    //不在上述列表中
+    else
+    {
+        $item.find(".state").text("下载");
+        $item.find(".btn").removeClass().addClass("btn dlBtn");
+    }
+}
+
+function indexOfGift(acId)
+{
+    var len = myGiftData.length;
+    for(var i = 0; i < len; ++i)
+    {
+        if(myGiftData[i].acId === acId)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
+function fillItem($item, itemData)
+{
+    var packageName = itemData.resPackagename;
+    //使用包名作为id
+    $item.attr("id", itemData.resPackagename)
+        .data("location", itemData.resLocation)
+        .data("id", itemData.resId)
+        .data("package", packageName)
+        .data("icon", itemData.resIcons)
+        .data("name", itemData.resName);
+    if(itemData.acId)
+    {
+        var index = indexOfGift(itemData.acId);
+        //领过了
+        if(index != -1)
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId + "&num=" + myGiftData[index].giftNo
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+        //没领过
+        else
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+    }
+    else
+    {
+        $item.find('.relate-gift').hide().off('tap');
+    }
+    //$item.find(".number").text(i);
+    $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
+
+    $item.find(".tit strong").text(itemData.resName);
+    var ca = (itemData.resCapacity/(1024 * 1024)).toFixed(1);
+    $item.find(".tit p").text(ca + 'MB | ' + itemData.resDeveloper);
+
+    //评分
+    var rated = itemData.resRated;
+    fillRate($item, rated);
+
+    //状态
+    fillState($item, packageName, phoneData);
+}
+
+//tap点击函数
+function btnTapHandler($target)
+{
+    var $item = $target.parent().parent();
+    //通知android下载
+    if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
+    {
+        $target.removeClass().addClass('cancelBtn btn');
+        $target.find(".state").text('暂停');
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":1,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    else if($target.hasClass('updateBtn'))
+    {
+        $target.removeClass('updateBtn').addClass('cancelBtn');
+        $target.find(".state").text('暂停');
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":1,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //通知android暂停下载
+    else if($target.hasClass('cancelBtn'))
+    {
+        $target.removeClass('cancelBtn').addClass('continueBtn');
+        $target.find(".state").text('继续');
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":5,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //通知android打开此应用
+    else if($target.hasClass("openBtn"))
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":3,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //通知android安装此应用
+    else if($target.hasClass("installBtn"))
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":6,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+}
+
+//进入游戏详情
+function infoTapHandler($info)
+{
+    var $item = $info.parent().parent();
+    var resId = $item.data("id");
+    isUxbao && window.uxbao.click(
+        JSON.stringify(
+            {
+                "type":2,
+                "resId":resId,
+                "url":ajaxSubjectGame.detailUrl + "?resId=" + resId,
+                "resName":$item.data("name"),
+                "resPackageName":$item.data("package")
+            }
+        )
+    );
+}
+
+//将日期对象转换成日期字符串如2014.03.15
+function getDateStr(date)
+{
+    var dateStr = "";
+    dateStr += date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if(month < 10)
+    {
+        dateStr += '.0' + month;
+    }
+    else
+    {
+        dateStr += '.' + month;
+    }
+    if(day < 10)
+    {
+        dateStr += '.0' + day;
+    }
+    else
+    {
+        dateStr += '.' + day;
+    }
+    return dateStr;
+}
+
+var default_icon, star_01, star_02, star_03;
+
+$(function()
+{
+    $('.headPic').attr('src', $.htmlRoot + 'images/world_cup_head.jpg');
+    //旋转
+    var totalDeg = 360 * 3 + 0;
+    var steps = [];
+    var lostDeg = [36, 66, 96, 156, 186, 216, 276, 306, 336];
+    var prizeDeg = [6, 126, 246];
+    var prize, sncode;
+    var count = 0;
+    var now = 0;
+    var a = 0.01;
+    var outter, inner, timer, running = false;
+    function countSteps() {
+        var t = Math.sqrt(2 * totalDeg / a);
+        var v = a * t;
+        for (var i = 0; i < t; i++) {
+            steps.push((2 * v * i - a * i * i) / 2)
+        }
+        steps.push(totalDeg)
+    }
+    function step() {
+        inner.style.webkitTransform = 'rotate(' + steps[now++] + 'deg)';
+        inner.style.MozTransform = 'rotate(' + steps[now++] + 'deg)';
+        if (now < steps.length)
+        {
+            requestAnimFrame(step)
+        } else {
+            running = false;
+            setTimeout(function() {
+                    if (prize != null) {
+                        $("#sncode").text(sncode);
+                        var type = "";
+                        if (prize == 1) {
+                            type = "一等奖"
+                        } else if (prize == 2) {
+                            type = "二等奖"
+                        } else if (prize == 3) {
+                            type = "三等奖"
+                        }
+                        $("#prizetype").text(type);
+                        $("#result").slideToggle(500);
+                        $("#outercont").slideUp(500)
+                    } else {
+                        alert("谢谢您的参与，下次再接再厉")
+                    }
+                },
+                200)
+        }
+    }
+    function start(deg) {
+        deg = deg || lostDeg[parseInt(lostDeg.length * Math.random())];
+        running = true;
+        clearInterval(timer);
+        totalDeg = 360 * 5 + deg;
+        steps = [];
+        now = 0;
+        countSteps();
+        requestAnimFrame(step)
+    }
+    window.start = start;
+    outter = document.getElementById('outer');
+    inner = document.getElementById('inner');
+    i = 10;
+    $("#inner,#startBtn").tap(function()
+    {
+        if (running)
+        {
+            return;
+        }
+
+        if (count >= 3) {
+            alert("您已经抽了 3 次奖。");
+            return
+        }
+        if (prize != null) {
+            alert("亲，你不能再参加本次活动了喔！下次再来吧~");
+            return
+        }
+        $.ajax({
+            url: "index.php",
+            dataType: "json",
+            data: {
+                token: "o7MB9ji5fQRsE0ZoVAMU7SlnRyMI",
+                ac: "activityuser",
+                tid: "5",
+                t: Math.random()
+            },
+            beforeSend: function() {
+                running = true;
+                timer = setInterval(function() {
+                        i += 5;
+                        inner.style.webkitTransform = 'rotate(' + i + 'deg)';
+                        inner.style.MozTransform = 'rotate(' + i + 'deg)'
+                    },
+                    1)
+            },
+            success: function(data) {
+                if (data.error == "invalid") {
+                    alert("您已经抽了 3 次奖。");
+                    count = 3;
+                    clearInterval(timer);
+                    return
+                }
+                if (data.error == "getsn") {
+                    alert('本次活动你已经中过奖，本次只显示你上次抽奖结果!兑奖SN码为:' + data.sn);
+                    count = 3;
+                    clearInterval(timer);
+                    prize = data.prizetype;
+                    sncode = data.sn;
+                    start(prizeDeg[data.prizetype - 1]);
+                    return
+                }
+                if (data.success) {
+                    prize = data.prizetype;
+                    sncode = data.sn;
+                    start(prizeDeg[data.prizetype - 1])
+                } else {
+                    prize = null;
+                    start()
+                }
+                running = false;
+                count++
+            },
+            error: function() {
+                prize = null;
+                start();
+                running = false;
+                count++;
+            },
+            timeout: 4000
+        })
+    });
+
+});

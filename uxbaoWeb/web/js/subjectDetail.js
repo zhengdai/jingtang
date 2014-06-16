@@ -519,7 +519,7 @@ $(function()
                         {
                             fillItem($item, data.product[i]);
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
-                            
+
                             //添加点击响应函数
                             $item.find(".btn").on("tap",function()
                             {
@@ -537,9 +537,9 @@ $(function()
                             $item.remove();
                         }
                     });
-                    
+
                     $.fn.imglazyload.detect();
-                    
+
                     //下拉加载
                     if(ajaxSubjectGame.start_position <= ajaxSubjectGame.total_size)
                     {

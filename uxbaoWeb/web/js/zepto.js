@@ -1605,8 +1605,8 @@ else
     isUxbao = false;
     userInfo = {
         "version": "3.0",
-        "imei": "00000000",
-        "imsi": "00000000",
+        "imei": "999",
+        "imsi": "999",
         "language": "zh",
         "os_version": "4.0",
         "phonetypeName": "N7105",
@@ -1834,6 +1834,6 @@ else
     };
     myGiftData = [];
 }
-$.apiRoot = 'http://apk.gambao.com:8080/mystore/';
+$.apiRoot = 'http://main.gambao.com:8080/mystore/';
 $.htmlRoot = 'http://115.29.177.196/';
 $.localRoot = '';

@@ -1343,9 +1343,9 @@ $(function () {
                 // selctor可能找不到元素。
                 if ( $el ) {
                     $el.attr( 'hl-cls', className );
-                    timer = setTimeout( function() {
+                    //timer = setTimeout( function() {
                         $el.addClass( className );
-                    }, 100 );
+                    //}, 100 );
                     $doc.on( 'touchend touchmove touchcancel', dismiss );
                 }
             } );

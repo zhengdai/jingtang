@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>世界杯-玩游戏-赢多重好礼</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/subjectDetail.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/world_cup.js"></script>
+        <style>
+            .subjectCon{ margin: 5px; overflow: hidden; background-color: #fbfbfb;}
+            .panel{ background: url("images/bg_03.png") top center no-repeat; background-size: 100% auto;
+                position: relative; overflow: hidden;
+            }
+
+            #outer {
+                width: 280px;
+                height: 280px;
+                margin: 10px auto;
+            }
+            #outer img, #inner img {
+                display: block;
+                margin: 0 auto;
+            }
+            #inner-cont {
+                position: absolute;
+                width: 100%;
+                top: 55px;
+            }
+            #inner {
+                margin: 0 auto;
+                width: 120px;
+                cursor: pointer;
+            }
+
+            #outer img{
+                width: 280px;
+            }
+
+            #inner img{
+                width: 120px;
+            }
+
+            @media screen and (min-width: 400px) {
+                #outer {
+                    width: 300px;
+                    height: 300px;
+                    margin: 10px auto;
+                }
+                #outer img, #inner img {
+                    display: block;
+                    margin: 0 auto;
+                }
+                #inner-cont {
+                    position: absolute;
+                    width: 100%;
+                    top: 60px;
+                }
+                #inner {
+                    margin: 0 auto;
+                    width: 120px;
+                    cursor: pointer;
+                }
+
+                #outer img{
+                    width: 300px;
+                }
+
+                #inner img{
+                    width: 120px;
+                }
+            }
+
+            @media screen and (max-width: 320px) {
+                #outer {
+                    width: 260px;
+                    height: 260px;
+                    margin: 10px auto;
+                }
+                #outer img, #inner img {
+                    display: block;
+                    margin: 0 auto;
+                }
+                #inner-cont {
+                    position: absolute;
+                    width: 100%;
+                    top: 60px;
+                }
+                #inner {
+                    margin: 0 auto;
+                    width: 100px;
+                    cursor: pointer;
+                }
+
+                #outer img{
+                    width: 260px;
+                }
+
+                #inner img{
+                    width: 100px;
+                }
+            }
+
+            .lotteryCount{
+                background-color: #42a454;
+                box-shadow: 0 2px 2px #4b4b4b;
+                margin: 10px auto;
+                width: 100px;
+                padding: 5px 0;
+                text-align: center;
+                color: #fff;
+                line-height: 26px;
+                text-shadow: 0 2px 2px #4b4b4b;
+            }
+            .lotteryTit{
+                font-size: 14px;
+            }
+            .lotteryCount{
+                font-size: 16px;
+            }
+            .lotteryBtn{
+                position: absolute;
+                bottom: 30px;
+                background-color: #f79526;
+                width: 50px;
+                text-align: center;
+                padding: 5px 15px;
+                font-size: 18px;
+                color: #fff;
+                line-height: 30px;
+                border-radius: 10px;
+                box-shadow: 0 2px 2px #4b4b4b;
+            }
+            #startBtn{
+                left: 10px;
+            }
+            #receiveBtn{
+                right: 10px;
+            }
+            .downloadArea{
+                margin: 10px auto;
+                overflow: hidden;
+            }
+            .rule{
+                background-color: #44ab58;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                line-height: 24px;
+                color: #fff;
+                font-size: 14px;
+                text-shadow: 0 2px 2px #4b4b4b;
+                overflow: hidden;
+                position: relative;
+                padding: 5px;
+            }
+            .ruleTit{
+                width: 80px;
+                position: absolute;
+                text-align: right;
+                top:5px;
+            }
+            .ruleCon{
+                margin-left: 80px;
+            }
+            .areaBot{
+                height: 15px;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                background-color: #44ab58;
+            }
+            .userArea{
+                margin: 10px auto;
+                overflow: hidden;
+            }
+            .userTit{
+                background-color: #fcad33;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                line-height: 30px;
+                color: #fff;
+                font-size: 18px;
+                text-shadow: 0 2px 2px #4b4b4b;
+                overflow: hidden;
+                position: relative;
+                text-align: center;
+                padding: 5px;
+            }
+            #userList{
+                overflow: hidden;
+            }
+            #userList li{
+                height: 30px;
+                margin: 5px 0;
+            }
+            .userArea .areaBot{
+                background-color: #fcad33;
+            }
+        </style>
+    </head>
+    <body onselectstart="return false">
+        <!--专题头图-->
+        <img class="headPic" src="images/local/default_bg.png" />
+
+        <!--专题描述-->
+        <div class="subjectInfo">
+            <div class="subjectTit">
+                <p class="subjectName">回馈游戏宝用户</p>
+                <p class="subjectTime">2014.6.13-2014.7.14</p>
+            </div>
+            <div class="subjectDes">
+                <p class="description">
+                    在世界杯期间，将持续进行抽奖活动,神秘大奖。等你来拿！
+                </p>
+            </div>
+        </div>
+
+        <div class="subjectCon">
+            <!--抽奖区域-->
+            <div class="panel">
+                <div id="outer-cont">
+                    <div id="outer">
+                        <img src="images/panel.png" />
+                    </div>
+                </div>
+                <div id="inner-cont">
+                    <div id="inner">
+                        <img src="images/pointer.png" />
+                    </div>
+                </div>
+
+                <div class="lotteryCount">
+                    <p class="lotteryTit">
+                        抽奖机会
+                    </p>
+                    <p id="lotteryCount">5次</p>
+                </div>
+
+                <div class="lotteryBtn" id="startBtn">
+                    开始抽奖
+                </div>
+
+                <div class="lotteryBtn" id="receiveBtn">
+                    马上领奖
+                </div>
+
+            </div>
+
+            <!--游戏下载区域-->
+            <div class="downloadArea">
+                <div class="rule">
+                    <p class="ruleTit">活动规则：</p>
+                    <p class="ruleCon">每下载一个指定游戏，增加一次抽奖机会，重复下载无效。</p>
+                </div>
+                <ul id="app-list-box">
+                    <li class="app">
+                        <div class="itemAll">
+                            <span class="relate-gift">礼包</span>
+                            <div class="appInfo">
+                                <img class="appIcon" src="images/local/market.png" />
+                                <div class="tit">
+                                    <strong></strong>
+                                    <p></p>
+                                    <div class="items-score">
+                                        <img src="images/local/star_01.png" />
+                                        <img src="images/local/star_02.png" />
+                                        <img src="images/local/star_03.png" />
+                                        <img />
+                                        <img />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn">
+                                <span class="state"></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="areaBot"></div>
+            </div>
+
+            <!--中奖用户区域
+            <div class="userArea">
+                <div class="userTit">
+                    中奖用户
+                </div>
+                <ul id="userList">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="areaBot"></div>
+            </div>
+            -->
+        </div>
+    </body>
+</html>
