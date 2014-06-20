@@ -5,25 +5,25 @@
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 		<meta content="telephone=no" name="format-detection">
         <title>游戏宝精品</title>
-        <link type="text/css" rel="stylesheet" href="content://uxbao.local/web/css/main.css"/>
-        <script type="text/javascript" src="content://uxbao.local/web/js/zepto.js"></script>
-        <script type="text/javascript" src="content://uxbao.local/web/js/gmu.merge.js"></script>
-        <script type="text/javascript" src="content://uxbao.local/web/js/main.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/main.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
     </head>
     <body onselectstart="return false">
     	<!--图片滚动-->
         <div id="slider">
             <div>
-                <img class="sliderImg" src="content://uxbao.local/web/images/local/default_bg_540200.png" />
+                <img class="sliderImg" src="images/local/default_bg_540200.png" />
             </div>
             <div>
-                <img class="sliderImg" src="content://uxbao.local/web/images/local/default_bg_540200.png" />
+                <img class="sliderImg" src="images/local/default_bg_540200.png" />
             </div>
             <div>
-                <img class="sliderImg" src="content://uxbao.local/web/images/local/default_bg_540200.png" />
+                <img class="sliderImg" src="images/local/default_bg_540200.png" />
             </div>
             <div>
-                <img class="sliderImg" src="content://uxbao.local/web/images/local/default_bg_540200.png" />
+                <img class="sliderImg" src="images/local/default_bg_540200.png" />
             </div>
         </div>
 
@@ -31,7 +31,7 @@
         <div class="type">
         	<ul>
             	<li id="biwan">
-                    <img src="content://uxbao.local/web/images/local/joy.png" />
+                    <img src="images/local/joy.png" />
                     <span class="type-tit">必玩</span>
                     <p class="right-split">
                         <span class="split-top"></span>
@@ -43,7 +43,7 @@
                         <span class="split-top"></span>
                         <span class="split-bottom"></span>
                     </p>
-                    <img src="content://uxbao.local/web/images/local/ice.png" />
+                    <img src="images/local/ice.png" />
                     <span class="type-tit">最新</span>
                     <p class="right-split">
                         <span class="split-top"></span>
@@ -55,7 +55,7 @@
                         <span class="split-top"></span>
                         <span class="split-bottom"></span>
                     </p>
-                    <img src="content://uxbao.local/web/images/local/gift.png" />
+                    <img src="images/local/gift.png" />
                     <span class="type-tit">礼包</span>
                     <p class="right-split">
                         <span class="split-top"></span>
@@ -67,7 +67,7 @@
                         <span class="split-top"></span>
                         <span class="split-bottom"></span>
                     </p>
-                    <img src="images/ball.gif" />
+                    <img src="images/local/ball.gif" />
                     <span class="type-tit">世界杯</span>
                     <p class="right-split">
                         <span class="split-top"></span>
@@ -79,7 +79,7 @@
                         <span class="split-top"></span>
                         <span class="split-bottom"></span>
                     </p>
-                    <img src="content://uxbao.local/web/images/local/plum.png" />
+                    <img src="images/local/plum.png" />
                     <span class="type-tit">棋牌</span>
                     <p class="right-split">
                         <span class="split-top"></span>
@@ -95,13 +95,13 @@
                 <span class="recommend-today">每日推荐</span><span class="recommend-his">历史推荐</span>
             </div>
             <div class="recommend-info">
-                <img class="recommend-icon" src="content://uxbao.local/web/images/local/market.png" />
+                <img class="recommend-icon" src="images/local/market.png" />
                 <div class="recommend-tit">
                     <p class="recommend-name"></p>
                     <div class="items-score">
-                        <img src="content://uxbao.local/web/images/local/star_01.png" />
-                        <img src="content://uxbao.local/web/images/local/star_02.png" />
-                        <img src="content://uxbao.local/web/images/local/star_03.png" />
+                        <img src="images/local/star_01.png" />
+                        <img src="images/local/star_02.png" />
+                        <img src="images/local/star_03.png" />
                         <img />
                         <img />
                         <span class="recommend-capa"></span>
@@ -120,7 +120,7 @@
             	<li class="app">
                 	<div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
@@ -141,16 +141,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -162,16 +162,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -183,16 +183,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -204,16 +204,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -225,16 +225,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -246,16 +246,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -267,16 +267,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -288,16 +288,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -309,16 +309,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -330,16 +330,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -351,16 +351,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -372,16 +372,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -393,16 +393,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -414,16 +414,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -435,16 +435,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -456,16 +456,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -477,16 +477,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -498,16 +498,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -519,16 +519,16 @@
                 <li class="app">
                     <div class="itemAll">
                         <div class="appInfo">
-                            <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                            <img class="appIcon" src="images/local/market.png" />
                             <div class="tit">
                                 <strong></strong>
                                 <p class="company"></p>
                                 <div class="items-score">
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
-                                    <img />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
+                                    <img src="" />
                                 </div>
                             </div>
                         </div>
@@ -568,7 +568,7 @@
                             (
                                     {
                                         "type":15,
-                                        "title":$(this).data('resName'),
+                                        "title":"世界杯-玩游戏-赢多重好礼",
                                         "url": $.htmlRoot + "world_cup.html"
                                     }
                             )

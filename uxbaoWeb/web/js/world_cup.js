@@ -721,7 +721,7 @@ $(function()
     //旋转
     var totalDeg = 360 * 3 + 0;
     var steps = [];
-    var prizeDeg = [330, 30, 90, 150, 210, 270];
+    var prizeDeg = [337.5, 22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5];
     var prize, prizeData, prizeId;
     var count = 0;
     var now = 0;
@@ -745,7 +745,7 @@ $(function()
         else
         {
             running = false;
-            if(prize === 6)
+            if(prize === 7)
             {
                 setTimeout(function()
                 {
@@ -805,7 +805,7 @@ $(function()
                     $('#lotteryCount').text(ajaxSubjectGame.count + '次');
                     prize = data.lotteryResult;
                     prizeId = data.lotteryId;
-                    if(data.lotteryResult === 6)
+                    if(data.lotteryResult === 7)
                     {
                         //alert("六等奖");
                         prizeData = data.activity;

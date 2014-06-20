@@ -67,7 +67,7 @@
                         <span class="split-top"></span>
                         <span class="split-bottom"></span>
                     </p>
-                    <img src="images/local/ball.jpg" />
+                    <img src="images/local/ball.gif" />
                     <span class="type-tit">世界杯</span>
                     <p class="right-split">
                         <span class="split-top"></span>
@@ -546,6 +546,7 @@
     <script>
         function worldCupAc()
         {
+            alert($('#slider').data("events"));
             $("#kaifu").off("tap").on("tap", function()
             {
                 isUxbao && window.uxbao.click(JSON.stringify
