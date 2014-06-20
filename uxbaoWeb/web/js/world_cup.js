@@ -393,7 +393,7 @@ function showTipDialog(message)
 function showInfoDialog(type)
 {
     var $infoDialog = $("#info-dialog");
-    if(type === 4)
+    if(type === 4 || type === 7 || type === 10)
     {
         $('#info-code').hide();
         $('#info-address').hide();
@@ -606,7 +606,7 @@ $(function()
                 var code = $("#info-code").val();
                 var address = $("#info-address").val();
                 var self = this;
-                if(prize === 4)
+                if(prize === 4 || prize === 7 || prize === 8)
                 {
                     if(!userName)
                     {
@@ -721,7 +721,7 @@ $(function()
     //旋转
     var totalDeg = 360 * 3 + 0;
     var steps = [];
-    var prizeDeg = [337.5, 22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5];
+    var prizeDeg = [337.5, 22.5, 112.5, 67.5, 202.5, 247.5, 157.5, 292.5];//iphone，球衣，小霸王游戏机，30充值卡，小黄人，礼包，10元，5元
     var prize, prizeData, prizeId;
     var count = 0;
     var now = 0;
@@ -745,7 +745,7 @@ $(function()
         else
         {
             running = false;
-            if(prize === 7)
+            if(prize === 6)
             {
                 setTimeout(function()
                 {
@@ -805,7 +805,7 @@ $(function()
                     $('#lotteryCount').text(ajaxSubjectGame.count + '次');
                     prize = data.lotteryResult;
                     prizeId = data.lotteryId;
-                    if(data.lotteryResult === 7)
+                    if(data.lotteryResult === 6)
                     {
                         //alert("六等奖");
                         prizeData = data.activity;

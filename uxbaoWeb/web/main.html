@@ -546,7 +546,6 @@
     <script>
         function worldCupAc()
         {
-            alert($('#slider').data("events"));
             $("#kaifu").off("tap").on("tap", function()
             {
                 isUxbao && window.uxbao.click(JSON.stringify
@@ -595,6 +594,7 @@
         $(function()
         {
             setTimeout(worldCupAc, 1000);
+            setTimeout(worldCupAc, 5000);
         });
     </script>
 </html>
