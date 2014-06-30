@@ -41,7 +41,19 @@ function fillItem($item, itemData)
 //点击社区函数
 function btnTapHandler($target)
 {
-    window.location.href = ajaxCommunity.commentListUrl + "?resId=" + $target.data("resId");
+    isUxbao && window.uxbao.moreComment(
+        JSON.stringify(
+            {
+                "allUrl":ajaxCommunity.commentListUrl + "?resId=" + $target.data("resId"),
+                "goodUrl":ajaxCommunity.commentListUrl + "?resId=" + $target.data("resId") + "&type=Good",
+                "badUrl":ajaxCommunity.commentListUrl + "?resId=" + $target.data("resId") + "&type=Bad",
+                "commentUrl":ajaxCommunity.commentUrl + "?resId=" + $target.data("resId"),
+                "resIcons":$target.data('resIcons'),
+                "resPackagename":$target.data('resPackagename')
+            }
+        )
+    );
+
 }
 
 //加载更多
@@ -76,7 +88,7 @@ function loadMore()
                         for (var i = 0; i < len; ++i)
                         {
                             var $item = createItem(data.product[i]);
-                            $item.on('click', function()
+                            $item.on('tap', function()
                             {
                                 btnTapHandler($(this));
                                 return false;
@@ -142,7 +154,7 @@ $(function()
                         {
                             fillItem($item, data.product[i]);
                             $item.find(".gameIcon").find("img").imglazyload({"urlName": "data-pic"});
-                            $item.on('click', function()
+                            $item.on('tap', function()
                             {
                                 btnTapHandler($(this));
                                 return false;
@@ -166,6 +178,7 @@ $(function()
                                 loadMore();
                             }
                         });
+                        $(window).trigger('scroll');
                     }
                     else
                     {

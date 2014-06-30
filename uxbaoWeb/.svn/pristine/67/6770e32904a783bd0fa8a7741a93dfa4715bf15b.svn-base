@@ -1,0 +1,333 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #d1d1d1;
+}
+/*顶部公共区域css*/
+.logo-header{ overflow: hidden;
+    background-image: -webkit-linear-gradient(top, #fafafa, #efefef);
+    background-image: linear-gradient(to bottom, #fafafa, #efefef);
+    background-image: -o-linear-gradient(top, #fafafa, #efefef);
+    background-image: -moz-linear-gradient(top, #fafafa, #efefef);
+    background-image: -ms-linear-gradient(top, #fafafa, #efefef);
+    border-bottom: 1px solid #ededed;
+    box-shadow: 0 2px 2px #c6c6c6;
+    padding: 5px;
+}
+.logo{display: block; float:left;}
+.logo img{ display: block;}
+
+#search-btn{
+    display: block;
+    float:right;
+    margin:5px 10px 0 0;
+}
+#search-btn img{ display: block;}
+
+#nav{ overflow: hidden; background-color: #eeeeee;margin-top: 3px;}
+.nav-list{ overflow: hidden;}
+.nav-list li{float:left; width: 20%; text-align: center; font-size:16px; font-weight: bold; line-height: 30px; border-bottom: 4px solid #e1e1e1;}
+.nav-list li.active{ border-bottom-color: #f68521;}
+
+/*弹出留言与提意见对话框样式*/
+.ui-dialog{
+    overflow: hidden;
+    margin: 0 auto;
+    z-index: 1002;
+    position:absolute;
+    left: 0;
+    top: -10000px;
+    display: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    background-color: white;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+/** mask */
+.ui-mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #888;
+    opacity: 0.5;
+    display: none;
+    z-index: 1001;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+.ui-dialog .ui-dialog-title {
+    position: relative;
+}
+
+.ui-dialog .ui-dialog-close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+.ui-dialog-container {
+    position: relative;
+}
+
+.ui-dialog{
+    background: #f5f5f5;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.ui-dialog .ui-dialog-title {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    background: #f79526;
+    color: #fff;
+    font-weight: 700;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
+
+.ui-dialog .ui-dialog-close-hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.ui-dialog .ui-dialog-content{
+    padding: 0;
+    position: relative;
+}
+.ui-dialog p{
+    padding: 10px 5px;
+    font-size:14px;
+    line-height: 26px;;
+}
+#tip-dialog{ width: 100%; overflow: hidden;}
+
+.ui-dialog-btns {
+    table-layout: fixed;
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+}
+.ui-dialog-btns .ui-btn {
+    padding: 0;
+    font-size: 18px;
+    width: 100%;
+    display: table-cell;
+    float: none;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    color: #232323;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+    border-bottom: 0 none;
+    cursor: pointer;
+}
+
+.ui-dialog-btns .ui-btn:first-child {
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    -moz-border-bottom-left-radius: 3px;
+    border-left: 0 none;
+}
+
+.ui-dialog-btns .ui-btn:last-child {
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    -moz-border-bottom-left-radius: 3px;
+    border-right: 0 none;
+}
+
+.ui-dialog-btns .ui-btn.ui-state-hover {
+    background-color: #e2e2e2;
+}
+
+/*css for pad*/
+@media all and (min-device-width:768px) and (max-device-width: 1024px){
+    .ui-dialog{
+        min-width: 500px;
+    }
+    .ui-dialog .ui-dialog-title{
+        min-height: 1.1em;
+    }
+}
+
+/*游戏头*/
+.game-detail-header{ overflow: hidden; background-image: -webkit-linear-gradient(top, #fafafa, #efefef);
+    background-image: linear-gradient(to bottom, #fafafa, #efefef);
+    background-image: -o-linear-gradient(top, #fafafa, #efefef);
+    background-image: -moz-linear-gradient(top, #fafafa, #efefef);
+    background-image: -ms-linear-gradient(top, #fafafa, #efefef);
+    position: relative;
+    padding:5px 0;
+}
+.goback{ display: block; position: absolute; left: 10px; height: 100%; width:30px;
+    background: url("../images/local/back.png") center no-repeat;top:0;
+}
+.game-tit{ text-align: center; line-height: 30px;font-size: 20px; font-weight: bold;}
+.header-grade{ overflow: hidden; width:80px; margin:0 auto;}
+.header-grade img{float: left; display: block;}
+
+.down-area{ background-color: #f0f0f0; padding: 5px 0;}
+.down-btn{display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    width: 180px;
+    font-size: 20px;
+    font-weight: bold;
+    background: url(../images/local/btn_bg.png) center repeat-x;
+    margin:0 auto;
+}
+.down-text{ background: url("../images/local/detail_down.png") left center no-repeat; padding:6px 0 6px 36px;}
+
+.ui-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-user-select: none;
+    -webkit-touch-callout:none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ui-slider-group {
+    overflow: hidden;
+    position: relative;
+    white-space:nowrap;/*内容不换行*/
+    -webkit-transform: translateZ(0);
+}
+
+.ui-slider-item {
+    background-color: #e3e3e3;
+    text-align: center;
+    position: relative;
+    float:left;
+    overflow: hidden;
+    -webkit-box-sizing:border-box;
+}
+
+.ui-slider-item img {
+    display: block;
+    margin:0 auto;
+}
+
+.ui-slider-item > a {
+    display: block;
+    text-decoration: none;
+    /*由于slide-item有3d属性，导致android上最后一个overflow:hidden无效，所以给子集也加个overflow:hidden;*/
+    width: 100%;
+    overflow: hidden;
+}
+
+.ui-slider-dots {
+    position: absolute;
+    bottom: 6px;
+    right: 0;
+    padding: 0 6px;
+    text-align: right;
+}
+.ui-slider-dots > b {
+    display: inline-block;
+    margin: 0 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(198, 198, 198, 0.8);
+}
+
+.ui-slider-dots .ui-state-active {
+    background: #f68928;
+}
+
+
+
+#slider{position:relative;}
+.ui-slider-dots{ bottom: 50px;}
+#briefInfo{background: url("../images/local/title_bg.png") left bottom repeat-x;
+    position: absolute; bottom:0; height: 80px; z-index: 100; width: 100%;}
+.icon{ height: 100%; width: 80px; position: absolute;}
+.icon img{ width: 60px; height: 60px; margin:10px auto; display: block;}
+.info{ margin-left:80px; padding: 10px 0;color: #f1f1f1;}
+.tit{ font-size: 20px; line-height: 30px;}
+.company{ font-size:14px; line-height: 30px;}
+
+#gameGift,#gameInfo{ margin: 5px 0;}
+#gameIntro{ position: relative; overflow: hidden; background-color: #f3f3f3; margin:0 auto 8px;}
+.header{background-color: #fff;}
+.header .left{display: block; width:8px; height: 41px; background-color: #f49643; position: absolute;}
+.header .title{ margin:0 12px 0 18px; line-height: 40px; border-bottom: 1px dashed #d3d9d5; color: #000;
+    font-size: 18px; height: 40px;font-weight: normal;
+}
+#activityList, #infoList{ overflow: hidden; padding: 5px 20px; background-color: #f3f3f3;}
+#activityList li, #infoList li{ font-size: 16px; line-height: 24px; height: 24px; overflow: hidden;}
+#activityList .content{ display: block; float: left; width: 70%; overflow: hidden; height: 100%;}
+#activityList .date{display: block; float: right; overflow: hidden; width: 30%; font-size: 14px; height: 100%;}
+.intro{margin:10px 12px 0 18px; font-size: 16px; line-height: 24px; color: #4b4b4b;}
+.readmore-js-toggle{ height: 30px; margin:0 16px;}
+.readMore{ background: url("../images/local/bottom_arrow.png") right center no-repeat;}
+.closeMore{ background: url("../images/local/top_arrow.png") right center no-repeat;}
+.readmore-js-section { overflow: hidden;}
+
+#commentArea{background-color: #f3f3f3;margin:0 auto 8px;color: #2f2f2f; overflow: hidden;}
+.commentNum{ font-size: 18px; font-weight:lighter; line-height: 40px;}
+#rate{ height: 25px; margin:10px 18px; line-height: 24px; font-size:20px; color: #f49643;}
+#rate img{display: block; float: left;}
+#rate span{margin-left:10px; display: block; float: left; margin-top:1px; height: 22px;}
+#rateDetail{margin: 5px 18px;}
+#rateDetail li{ width: 100%; height: 16px; margin:3px 0; overflow: hidden; position: relative;}
+.rateDetailItem{ position: absolute; height: 100%; top:0; left: 0;}
+.rateDetailItem img{ display: block; float:left;}
+.percent{ margin:6px 50px 6px 100px; height: 4px;background-color: #cfcfcf;}
+.percentLeft{ display: block; float: left; height: 100%; background-color: #747474; width: 50%;}
+.percentNum{ width:50px; display: block; height: 100%; position: absolute; right: 0; top: 0; text-align: center; }
+
+#commentList{ margin:10px 18px;overflow: hidden;}
+.commentItem{ width: 100%; border-top: 1px dashed #d3d9d5;padding:5px 0; color: #2f2f2f;}
+.userInfo{ height: 48px; width:100%; overflow: hidden; position: relative;}
+.userIcon{ position: absolute; height: 100%; width: 48px; border-radius: 6px; top: 0; left: 0;}
+.userIcon img{ height: 100%; width: 100%;border-radius: 24px;}
+.middle{ margin:0 100px 0 60px; height: 100%;}
+.userName{ font-size: 16px; line-height: 26px;color: #9d9d9d;}
+.commentDate{ font-size:12px; line-height: 22px; font-weight: lighter;color: #9d9d9d;}
+.grade{ position: absolute; right: 10px; top:10px; height:16px;}
+.grade img{ float: left; display: block;}
+.commentContent{ font-size:14px; line-height: 24px; margin:5px 0 5px 60px;}
+
+.moreComment{ margin:5px 18px 20px; height: 50px; background-color: #e5e5e5;}
+.moreComment p{ margin:0 40px; text-align: center; font-size: 18px; line-height: 50px;}
+.moreComment p.able{background: url("../images/local/arrow.png") center right  no-repeat;}
+
+#mayLikeList{ margin:10px 18px; overflow: hidden;}
+#mayLikeList li{ width: 20%; overflow: hidden; float: left;}
+.appIcon{ width: 50px; height: 50px; margin:5px auto; display: block; border-radius: 6px;}
+.gameName{ display: block; font-size:14px; line-height: 30px; text-align: center; overflow: hidden; height: 30px;}
+
+#mayLike{background-color: #f3f3f3; overflow: hidden;}
+
+div#rate img {
+    height: 23px;
+    width: 23px;
+}

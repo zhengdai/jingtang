@@ -1,0 +1,10 @@
+1.页面统计 每个页面底部添加
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8877473ef213f9c6bab5db7b42e2dbbb' type='text/javascript'%3E%3C/script%3E"));
+</script>
+2.下载事件统计
+var _hmt = _hmt || [];
+function doDownload(appName){
+    _hmt.push(['_trackEvent', 'apk', 'download', appName]);
+}

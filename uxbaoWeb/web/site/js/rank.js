@@ -160,7 +160,91 @@ function fillItem($item, itemData)
 function btnTapHandler($target)
 {
     var $item = $target.parent().parent();
-    window.location.href = $item.data('location');
+    //通知android下载
+    if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
+    {
+        $target.removeClass().addClass('cancelBtn btn');
+        $target.find(".state").text('暂停');
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":1,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    else if($target.hasClass('updateBtn'))
+    {
+        $target.removeClass('updateBtn').addClass('cancelBtn');
+        $target.find(".state").text('暂停');
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":1,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //通知android暂停下载
+    else if($target.hasClass('cancelBtn'))
+    {
+        $target.removeClass('cancelBtn').addClass('continueBtn');
+        $target.find(".state").text('继续');
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":5,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //通知android打开此应用
+    else if($target.hasClass("openBtn"))
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":3,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //通知android安装此应用
+    else if($target.hasClass("installBtn"))
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":6,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
 }
 
 //加载更多
@@ -201,12 +285,12 @@ function loadMore()
                             $container.append($item);
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
                             //添加点击响应函数
-                            $item.find(".btn").on("click",function()
+                            $item.find(".btn").on("tap",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
                             });
-                            $item.find(".appInfo").on('click', function()
+                            $item.find(".appInfo").on('tap', function()
                             {
                                 infoTapHandler($(this));
                                 return false;
@@ -238,7 +322,17 @@ function infoTapHandler($info)
 {
     var $item = $info.parent().parent();
     var resId = $item.data("id");
-    window.location.href = ajaxRank.detailUrl + "?resId=" + resId;
+    isUxbao && window.uxbao.click(
+        JSON.stringify(
+            {
+                "type":2,
+                "resId":resId,
+                "url":ajaxRank.detailUrl + "?resId=" + resId,
+                "resName":$item.data("name"),
+                "resPackageName":$item.data("package")
+            }
+        )
+    );
 }
 
 var default_icon, star_01, star_02, star_03;
@@ -285,12 +379,12 @@ $(function()
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
 
                             //添加点击响应函数
-                            $item.find(".btn").on("click",function()
+                            $item.find(".btn").on("tap",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
                             });
-                            $item.find(".appInfo").on('click', function()
+                            $item.find(".appInfo").on('tap', function()
                             {
                                 infoTapHandler($(this));
                                 return false;
@@ -313,6 +407,7 @@ $(function()
                                 loadMore();
                             }
                         });
+                        $(window).trigger('scroll');
                     }
                     else
                     {

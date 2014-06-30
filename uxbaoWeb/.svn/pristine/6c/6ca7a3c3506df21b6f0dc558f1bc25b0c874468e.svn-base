@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <title>游戏详情</title>
+        <link type="text/css" rel="stylesheet" href="css/gameDetail.css"/>
+        <link type="text/css" rel="stylesheet" href="css/footer.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/readmore.js"></script>
+        <script type="text/javascript" src="js/gameDetail.js"></script>
+    </head>
+    <body onselectstart="return false">
+
+        <!--logo与搜索-->
+        <div class="logo-header">
+            <a class="goback" href="javascript:history.go(-1);"></a>
+            <a class="logo" href="http://q.gambao.com">
+                <img src="images/local/logo.png" />
+            </a>
+            <a id="search-btn" href="default_search.html">
+                <img src="images/local/search.png" />
+            </a>
+        </div>
+
+        <!--导航-->
+        <div id="nav">
+            <ul class="nav-list">
+                <li><a href="http://q.gambao.com">首页</a></li>
+                <li><a href="ol_category.html">网游</a></li>
+                <li><a href="single_category.html">单机</a></li>
+                <li><a href="topic_list.html">专题</a></li>
+                <li><a href="info_list.html">资讯</a></li>
+            </ul>
+        </div>
+
+        <!--游戏头-->
+        <div class="game-detail-header">
+            <h3 class="game-tit"></h3>
+            <div class="header-grade">
+                <img src="" />
+                <img src="" />
+                <img src="" />
+                <img src="" />
+                <img src="" />
+            </div>
+        </div>
+
+        <!--图片滚动-->
+        <div id="slider">
+            <!--游戏简要信息-->
+            <div id="briefInfo">
+                <div class="icon">
+                    <img src="images/local/market.png" />
+                </div>
+                <div class="info">
+                    <p class="tit">
+                    </p>
+                    <p class="company">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--下载按钮-->
+        <div class="down-area">
+            <div class="down-btn">
+                <span class="down-text">下载</span>
+            </div>
+        </div>
+
+        <!--游戏介绍-->
+        <div id="gameIntro">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">游戏介绍</h3>
+            </div>
+            <div class="intro">
+            </div>
+        </div>
+
+        <!--活动-->
+        <div id="gameGift">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">活动</h3>
+            </div>
+            <ul id="activityList">
+                <li><span class="content"></span><span class="date"></span></li>
+            </ul>
+        </div>
+
+        <!--资讯-->
+        <div id="gameInfo">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">资讯</h3>
+            </div>
+            <ul id="infoList">
+                <li></li>
+            </ul>
+        </div>
+
+        <!--评论-->
+        <div id="commentArea">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">评论<span class="commentNum"></span></h3>
+            </div>
+
+            <!--总评-->
+            <div id="rate">
+                <img src="images/local/big_yellow_star.png" />
+                <img src="images/local/big_gray_star.png" />
+                <img />
+                <img />
+                <img />
+                <span></span>
+            </div>
+
+            <!--打分百分比-->
+            <ul id="rateDetail">
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                    </div>
+                    <div class="percent" id="fiveStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="fivePer" class="percentNum"></span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="fourStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="fourPer" class="percentNum"></span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="threeStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="threePer" class="percentNum"></span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="twoStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="twoPer" class="percentNum"></span>
+                </li>
+                <li>
+                    <div class="rateDetailItem">
+                        <img src="images/local/deep_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                        <img src="images/local/light_gray_star.png" />
+                    </div>
+                    <div class="percent" id="oneStar">
+                        <span class="percentLeft"></span>
+                    </div>
+                    <span id="onePer" class="percentNum"></span>
+                </li>
+            </ul>
+
+            <!--评论列表-->
+            <ul id="commentList">
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/local/alien.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                            </p>
+                            <p class="commentDate">
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img src="images/local/little_yellow_star.png" />
+                            <img src="images/local/light_gray_star.png" />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                    </div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/local/alien.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                            </p>
+                            <p class="commentDate">
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                    </div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/local/alien.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                            </p>
+                            <p class="commentDate">
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                    </div>
+                </li>
+                <li class="commentItem">
+                    <div class="userInfo">
+                        <div class="userIcon">
+                            <img src="images/local/alien.png" />
+                        </div>
+                        <div class="middle">
+                            <p class="userName">
+                            </p>
+                            <p class="commentDate">
+                            </p>
+                        </div>
+                        <div class="grade">
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                            <img />
+                        </div>
+                    </div>
+                    <div class="commentContent">
+                    </div>
+                </li>
+            </ul>
+
+            <!--查看更多-->
+            <div class="moreComment">
+                <p class="able">查看全部评论（<span></span>）</p>
+            </div>
+        </div>
+
+        <!--猜你喜欢-->
+        <div id="mayLike">
+            <div class="header">
+                <span class="left"></span>
+                <h3 class="title">猜你喜欢</h3>
+            </div>
+            <ul id="mayLikeList">
+                <li>
+                    <img class="appIcon" src="images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+                <li>
+                    <img class="appIcon" src="images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+                <li>
+                    <img class="appIcon" src="images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+                <li>
+                    <img class="appIcon" src="images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+                <li>
+                    <img class="appIcon" src="images/local/market.png" />
+                    <span class="gameName"></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mod-nav-onion">
+            <ul>
+                <li>
+                    <a href="http://q.gambao.com">首页</a>
+                </li>
+                <li>
+                    <a id="game-name" href="javascript:;"></a>
+                </li>
+            </ul>
+            <a href="#top" class="to-top"><span>回顶部</span></a>
+        </div>
+
+        <div style="display: none;">
+            <script type="text/javascript">
+                var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8877473ef213f9c6bab5db7b42e2dbbb' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+        </div>
+
+        <!--提示弹框-->
+        <div id="tip-dialog" title="提示">
+            <p></p>
+        </div>
+    </body>
+</html>

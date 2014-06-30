@@ -2,8 +2,7 @@
  * Created by zd on 2014/4/7 0007.
  */
 var ajaxRegister = {
-    "url": $.apiRoot + "userV3/userRegister.do",
-    "loginUrl": $.htmlRoot + "login.html"
+    "url": $.apiRoot + "userV3/userRegister.do"
 };
 
 function register()
@@ -80,15 +79,16 @@ $(function()
         $(this).parent().removeClass('active');
     });
     //点击注册
-    $("#J_submit").on('click', function()
+    $("#J_submit").on('tap', function()
     {
         register();
     });
 
     //点击登录链接
-    $("#to_login").on("click", function()
+    $("#to_login").on("tap", function()
     {
-        window.location.href = ajaxRegister.loginUrl;
-        //isUxbao && window.activity.skipTo("login");
+
+        isUxbao && window.activity.skipTo("login");
+        //window.location.href = loginUrl;
     });
 });

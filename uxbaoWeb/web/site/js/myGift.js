@@ -13,11 +13,28 @@ function itemTapHandler($target)
     var num = $target.find(".btn").data("num");
     if(num)
     {
-        window.location.href = myGift.detailUrl +  "?acId=" + $target.data("acId") + "&num=" + num;
+        console.log("进入详情");
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":12,
+                    "title":"礼包详情",
+                    "url":myGift.detailUrl +  "?acId=" + $target.data("acId") + "&num=" + num
+                }
+            )
+        );
     }
     else
     {
-        window.location.href = myGift.detailUrl +  "?acId=" + $target.data("acId");
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":12,
+                    "title":"礼包详情",
+                    "url":myGift.detailUrl +  "?acId=" + $target.data("acId")
+                }
+            )
+        );
     }
 }
 
@@ -59,13 +76,13 @@ function fillItem($item, itemData)
 
     $item.find(".num").find('span').text(itemData.giftNo);
 
-    $item.find('.copy').on('click', function()
+    $item.find('.copy').on('tap', function()
     {
         isUxbao && window.activity.copy($item.find(".num").find('span').text());
         return false;
     });
 
-    $item.on("click", function()
+    $item.on("tap", function()
     {
         itemTapHandler($item);
         return false;

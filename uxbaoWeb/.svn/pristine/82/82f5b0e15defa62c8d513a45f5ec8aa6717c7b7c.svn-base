@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>默认搜索</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/defaultSearch.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/defaultSearch.js"></script>
+    </head>
+    <body>
+
+        <!--logo与搜索-->
+        <div class="logo-header">
+            <a class="logo" href="javascript:;">
+                <img src="images/local/logo.png" />
+            </a>
+            <div class="search-box">
+                <input id="search-text" type="text" value="">
+                <input id="search-btn" type="image" src="images/local/search.png">
+            </div>
+        </div>
+
+        <h4 class="title">热门搜索</h4>
+        <ul class="hot-search-list">
+            <li><span></span></li>
+        </ul>
+    </body>
+</html>

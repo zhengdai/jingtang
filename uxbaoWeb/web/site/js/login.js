@@ -3,8 +3,7 @@
  */
 
 var ajaxLogin = {
-    "url": $.apiRoot + "userV3/userLogin.do",
-    "registerUrl": $.htmlRoot + 'register.html'
+    "url": $.apiRoot + "userV3/userLogin.do"
 };
 
 function login()
@@ -57,8 +56,7 @@ function login()
 
 $(function()
 {
-	var userInfo = JSON.parse(window.uxbao.userInfo());
-	var phoneNum = userInfo.userInfo.mobile;
+	var phoneNum = userInfo.mobile;
 	//var phoneNum  = "15210584368";
 
     //获得焦点边框变红，失去焦点恢复
@@ -79,15 +77,14 @@ $(function()
     });
 
     //点击登录
-    $("#J_submit").on('click', function()
+    $("#J_submit").on('tap', function()
     {
         login();
     });
 
     //点击注册链接
-    $("#to_register").on("click", function()
+    $("#to_register").on("tap", function()
     {
-        window.location.href = ajaxLogin.registerUrl;
-        //isUxbao && window.activity.skipTo("register");
+        isUxbao && window.activity.skipTo("register");
     });
 });

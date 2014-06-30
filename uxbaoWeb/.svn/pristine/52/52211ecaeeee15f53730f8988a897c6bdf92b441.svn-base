@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>分类详情</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/subjectDetail.css"/>
+        <link type="text/css" rel="stylesheet" href="css/footer.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/categoryDetail.js"></script>
+    </head>
+    <body onselectstart="return false">
+
+        <!--logo与搜索-->
+        <div class="logo-header">
+            <a class="logo" href="http://q.gambao.com">
+                <img src="images/local/logo.png" />
+            </a>
+            <a id="search-btn" href="default_search.html">
+                <img src="images/local/search.png" />
+            </a>
+        </div>
+
+        <!--导航-->
+        <div id="nav">
+            <ul class="nav-list">
+                <li><a href="http://q.gambao.com">首页</a></li>
+                <li><a href="ol_category.html">网游</a></li>
+                <li><a href="single_category.html">单机</a></li>
+                <li><a href="topic_list.html">专题</a></li>
+                <li><a href="info_list.html">资讯</a></li>
+            </ul>
+        </div>
+
+        <div class="appList">
+            <ul id="app-list-box">
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img src="images/local/star_01.png" />
+                                    <img src="images/local/star_02.png"/>
+                                    <img src="images/local/star_03.png"/>
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="more">
+            <div class="loading"></div>
+        </div>
+
+        <div class="mod-nav-onion">
+            <ul>
+                <li>
+                    <a href="http://q.gambao.com">首页</a>
+                </li>
+            </ul>
+            <a href="#top" class="to-top"><span>回顶部</span></a>
+        </div>
+
+        <div style="display: none;">
+            <script type="text/javascript">
+                var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8877473ef213f9c6bab5db7b42e2dbbb' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+        </div>
+    </body>
+</html>
