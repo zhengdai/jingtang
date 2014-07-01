@@ -161,13 +161,13 @@ function fillItem($item, itemData)
         .data("package", packageName)
         .data("icon", itemData.resIcons)
         .data("name", itemData.resName);
-    if(!itemData.isFree)
+    if(itemData.isFree)
     {
-        $item.find('.free-flag').hide();
+        $item.find('.free-flag').show();
     }
     else
     {
-        $item.find('.free-flag').show();
+        $item.find('.free-flag').hide();
     }
     if(itemData.acId)
     {

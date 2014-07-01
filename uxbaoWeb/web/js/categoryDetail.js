@@ -17,6 +17,19 @@ function GetRequest()
     return theRequest;
 }
 
+function indexOfGift(acId)
+{
+    var len = myGiftData.length;
+    for(var i = 0; i < len; ++i)
+    {
+        if(myGiftData[i].acId === acId)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 var request = GetRequest();
 
 //分类详情应用ajax参数对象
@@ -159,7 +172,56 @@ function fillItem($item, itemData)
         .data("package", packageName)
         .data("icon", itemData.resIcons)
         .data("name", itemData.resName);
-
+    if(itemData.isFree)
+    {
+        $item.find('.free-flag').show();
+    }
+    else
+    {
+        $item.find('.free-flag').hide();
+    }
+    if(itemData.acId)
+    {
+        var index = indexOfGift(itemData.acId);
+        //领过了
+        if(index != -1)
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId + "&num=" + myGiftData[index].giftNo
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+        //没领过
+        else
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+    }
+    else
+    {
+        $item.find('.relate-gift').hide().off('tap');
+    }
     //$item.find(".number").text(i);
     $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
 
@@ -306,7 +368,8 @@ function loadMore()
                     "size":ajaxCategoryDetail.load_size,
                     "start_position":ajaxCategoryDetail.start_position,
                     "order_by":ajaxCategoryDetail.order_by,
-                    "rescategory_id":ajaxCategoryDetail.rescategory_id
+                    "rescategory_id":ajaxCategoryDetail.rescategory_id,
+                    "servicePrivider":userInfo.serviceProvider
                 },
                 jsonp:'jsonRecommend',
                 success:function(data, textStatus, xhr)
@@ -383,7 +446,8 @@ $(function()
                 "size":ajaxCategoryDetail.init_size,
                 "start_position":ajaxCategoryDetail.start_position,
                 "order_by":ajaxCategoryDetail.order_by,
-                "rescategory_id":ajaxCategoryDetail.rescategory_id
+                "rescategory_id":ajaxCategoryDetail.rescategory_id,
+                "servicePrivider":userInfo.serviceProvider
             },
             jsonp:'jsoncallback',
             success:function(data)

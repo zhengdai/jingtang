@@ -393,7 +393,7 @@ function showTipDialog(message)
 function showInfoDialog(type)
 {
     var $infoDialog = $("#info-dialog");
-    if(type === 3 || type === 7 || type === 8)
+    if(type === 4 || type === 7 || type === 8)
     {
         $('#info-code').hide();
         $('#info-address').hide();

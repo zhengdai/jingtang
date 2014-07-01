@@ -27,6 +27,19 @@ function getDateStr(date)
     return dateStr;
 }
 
+function indexOfGift(acId)
+{
+    var len = myGiftData.length;
+    for(var i = 0; i < len; ++i)
+    {
+        if(myGiftData[i].acId === acId)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 /**
  比较两个日期相差的天数，可为负值
  **/
@@ -198,6 +211,56 @@ function fillItem($item, itemData)
         .data("icon", itemData.resIcons)
         .data("name", itemData.resName);
 
+    if(itemData.isFree)
+    {
+        $item.find('.free-flag').show();
+    }
+    else
+    {
+        $item.find('.free-flag').hide();
+    }
+    if(itemData.acId)
+    {
+        var index = indexOfGift(itemData.acId);
+        //领过了
+        if(index != -1)
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId + "&num=" + myGiftData[index].giftNo
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+        //没领过
+        else
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+    }
+    else
+    {
+        $item.find('.relate-gift').hide().off('tap');
+    }
     //$item.find(".number").text(i);
     $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
 
@@ -324,7 +387,8 @@ function loadMore()
                     "imei":userInfo.imei,
                     "imsi":userInfo.imsi,
                     "size":ajaxhistoryRec.load_size,
-                    "start_position":ajaxhistoryRec.start_position
+                    "start_position":ajaxhistoryRec.start_position,
+                    "servicePrivider":userInfo.serviceProvider
                 },
                 jsonp:'jsonHistoryRec',
                 success:function(data, textStatus, xhr)
@@ -434,7 +498,8 @@ $(function()
                 "imei":userInfo.imei,
                 "imsi":userInfo.imsi,
                 "size":ajaxhistoryRec.init_size,
-                "start_position":ajaxhistoryRec.start_position
+                "start_position":ajaxhistoryRec.start_position,
+                "servicePrivider":userInfo.serviceProvider
             },
             jsonp:'jsoncallback',
             success:function(data)
