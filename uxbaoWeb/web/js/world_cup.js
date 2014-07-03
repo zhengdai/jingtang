@@ -466,7 +466,8 @@ $(function()
                 "imei":userInfo.imei,
                 "imsi":userInfo.imsi,
                 "size":ajaxSubjectGame.init_size,
-                "start_position":ajaxSubjectGame.start_position
+                "start_position":ajaxSubjectGame.start_position,
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
             },
             jsonp:'jsonpSubjectGame',
             success:function(data)

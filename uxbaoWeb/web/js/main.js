@@ -16,7 +16,7 @@ var ajaxRecommend =
     "biwanUrl": $.htmlRoot + "must_play.html",
     "zuixinUrl": $.htmlRoot + "newest.html",
     "kaifuUrl": $.htmlRoot + "category_detail.html?rescategory_id=34&order_by=new",
-    "qipaiUrl": $.htmlRoot + "category_detail.html?rescategory_id=17&order_by=hot",
+    "qipaiUrl": $.htmlRoot + "free.html",
     "libaoUrl": $.htmlRoot + "gift_list.html",
     "historyUrl": $.htmlRoot + "his_recommend.html"
 };
@@ -352,7 +352,8 @@ function loadMore()
                     "imei":userInfo.imei,
                     "imsi":userInfo.imsi,
                     "size":ajaxRecommend.load_size,
-                    "start_position":ajaxRecommend.start_position
+                    "start_position":ajaxRecommend.start_position,
+                    "servicePrivider":userInfo.userState && userInfo.serviceProvider
                 },
                 jsonp:'jsonRecommend',
                 success:function(data, textStatus, xhr)
@@ -427,7 +428,8 @@ $(function()
                 "imei":userInfo.imei,
                 "imsi":userInfo.imsi,
                 "size":ajaxRecommend.init_size,
-                "start_position":ajaxRecommend.start_position
+                "start_position":ajaxRecommend.start_position,
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
             },
             jsonp:'jsonRecommend',
             success:function(data)
@@ -543,7 +545,7 @@ $(function()
             (
                 {
                     "type":15,
-                    "title":"棋牌列表",
+                    "title":"广东移动免流量专区",
                     "url":ajaxRecommend.qipaiUrl
                 }
             )

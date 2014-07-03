@@ -388,7 +388,7 @@ function loadMore()
                     "imsi":userInfo.imsi,
                     "size":ajaxhistoryRec.load_size,
                     "start_position":ajaxhistoryRec.start_position,
-                    "servicePrivider":userInfo.serviceProvider
+                    "servicePrivider":userInfo.userState && userInfo.serviceProvider
                 },
                 jsonp:'jsonHistoryRec',
                 success:function(data, textStatus, xhr)
@@ -499,7 +499,7 @@ $(function()
                 "imsi":userInfo.imsi,
                 "size":ajaxhistoryRec.init_size,
                 "start_position":ajaxhistoryRec.start_position,
-                "servicePrivider":userInfo.serviceProvider
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
             },
             jsonp:'jsoncallback',
             success:function(data)

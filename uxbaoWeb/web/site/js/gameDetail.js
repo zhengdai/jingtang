@@ -57,7 +57,7 @@ function fillRate(rated1, rated2, rated3, rated4, rated5, rated, total)
     {
         $('.moreComment').on('click', function()
         {
-            showTipDialog("请下载游戏包客户端来查看更多评论");
+            showTipDialog("此功能需要客户端支持，下载游戏宝客户端，体验完整游戏宝功能哦！");
 //            isUxbao && window.uxbao.moreComment(
 //                JSON.stringify(
 //                    {

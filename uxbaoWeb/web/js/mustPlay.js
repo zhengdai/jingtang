@@ -288,7 +288,8 @@ function fillListItem($listItem, listItemData)
             "os_version":userInfo.os_version,
             "imei":userInfo.imei,
             "imsi":userInfo.imsi,
-            "language":userInfo.language
+            "language":userInfo.language,
+            "servicePrivider":userInfo.userState && userInfo.serviceProvider
         },
         jsonp:'jsonMustGame',
         success:function(data)

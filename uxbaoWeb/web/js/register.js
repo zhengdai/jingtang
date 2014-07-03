@@ -43,7 +43,7 @@ function register()
                 {
                     console.log("登录成功");
 					errHolder.text("登录成功").show();
-					window.uxbao.onLogin(JSON.stringify(data.userInfo));
+					window.activity.onLogin(JSON.stringify(data.userInfo));
                 }
                 else
                 {

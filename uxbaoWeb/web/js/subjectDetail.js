@@ -349,7 +349,8 @@ function loadMore()
                     "imei":userInfo.imei,
                     "imsi":userInfo.imsi,
                     "size":ajaxSubjectGame.load_size,
-                    "start_position":ajaxSubjectGame.start_position
+                    "start_position":ajaxSubjectGame.start_position,
+                    "servicePrivider":userInfo.userState && userInfo.serviceProvider
                 },
                 jsonp:'jsonRecommend',
                 success:function(data, textStatus, xhr)
@@ -502,7 +503,8 @@ $(function()
                 "imei":userInfo.imei,
                 "imsi":userInfo.imsi,
                 "size":ajaxSubjectGame.init_size,
-                "start_position":ajaxSubjectGame.start_position
+                "start_position":ajaxSubjectGame.start_position,
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
             },
             jsonp:'jsonpSubjectGame',
             success:function(data)

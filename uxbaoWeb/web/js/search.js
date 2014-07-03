@@ -285,7 +285,8 @@ function loadMore()
                     "imsi":userInfo.imsi,
                     "size":ajaxSearch.load_size,
                     "start_position":ajaxSearch.start_position,
-                    "search_text":ajaxSearch.search_text
+                    "search_text":ajaxSearch.search_text,
+                    "servicePrivider":userInfo.userState && userInfo.serviceProvider
                 },
                 jsonp:'jsonSearch',
                 success:function(data, textStatus, xhr)
@@ -377,7 +378,8 @@ $(function()
                 "imsi":userInfo.imsi,
                 "size":ajaxSearch.init_size,
                 "start_position":ajaxSearch.start_position,
-                "search_text":ajaxSearch.search_text
+                "search_text":ajaxSearch.search_text,
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
             },
             jsonp:'jsonSearch',
             success:function(data)

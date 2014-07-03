@@ -160,7 +160,8 @@ function fillItem($item, itemData)
         .data("id", itemData.resId)
         .data("package", packageName)
         .data("icon", itemData.resIcons)
-        .data("name", itemData.resName);
+        .data("name", itemData.resName)
+        .data("capacity", itemData.resCapacity/(1024*1024));
     if(itemData.isFree)
     {
         $item.find('.free-flag').show();
@@ -233,6 +234,11 @@ function btnTapHandler($target)
     //通知android下载
     if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
     {
+        if($target.hasClass('dlBtn'))
+        {
+            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity") + "MB");
+            $(".save-num").text((userInfo.saveDataFlow + $item.data("capacity")) + "MB");
+        }
         $target.removeClass().addClass('cancelBtn btn');
         $target.find(".state").text('暂停');
         isUxbao && window.uxbao.click(
@@ -443,6 +449,43 @@ $(function()
     star_01 = $default_stars.eq(0).attr('src');
     star_02 = $default_stars.eq(1).attr('src');
     star_03 = $default_stars.eq(2).attr('src');
+
+    $("#vip-btn").on('tap', function()
+    {
+        if(isUxbao)
+        {
+            userInfo = JSON.parse(window.uxbao.userInfo()).userInfo;
+        }
+        if(userInfo.userState)
+        {
+            isUxbao && window.uxbao.click(JSON.stringify(
+                {
+                    type:"17",
+                    text:"您已领取"
+                }
+            ));
+        }
+        else
+        {
+            isUxbao && window.uxbao.dialog("免流量用户特权", $.htmlRoot + "freePri.html", "0.8", "0.5");
+        }
+        return false;
+    });
+    $("#share-btn").on("tap", function()
+    {
+        isUxbao && window.uxbao.share("赶快来下载游戏宝免流量下载游戏啦！http://app.qq.com/#id=detail&appid=1101486102");
+        return false;
+    });
+    $("#feed-back").on("tap", function()
+    {
+        isUxbao && window.uxbao.feedback();
+        return false;
+    });
+
+    if(userInfo.saveDataFlow)
+    {
+        $(".save-num").text(userInfo.saveDataFlow + "MB");
+    }
 
 //    //专题内容
 //    $.ajax({

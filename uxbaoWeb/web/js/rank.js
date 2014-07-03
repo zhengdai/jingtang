@@ -267,7 +267,8 @@ function loadMore()
                     "imei":userInfo.imei,
                     "imsi":userInfo.imsi,
                     "size":ajaxRank.load_size,
-                    "start_position":ajaxRank.start_position
+                    "start_position":ajaxRank.start_position,
+                    "servicePrivider":userInfo.userState && userInfo.serviceProvider
                 },
                 jsonp:'jsonRank',
                 success:function(data, textStatus, xhr)
@@ -360,7 +361,8 @@ $(function()
                 "imei":userInfo.imei,
                 "imsi":userInfo.imsi,
                 "size":ajaxRank.init_size,
-                "start_position":ajaxRank.start_position
+                "start_position":ajaxRank.start_position,
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
             },
             jsonp:'jsonRank',
             success:function(data)

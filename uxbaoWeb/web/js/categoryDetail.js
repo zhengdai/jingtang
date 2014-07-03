@@ -369,7 +369,7 @@ function loadMore()
                     "start_position":ajaxCategoryDetail.start_position,
                     "order_by":ajaxCategoryDetail.order_by,
                     "rescategory_id":ajaxCategoryDetail.rescategory_id,
-                    "servicePrivider":userInfo.serviceProvider
+                    "servicePrivider":userInfo.userState && userInfo.serviceProvider
                 },
                 jsonp:'jsonRecommend',
                 success:function(data, textStatus, xhr)
@@ -447,7 +447,7 @@ $(function()
                 "start_position":ajaxCategoryDetail.start_position,
                 "order_by":ajaxCategoryDetail.order_by,
                 "rescategory_id":ajaxCategoryDetail.rescategory_id,
-                "servicePrivider":userInfo.serviceProvider
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
             },
             jsonp:'jsoncallback',
             success:function(data)

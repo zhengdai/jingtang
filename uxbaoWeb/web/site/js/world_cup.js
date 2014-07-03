@@ -787,7 +787,7 @@ $(function()
     //点击抽奖
     $("#inner, #startBtn").click(function()
     {
-        showTipDialog("请您下载游戏宝进行抽奖");
+        showTipDialog("此功能需要客户端支持，下载游戏宝客户端，体验完整游戏宝功能哦！");
 //        if (running)
 //        {
 //            return;
