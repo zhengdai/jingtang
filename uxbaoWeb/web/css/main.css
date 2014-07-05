@@ -8,10 +8,11 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
     background-color: #dedede;
 }
+#free-part{ width: 100%; display: block;}
 
 .sliderImg{ width: 100%; height: auto;}
 
-.type{overflow: hidden; margin:0 0 10px; background-color: #fff;}
+.type{overflow: hidden; margin:0 0 5px; background-color: #fff;}
 .type ul{width:100%; overflow: hidden;}
 .type ul li{width: 20%; float: left; text-align: center; line-height: 30px;height: 34px;
     box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;
@@ -31,9 +32,9 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 #zuixin{ border-bottom: 4px solid #61b3e2;}
 #libao{ border-bottom: 4px solid #b44c4c;}
 #kaifu{ border-bottom: 4px solid #89973c;}
-#qipai{ border-bottom: 4px solid #a83eaf;}
+#free-area{ border-bottom: 4px solid #a83eaf;}
 
-#recommend-game{ background-color: #fff; overflow: hidden; margin: 10px 5px 0; padding: 0 5px 5px; box-shadow: 0 2px 3px #a2a2a2;}
+#recommend-game{ background-color: #fff; overflow: hidden; margin: 5px 5px 0; padding: 0 5px 5px; box-shadow: 0 2px 3px #a2a2a2;}
 .recommend-top{ height: 25px;}
 .recommend-today{ padding:0 5px; line-height: 25px; background-color: #e49650; display: block; color: #fff;float: left;
     border-bottom-left-radius: 3px;border-bottom-right-radius: 3px;

@@ -171,7 +171,8 @@ function fillItem($item, itemData)
         .data("id", itemData.resId)
         .data("package", packageName)
         .data("icon", itemData.resIcons)
-        .data("name", itemData.resName);
+        .data("name", itemData.resName)
+        .data("capacity", itemData.resCapacity/(1024*1024));
     if(itemData.isFree)
     {
         $item.find('.free-flag').show();
@@ -244,6 +245,10 @@ function btnTapHandler($target)
     //通知android下载
     if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
     {
+        if($target.hasClass('dlBtn') && userInfo.userState)
+        {
+            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
+        }
         $target.removeClass().addClass('cancelBtn btn');
         $target.find(".state").text('暂停');
         isUxbao && window.uxbao.click(
@@ -261,6 +266,11 @@ function btnTapHandler($target)
     }
     else if($target.hasClass('updateBtn'))
     {
+        if(userInfo.userState)
+        {
+            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
+        }
+
         $target.removeClass('updateBtn').addClass('cancelBtn');
         $target.find(".state").text('暂停');
         isUxbao && window.uxbao.click(
@@ -338,7 +348,7 @@ function infoTapHandler($info)
             {
                 "type":2,
                 "resId":resId,
-                "url": ajaxCategoryDetail.detailUrl + "?resId=" + resId,
+                "url": ajaxCategoryDetail.detailUrl + "?resId=" + resId + "&isFree=" + Boolean(userInfo.userState),
                 "resName":$item.data("name"),
                 "resPackageName":$item.data("package")
             }

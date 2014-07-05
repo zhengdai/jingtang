@@ -27,14 +27,11 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 .btnList{ overflow: hidden;}
 #myInfoList{overflow: hidden; margin: 5px 0;}
 #myInfoList li{ margin: 10px 15px;}
-.itemWrap{ height: 50px; border: 1px solid #dcdcdc; border-radius: 10px;
-    background-image: -webkit-linear-gradient(bottom, #fcfcfc, #f2f2f2);
-    background-image: linear-gradient(to top, #fcfcfc, #f2f2f2);
+.itemWrap{ height: 50px; border: 1px solid #dcdcdc;
     position: relative;display: block;
+    background-color: #fff;
 }
 #freeDown{height: 50px; border: 1px solid #dcdcdc;
-    background-image: -webkit-linear-gradient(bottom, #fcfcfc, #f2f2f2);
-    background-image: linear-gradient(to top, #fcfcfc, #f2f2f2);
     position: relative;display: block;
     line-height: 50px;
     font-size:16px;
@@ -45,7 +42,7 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     background-color: #44ab58;
     color:#fff;
 }
-.saveNum{
+.save-num{
     background-color: #fff;
      text-align: center;
 }
@@ -53,8 +50,23 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 .ui-state-hover{background-image: -webkit-linear-gradient(bottom, #ececec, #e2e2e2);
     background-image: linear-gradient(to top, #ececec, #e2e2e2);}
 
-.ui-btn-text{ font-size:20px; line-height: 50px; color: #6f6f6f;padding-left: 25px;}
+.ui-btn-text{ font-size:20px; line-height: 50px; color: #535353;padding-left: 75px;}
 .state{font-size: 14px; line-height: 50px; color: #c4c4c4; position: absolute; right: 30px;}
-.ui-btn-text:after{position: absolute; top: 0; right: 10px; height: 100%; width: 11px;
-    background: url("../images/local/arrow.png") center no-repeat;content: "";
+.ui-btn-text:after{position: absolute; top: 0; right: 20px; height: 100%; width: 16px;
+    background: url("../images/local/yellow_arr11.png") center no-repeat;content: "";
+}
+#gameCenter .itemWrap{
+    background: url("../images/local/home.png") 20px center no-repeat #fff;
+}
+#myGift .itemWrap{
+    background: url("../images/local/mygift.png") 20px center no-repeat #fff;
+}
+#systemConfig .itemWrap{
+    background: url("../images/local/setting.png") 20px center no-repeat #fff;
+}
+#personConfig .itemWrap{
+    background: url("../images/local/person.png") 20px center no-repeat #fff;
+}
+#aboutUs .itemWrap{
+    background: url("../images/local/yxb.png") 20px center no-repeat #fff;
 }

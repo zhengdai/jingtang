@@ -1631,3 +1631,9 @@ else
 $.apiRoot = 'http://main.gambao.com:8080/mystore/';
 $.htmlRoot = 'http://115.29.177.196/';
 $.localRoot = '';
+
+//供android调用
+function updateSaveDataFlow(data)
+{
+    $(".save-num").text(Number(data).toFixed(2) + "MB");
+}

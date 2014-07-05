@@ -30,8 +30,8 @@ body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 
 .itemAll{ position: relative;}
 .appInfo{margin-right: 85px; overflow: hidden;}
-.free-flag{ position: absolute;top:0; left: 3px; z-index: 20;
-    background: url("../images/local/free.png") no-repeat center; height: 23px; width: 23px;}
+.free-flag{ position: absolute;top:0; left: 10px; z-index: 20;
+    background: url("../images/local/free.png") no-repeat center; height: 28px; width: 18px;}
 .relate-gift{ position: absolute; right: 50px; display: block;padding: 0 10px;
     line-height: 25px;border-bottom-left-radius: 5px; top:-5px;
     border-bottom-right-radius: 5px;

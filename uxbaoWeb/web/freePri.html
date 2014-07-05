@@ -10,6 +10,7 @@
         <script>
             $(function()
             {
+                $('body').height(document.documentElement.clientHeight - 20);
                 if(userInfo.nickName)
                 {
                     $("#register-btn").on('click', function()
@@ -35,7 +36,7 @@
                         isUxbao && window.activity.dismiss();
                         return false;
                     }).text("立即注册");
-                    $(".pri-content").text("现在广东移动手机号注册为游戏宝用户可以享受游戏下载全免流量的特权，赶快注册吧，让下载游戏再无顾忌！");
+                    $(".pri-content").text("注册游戏宝用户，立即享受所有游戏免流量下载特权！");
                 }
             });
         </script>

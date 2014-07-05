@@ -236,8 +236,7 @@ function btnTapHandler($target)
     {
         if($target.hasClass('dlBtn'))
         {
-            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity") + "MB");
-            $(".save-num").text((userInfo.saveDataFlow + $item.data("capacity")) + "MB");
+            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
         }
         $target.removeClass().addClass('cancelBtn btn');
         $target.find(".state").text('暂停');
@@ -256,6 +255,11 @@ function btnTapHandler($target)
     }
     else if($target.hasClass('updateBtn'))
     {
+        if(userInfo.userState)
+        {
+            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
+        }
+        isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
         $target.removeClass('updateBtn').addClass('cancelBtn');
         $target.find(".state").text('暂停');
         isUxbao && window.uxbao.click(
@@ -345,7 +349,8 @@ function loadMore()
                     "imei":userInfo.imei,
                     "imsi":userInfo.imsi,
                     "size":ajaxFreeGame.load_size,
-                    "start_position":ajaxFreeGame.start_position
+                    "start_position":ajaxFreeGame.start_position,
+                    "servicePrivider":userInfo.serviceProvider
                 },
                 jsonp:'jsonRecommend',
                 success:function(data, textStatus, xhr)
@@ -405,7 +410,7 @@ function infoTapHandler($info)
             {
                 "type":2,
                 "resId":resId,
-                "url":ajaxFreeGame.detailUrl + "?resId=" + resId,
+                "url":ajaxFreeGame.detailUrl + "?resId=" + resId + "&isFree=true",
                 "resName":$item.data("name"),
                 "resPackageName":$item.data("package")
             }
@@ -467,13 +472,13 @@ $(function()
         }
         else
         {
-            isUxbao && window.uxbao.dialog("免流量用户特权", $.htmlRoot + "freePri.html", "0.8", "0.5");
+            isUxbao && window.uxbao.dialog("免流量用户特权", $.htmlRoot + "freePri.html", "0.8", "0.4");
         }
         return false;
     });
     $("#share-btn").on("tap", function()
     {
-        isUxbao && window.uxbao.share("赶快来下载游戏宝免流量下载游戏啦！http://app.qq.com/#id=detail&appid=1101486102");
+        isUxbao && window.uxbao.share("我正在使用“游戏宝”免流量下载游戏，已经为我节省X.XXM流量，你也来试试哦！http://app.qq.com/#id=detail&appid=1101486102");
         return false;
     });
     $("#feed-back").on("tap", function()
@@ -484,7 +489,7 @@ $(function()
 
     if(userInfo.saveDataFlow)
     {
-        $(".save-num").text(userInfo.saveDataFlow + "MB");
+        $(".save-num").text(userInfo.saveDataFlow.toFixed(2) + "MB");
     }
 
 //    //专题内容

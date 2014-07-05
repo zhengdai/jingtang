@@ -146,7 +146,8 @@ function fillItem($item, itemData)
         .data("id", itemData.resId)
         .data("package", packageName)
         .data("icon", itemData.resIcons)
-        .data("name", itemData.resName);
+        .data("name", itemData.resName)
+        .data("capacity", itemData.resCapacity/(1024*1024));
 
     $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
 
@@ -211,6 +212,10 @@ function btnTapHandler($target)
     //通知android下载，显示下载或者继续字样
     if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
     {
+        if($target.hasClass('dlBtn') && userInfo.userState)
+        {
+            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
+        }
         $target.removeClass().addClass('cancelBtn btn');
         $target.find(".state").text('暂停');
         isUxbao && window.uxbao.click(
@@ -229,6 +234,10 @@ function btnTapHandler($target)
     //显示升级字样
     else if($target.hasClass('updateBtn'))
     {
+        if(userInfo.userState)
+        {
+            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
+        }
         $target.removeClass('updateBtn').addClass('cancelBtn');
         $target.find(".state").text('暂停');
         isUxbao && window.uxbao.click(
@@ -306,7 +315,7 @@ function infoTapHandler($info)
             {
                 "type":2,
                 "resId":resId,
-                "url": ajaxRecommend.detailUrl + "?resId=" + resId,
+                "url": ajaxRecommend.detailUrl + "?resId=" + resId + "&isFree=" + Boolean(userInfo.userState),
                 "resName":$item.data("name"),
                 "resPackageName":$item.data("package")
             }
@@ -408,6 +417,21 @@ var default_icon, star_01, star_02, star_03;
 //页面加载完毕执行函数
 $(function()
 {
+    var $freePart = $('#free-part');
+    if(userInfo.serviceProvider && userInfo.serviceProvider == '0101')
+    {
+        $freePart.show();
+    }
+    else
+    {
+        $freePart.hide();
+    }
+    if(userInfo.userState)
+    {
+        var declarationPath = $freePart.data('declaration');
+        $freePart.attr('src', declarationPath).show();
+    }
+
     default_icon = $(".app").eq(0).find('.appIcon').attr('src');
     var $default_stars = $('.items-score').eq(0).find('img');
     star_01 = $default_stars.eq(0).attr('src');
@@ -539,7 +563,7 @@ $(function()
         return false;
     });
 
-    $("#qipai").on("tap", function()
+    $("#free-area, #free-part").on("tap", function()
     {
         isUxbao && window.uxbao.click(JSON.stringify
             (

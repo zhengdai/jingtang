@@ -38,7 +38,8 @@ var ajaxGameDetail =
     "commentUrl": $.htmlRoot + "comment.html",
     "gameDetailUrl": $.htmlRoot + "game_detail.html",
     "giftUrl":$.htmlRoot + "gift_detail.html",
-    "infoUrl":$.htmlRoot + "info_detail.html"
+    "infoUrl":$.htmlRoot + "info_detail.html",
+    "isFree":Boolean(request.isFree)
 };
 
 
@@ -232,7 +233,8 @@ $(function()
                 "os_version": userInfo.os_version,
                 "imei": userInfo.imei,
                 "imsi": userInfo.imsi,
-                "resId": ajaxGameDetail.resId
+                "resId": ajaxGameDetail.resId,
+                "servicePrivider":ajaxGameDetail.isFree && userInfo.serviceProvider
             },
             jsonp: 'jsonGame',
             success: function (data)

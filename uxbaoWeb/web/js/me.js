@@ -26,6 +26,10 @@ function updateInfo()
 
 $(function()
 {
+    if(userInfo.saveDataFlow)
+    {
+        $(".save-num").text(userInfo.saveDataFlow.toFixed(2) + "MB");
+    }
     if(userInfo.nickName)
     {
         $(".logBtn").text(userInfo.nickName);
