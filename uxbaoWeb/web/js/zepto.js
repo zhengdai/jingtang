@@ -1628,12 +1628,382 @@ else
     };
     myGiftData = [];
 }
-$.apiRoot = 'http://main.gambao.com:8080/mystore/';
-$.htmlRoot = 'http://115.29.177.196/';
-$.localRoot = '';
 
-//供android调用
+//供android调用，更新已节省流量
 function updateSaveDataFlow(data)
 {
     $(".save-num").text(Number(data).toFixed(2) + "MB");
 }
+
+//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
+function updateState(packageName, state)
+{
+    if((ajaxGameDetail && packageName === ajaxGameDetail.resPackagename) || (ajaxGiftDetail && packageName === ajaxGiftDetail.resPackagename) || (ajaxInfoDetail && packageName === ajaxInfoDetail.resPackagename))
+    {
+        isUxbao && window.activity.update(JSON.stringify(state));
+    }
+    else
+    {
+        var $item = $(document.getElementById(packageName));
+        var $btn = $item.find(".btn");
+        if(state >= 0 && state <= 100)
+        {
+            if(!$btn.hasClass("cancelBtn"))
+            {
+                $btn.removeClass().addClass("cancelBtn btn");
+            }
+            $item.find(".state").text(state + "%");
+        }
+        else if(state == "finishDownload")
+        {
+            $btn.removeClass().addClass("installBtn btn");
+            $item.find(".state").text("安装");
+        }
+        else if(state == "finishInstall")
+        {
+            $btn.removeClass().addClass("openBtn btn");
+            $item.find(".state").text("打开");
+        }
+        else if(state == "pause")
+        {
+            $btn.removeClass().addClass("continueBtn btn");
+            $item.find(".state").text("继续");
+        }
+        else if(state == "cancelDownload")
+        {
+            $btn.removeClass().addClass("dlBtn btn");
+            $item.find(".state").text("下载");
+        }
+        else if(state == "cancelUpdate")
+        {
+            $btn.removeClass().addClass("updateBtn btn");
+            $item.find(".state").text("升级");
+        }
+    }
+}
+
+//是否已领取过礼包
+function indexOfGift(acId)
+{
+    var len = myGiftData.length;
+    for(var i = 0; i < len; ++i)
+    {
+        if(myGiftData[i].acId === acId)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//判断packageName是否在list中，在的话返回索引，不在的话返回-1
+function indexList(packageName, list)
+{
+    var len = list.length;
+    for(var i = 0; i < len; ++i)
+    {
+        if(packageName == list[i].resPackagename)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+//获取url参数
+function GetRequest()
+{
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = {};
+    if (url.indexOf("?") != -1)
+    {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++)
+        {
+            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+
+//ajax填充打分
+function fillRate($item, score)
+{
+    //分数
+    $item.find(".items-score img").each(function(j, imgItem)
+    {
+        if(j - score < -0.5)
+        {
+            $(imgItem).attr("src", star_01);
+        }
+        else if(j - score == -0.5)
+        {
+            $(imgItem).attr("src", star_02);
+        }
+        else
+        {
+            $(imgItem).attr("src", star_03);
+        }
+    });
+}
+
+//根据本机信息填充状态
+function fillState($item, packageName, phoneData)
+{
+    //在下载列表里
+    var downloadIndex = indexList(packageName, phoneData.downloadList);
+    if(downloadIndex != -1)
+    {
+        //下载完成。显示安装状态
+        if(phoneData.downloadList[downloadIndex].downPercent == 100)
+        {
+            $item.find(".state").text("安装");
+            $item.find(".btn").removeClass().addClass("btn installBtn");
+        }
+        //下载未完成，显示继续
+        else
+        {
+            $item.find(".state").text("继续");
+            $item.find(".btn").removeClass().addClass("btn continueBtn");
+        }
+    }
+    //在升级列表里
+    else if(indexList(packageName, phoneData.updateList) != -1)
+    {
+        $item.find(".state").text("升级");
+        $item.find(".btn").removeClass().addClass("btn updateBtn");
+    }
+    //在已安装列表
+    else if(indexList(packageName, phoneData.installList) != -1)
+    {
+        $item.find(".state").text("打开");
+        $item.find(".btn").removeClass().addClass("btn openBtn");
+    }
+    //不在上述列表中
+    else
+    {
+        $item.find(".state").text("下载");
+        $item.find(".btn").removeClass().addClass("btn dlBtn");
+    }
+}
+
+//tap点击函数
+function btnTapHandler($target)
+{
+    var $item;
+    if($target.parent().hasClass('recommend-info'))
+    {
+        $item = $target.parent();
+    }
+    else
+    {
+        $item = $target.parent().parent();
+    }
+    //通知android下载，显示下载或者继续字样
+    if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
+    {
+        if($target.hasClass('dlBtn') && userInfo.userState)
+        {
+            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
+        }
+        $target.removeClass().addClass('cancelBtn btn');
+        $target.find(".state").text('暂停');
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":1,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //显示升级字样
+    else if($target.hasClass('updateBtn'))
+    {
+        if(userInfo.userState)
+        {
+            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
+        }
+        $target.removeClass('updateBtn').addClass('cancelBtn');
+        $target.find(".state").text('暂停');
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":1,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //通知android暂停下载，显示暂停字样
+    else if($target.hasClass('cancelBtn'))
+    {
+        $target.removeClass('cancelBtn').addClass('continueBtn');
+        $target.find(".state").text('继续');
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":5,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //通知android打开此应用，显示打开字样
+    else if($target.hasClass("openBtn"))
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":3,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+    //通知android安装此应用，显示安装字样
+    else if($target.hasClass("installBtn"))
+    {
+        isUxbao && window.uxbao.click(
+            JSON.stringify(
+                {
+                    "type":6,
+                    "resPackagename":$item.data("package"),
+                    "resId":$item.data("id"),
+                    "resLocation":$item.data("location"),
+                    "resIcons":$item.data("icon"),
+                    "resName":$item.data("name")
+                }
+            )
+        );
+    }
+}
+
+//进入游戏详情
+function infoTapHandler($item)
+{
+    var resId = $item.data("id");
+    isUxbao && window.uxbao.click(
+        JSON.stringify(
+            {
+                "type":2,
+                "resId":resId,
+                "url": ajaxRecommend.detailUrl + "?resId=" + resId + "&isFree=" + Boolean(userInfo.userState),
+                "resName":$item.data("name"),
+                "resPackageName":$item.data("package")
+            }
+        )
+    );
+}
+
+//将日期对象转换成日期字符串如2014.03.15
+function getDateStr(date)
+{
+    var dateStr = "";
+    dateStr += date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if(month < 10)
+    {
+        dateStr += '.0' + month;
+    }
+    else
+    {
+        dateStr += '.' + month;
+    }
+    if(day < 10)
+    {
+        dateStr += '.0' + day;
+    }
+    else
+    {
+        dateStr += '.' + day;
+    }
+    return dateStr;
+}
+
+//礼包点击事件
+function bindGiftTapHandler($item, itemData)
+{
+    if(itemData.acId)
+    {
+        var index = indexOfGift(itemData.acId);
+        //领过了
+        if(index != -1)
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId + "&num=" + myGiftData[index].giftNo
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+        //没领过
+        else
+        {
+            $item.find('.relate-gift').show().on('tap', function()
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":itemData.acName,
+                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId
+                        }
+                    )
+                );
+                return false;
+            });
+        }
+    }
+    else
+    {
+        $item.find('.relate-gift').hide().off('tap');
+    }
+}
+
+//供android端调用，更新领取礼包后的状态
+function updateGift(acId, acNum)
+{
+    if(acId == ajaxGiftDetail.acId)
+    {
+        $(".btn").text("已领取").addClass("gray").data("num", acNum);
+        $(".giftState").hide();
+        $(".num").find('span').text(acNum);
+        $(".giftNum").show();
+        $(".copy").on("tap",function()
+        {
+            isUxbao && window.activity.copy($(".num").find('span').text());
+            return false;
+        });
+    }
+}
+
+$.apiRoot = 'http://main.gambao.com:8080/mystore/';
+$.htmlRoot = 'http://115.29.177.196/';
+$.localRoot = '';

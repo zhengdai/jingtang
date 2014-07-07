@@ -1,0 +1,48 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #dedede;
+}
+
+.list-top{ height: 25px; padding: 0 5px 5px; border-bottom: 1px solid #e2e2e2;}
+.list-top span{ padding:0 5px; line-height: 25px;  display: block; color: #fff;float: left;
+    border-bottom-left-radius: 3px;border-bottom-right-radius: 3px;
+}
+.appList:nth-child(4n+1) .list-top span{background-color: #e69b58;}
+.appList:nth-child(4n+2) .list-top span{background-color: #9abb51;}
+.appList:nth-child(4n+3) .list-top span{background-color: #d94e4e;}
+.appList:nth-child(4n) .list-top span{background-color: #39a2de;}
+
+
+.appList{margin:10px 5px; overflow: hidden; background-color: #fff; box-shadow: 0 2px 3px #a2a2a2;}
+.app-list-box{width:100%; overflow: hidden;}
+.app-list-box li{width:50%;float:left;border-bottom: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2; box-sizing: border-box;
+    -moz-box-sizing: border-box;-webkit-box-sizing: border-box;
+    background-color: #fff;
+}
+.itemAll{margin:0 3px;padding: 3px;overflow: hidden; position: relative; }
+.appInfo{margin-right:26px;}
+.appInfo a{display: block; width: 100%; position: relative; overflow: hidden;}
+.appIcon{width:48px; height: 48px; display: block; border-radius: 6px;position: absolute;}
+.tit{margin-left: 48px; overflow: hidden;}
+.tit strong{display:block;padding:0 2px;font-size:14px;color: #636363;
+    line-height: 20px; overflow:hidden; height: 20px;font-weight: normal;
+}
+.company{padding:0 2px;color: #c4c4c4;line-height: 16px; overflow: hidden; height: 16px; font-size: 12px;}
+.tit .items-score{padding:0 2px;overflow: hidden; height: 12px;}
+.tit .items-score img{display: block; float:left;}
+.btn{display: block;height: 54px;position: absolute; right: 3px; width: 26px; top: 3px;
+    background-position:top center;background-repeat: no-repeat;
+}
+.dlBtn{background-image: url("content://uxbao.local/web/images/local/download26.png");}
+.cancelBtn{background-image: url("content://uxbao.local/web/images/local/pause26.png");}
+.openBtn{background-image: url("content://uxbao.local/web/images/local/open26.png");}
+.updateBtn{background-image: url("content://uxbao.local/web/images/local/download26.png");}
+.installBtn{background-image: url("content://uxbao.local/web/images/local/install26.png");}
+.continueBtn{background-image: url("content://uxbao.local/web/images/local/continue26.png");;}
+.btn .state{display: block; margin:26px 0 0;line-height: 22px; text-align: center;font-size: 12px;color: #89bb1c;}

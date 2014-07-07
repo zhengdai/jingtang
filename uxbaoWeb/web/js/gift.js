@@ -1,52 +1,22 @@
 /**
  * Created by zd on 2014/4/19 0019.
  */
-
-function GetRequest()
-{
-    var url = location.search; //获取url中"?"符后的字串
-    var theRequest = {};
-    if (url.indexOf("?") != -1)
-    {
-        var str = url.substr(1);
-        strs = str.split("&");
-        for(var i = 0; i < strs.length; i ++)
-        {
-            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
-        }
-    }
-    return theRequest;
-}
-
 var request = GetRequest();
 
 
-function getDateStr(date)
+function getZiDateStr(date)
 {
     return date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日"
 }
 
-function updateGift(acId, acNum)
-{
-    $(".btn").text("已领取").addClass("gray").data("num", acNum);
-    $(".giftState").hide();
-    $(".num").find('span').text(acNum);
-    $(".giftNum").show();
-    $(".copy").on("tap",function()
-    {
-        isUxbao && window.activity.copy($(".num").find('span').text());
-        return false;
-    });
-}
-
 //供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
-function updateState(packageName, state)
-{
-    if(packageName === ajaxGiftDetail.resPackagename)
-    {
-        isUxbao && window.activity.update(JSON.stringify(state));
-    }
-}
+//function updateState(packageName, state)
+//{
+//    if(packageName === ajaxGiftDetail.resPackagename)
+//    {
+//        isUxbao && window.activity.update(JSON.stringify(state));
+//    }
+//}
 
 //活动详情应用ajax参数对象
 var ajaxGiftDetail =
@@ -99,7 +69,7 @@ $(function()
                     {
                         $('.content').append("<p>" + item + "</p>");
                     });
-                    $(".date").text(getDateStr(new Date(data.activity.acStartTime)) + "——" + getDateStr(new Date(data.activity.acEndTime)));
+                    $(".date").text(getZiDateStr(new Date(data.activity.acStartTime)) + "——" + getZiDateStr(new Date(data.activity.acEndTime)));
                     $('.steps').empty();
                     $(data.activity.acUseDesc.split(" ")).each(function(i, item)
                     {

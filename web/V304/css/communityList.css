@@ -1,0 +1,124 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #dedede;
+}
+
+.communityList{ margin:5px 10px;overflow: hidden; }
+.communityItem{ width: 100%; overflow: hidden; margin:0 0 15px; box-shadow: 0 2px 3px #a2a2a2;}
+.community{ height: 48px; overflow: hidden; position: relative;
+    padding:5px; background-color: #f6f6f6; border-bottom: 1px #d3d9d5 dashed;
+}
+
+.gameIcon{ position: absolute; height: 48px; width: 48px; border-radius: 6px; top: 5px; left: 5px;}
+.gameIcon img{ height: 100%; width: 100%;border-radius: 6px;}
+.middle{ margin:0 35px 0 70px; height: 100%;}
+.communityName{ font-size: 16px;line-height: 26px;color: #313131;height: 26px;overflow: hidden; font-weight: bold;}
+.communityNum{ font-size:14px; line-height: 22px; font-weight: lighter;color: #b2b2b2; height: 22px;}
+.arrow{display: block;position: absolute; height: 48px; width: 30px;
+    background: url("content://uxbao.local/web/images/local/arrow.png") center no-repeat;top:5px;right: 20px;
+}
+
+.communityContent{ padding: 10px 15px; background-color: #ececec; overflow: hidden; position: relative;}
+.users{ position: absolute; width:76px; height: 36px; left: 15px; top:10px;}
+.user1{position: absolute; left: 0; top: 6px; width:24px; height: 24px; border-radius: 3px;}
+.user2{position: absolute; left: 12px; top: 3px; width:30px; height: 30px; border-radius: 4px;}
+.user3{position: absolute; left: 27px; top: 0; width:36px; height: 36px; border-radius: 6px;}
+.content{ font-size: 14px; line-height: 36px; color: #737373; margin:0 5px 0 80px; overflow: hidden; height: 36px;}
+
+.more{height: 40px; width: 100%; overflow: hidden; text-align: center;}
+
+.loading
+{
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background: url('content://uxbao.local/web/images/local/ui-loading.png') 0 0 no-repeat;
+    -webkit-background-size: 40px 40px;
+    -webkit-animation-name: ui-loading-anim;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: step-start;
+}
+
+@-webkit-keyframes ui-loading-anim {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    8.32% {
+        -webkit-transform: rotate(0deg);
+    }
+    8.33% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.65% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.66% {
+        -webkit-transform: rotate(60deg);
+    }
+    24.99% {
+        -webkit-transform: rotate(60deg);
+    }
+    25% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.32% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.33% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.65% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.66% {
+        -webkit-transform: rotate(150deg);
+    }
+    49.99% {
+        -webkit-transform: rotate(150deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.32% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.33% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.65% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.66% {
+        -webkit-transform: rotate(240deg);
+    }
+    74.99% {
+        -webkit-transform: rotate(240deg);
+    }
+    75% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.32% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.33% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.65% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.66% {
+        -webkit-transform: rotate(330deg);
+    }
+    99.99% {
+        -webkit-transform: rotate(330deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}

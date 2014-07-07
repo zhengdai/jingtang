@@ -6,9 +6,10 @@ var ajaxDefaultSearch = {
     "url": $.apiRoot + "appV3/getTopSearch.do"
 };
 
-function createItem(itemData)
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
 {
-    var $item = $(($(".hot-search-list").find('li')[0]).cloneNode(true));
+    var $item = $node.clone();
     $item.find('span').text(itemData);
     return $item;
 }
@@ -43,7 +44,7 @@ $(function(){
                     }
                     else
                     {
-                        $item = createItem(data.keywords[i]);
+                        $item = createItem($(".hot-search-list").find('li').eq(0) ,data.keywords[i]);
                         $container.append($item);
                     }
                 }

@@ -1,0 +1,244 @@
+/* CSS Document */
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #dedede;
+}
+#free-part{ width: 100%; display: block;}
+
+.sliderImg{ width: 100%; height: auto;}
+
+.type{overflow: hidden; margin:0 0 5px; background-color: #fff;}
+.type ul{width:100%; overflow: hidden;}
+.type ul li{width: 20%; float: left; text-align: center; line-height: 30px;height: 34px;
+    box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;
+    padding: 0 1px; position: relative;
+}
+.left-split{ position: absolute; top:0; left: 0; height: 100%; width: 1px;}
+.right-split{ position: absolute; top:0; right: 0; height: 100%; width: 1px;}
+.split-top{ display: block; height: 50%; width: 1px;
+    background-image: -webkit-linear-gradient(bottom, #bcbcbc, #fff);
+    background-image: linear-gradient(to top, #bcbcbc, #fff);}
+.split-bottom{ display: block; height: 50%; width: 1px;
+    background-image: -webkit-linear-gradient(top, #bcbcbc, #fff);
+    background-image: linear-gradient(to bottom, #bcbcbc, #fff);}
+.type ul li img { vertical-align: middle;}
+.type ul li .tit { padding: 0 3px; line-height: 30px;}
+#biwan{ border-bottom: 4px solid #e8a647;}
+#zuixin{ border-bottom: 4px solid #61b3e2;}
+#libao{ border-bottom: 4px solid #b44c4c;}
+#kaifu{ border-bottom: 4px solid #89973c;}
+#free-area{ border-bottom: 4px solid #a83eaf;}
+
+#recommend-game{ background-color: #fff; overflow: hidden; margin: 5px 5px 0; padding: 0 5px 5px; box-shadow: 0 2px 3px #a2a2a2;}
+.recommend-top{ height: 25px;}
+.recommend-today{ padding:0 5px; line-height: 25px; background-color: #e49650; display: block; color: #fff;float: left;
+    border-bottom-left-radius: 3px;border-bottom-right-radius: 3px;
+}
+.recommend-his{ padding:0 5px; line-height: 25px; background-color: #e49650; display: block; color: #fff; float: right;
+    border-bottom-left-radius: 3px;border-bottom-right-radius: 3px;
+}
+
+.recommend-info{ overflow: hidden; position: relative; margin: 7px 0 0;}
+.recommend-icon{width:64px; height: 64px; display: block; position: absolute; border-radius: 18px; left:3px; top:0;}
+.recommend-tit{ margin:0 35px 0 70px; overflow: hidden;}
+.recommend-tit .items-score{padding:0 3px; overflow: hidden; height: 20px;}
+.recommend-tit .items-score img{display: block; float:left; padding: 4px 0;}
+.recommend-info .btn{display: block;height: 64px;position: absolute;right: 3px; width: 32px; top: 3px; overflow: hidden;}
+.recommend-info .dlBtn{background: url("content://uxbao.local/web/images/local/download.png") top center no-repeat;}
+.recommend-info .cancelBtn{background: url("content://uxbao.local/web/images/local/pause.png") top center no-repeat;}
+.recommend-info .openBtn{background: url("content://uxbao.local/web/images/local/open.png") top center no-repeat;}
+.recommend-info .updateBtn{background: url("content://uxbao.local/web/images/local/download.png") top center no-repeat;}
+.recommend-info .installBtn{background: url("content://uxbao.local/web/images/local/install.png") top center no-repeat;}
+.recommend-info .continueBtn{background: url("content://uxbao.local/web/images/local/continue.png") top center no-repeat;}
+.recommend-info .btn .state{display: block; margin:32px 0 0;line-height: 32px; text-align: center;font-size: 14px; color: #89bb1c;}
+.recommend-name{ font-size:18px; line-height: 24px; color: #535353; height: 24px; overflow: hidden;}
+.recommend-capa{ font-size: 14px; line-height: 20px; display: block; float: left; color: #c4c4c4; margin-left: 5px;}
+.recommend-des{ font-size:14px; line-height: 20px; height: 20px; overflow: hidden;color: #c4c4c4;}
+
+.appList{margin:10px 5px; overflow: hidden;}
+#app-list-box{width:100%; overflow: hidden;}
+#app-list-box li{width:50%;float:left;border-bottom: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2; box-sizing: border-box;
+    -moz-box-sizing: border-box;-webkit-box-sizing: border-box;
+    background-color: #fff;
+}
+.itemAll{margin:0 3px;padding: 3px;overflow: hidden; position: relative; }
+.appInfo{margin-right:26px;}
+.appInfo a{display: block; width: 100%; position: relative; overflow: hidden;}
+.appIcon{width:48px; height: 48px; display: block; border-radius: 6px;position: absolute;}
+.tit{margin-left: 48px; overflow: hidden;}
+.tit strong{display:block;padding:0 2px;font-size:14px;color: #636363;
+    line-height: 20px; overflow:hidden; height: 20px;font-weight: normal;
+}
+.company{padding:0 2px;color: #c4c4c4;line-height: 16px; overflow: hidden; height: 16px; font-size: 12px;}
+.tit .items-score{padding:0 2px;overflow: hidden; height: 12px;}
+.tit .items-score img{display: block; float:left;}
+.btn{display: block;height: 54px;position: absolute; right: 3px; width: 26px; top: 3px;
+    background-position:top center;background-repeat: no-repeat;
+}
+.dlBtn{background-image: url("content://uxbao.local/web/images/local/download26.png");}
+.cancelBtn{background-image: url("content://uxbao.local/web/images/local/pause26.png");}
+.openBtn{background-image: url("content://uxbao.local/web/images/local/open26.png");}
+.updateBtn{background-image: url("content://uxbao.local/web/images/local/download26.png");}
+.installBtn{background-image: url("content://uxbao.local/web/images/local/install26.png");}
+.continueBtn{background-image: url("content://uxbao.local/web/images/local/continue26.png");;}
+.btn .state{display: block; margin:26px 0 0;line-height: 22px; text-align: center;font-size: 12px;color: #89bb1c;}
+
+.more{height: 40px; width: 100%; overflow: hidden; text-align: center;}
+
+.loading
+{
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background: url('content://uxbao.local/web/images/local/ui-loading.png') 0 0 no-repeat;
+    background-size: 40px 40px;
+
+    -webkit-background-size: 40px 40px;
+    -webkit-animation-name: ui-loading-anim;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: step-start;
+}
+
+@-webkit-keyframes ui-loading-anim {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    8.32% {
+        -webkit-transform: rotate(0deg);
+    }
+    8.33% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.65% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.66% {
+        -webkit-transform: rotate(60deg);
+    }
+    24.99% {
+        -webkit-transform: rotate(60deg);
+    }
+    25% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.32% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.33% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.65% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.66% {
+        -webkit-transform: rotate(150deg);
+    }
+    49.99% {
+        -webkit-transform: rotate(150deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.32% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.33% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.65% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.66% {
+        -webkit-transform: rotate(240deg);
+    }
+    74.99% {
+        -webkit-transform: rotate(240deg);
+    }
+    75% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.32% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.33% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.65% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.66% {
+        -webkit-transform: rotate(330deg);
+    }
+    99.99% {
+        -webkit-transform: rotate(330deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.ui-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-user-select: none;
+    -webkit-touch-callout:none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.ui-slider-group {
+    overflow: hidden;
+    position: relative;
+    white-space:nowrap;/*内容不换行*/
+    -webkit-transform: translateZ(0);
+}
+
+.ui-slider-item {
+    background-color: #e3e3e3;
+    text-align: center;
+    position: relative;
+    float:left;
+    overflow: hidden;
+    -webkit-box-sizing:border-box;
+}
+
+.ui-slider-item img {
+    display: block;
+    margin:0 auto;
+}
+
+.ui-slider-item > a {
+    display: block;
+    text-decoration: none;
+    /*由于slide-item有3d属性，导致android上最后一个overflow:hidden无效，所以给子集也加个overflow:hidden;*/
+    width: 100%;
+    overflow: hidden;
+}
+
+.ui-slider-dots {
+    position: absolute;
+    bottom: 6px;
+    right: 0;
+    padding: 0 6px;
+    text-align: right;
+}
+.ui-slider-dots > b {
+    display: inline-block;
+    margin: 0 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(198, 198, 198, 0.8);
+}
+
+.ui-slider-dots .ui-state-active {
+    background: #f68928;
+}
+

@@ -2,22 +2,6 @@
  * Created by zd on 2014/4/2 0002.
  */
 
-function GetRequest()
-{
-    var url = location.search; //获取url中"?"符后的字串
-    var theRequest = {};
-    if (url.indexOf("?") != -1)
-    {
-        var str = url.substr(1);
-        strs = str.split("&");
-        for(var i = 0; i < strs.length; i ++)
-        {
-            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
-        }
-    }
-    return theRequest;
-}
-
 var request = GetRequest();
 
 var ajaxCommentList = {
@@ -38,31 +22,6 @@ else
     ajaxCommentList.type = "";
 }
 
-function getDateStr(date)
-{
-    var dateStr = "";
-    dateStr += date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    if(month < 10)
-    {
-        dateStr += '.0' + month;
-    }
-    else
-    {
-        dateStr += '.' + month;
-    }
-    if(day < 10)
-    {
-        dateStr += '.0' + day;
-    }
-    else
-    {
-        dateStr += '.' + day;
-    }
-    return dateStr
-}
-
 //填充一个评论
 function fillItem($item, data)
 {
@@ -72,7 +31,7 @@ function fillItem($item, data)
     }
     else
     {
-        $item.find('.userName').text('游戏宝用户')
+        $item.find('.userName').text('游戏宝用户');
     }
     if(data.customerImg)
     {
@@ -100,11 +59,12 @@ function fillItem($item, data)
     });
 }
 
-function createCommentItem(data)
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
 {
-    var $me = $($('.commentItem')[0].cloneNode(true));
-    fillItem($me, data);
-    return $me;
+    var $item = $node.clone();
+    fillItem($item,itemData);
+    return $item;
 }
 
 //加载更多
@@ -140,7 +100,7 @@ function loadMore()
 
                         for (var i = 0; i < len; ++i)
                         {
-                            var $item = createCommentItem(data.comment[i]);
+                            var $item = createItem($(".commentItem").eq(0), data.comment[i]);
                             $container.append($item);
                         }
 

@@ -1837,5 +1837,5 @@ else
     receiveList = [];
 }
 $.apiRoot = 'http://apk.gambao.com:8080/mystore/';
-$.htmlRoot = 'http://web.gambao.com/V300/';
+$.htmlRoot = 'http://web.gambao.com/V304/';
 $.localRoot = 'content://uxbao.local/web/';

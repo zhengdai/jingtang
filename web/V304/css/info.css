@@ -1,0 +1,33 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px; -webkit-user-select:none;
+    background-color: #dedede;
+}
+
+.infoHead{padding: 15px; overflow: hidden; position: relative; height: 60px;}
+.infoIcon{ position: absolute; height: 60px; width: 60px; border-radius: 6px; top: 15px; left: 15px;}
+.infoIcon img{ height: 100%; width: 100%;border-radius: 6px;}
+.middle{ margin:0 80px 0 70px; height: 100%; overflow: hidden;}
+.gameName{ font-size: 16px; line-height:26px; color: #343434; }
+.cor{font-size:14px; color: #8d8d8d; line-height: 22px;}
+.items-score{height: 12px;}
+.items-score img{ float:left; display: block;}
+.btn{ position: absolute; right: 20px; top:28px; padding:0; width: 74px; text-align: center;
+    line-height: 30px; font-size: 16px; color: #fff; background-color: #f49643; border-radius: 6px;
+    box-shadow: 0 3px 3px #c97c39;
+}
+
+.infoContent{ box-shadow: 0 1px 4px #c1c1c1, 0 -1px 4px #c1c1c1; background-color: #f0f0f0;
+    overflow: hidden;
+}
+.header{ padding: 10px 0; border-bottom: 1px dashed #d3d9d5; margin: 0 15px;}
+.tit{ text-align: center; line-height: 26px; font-size: 16px; color: #6b6b6b; font-weight: normal;}
+.author{ text-align: center; line-height: 22px; font-size: 14px; color: #a2a2a2;}
+.content{ margin:10px 15px; font-size: 12px; color: #4b4b4b; line-height: 20px;}
+.content p{ margin:5px 0; width: 100%;}
+.content a{ color:#0045a5;}
+.content img{ display: block; width: 100%;}

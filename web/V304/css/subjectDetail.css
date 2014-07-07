@@ -1,0 +1,146 @@
+/* CSS Document */
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px;-webkit-user-select: none;
+    background-color: #ececec;
+}
+.headPic{ width: 100%; height: auto; display: block;}
+
+.subjectInfo{ overflow: hidden; padding:5px 10px; background-color: #fff; border-bottom: 1px solid #e3e3e3;box-shadow: 0 2px 2px #d9d9d9;}
+.subjectTit{ height: 30px; overflow: hidden; width: 100%; position: relative;
+}
+.subjectName{ line-height: 30px; font-size:16px; color:#525252; margin-right: 80px; height: 30px; overflow: hidden; padding:0 5px;}
+.subjectTime{line-height: 30px; font-size:12px; color:#525252;
+    position: absolute; height: 30px; overflow: hidden; right:0; top: 0; padding: 0 5px;
+}
+.subjectDes{ padding:5px; overflow: hidden;}
+.description{ line-height: 22px; font-size: 14px; overflow: hidden; color: #8e8e8e;}
+
+.appList{margin:10px; overflow: hidden; box-shadow: 0 2px 2px #d9d9d9;}
+.no-game{text-align: center; font-size: 16px; line-height: 30px;}
+#app-list-box{width:100%; overflow: hidden; border-bottom: 1px solid #e4e4e4;}
+.app{border-bottom:1px solid #e4e4e4;  overflow: hidden; position: relative;
+    border-right: 1px solid #e4e4e4; border-left: 1px solid #e4e4e4;background-color: #fff;
+    padding:5px;
+}
+
+.itemAll{ position: relative;}
+.appInfo{margin-right: 85px; overflow: hidden;}
+.free-flag{ position: absolute;top:0; left: 10px; z-index: 20;
+    background: url("content://uxbao.local/web/images/local/free.png") no-repeat center; height: 28px; width: 18px;}
+.relate-gift{ position: absolute; right: 50px; display: block;padding: 0 10px;
+    line-height: 25px;border-bottom-left-radius: 5px; top:-5px;
+    border-bottom-right-radius: 5px;
+    background-color: #e49650;color: #fff;
+}
+.appIcon{width:56px; height: 56px; display: block; position: absolute; border-radius: 9px; left:3px;}
+.tit{margin-left: 75px; overflow: hidden;}
+.tit strong{display:block;padding:0 3px;font-size: 16px;color: #636363;line-height: 22px; overflow:hidden; height: 22px; font-weight: normal;}
+.tit p{display: block;padding: 0 3px; font-size: 12px; color: #c4c4c4; line-height: 18px; overflow: hidden; height: 18px;}
+.tit .items-score{padding:2px 3px; overflow: hidden; height: 12px;}
+.tit .items-score img{display: block; float:left;}
+.btn{display: block;height: 56px;position: absolute;right: 3px; width: 32px; top: 3px; overflow: hidden;}
+.dlBtn{background: url("content://uxbao.local/web/images/local/download.png") top center no-repeat;}
+.cancelBtn{background: url("content://uxbao.local/web/images/local/pause.png") top center no-repeat;}
+.openBtn{background: url("content://uxbao.local/web/images/local/open.png") top center no-repeat;}
+.updateBtn{background: url("content://uxbao.local/web/images/local/download.png") top center no-repeat;}
+.installBtn{background: url("content://uxbao.local/web/images/local/install.png") top center no-repeat;}
+.continueBtn{background: url("content://uxbao.local/web/images/local/continue.png") top center no-repeat;}
+.btn .state{display: block; margin:32px 0 0;line-height: 24px; text-align: center;font-size: 14px; color: #89bb1c;}
+
+.more{height: 40px; width: 100%; overflow: hidden; text-align: center;}
+
+.loading
+{
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background: url('content://uxbao.local/web/images/local/ui-loading.png') 0 0 no-repeat;
+    -webkit-background-size: 40px 40px;
+    -webkit-animation-name: ui-loading-anim;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: step-start;
+}
+
+@-webkit-keyframes ui-loading-anim {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    8.32% {
+        -webkit-transform: rotate(0deg);
+    }
+    8.33% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.65% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.66% {
+        -webkit-transform: rotate(60deg);
+    }
+    24.99% {
+        -webkit-transform: rotate(60deg);
+    }
+    25% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.32% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.33% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.65% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.66% {
+        -webkit-transform: rotate(150deg);
+    }
+    49.99% {
+        -webkit-transform: rotate(150deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.32% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.33% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.65% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.66% {
+        -webkit-transform: rotate(240deg);
+    }
+    74.99% {
+        -webkit-transform: rotate(240deg);
+    }
+    75% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.32% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.33% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.65% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.66% {
+        -webkit-transform: rotate(330deg);
+    }
+    99.99% {
+        -webkit-transform: rotate(330deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}

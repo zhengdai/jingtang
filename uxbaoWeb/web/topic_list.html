@@ -70,42 +70,4 @@
             <div class="loading"></div>
         </div>
     </body>
-    <script>
-        function worldCupAc()
-        {
-            $('.subject').off('tap').on('tap', function()
-            {
-                if($(this).data('name').indexOf('世界杯') !== -1)
-                {
-                    isUxbao && window.uxbao.click(JSON.stringify
-                            (
-                                    {
-                                        "type":15,
-                                        "title":$(this).data('name'),
-                                        "url": $.htmlRoot + "world_cup.html"
-                                    }
-                            )
-                    );
-                }
-                else
-                {
-                    isUxbao && window.uxbao.click(JSON.stringify
-                            (
-                                    {
-                                        "type":15,
-                                        "title":$(this).data('name'),
-                                        "url":ajaxSubject.subjectDetailUrl + '?categoryId=' + $(this).data('rescategoryId')
-                                    }
-                            )
-                    );
-                }
-            });
-        }
-        $(function()
-        {
-            setTimeout(worldCupAc, 1000);
-			setTimeout(worldCupAc, 5000);
-			setTimeout(worldCupAc, 10000);
-        });
-    </script>
 </html>

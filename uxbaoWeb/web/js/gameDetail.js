@@ -1,30 +1,6 @@
 /**
  * Created by zd on 2014/3/29 0029.
  */
-//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
-function updateState(packageName, state)
-{
-    if(packageName === ajaxGameDetail.resPackagename)
-    {
-        isUxbao && window.activity.update(JSON.stringify(state));
-    }
-}
-
-function GetRequest()
-{
-    var url = location.search; //获取url中"?"符后的字串
-    var theRequest = {};
-    if (url.indexOf("?") != -1)
-    {
-        var str = url.substr(1);
-        strs = str.split("&");
-        for(var i = 0; i < strs.length; i ++)
-        {
-            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
-        }
-    }
-    return theRequest;
-}
 
 var request = GetRequest();
 
@@ -42,10 +18,120 @@ var ajaxGameDetail =
     "isFree":Boolean(request.isFree)
 };
 
+function createGiftItem($node, activity)
+{
+    var $item = $node.clone();
+    $item.find('.content').text(activity.acName);
+    $item.find('.date').text(getDateStr(new Date(activity.acStartTime)));
+    $item.on('tap', function()
+    {
+        //礼包
+        if(activity.acType === 1)
+        {
+            var i = indexOfGift(activity.acId);
+            if(i != -1)
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":activity.acName,
+                            "url":ajaxGameDetail.giftUrl +  "?acId=" + activity.acId + "&num=" + myGiftData[index].giftNo
+                        }
+                    )
+                );
+            }
+            else
+            {
+                isUxbao && window.uxbao.click(JSON.stringify
+                    (
+                        {
+                            "type":12,
+                            "title":activity.acName,
+                            "url":ajaxGameDetail.giftUrl +  "?acId=" + activity.acId
+                        }
+                    )
+                );
+            }
+        }
+        //活动
+        else if(activity.acType === 2)
+        {
+            isUxbao && window.uxbao.click(JSON.stringify
+                (
+                    {
+                        "type":12,
+                        "title":activity.acName,
+                        "url":ajaxGameDetail.giftUrl +  "?acId=" + activity.acId
+                    }
+                )
+            );
+        }
+    });
+    return $item;
+}
 
+//填充活动
+function fillActivity($activityList, data)
+{
+    if(data.activity)
+    {
+        var activityList = data.activity;
+        var $giftTpl = $item.find("li").eq(0).clone();
+        $activityList.empty();
+        $(activityList).each(function(i, activity)
+        {
+            var $item = createGiftItem($giftTpl, activity);
+            $activityList.append($item);
+        });
+    }
+    else
+    {
+        $('#gameGift').remove();
+    }
+}
+
+function createInfoItem($node, news)
+{
+    var $item = $node.clone();
+    $item.text(news.infoTitle);
+    $item.on('tap', function ()
+    {
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":14,
+                    "title":news.infoTitle,
+                    "url":ajaxGameDetail.infoUrl +  "?infoId=" + news.infoId
+                }
+            )
+        );
+    });
+    return $item;
+}
+
+//填充资讯
+function fillInfo($newsList, data)
+{
+    if(data.news)
+    {
+        var newsList = data.news;
+        var $newsTpl = $newsList.find("li").eq(0).clone();//$($news.find('li')[0].cloneNode(true));
+        $newsList.empty();
+        $(newsList).each(function(i, newsData)
+        {
+            var $item = createInfoItem($newsTpl, newsData);
+            $newsList.append($item);
+        });
+    }
+    else
+    {
+        $("#gameInfo").remove();
+    }
+}
 
 //填充打分
-function fillRate(rated1, rated2, rated3, rated4, rated5, rated, total)
+function fillDetailRate(rated1, rated2, rated3, rated4, rated5, rated, total)
 {
     $('.commentNum').text('（' + total + '人）');
 
@@ -112,31 +198,6 @@ function fillRate(rated1, rated2, rated3, rated4, rated5, rated, total)
     $averageRate.find('span').text(rated.toFixed(1) + '分');
 }
 
-function getDateStr(date)
-{
-    var dateStr = "";
-    dateStr += date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    if(month < 10)
-    {
-        dateStr += '.0' + month;
-    }
-    else
-    {
-        dateStr += '.' + month;
-    }
-    if(day < 10)
-    {
-        dateStr += '.0' + day;
-    }
-    else
-    {
-        dateStr += '.' + day;
-    }
-    return dateStr
-}
-
 //填充评论
 function fillComment(commentData)
 {
@@ -181,36 +242,6 @@ function fillComment(commentData)
     });
 }
 
-//进入游戏详情
-function infoTapHandler($info)
-{
-    var resId = $info.data("id");
-    isUxbao && window.uxbao.click(
-        JSON.stringify(
-            {
-                "type":2,
-                "resId":resId,
-                "url":ajaxGameDetail.gameDetailUrl + "?resId=" + resId,
-                "resName":$info.data("name"),
-                "resPackagename":$info.data("package")
-            }
-        )
-    );
-}
-
-function isReceive(acId)
-{
-    var len = myGiftData.length;
-    for(var i = 0; i < len; ++i)
-    {
-        if(acId == myGiftData[i].acId)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
 var little_yellow_star, light_gray_star, big_yellow_star, big_gray_star;
 
 $(function()
@@ -251,97 +282,11 @@ $(function()
 
                     //礼包
                     var $gift = $('#activityList');
-                    if(data.activity)
-                    {
-                        var activityList = data.activity;
-                        var $giftTpl = $($gift.find('li')[0].cloneNode(true));
-                        $gift.empty();
-                        $(activityList).each(function(i, activity)
-                        {
-                            $giftTpl.find('.content').text(activity.acName);
-                            $giftTpl.find('.date').text(getDateStr(new Date(activity.acStartTime)));
-                            $giftTpl.on('tap', function()
-                            {
-                                //礼包
-                                if(activity.acType === 1)
-                                {
-                                    var i = isReceive(activity.acId);
-                                    if(i != -1)
-                                    {
-                                        isUxbao && window.uxbao.click(JSON.stringify
-                                            (
-                                                {
-                                                    "type":12,
-                                                    "title":activity.acName,
-                                                    "url":ajaxGameDetail.giftUrl +  "?acId=" + activity.acId + "&num=" + myGiftData[index].giftNo
-                                                }
-                                            )
-                                        );
-                                    }
-                                    else
-                                    {
-                                        isUxbao && window.uxbao.click(JSON.stringify
-                                            (
-                                                {
-                                                    "type":12,
-                                                    "title":activity.acName,
-                                                    "url":ajaxGameDetail.giftUrl +  "?acId=" + activity.acId
-                                                }
-                                            )
-                                        );
-                                    }
-                                }
-                                //活动
-                                else if(activity.acType === 2)
-                                {
-                                    isUxbao && window.uxbao.click(JSON.stringify
-                                        (
-                                            {
-                                                "type":12,
-                                                "title":activity.acName,
-                                                "url":ajaxGameDetail.giftUrl +  "?acId=" + activity.acId
-                                            }
-                                        )
-                                    );
-                                }
-                            });
-                            $gift.append($giftTpl);
-                        });
-                    }
-                    else
-                    {
-                        $('#gameGift').remove();
-                    }
+                    fillActivity($gift, data);
 
                     //资讯
                     var $news = $('#infoList');
-                    if(data.news)
-                    {
-                        var newsList = data.news;
-                        var $newsTpl = $($news.find('li')[0].cloneNode(true));
-                        $news.empty();
-                        $(newsList).each(function(i, newsData)
-                        {
-                            $newsTpl.text(newsData.infoTitle);
-                            $newsTpl.on('tap', function ()
-                            {
-                                isUxbao && window.uxbao.click(JSON.stringify
-                                    (
-                                        {
-                                            "type":14,
-                                            "title":newsData.infoTitle,
-                                            "url":ajaxGameDetail.infoUrl +  "?infoId=" + newsData.infoId
-                                        }
-                                    )
-                                );
-                            });
-                            $news.append($newsTpl);
-                        });
-                    }
-                    else
-                    {
-                        $("#gameInfo").remove();
-                    }
+                    fillInfo($news, data);
 
                     //截图
                     var screenShots = data.product.resScreenshots.split(',');
@@ -416,8 +361,7 @@ $(function()
                     });
 
                     //评论
-                    fillRate(data.product.rated1, data.product.rated2, data.product.rated3,
-                        data.product.rated4, data.product.rated5, data.product.resRated, data.product.resCustratednum);
+                    fillDetailRate(data.product.rated1, data.product.rated2, data.product.rated3, data.product.rated4, data.product.rated5, data.product.resRated, data.product.resCustratednum);
                     fillComment(data.comments);
                     data.commentUrl = ajaxGameDetail.commentUrl + "?resId=" + ajaxGameDetail.resId;
 
