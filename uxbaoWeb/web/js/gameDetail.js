@@ -77,7 +77,7 @@ function fillActivity($activityList, data)
     if(data.activity)
     {
         var activityList = data.activity;
-        var $giftTpl = $item.find("li").eq(0).clone();
+        var $giftTpl = $activityList.find("li").eq(0).clone();
         $activityList.empty();
         $(activityList).each(function(i, activity)
         {

@@ -87,8 +87,6 @@ $(function()
     //点击登录链接
     $("#to_login").on("tap", function()
     {
-
         isUxbao && window.activity.skipTo("login");
-        //window.location.href = loginUrl;
     });
 });

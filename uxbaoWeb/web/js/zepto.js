@@ -1638,7 +1638,7 @@ function updateSaveDataFlow(data)
 //供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
 function updateState(packageName, state)
 {
-    if((ajaxGameDetail && packageName === ajaxGameDetail.resPackagename) || (ajaxGiftDetail && packageName === ajaxGiftDetail.resPackagename) || (ajaxInfoDetail && packageName === ajaxInfoDetail.resPackagename))
+    if((window.ajaxGameDetail && packageName === ajaxGameDetail.resPackagename) || (window.ajaxGiftDetail && packageName === ajaxGiftDetail.resPackagename) || (window.ajaxInfoDetail && packageName === ajaxInfoDetail.resPackagename))
     {
         isUxbao && window.activity.update(JSON.stringify(state));
     }
@@ -1804,9 +1804,17 @@ function btnTapHandler($target)
     //通知android下载，显示下载或者继续字样
     if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
     {
-        if($target.hasClass('dlBtn') && userInfo.userState)
+        if($target.hasClass('dlBtn'))
         {
-            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
+            if(userInfo.userState)
+            {
+                isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
+            }
+            if(window.ajaxWorldCup)
+            {
+                ++ajaxWorldCup.count;
+                $('#lotteryCount').text(ajaxWorldCup.count + '次');
+            }
         }
         $target.removeClass().addClass('cancelBtn btn');
         $target.find(".state").text('暂停');
@@ -1901,12 +1909,14 @@ function btnTapHandler($target)
 function infoTapHandler($item)
 {
     var resId = $item.data("id");
+    console.log($.htmlRoot + "game_detail.html?resId=" + resId + "&isFree=" + Boolean(userInfo.userState));
+    console.log($item.data("name") + " " + $item.data("package"));
     isUxbao && window.uxbao.click(
         JSON.stringify(
             {
                 "type":2,
                 "resId":resId,
-                "url": ajaxRecommend.detailUrl + "?resId=" + resId + "&isFree=" + Boolean(userInfo.userState),
+                "url": $.htmlRoot + "game_detail.html?resId=" + resId + "&isFree=" + Boolean(userInfo.userState),
                 "resName":$item.data("name"),
                 "resPackageName":$item.data("package")
             }
@@ -1990,7 +2000,7 @@ function bindGiftTapHandler($item, itemData)
 //供android端调用，更新领取礼包后的状态
 function updateGift(acId, acNum)
 {
-    if(acId == ajaxGiftDetail.acId)
+    if(ajaxGiftDetail && acId == ajaxGiftDetail.acId)
     {
         $(".btn").text("已领取").addClass("gray").data("num", acNum);
         $(".giftState").hide();
@@ -2002,6 +2012,40 @@ function updateGift(acId, acNum)
             return false;
         });
     }
+    else
+    {
+        $("#" + acId).find(".btn").text("已领取").addClass("gray").data("num", acNum);
+    }
+}
+
+/**
+ 比较两个日期相差的天数，可为负值
+ **/
+function dateDiff(sDate1, sDate2)
+
+{ //sDate1和sDate2是2002-00-18格式
+    var aDate, oDate1, oDate2, iDays;
+    aDate = sDate1.split(".");
+    oDate1 = new Date(aDate[0],aDate[1] - 1,aDate[2]);
+    aDate = sDate2.split(".");
+    oDate2 = new Date(aDate[0],aDate[1] - 1,aDate[2]);
+    iDays = parseInt((oDate1 - oDate2) / 1000 / 60 / 60 /24);
+    return iDays;
+}
+
+function createDate(dateStr)
+{
+    var $date = $(".date").eq(0).clone();
+    $date.removeClass('today yesterday');
+    if(dateStr == '昨天')
+    {
+        $date.addClass('yesterday').find('.date-content').text(dateStr);
+    }
+    else
+    {
+        $date.find('.date-content').text(dateStr);
+    }
+    return $date;
 }
 
 $.apiRoot = 'http://main.gambao.com:8080/mystore/';

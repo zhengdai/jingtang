@@ -52,7 +52,7 @@ function fillItem($item, itemData)
 function createItem($node, itemData)
 {
     var $item = $node.clone();
-    fillItem($item,itemData);
+    fillItem($item, itemData);
     return $item;
 }
 

@@ -39,11 +39,12 @@ function fillItem($item, itemData)
         .data("name", itemData.resName)
         .data("capacity", ca);
 
-    //$item.find(".number").text(i);
+    bindGiftTapHandler($item, itemData);
+
     $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
 
     $item.find(".tit strong").text(itemData.resName);
-    $item.find(".tit p").text(ca.toFixed(2) + 'MB | ' + itemData.resDeveloper);
+    $item.find(".tit p").text(ca.toFixed(1) + 'MB | ' + itemData.resDeveloper);
 
     //评分
     var rated = itemData.resRated;

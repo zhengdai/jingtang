@@ -16,29 +16,11 @@ var ajaxGift = {
 //加载进来的活动列表
 var giftList = [];
 
-function isReceive(acId)
+function createItem($node, itemData)
 {
-    var len = myGiftData.length;
-    for(var i = 0; i < len; ++i)
-    {
-        if(acId == myGiftData[i].acId)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
-function createItem(itemData)
-{
-    var $item = $(($(".giftItem")[0]).cloneNode(true));
+    var $item = $node.clone();
     fillItem($item,itemData);
     return $item;
-}
-
-function updateGift(acId, acNum)
-{
-    $("#" + acId).find(".btn").text("已领取").addClass("gray").data("num", acNum);
 }
 
 //ajax填充一个活动的信息，$item是一个zepto对象，itemData提供填充数据
@@ -88,7 +70,7 @@ function fillItem($item, itemData)
         else
         {
             //领过
-            var index = isReceive(itemData.acId);
+            var index = indexOfGift(itemData.acId);
             if(index != -1)
             {
                 var num = myGiftData[index].giftNo;
@@ -105,7 +87,7 @@ function fillItem($item, itemData)
                 //添加点击响应函数
                 $item.find('.btn').text("领号").on("tap",function()
                 {
-                    btnTapHandler($(this));
+                    receiveTapHandler($(this));
                     return false;
                 }).removeClass('gray');
             }
@@ -126,7 +108,7 @@ function fillItem($item, itemData)
 }
 
 //点击领号函数
-function btnTapHandler($target)
+function receiveTapHandler($target)
 {
     var $item = $target.parent().parent();
     isUxbao && window.uxbao.click(JSON.stringify
@@ -217,7 +199,7 @@ function loadMore()
 
                         for (var i = 0; i < len; ++i)
                         {
-                            var $item = createItem(data.activity[i]);
+                            var $item = createItem($(".giftItem").eq(0), data.activity[i]);
                             $container.append($item);
                             $item.find("img").imglazyload({"urlName":"data-pic"});
                         }
