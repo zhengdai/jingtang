@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>免流量专区</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/subjectDetail.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/free.js"></script>
+        <style>
+            .bar{ background-color: #f6f6f6; overflow: hidden;}
+            .save-part{ float:left; text-align: center; padding: 5px 20px; background-color: #44ab58; color: #fff; margin-left: 10px;}
+            .save-num, .save-des{ line-height: 24px;}
+            .bar-btn{ float:left; margin-left: 10px; line-height: 36px; padding: 0 12px; margin-top:10px; background-color: #e57c1f; color: #fff;
+             box-shadow: 0 2px 2px #707070;}
+            .promise{ margin:5px; background-color: #f6f6f6; padding: 20px; line-height: 24px; color: #858484;}
+        </style>
+    </head>
+    <body onselectstart="return false">
+        <!--专题头图-->
+        <img class="headPic" src="images/free.jpg" />
+
+        <!--按钮条-->
+        <div class="bar">
+            <div class="save-part">
+                <p class="save-num">0.00KB</p>
+                <p class="save-des">流量已节省</p>
+            </div>
+            <span class="bar-btn" id="vip-btn">
+                特权
+            </span>
+            <span class="bar-btn" id="share-btn">
+                分享
+            </span>
+            <span class="bar-btn" id="feed-back">
+                反馈
+            </span>
+        </div>
+
+        <!--描述-->
+        <div class="promise">
+            游戏宝承诺，只要你是广东移动用户，在专区下游戏不需要支付任何流量费用。
+        </div>
+
+        <!--专题应用列表-->
+        <div class="appList">
+            <ul id="app-list-box">
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img src="images/local/star_01.png" />
+                                    <img src="images/local/star_02.png" />
+                                    <img src="images/local/star_03.png" />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="more">
+            <div class="loading"></div>
+        </div>
+    </body>
+</html>

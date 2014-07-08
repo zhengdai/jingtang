@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>免流量专区</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/subjectDetail.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script type="text/javascript" src="js/gmu.merge.js"></script>
+        <script type="text/javascript" src="js/free.js"></script>
+        <style>
+            .bar{ background-color: #f6f6f6; overflow: hidden;}
+            .save-part{ float:left; text-align: center; width:29%;  background-color: #44ab58; color: #fff; margin-left: 2%; padding:5px 0;}
+            .save-num, .save-des{ line-height: 24px; text-align: center;}
+            #vip-btn{ background-color:#e57c1f; width: 32%; margin-left: 10%;}
+            .bar-btn .title{ padding-left: 5px;}
+            #share-btn{ background-color:#7ecef4; width: 18%; margin-left: 6%;}
+            .bar-btn{ float:left; line-height: 36px; margin-top:10px; color: #fff;text-align: center;
+             box-shadow: 0 2px 2px #707070;}
+            .promise{ margin:5px; background-color: #f6f6f6; padding: 10px; line-height: 24px; color: #858484; overflow: hidden;}
+            .promise .name{ padding: 5px;}
+            .promise .content{ text-indent: 2em;}
+            #feed-back{ float: right; margin-right: 10px; line-height: 36px; color: #707070; padding: 0 26px 0 0;
+                background: url("images/local/edit.png") right center no-repeat;}
+        </style>
+    </head>
+    <body onselectstart="return false">
+        <!--专题头图-->
+        <img class="headPic" src="images/local/free_head.jpg" />
+
+        <!--按钮条-->
+        <div class="bar">
+            <div class="save-part">
+                <p class="save-num">0.00MB</p>
+                <p class="save-des">流量已节省</p>
+            </div>
+            <span class="bar-btn" id="vip-btn">
+                <img src="images/local/pri.png" /><span class="title">更多特权</span>
+            </span>
+            <span class="bar-btn" id="share-btn">
+                <img src="images/local/share.png" /><span class="title">分享</span>
+            </span>
+        </div>
+
+        <!--描述-->
+        <div class="promise">
+            <p class="name">尊敬的广东移动用户：</p>
+            <p class="content">游戏宝平台向你承诺，广东移动用户在免流量专区下载游戏，不需要支付任何流量费用。</p>
+            <span id="feed-back">
+                意见反馈
+            </span>
+        </div>
+
+        <!--专题应用列表-->
+        <div class="appList">
+            <ul id="app-list-box">
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img src="images/local/star_01.png" />
+                                    <img src="images/local/star_02.png" />
+                                    <img src="images/local/star_03.png" />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="app">
+                    <div class="itemAll">
+                        <span class="free-flag"></span>
+                        <span class="relate-gift">礼包</span>
+                        <div class="appInfo">
+                            <img class="appIcon" src="images/local/market.png" />
+                            <div class="tit">
+                                <strong></strong>
+                                <p></p>
+                                <div class="items-score">
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                    <img />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="state"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="more">
+            <div class="loading"></div>
+        </div>
+    </body>
+</html>

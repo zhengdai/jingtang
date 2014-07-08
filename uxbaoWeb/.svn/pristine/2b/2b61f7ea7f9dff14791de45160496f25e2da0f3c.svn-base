@@ -1,0 +1,12 @@
+body,div,span,img,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,input,textarea,select,option,fieldset,legend,p,th,td{margin:0; padding:0;}
+fieldset,img {border: 0;}
+a{text-decoration:none; color:#252525;}
+.clear{clear:both;}
+ul,li{list-style:none;}
+body{ font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    color:#252525; font-size:14px; line-height:20px;-webkit-user-select: none;
+    background-color: #f3f3f3;
+}
+.pri-content{ margin:10px; color: #858484;}
+#register-btn{ margin:0 30px; line-height: 36px; padding: 0 12px; background-color: #e57c1f; color: #fff;
+    box-shadow: 0 2px 2px #707070; display: block; text-align: center;}

@@ -1,0 +1,281 @@
+/**
+ * Created by zd on 2014/6/28 0028.
+ */
+
+//专题详情
+var ajaxFree = {
+    "url": $.apiRoot + "appV3/getTopicById.do",
+    "categoryId":39
+};
+
+//专题应用ajax参数对象
+var ajaxFreeGame =
+{
+    "total_size":0,//总共的应用个数
+    "start_position":1,//从第几个开始取
+    "init_size":10,//第一次取的数目
+    "load_size":5,//之后每次下拉加载的数目
+    "rescategory_id":ajaxFree.categoryId,
+    'order_by':"hot",
+    "url": $.apiRoot + "appV3/getCategoryProducts.do",
+    "onRefresh":false,
+    "detailUrl": $.htmlRoot + "game_detail.html"
+};
+
+//加载进来的推荐应用列表
+var freeGameList = [];
+
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
+{
+    var $item = $node.clone();
+    fillItem($item, itemData);
+    return $item;
+}
+
+//ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
+function fillItem($item, itemData)
+{
+    var packageName = itemData.resPackagename;
+    var ca = itemData.resCapacity/(1024*1024);
+    //使用包名作为id
+    $item.attr("id", itemData.resPackagename)
+        .data("location", itemData.resLocation)
+        .data("id", itemData.resId)
+        .data("package", packageName)
+        .data("icon", itemData.resIcons)
+        .data("name", itemData.resName)
+        .data("capacity", ca);
+    if(itemData.isFree)
+    {
+        $item.find('.free-flag').show();
+    }
+    else
+    {
+        $item.find('.free-flag').hide();
+    }
+    bindGiftTapHandler($item, itemData);
+
+    $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
+
+    $item.find(".tit strong").text(itemData.resName);
+    $item.find(".tit p").text(ca.toFixed(1) + 'MB | ' + itemData.resDeveloper);
+
+    //评分
+    var rated = itemData.resRated;
+    fillRate($item, rated);
+
+    //状态
+    fillState($item, packageName, phoneData);
+}
+
+//加载更多
+function loadMore()
+{
+    if(!ajaxFreeGame.onRefresh && ajaxFreeGame.start_position <= ajaxFreeGame.total_size)
+    {
+        ajaxFreeGame.onRefresh = true;
+        $.ajax(
+            {
+                url:ajaxFreeGame.url,
+                dataType:'jsonp',
+                data:
+                {
+                    "rescategory_id":ajaxFree.categoryId,
+                    "order_by":ajaxFreeGame.order_by,
+                    "resolution":userInfo.resolution,
+                    "version":userInfo.version,
+                    "phonetypeName":userInfo.phonetypeName,
+                    "os_version":userInfo.os_version,
+                    "language":userInfo.language,
+                    "imei":userInfo.imei,
+                    "imsi":userInfo.imsi,
+                    "size":ajaxFreeGame.load_size,
+                    "start_position":ajaxFreeGame.start_position,
+                    "servicePrivider":userInfo.serviceProvider
+                },
+                jsonp:'jsonRecommend',
+                success:function(data, textStatus, xhr)
+                {
+                    if(data.state === 1 && data.product)
+                    {
+                        var $container = $("#app-list-box");
+
+                        subjectGameList = subjectGameList.concat(data.product);
+                        var len = data.product.length;
+
+                        for (var i = 0; i < len; ++i)
+                        {
+                            var $item = createItem($(".app").eq(0), data.product[i]);
+                            $container.append($item);
+                            $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
+                            //添加点击响应函数
+                            $item.find(".btn").on("tap",function()
+                            {
+                                btnTapHandler($(this));
+                                return false;
+                            });
+                            $item.find(".appInfo").on('tap', function()
+                            {
+                                infoTapHandler($(this).parent().parent());
+                                return false;
+                            });
+                        }
+
+                        ajaxFreeGame.start_position += len;
+
+                        if(ajaxFreeGame.start_position > ajaxFreeGame.total_size)
+                        {
+                            $(".more").hide();
+                        }
+                        ajaxFreeGame.onRefresh = false;
+                    }
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown)
+                {
+                    ajaxFreeGame.onRefresh = false;
+                    console.log("failed ajax!");
+                    $(".more").hide();
+                }
+            }
+        );
+    }
+}
+
+var default_icon, star_01, star_02, star_03;
+
+//页面加载完毕执行函数
+$(function()
+{
+    default_icon = $('.app').eq(0).find(".appIcon").attr("src");
+    var $default_stars = $('.items-score').eq(0).find('img');
+    star_01 = $default_stars.eq(0).attr('src');
+    star_02 = $default_stars.eq(1).attr('src');
+    star_03 = $default_stars.eq(2).attr('src');
+
+    //特权按钮
+    $("#vip-btn").on('tap', function()
+    {
+        if(isUxbao)
+        {
+            userInfo = JSON.parse(window.uxbao.userInfo()).userInfo;
+        }
+        if(userInfo.userState)
+        {
+            isUxbao && window.uxbao.click(JSON.stringify(
+                {
+                    type:"17",
+                    text:"您已经享有所有游戏免流量特权，尽情下载吧！"
+                }
+            ));
+        }
+        else
+        {
+            isUxbao && window.uxbao.dialog("免流量用户特权", $.htmlRoot + "freePri.html", "0.8", "0.4");
+        }
+        return false;
+    });
+    //分享按钮
+    $("#share-btn").on("tap", function()
+    {
+        isUxbao && window.uxbao.share("我正在使用“游戏宝”免流量下载游戏，已经为我节省" + userInfo.saveDataFlow.toFixed(2) + "M流量，你也来试试哦！http://app.qq.com/#id=detail&appid=1101486102");
+        return false;
+    });
+    //反馈按钮
+    $("#feed-back").on("tap", function()
+    {
+        isUxbao && window.uxbao.feedback();
+        return false;
+    });
+
+    if(userInfo.saveDataFlow)
+    {
+        $(".save-num").text(userInfo.saveDataFlow.toFixed(2) + "MB");
+    }
+
+    //最开始ajax加载10个应用
+    $.ajax(
+        {
+            url:ajaxFreeGame.url,
+            dataType:'jsonp',
+            data:
+            {
+                "rescategory_id":ajaxFree.categoryId,
+                "order_by":ajaxFreeGame.order_by,
+                "resolution":userInfo.resolution,
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "language":userInfo.language,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi,
+                "size":ajaxFreeGame.init_size,
+                "start_position":ajaxFreeGame.start_position,
+                "servicePrivider":userInfo.serviceProvider
+            },
+            jsonp:'jsonpSubjectGame',
+            success:function(data)
+            {
+                if(data.state === 1)//获取成功
+                {
+                    ajaxFreeGame.total_size = data.products.total_size;
+                    freeGameList = freeGameList.concat(data.product);
+                    ajaxFreeGame.start_position += data.product.length;
+                    $(".app").each(function(i,item)
+                    {
+                        var $item = $(this);
+                        if(data.product[i])
+                        {
+                            fillItem($item, data.product[i]);
+                            $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
+
+                            //添加点击响应函数
+                            $item.find(".btn").on("tap",function()
+                            {
+                                btnTapHandler($(this));
+                                return false;
+                            });
+                            $item.find(".appInfo").on('tap', function()
+                            {
+                                infoTapHandler($(this).parent().parent());
+                                return false;
+                            });
+                        }
+                        else
+                        {
+                            $item.remove();
+                        }
+                    });
+
+                    $.fn.imglazyload.detect();
+
+                    //下拉加载
+                    if(ajaxFreeGame.start_position <= ajaxFreeGame.total_size)
+                    {
+                        $(window).on("scroll", function()
+                        {
+                            var lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()) + parseFloat($('.more').height());
+                            if ($(document).height() <= lazyheight)
+                            {
+                                loadMore();
+                            }
+                        });
+                        $(window).trigger('scroll');
+                    }
+                    else
+                    {
+                        $(".more").hide();
+                    }
+                }
+                else
+                {
+                    console.log("There is no app to load.");
+                }
+            },
+            error:function()
+            {
+                console.log("load recommend app list error");
+            }
+        }
+    );
+});

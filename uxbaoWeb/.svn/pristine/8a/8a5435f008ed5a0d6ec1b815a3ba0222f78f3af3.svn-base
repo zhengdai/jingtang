@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>免流量特权</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/freePri.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script>
+            $(function()
+            {
+                if(userInfo.nickName)
+                {
+                    $("#register-btn").text("立即领取").on('tap', function()
+                    {
+                        isUxbao && window.uxbao.dismiss();
+                    });
+                }
+                else
+                {
+                    $("#register-btn").text("立即注册").on('tap', function()
+                    {
+                        isUxbao && window.uxbao.click(
+                                JSON.stringify(
+                                        {
+                                            "type":11,
+                                            "flag":1
+                                        }
+                                )
+                        );
+                        return false;
+                    });
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <p class="pri-content">
+            现在广东移动手机号注册为游戏宝用户可以享受游戏下载全免流量的特权，赶快注册吧，让下载游戏再无顾忌！
+        </p>
+        <span id="register-btn">
+        </span>
+    </body>
+</html>

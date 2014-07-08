@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>世界杯-玩游戏-赢多重好礼</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="content://uxbao.local/web/css/subjectDetail.css"/>
+        <script type="text/javascript" src="content://uxbao.local/web/js/zepto.js"></script>
+        <script type="text/javascript" src="content://uxbao.local/web/js/gmu.merge.js"></script>
+        <script type="text/javascript" src="content://uxbao.local/web/js/world_cup.js"></script>
+        <style>
+            .subjectCon{ margin: 5px; overflow: hidden; background-color: #fbfbfb;}
+            .panel{ background: url("content://uxbao.local/web/images/bg_03.png") top center no-repeat; background-size: 100% auto;
+                position: relative; overflow: hidden;
+            }
+
+            #outer {
+                width: 280px;
+                height: 280px;
+                margin: 10px auto;
+            }
+            #outer img, #inner img {
+                display: block;
+                margin: 0 auto;
+            }
+            #inner-cont {
+                position: absolute;
+                width: 100%;
+                top: 55px;
+            }
+            #inner {
+                margin: 0 auto;
+                width: 120px;
+                cursor: pointer;
+            }
+
+            #outer img{
+                width: 280px;
+            }
+
+            #inner img{
+                width: 120px;
+            }
+
+            @media screen and (min-width: 400px) {
+                #outer {
+                    width: 300px;
+                    height: 300px;
+                    margin: 10px auto;
+                }
+                #outer img, #inner img {
+                    display: block;
+                    margin: 0 auto;
+                }
+                #inner-cont {
+                    position: absolute;
+                    width: 100%;
+                    top: 60px;
+                }
+                #inner {
+                    margin: 0 auto;
+                    width: 120px;
+                    cursor: pointer;
+                }
+
+                #outer img{
+                    width: 300px;
+                }
+
+                #inner img{
+                    width: 120px;
+                }
+            }
+
+            @media screen and (max-width: 320px) {
+                #outer {
+                    width: 260px;
+                    height: 260px;
+                    margin: 10px auto;
+                }
+                #outer img, #inner img {
+                    display: block;
+                    margin: 0 auto;
+                }
+                #inner-cont {
+                    position: absolute;
+                    width: 100%;
+                    top: 60px;
+                }
+                #inner {
+                    margin: 0 auto;
+                    width: 100px;
+                    cursor: pointer;
+                }
+
+                #outer img{
+                    width: 260px;
+                }
+
+                #inner img{
+                    width: 100px;
+                }
+            }
+
+            .lotteryCount{
+                background-color: #42a454;
+                box-shadow: 0 2px 2px #4b4b4b;
+                margin: 10px auto;
+                width: 100px;
+                padding: 5px 0;
+                text-align: center;
+                color: #fff;
+                line-height: 26px;
+                text-shadow: 0 2px 2px #4b4b4b;
+            }
+            .lotteryTit{
+                font-size: 14px;
+            }
+            .lotteryCount{
+                font-size: 16px;
+            }
+            .lotteryBtn{
+                position: absolute;
+                bottom: 30px;
+                background-color: #f79526;
+                width: 50px;
+                text-align: center;
+                padding: 5px 15px;
+                font-size: 18px;
+                color: #fff;
+                line-height: 30px;
+                border-radius: 10px;
+                box-shadow: 0 2px 2px #4b4b4b;
+            }
+            #startBtn{
+                left: 10px;
+            }
+            #receiveBtn{
+                right: 10px;
+            }
+            .downloadArea{
+                margin: 10px auto;
+                overflow: hidden;
+            }
+            .rule{
+                background-color: #44ab58;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                line-height: 24px;
+                color: #fff;
+                font-size: 14px;
+                text-shadow: 0 2px 2px #4b4b4b;
+                overflow: hidden;
+                position: relative;
+                padding: 5px;
+            }
+            .ruleTit{
+                width: 80px;
+                position: absolute;
+                text-align: right;
+                top:5px;
+            }
+            .ruleCon{
+                margin-left: 80px;
+            }
+            .areaBot{
+                height: 15px;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                background-color: #44ab58;
+            }
+            .userArea{
+                margin: 10px auto;
+                overflow: hidden;
+            }
+            .userTit{
+                background-color: #fcad33;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                line-height: 30px;
+                color: #fff;
+                font-size: 18px;
+                text-shadow: 0 2px 2px #4b4b4b;
+                overflow: hidden;
+                position: relative;
+                text-align: center;
+                padding: 5px;
+            }
+            #userList{
+                overflow: hidden;
+            }
+            #userList li{
+                height: 30px;
+                margin: 5px 0;
+            }
+            .userArea .areaBot{
+                background-color: #fcad33;
+            }
+
+            /*弹出留言与提意见对话框样式*/
+            .ui-dialog{
+                overflow: hidden;
+                margin: 0 auto;
+                z-index: 1002;
+                position:absolute;
+                left: 0;
+                top: -10000px;
+                display: none;
+                -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+                background-color: white;
+                -webkit-transform: translateZ(0);
+                -moz-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                -o-transform: translateZ(0);
+                transform: translateZ(0);
+                -webkit-user-select: none;
+                -webkit-user-drag: none;
+            }
+            /** mask */
+            .ui-mask{
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: #888;
+                opacity: 0.5;
+                display: none;
+                z-index: 1001;
+                -webkit-transform: translateZ(0);
+                -moz-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                -o-transform: translateZ(0);
+                transform: translateZ(0);
+                -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+                -webkit-user-select: none;
+                -webkit-user-drag: none;
+            }
+            .ui-dialog .ui-dialog-title {
+                position: relative;
+            }
+
+            .ui-dialog .ui-dialog-close{
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                cursor: pointer;
+            }
+            .ui-dialog-container {
+                position: relative;
+            }
+
+            .ui-dialog{
+                background: #f5f5f5;
+                box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+                -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+                -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+            }
+
+            .ui-dialog .ui-dialog-title {
+                height: 50px;
+                line-height: 50px;
+                font-size: 16px;
+                text-align: center;
+                background: #f79526;
+                color: #fff;
+                font-weight: 700;
+                -webkit-border-radius: 3px 3px 0 0;
+                -moz-border-radius: 3px 3px 0 0;
+                border-radius: 3px 3px 0 0;
+            }
+
+            .ui-dialog .ui-dialog-close-hover {
+                background-color: rgba(255, 255, 255, 0.4);
+            }
+
+            .ui-dialog .ui-dialog-content{
+                padding: 0;
+                position: relative;
+            }
+            .ui-dialog p{
+                padding: 10px 5px;
+                font-size:14px;
+                line-height: 26px;;
+            }
+            #gift-dialog, #info-dialog, #tip-dialog{ width: 100%; overflow: hidden;}
+            #info-address{ width: 100%; height: 72px; resize: none; line-height: 20px; font-size: 14px;
+                box-sizing: border-box;
+                -moz-box-sizing:border-box;
+                -webkit-box-sizing: border-box;
+                padding: 5px;
+            }
+            .info-input{display: block; padding:0 5px; box-sizing: border-box;
+                -moz-box-sizing:border-box;
+                -webkit-box-sizing: border-box;
+                width: 100%; line-height: 30px; font-size: 14px;
+                border: 1px solid #999;
+            }
+
+            .ui-dialog-btns {
+                table-layout: fixed;
+                display: table;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .ui-dialog-btns .ui-btn {
+                padding: 0;
+                font-size: 18px;
+                width: 100%;
+                display: table-cell;
+                float: none;
+                text-align: center;
+                height: 44px;
+                line-height: 44px;
+                color: #232323;
+                border: 1px solid #ddd;
+                background-color: #f7f7f7;
+                border-bottom: 0 none;
+                cursor: pointer;
+            }
+
+            .ui-dialog-btns .ui-btn:first-child {
+                -webkit-border-bottom-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+                -moz-border-bottom-left-radius: 3px;
+                border-left: 0 none;
+            }
+
+            .ui-dialog-btns .ui-btn:last-child {
+                -webkit-border-bottom-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+                -moz-border-bottom-left-radius: 3px;
+                border-right: 0 none;
+            }
+
+            .ui-dialog-btns .ui-btn.ui-state-hover {
+                background-color: #e2e2e2;
+            }
+
+            /*css for pad*/
+            @media all and (min-device-width:768px) and (max-device-width: 1024px){
+                .ui-dialog{
+                    min-width: 500px;
+                }
+                .ui-dialog .ui-dialog-title{
+                    min-height: 1.1em;
+                }
+            }
+
+            #info-dialog .err{
+                font-size: 14px;
+                color: red;
+                line-height: 26px;
+                height: 26px;
+                padding: 0 5px;
+            }
+        </style>
+    </head>
+    <body onselectstart="return false">
+        <!--专题头图-->
+        <img class="headPic" src="content://uxbao.local/web/images/local/default_bg.png" />
+
+        <!--专题描述-->
+        <div class="subjectInfo">
+            <div class="subjectTit">
+                <p class="subjectName"></p>
+                <p class="subjectTime"></p>
+            </div>
+            <div class="subjectDes">
+                <p class="description">
+                </p>
+            </div>
+        </div>
+
+        <div class="subjectCon">
+            <!--抽奖区域-->
+            <div class="panel">
+                <div id="outer-cont">
+                    <div id="outer">
+                        <img src="content://uxbao.local/web/images/panel.png" />
+                    </div>
+                </div>
+                <div id="inner-cont">
+                    <div id="inner">
+                        <img src="content://uxbao.local/web/images/pointer.png" />
+                    </div>
+                </div>
+
+                <div class="lotteryCount">
+                    <p class="lotteryTit">
+                        抽奖机会
+                    </p>
+                    <p id="lotteryCount">5次</p>
+                </div>
+
+                <div class="lotteryBtn" id="startBtn">
+                    开始抽奖
+                </div>
+
+                <div class="lotteryBtn" id="receiveBtn">
+                    马上领奖
+                </div>
+
+            </div>
+
+            <!--游戏下载区域-->
+            <div class="downloadArea">
+                <div class="rule">
+                    <p class="ruleTit">活动规则：</p>
+                    <p class="ruleCon">每下载一个指定游戏，增加一次抽奖机会，重复下载无效。</p>
+                </div>
+                <ul id="app-list-box">
+                    <li class="app">
+                        <div class="itemAll">
+                            <span class="relate-gift">礼包</span>
+                            <div class="appInfo">
+                                <img class="appIcon" src="content://uxbao.local/web/images/local/market.png" />
+                                <div class="tit">
+                                    <strong></strong>
+                                    <p></p>
+                                    <div class="items-score">
+                                        <img src="content://uxbao.local/web/images/local/star_01.png" />
+                                        <img src="content://uxbao.local/web/images/local/star_02.png" />
+                                        <img src="content://uxbao.local/web/images/local/star_03.png" />
+                                        <img />
+                                        <img />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn">
+                                <span class="state"></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="areaBot"></div>
+            </div>
+
+            <!--中奖用户区域
+            <div class="userArea">
+                <div class="userTit">
+                    中奖用户
+                </div>
+                <ul id="userList">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="areaBot"></div>
+            </div>
+            -->
+        </div>
+
+        <!--礼包弹框-->
+        <div id="gift-dialog" title="礼包">
+            <p>恭喜您获得了<span class="giftName"></span>一份，点击确定前去领取！</p>
+        </div>
+
+        <!--信息填写弹框-->
+        <div id="info-dialog">
+		    <p>恭喜您中奖，保留个人信息后，我们的工作人员会在一个工作日内与您联系！</p>
+            <!--<p class="err"></p>-->
+            <input id="info-name" class="info-input" placeholder="请输入您的姓名--必填">
+            <input id="info-phone" class="info-input" placeholder="请输入您的联系电话--必填">
+            <input id="info-code" class="info-input" placeholder="请输入您的邮编--必填">
+            <textarea id="info-address" placeholder="请输入您的地址--必填"></textarea>
+			<p>直接关闭该窗口视为自动放弃领奖哦！</p>
+        </div>
+
+        <!--提示弹框-->
+        <div id="tip-dialog" title="提示">
+            <p></p>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="css/freePri.css"/>
+        <script type="text/javascript" src="js/zepto.js"></script>
+        <script>
+            $(function()
+            {
+                $('body').height(document.documentElement.clientHeight - 20);
+                $("#register-btn").on('click', function()
+                {
+                    isUxbao && window.activity.dismiss();
+                    return false;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p class="pri-content">
+            恭喜您获得全站免流量特权，只要您是广东移动用户，游戏宝全站游戏免流量下载！
+        </p>
+        <span id="register-btn">
+            确定
+        </span>
+    </body>
+</html>
