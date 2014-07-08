@@ -29,7 +29,7 @@ var freeGameList = [];
 function createItem($node, itemData)
 {
     var $item = $node.clone();
-    fillItem($item,itemData);
+    fillItem($item, itemData);
     return $item;
 }
 
@@ -106,7 +106,7 @@ function loadMore()
 
                         for (var i = 0; i < len; ++i)
                         {
-                            var $item = createItem($(".app").eq(0) ,data.product[i]);
+                            var $item = createItem($(".app").eq(0), data.product[i]);
                             $container.append($item);
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
                             //添加点击响应函数
@@ -260,6 +260,7 @@ $(function()
                                 loadMore();
                             }
                         });
+                        $(window).trigger('scroll');
                     }
                     else
                     {

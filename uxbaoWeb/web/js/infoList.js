@@ -1,30 +1,6 @@
 /**
  * Created by zd on 2014/4/16 0016.
  */
-function getDateStr(date)
-{
-    var dateStr = "";
-    dateStr += date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    if(month < 10)
-    {
-        dateStr += '.0' + month;
-    }
-    else
-    {
-        dateStr += '.' + month;
-    }
-    if(day < 10)
-    {
-        dateStr += '.0' + day;
-    }
-    else
-    {
-        dateStr += '.' + day;
-    }
-    return dateStr
-}
 
 var ajaxInfo = {
     "total_size":0,//总共的专题个数
@@ -38,11 +14,11 @@ var ajaxInfo = {
 
 //加载进来的专题列表
 var infoList = [];
-//空li字符串，创建用
-function createItem(itemData)
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
 {
-    var $item = $(($(".infoItem")[0]).cloneNode(true));
-    fillItem($item,itemData);
+    var $item = $node.clone();
+    fillItem($item, itemData);
     return $item;
 }
 
@@ -57,21 +33,6 @@ function fillItem($item, itemData)
     $item.find(".tit").text("【摘要】");
     $item.find(".content").text(itemData.infoAbstract);
     $item.find(".figure").data("pic", itemData.infoImg).attr('src', default_pic);
-}
-
-//点击领号函数
-function btnTapHandler($target)
-{
-    var $item = $target.parent().parent();
-    isUxbao && window.uxbao.click(JSON.stringify
-        (
-            {
-                "type":13,
-                "acId":$item.data("acId")
-            }
-        )
-    );
-
 }
 
 //点击进入资讯详情
@@ -108,7 +69,7 @@ function loadMore()
                     "size":ajaxInfo.load_size,
                     "start_position":ajaxInfo.start_position
                 },
-                jsonp:'jsonRecommend',
+                jsonp:'jsonInfoList',
                 success:function(data, textStatus, xhr)
                 {
                     if(data.state === 1 && data.news.length)
@@ -119,7 +80,7 @@ function loadMore()
 
                         for (var i = 0; i < len; ++i)
                         {
-                            var $item = createItem(data.news[i]);
+                            var $item = createItem($(".infoItem").eq(0), data.news[i]);
                             $item.on("tap", function()
                             {
                                 itemTapHandler($(this));
@@ -173,7 +134,7 @@ $(function()
                 "size":ajaxInfo.init_size,
                 "start_position":ajaxInfo.start_position
             },
-            jsonp:'jsoncallback',
+            jsonp:'jsonInfoList',
             success:function(data)
             {
                 if(data.state === 1 && data.news.length)//获取成功

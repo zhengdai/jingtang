@@ -28,7 +28,7 @@ var ajaxGiftDetail =
 };
 
 //点击领号函数
-function btnTapHandler($target)
+function receiveTapHandler($target)
 {
     isUxbao && window.uxbao.click(JSON.stringify
         (
@@ -126,7 +126,7 @@ $(function()
                                 //添加点击响应函数
                                 $('.btn').text("领号").on("tap",function()
                                 {
-                                    btnTapHandler($(this));
+                                    receiveTapHandler($(this));
                                     return false;
                                 });
                             }
@@ -144,19 +144,7 @@ $(function()
                             .data('name', data.app.resName).data('package', data.app.resPackagename)
                             .on('tap', function()
                         {
-                            var $item = $(this);
-                            var resId = $item.data("id");
-                            isUxbao && window.uxbao.click(
-                                JSON.stringify(
-                                    {
-                                        "type":2,
-                                        "resId":resId,
-                                        "url":ajaxGiftDetail.detailUrl + "?resId=" + resId,
-                                        "resName":$item.data("name"),
-                                        "resPackageName":$item.data("package")
-                                    }
-                                )
-                            );
+                            infoTapHandler($(this));
                             return false;
                         });
                         if(ajaxGiftDetail.now < data.activity.acStartTime)
