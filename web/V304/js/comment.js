@@ -2,21 +2,6 @@
  * Created by zd on 2014/4/2 0002.
  */
 $.apiRoot = 'http://apk.gambao.com:8080/mystore/';
-function GetRequest()
-{
-    var url = location.search; //获取url中"?"符后的字串
-    var theRequest = {};
-    if (url.indexOf("?") != -1)
-    {
-        var str = url.substr(1);
-        strs = str.split("&");
-        for(var i = 0; i < strs.length; i ++)
-        {
-            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
-        }
-    }
-    return theRequest;
-}
 
 var request = GetRequest();
 
@@ -37,7 +22,7 @@ $(function()
             $star_holder.val(grade);
             for (var j = 0; j <= i; j++)
             {
-                $($star[j]).addClass("star-cur");
+                $star.eq(j).addClass("star-cur");
             }
         })
     });
@@ -56,7 +41,6 @@ $(function()
         ajaxComment.commentContent = $("#J_describe").val().trim();
         if(ajaxComment.commentContent)
         {
-            console.log(ajaxComment.url);
             $.ajax(
                 {
                     url:ajaxComment.url,

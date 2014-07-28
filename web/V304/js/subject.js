@@ -15,38 +15,12 @@ var ajaxSubject =
 
 //加载进来的专题列表
 var subjectList = [];
-//空li字符串，创建用
-function createItem(itemData)
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
 {
-    var $item = $(($(".subject")[0]).cloneNode(true));
+    var $item = $node.clone();
     fillItem($item,itemData);
     return $item;
-}
-
-//将日期对象转换成日期字符串如2014.03.15
-function getDateStr(date)
-{
-    var dateStr = "";
-    dateStr += date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    if(month < 10)
-    {
-        dateStr += '.0' + month;
-    }
-    else
-    {
-        dateStr += '.' + month;
-    }
-    if(day < 10)
-    {
-        dateStr += '.0' + day;
-    }
-    else
-    {
-        dateStr += '.' + day;
-    }
-    return dateStr;
 }
 
 //ajax填充一个专题的信息，$item是一个zepto对象，itemData提供填充数据
@@ -59,7 +33,7 @@ function fillItem($item, itemData)
 }
 
 //点击函数
-function btnTapHandler($target)
+function itemTapHandler($target)
 {
     if($target.data('name').indexOf('世界杯') !== -1)
     {
@@ -125,7 +99,7 @@ function loadMore()
                             //添加点击响应函数
                             $item.on("tap",function()
                             {
-                                btnTapHandler($(this));
+                                itemTapHandler($(this));
                                 return false;
                             });
                         }
@@ -190,7 +164,7 @@ $(function()
                             //添加点击响应函数
                             $item.on("tap",function()
                             {
-                                btnTapHandler($(this));
+                                itemTapHandler($(this));
                                 return false;
                             });
                         }

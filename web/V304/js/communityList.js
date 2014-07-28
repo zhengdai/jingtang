@@ -18,13 +18,6 @@ var ajaxCommunity = {
 
 //加载进来的社区列表
 var communityList = [];
-//空li字符串，创建用
-function createItem(itemData)
-{
-    var $item = $(($(".communityItem")[0]).cloneNode(true));
-    fillItem($item,itemData);
-    return $item;
-}
 
 //ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
 function fillItem($item, itemData)
@@ -38,8 +31,16 @@ function fillItem($item, itemData)
     $item.find(".communityNum").text(itemData.resCustratednum + "次评论");
 }
 
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
+{
+    var $item = $node.clone();
+    fillItem($item,itemData);
+    return $item;
+}
+
 //点击社区函数
-function btnTapHandler($target)
+function itemTapHandler($target)
 {
     isUxbao && window.uxbao.moreComment(
         JSON.stringify(
@@ -87,10 +88,10 @@ function loadMore()
 
                         for (var i = 0; i < len; ++i)
                         {
-                            var $item = createItem(data.product[i]);
+                            var $item = createItem($(".communityItem").eq(0), data.product[i]);
                             $item.on('tap', function()
                             {
-                                btnTapHandler($(this));
+                                itemTapHandler($(this));
                                 return false;
                             });
                             $container.append($item);
@@ -156,7 +157,7 @@ $(function()
                             $item.find(".gameIcon").find("img").imglazyload({"urlName": "data-pic"});
                             $item.on('tap', function()
                             {
-                                btnTapHandler($(this));
+                                itemTapHandler($(this));
                                 return false;
                             });
                         }

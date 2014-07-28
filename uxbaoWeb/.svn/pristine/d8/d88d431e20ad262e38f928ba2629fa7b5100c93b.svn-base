@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>默认搜索</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="content://uxbao.local/web/css/defaultSearch.css"/>
+        <script type="text/javascript" src="content://uxbao.local/web/js/zepto.js"></script>
+        <script type="text/javascript" src="content://uxbao.local/web/js/defaultSearch.js"></script>
+    </head>
+    <body>
+        <h4 class="title">热门搜索</h4>
+        <ul class="hot-search-list">
+            <li><span></span></li>
+        </ul>
+    </body>
+</html>

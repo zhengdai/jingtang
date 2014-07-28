@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>资讯详情</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta content="telephone=no" name="format-detection">
+        <link type="text/css" rel="stylesheet" href="content://uxbao.local/web/css/info.css"/>
+        <script type="text/javascript" src="content://uxbao.local/web/js/zepto.js"></script>
+        <script type="text/javascript" src="content://uxbao.local/web/js/gmu.merge.js"></script>
+        <script type="text/javascript" src="info.js"></script>
+    </head>
+    <body onselectstart="return false">
+        <!--详情头-->
+        <div class="infoHead">
+            <div class="infoIcon">
+                <img src="content://uxbao.local/web/images/local/market.png">
+            </div>
+            <div class="middle">
+                <p class="gameName"></p>
+                <p class="cor"></p>
+                <div class="items-score">
+                    <img src="content://uxbao.local/web/images/local/star_01.png" />
+                    <img src="content://uxbao.local/web/images/local/star_03.png" />
+                    <img />
+                    <img />
+                    <img />
+                </div>
+            </div>
+            <div class="btn">查看</div>
+        </div>
+
+        <!--资讯内容-->
+        <div class="infoContent">
+            <div class="header">
+                <h3 class="tit"></h3>
+                <p class="author"></p>
+            </div>
+            <div class="content">
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,478 @@
+//推荐应用ajax参数对象
+var ajaxRecommend =
+{
+    "total_size":0,//总共的应用个数
+    "start_position":1,//从第几个开始取
+    "init_size":20,//第一次取的数目
+    "load_size":10,//之后每次下拉加载的数目
+    "url": $.apiRoot + "appV3/getrecommendproducts.do",
+    "recommendUrl":$.apiRoot + "appV3/getDailyRecommend.do",
+    "bannerUrl":$.apiRoot + "appV3/getBannerInfo.do",
+    "detailUrl": $.htmlRoot + "game_detail.html",
+    "onRefresh":false,
+    "biwanUrl": $.htmlRoot + "must_play.html",
+    "zuixinUrl": $.htmlRoot + "newest.html",
+    "kaifuUrl": $.htmlRoot + "category_detail.html?rescategory_id=34&order_by=new",
+    "qipaiUrl": $.htmlRoot + "free.html",
+    "libaoUrl": $.htmlRoot + "gift_list.html",
+    "historyUrl": $.htmlRoot + "his_recommend.html"
+};
+
+//加载进来的推荐应用列表
+var recommendList = [];
+
+//ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
+function fillItem($item, itemData)
+{
+    var packageName = itemData.resPackagename;
+    var ca = itemData.resCapacity/(1024*1024);
+    //使用包名作为id
+    $item.attr("id", itemData.resPackagename)
+        .data("location", itemData.resLocation)
+        .data("id", itemData.resId)
+        .data("package", packageName)
+        .data("icon", itemData.resIcons)
+        .data("name", itemData.resName)
+        .data("capacity", ca);
+
+    bindGiftTapHandler($item, itemData);
+
+    $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
+
+    $item.find(".tit strong").text(itemData.resName);
+    $item.find('.company').text(ca.toFixed(1) + 'MB');
+
+    //评分
+    var rated = itemData.resRated;
+    fillRate($item, rated);
+
+    //状态
+    fillState($item, packageName, phoneData);
+}
+
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
+{
+    var $item = $node.clone();
+    fillItem($item, itemData);
+    return $item;
+}
+
+//填充每日推荐
+function fillRecommend($rec, data)
+{
+    var packageName = data.resPackagename;
+    var ca = data.resCapacity/(1024*1024);
+    //使用包名作为id
+    $rec.find('.recommend-info').attr("id", data.resPackagename)
+        .data("location", data.resLocation)
+        .data("id", data.resId)
+        .data("package", packageName)
+        .data("icon", data.resIcons)
+        .data("name", data.resName)
+        .data("capacity", ca);
+
+    bindGiftTapHandler($rec, data);
+
+    $rec.find(".recommend-icon").data("icon", data.resIcons).attr("src", default_icon);
+
+    $rec.find(".recommend-name").text(data.resName);
+    $rec.find('.recommend-capa').text(" | " + ca.toFixed(1) + 'MB');
+    if(data.resIntroduction)
+    {
+        $rec.find('.recommend-des').text(data.resIntroduction);
+    }
+    else
+    {
+        $rec.find('.recommend-des').text(data.resDescription);
+    }
+
+    //评分
+    var rated = data.resRated;
+    fillRate($rec, rated);
+
+    //状态
+    fillState($rec, packageName, phoneData);
+}
+
+//加载更多
+function loadMore()
+{
+    if(!ajaxRecommend.onRefresh && ajaxRecommend.start_position <= ajaxRecommend.total_size)
+    {
+        ajaxRecommend.onRefresh = true;
+        $.ajax(
+            {
+                url:ajaxRecommend.url,
+                dataType:'jsonp',
+                data:
+                {
+                    "resolution":userInfo.resolution,
+                    "version":userInfo.version,
+                    "phonetypeName":userInfo.phonetypeName,
+                    "os_version":userInfo.os_version,
+                    "language":userInfo.language,
+                    "imei":userInfo.imei,
+                    "imsi":userInfo.imsi,
+                    "size":ajaxRecommend.load_size,
+                    "start_position":ajaxRecommend.start_position,
+                    "servicePrivider":userInfo.userState && userInfo.serviceProvider
+                },
+                jsonp:'jsonRecommend',
+                success:function(data, textStatus, xhr)
+                {
+                    if(data.state === 1 && data.product)
+                    {
+                        var $container = $("#app-list-box");
+
+                        recommendList = recommendList.concat(data.product);
+                        var len = data.product.length;
+
+                        for (var i = 0; i < len; ++i)
+                        {
+                            var $item = createItem($(".app").eq(0) ,data.product[i]);
+                            $container.append($item);
+                            $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
+                            //添加点击响应函数
+                            $item.find(".btn").on("tap",function()
+                            {
+                                btnTapHandler($(this));
+                                return false;
+                            });
+                            $item.find(".appInfo").on('tap', function()
+                            {
+                                infoTapHandler($(this).parent().parent());
+                                return false;
+                            });
+                        }
+
+                        ajaxRecommend.start_position += len;
+
+                        if(ajaxRecommend.start_position > ajaxRecommend.total_size)
+                        {
+                            $(".more").hide();
+                        }
+                        ajaxRecommend.onRefresh = false;
+                    }
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown)
+                {
+                    ajaxRecommend.onRefresh = false;
+                    console.log("failed ajax!");
+                    $(".more").hide();
+                }
+            }
+        );
+    }
+}
+
+var default_icon, star_01, star_02, star_03;
+
+//页面加载完毕执行函数
+$(function()
+{
+    default_icon = $(".app").eq(0).find('.appIcon').attr('src');
+    var $default_stars = $('.items-score').eq(0).find('img');
+    star_01 = $default_stars.eq(0).attr('src');
+    star_02 = $default_stars.eq(1).attr('src');
+    star_03 = $default_stars.eq(2).attr('src');
+
+    var $freePart = $('#free-part');
+    if(userInfo.serviceProvider && userInfo.serviceProvider == '0101')
+    {
+        $freePart.show();
+    }
+    else
+    {
+        $freePart.hide();
+    }
+    if(userInfo.userState)
+    {
+        var declarationPath = $freePart.data('declaration');
+        $freePart.attr('src', declarationPath).show();
+    }
+    //最开始ajax加载20个应用
+    $.ajax(
+        {
+            url:ajaxRecommend.url,
+            dataType:'jsonp',
+            data:
+            {
+                "resolution":userInfo.resolution,
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "language":userInfo.language,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi,
+                "size":ajaxRecommend.init_size,
+                "start_position":ajaxRecommend.start_position,
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
+            },
+            jsonp:'jsonRecommend',
+            success:function(data)
+            {
+                if(data.state === 1)//获取成功
+                {
+                    ajaxRecommend.total_size = data.products.total_size;
+                    recommendList = recommendList.concat(data.product);
+                    ajaxRecommend.start_position += data.product.length;
+                    $(".app").each(function(i,item)
+                    {
+                        var $item = $(this);
+                        if(data.product[i])
+                        {
+                            fillItem($item, data.product[i]);
+                            $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
+
+                            //添加按钮点击响应事件
+                            $item.find(".btn").on("tap",function()
+                            {
+                                btnTapHandler($(this));
+                                return false;
+                            });
+                            //添加点击进入游戏详情事件
+                            $item.find(".appInfo").on('tap', function()
+                            {
+                                infoTapHandler($(this).parent().parent());
+                                return false;
+                            });
+                        }
+                        else
+                        {
+                            $item.remove();
+                        }
+                    });
+
+                    $.fn.imglazyload.detect();
+
+                    //下拉加载
+                    if(ajaxRecommend.start_position <= ajaxRecommend.total_size)
+                    {
+                        $(window).on("scroll", function()
+                        {
+                            lazyheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop()) + parseFloat($('.more').height());
+                            if ($(document).height() <= lazyheight)
+                            {
+                                loadMore();
+                            }
+                        });
+                        $(window).trigger('scroll');
+                    }
+                    else
+                    {
+                        $(".more").hide();
+                    }
+                }
+                else
+                {
+                    console.log("There is no app to load.");
+                }
+            },
+            error:function()
+            {
+                console.log("load recommend app list error");
+            }
+        }
+    );
+
+    $("#biwan").on("tap", function()
+    {
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":15,
+                    "title":"必玩列表",
+                    "url":ajaxRecommend.biwanUrl
+                }
+            )
+        );
+        return false;
+    });
+
+    $("#zuixin").on("tap", function()
+    {
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":15,
+                    "title":"最新列表",
+                    "url":ajaxRecommend.zuixinUrl
+                }
+            )
+        );
+        return false;
+    });
+
+    $("#kaifu").on("tap", function()
+    {
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":15,
+                    "title":"世界杯-玩游戏-赢多重好礼",
+                    "url": $.htmlRoot + "world_cup.html"
+                }
+            )
+        );
+        return false;
+    });
+
+    $("#free-area, #free-part").on("tap", function()
+    {
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":15,
+                    "title":"广东移动免流量专区",
+                    "url":ajaxRecommend.qipaiUrl
+                }
+            )
+        );
+        return false;
+    });
+    $("#libao").on("tap", function()
+    {
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":15,
+                    "title":"礼包列表",
+                    "url":ajaxRecommend.libaoUrl
+                }
+            )
+        );
+        return false;
+    });
+    var $slider = $("#slider");
+    $slider.slider({ imgZoom: true, loop: true, viewNum:1 });
+    //顶部Slider
+    $.ajax(
+        {
+            url:ajaxRecommend.bannerUrl,
+            dataType:'jsonp',
+            data:
+            {
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi
+            },
+            jsonp:'jsonBanner',
+            success:function(data)
+            {
+                $slider.find("img").each(function(i, item)
+                {
+                    var $item = $(this);
+                    $item.attr('lazyload', data[i].resHomePhoto).data('title', data[i].resHomeTitle);
+                    //url或者游戏详情
+                    if("url" in data[i])
+                    {
+                        $item.data("url", data[i].url);
+                        $item.on("tap", function()
+                        {
+                            isUxbao && window.uxbao.click(JSON.stringify
+                                (
+                                    {
+                                        "type":15,
+                                        "title":$(this).data("title"),
+                                        "url": $(this).data("url")
+                                    }
+                                )
+                            );
+                            return false;
+                        });
+                    }
+                    else
+                    {
+                        $item.data('id', data[i].resId);
+                        $item.on("tap", function()
+                        {
+                            isUxbao && window.uxbao.click(JSON.stringify
+                                (
+                                    {
+                                        "type":2,
+                                        "url":ajaxRecommend.detailUrl + "?resId=" + $(this).data('id'),
+                                        "resId":$(this).data('id'),
+                                        "resName":$(this).data('title')
+                                    }
+                                )
+                            );
+                            return false;
+                        });
+                    }
+                });
+
+
+            },
+            error:function()
+            {
+                console.log("load banner data error");
+            }
+        }
+    );
+
+    //每日推荐
+    $(".recommend-his").on('tap', function()
+    {
+        isUxbao && window.uxbao.click(JSON.stringify
+            (
+                {
+                    "type":15,
+                    "title":"历史推荐",
+                    "url":ajaxRecommend.historyUrl
+                }
+            )
+        );
+        return false;
+    });
+    $.ajax(
+        {
+            url:ajaxRecommend.recommendUrl,
+            dataType:'jsonp',
+            data:
+            {
+                "version":userInfo.version,
+                "phonetypeName":userInfo.phonetypeName,
+                "os_version":userInfo.os_version,
+                "imei":userInfo.imei,
+                "imsi":userInfo.imsi,
+                "resolution":userInfo.resolution,
+                "size":1,
+                "start_position":1,
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
+            },
+            jsonp:'jsonDaily',
+            success:function(data)
+            {
+                if(data.state == 1)
+                {
+                    var $recommend = $("#recommend-game");
+                    fillRecommend($recommend, data.product[0]);
+                    $recommend.find('.recommend-icon').imglazyload({"urlName":"data-icon"});
+                    //添加点击响应函数
+                    $recommend.find(".btn").on("tap",function()
+                    {
+                        btnTapHandler($(this));
+                        return false;
+                    });
+                    $recommend.find(".recommend-info").on('tap', function()
+                    {
+                        infoTapHandler($(this));
+                        return false;
+                    });
+                    $.fn.imglazyload.detect();
+                }
+                else
+                {
+                    console.log("load failed");
+                }
+            },
+            error:function()
+            {
+                console.log("load every day recommend data error");
+            }
+        }
+    );
+});

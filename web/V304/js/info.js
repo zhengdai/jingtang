@@ -1,47 +1,6 @@
 /**
  * Created by zd on 2014/4/19 0019.
  */
-//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
-function updateState(packageName, state)
-{
-    if(packageName === ajaxInfoDetail.resPackagename)
-    {
-        isUxbao && window.activity.update(JSON.stringify(state));
-    }
-}
-
-//进入游戏详情
-function infoTapHandler($info)
-{
-    var resId = $info.data("resId");
-    isUxbao && window.uxbao.click(
-        JSON.stringify(
-            {
-                "type":2,
-                "resId":resId,
-                "url":ajaxInfoDetail.detailUrl + "?resId=" + resId,
-                "resName":$info.data("resName"),
-                "resPackagename":$info.data("resPackagename")
-            }
-        )
-    );
-}
-
-function GetRequest()
-{
-    var url = location.search; //获取url中"?"符后的字串
-    var theRequest = {};
-    if (url.indexOf("?") != -1)
-    {
-        var str = url.substr(1);
-        strs = str.split("&");
-        for(var i = 0; i < strs.length; i ++)
-        {
-            theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
-        }
-    }
-    return theRequest;
-}
 
 var request = GetRequest();
 
@@ -53,30 +12,6 @@ var ajaxInfoDetail =
     "detailUrl": $.htmlRoot + "game_detail.html"
 };
 
-function getDateStr(date)
-{
-    var dateStr = "";
-    dateStr += date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    if(month < 10)
-    {
-        dateStr += '.0' + month;
-    }
-    else
-    {
-        dateStr += '.' + month;
-    }
-    if(day < 10)
-    {
-        dateStr += '.0' + day;
-    }
-    else
-    {
-        dateStr += '.' + day;
-    }
-    return dateStr
-}
 
 function fillScore(score, $scoreList)
 {
@@ -113,7 +48,7 @@ $(function()
                 "imsi": userInfo.imsi,
                 "newsId": ajaxInfoDetail.infoId
             },
-            jsonp: 'jsoncallback',
+            jsonp: 'jsonInfo',
             success: function (data)
             {
                 if(data.state == 1)

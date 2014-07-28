@@ -1,6 +1,3 @@
-console.log(userInfo.imei);
-console.log(userInfo.imsi);
-console.log(userInfo.os_version);
 //推荐应用ajax参数对象
 var ajaxRecommend =
 {
@@ -24,122 +21,11 @@ var ajaxRecommend =
 //加载进来的推荐应用列表
 var recommendList = [];
 
-function createItem(itemData)
-{
-    var $item = $(($(".app")[0]).cloneNode(true));
-    fillItem($item,itemData);
-    return $item;
-}
-
-//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
-function updateState(packageName, state)
-{
-    var $item = $(document.getElementById(packageName));
-    var $btn = $item.find(".btn");
-    if(state >= 0 && state <= 100)
-    {
-        if(!$btn.hasClass("cancelBtn"))
-        {
-            $btn.removeClass().addClass("cancelBtn btn");
-        }
-        $item.find(".state").text(state + "%");
-    }
-    else if(state == "finishDownload")
-    {
-        $btn.removeClass().addClass("installBtn btn");
-        $item.find(".state").text("安装");
-    }
-    else if(state == "finishInstall")
-    {
-        $btn.removeClass().addClass("openBtn btn");
-        $item.find(".state").text("打开");
-    }
-    else if(state == "pause")
-    {
-        $btn.removeClass().addClass("continueBtn btn");
-        $item.find(".state").text("继续");
-    }
-}
-
-//判断packageName是否在list中，在的话返回索引，不在的话返回-1
-function indexList(packageName, list)
-{
-    var len = list.length;
-    for(var i = 0; i < len; ++i)
-    {
-        if(packageName == list[i].resPackagename)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
-//ajax填充打分
-function fillRate($item, score)
-{
-    //分数
-    $item.find(".items-score img").each(function(j, imgItem)
-    {
-        if(j - score < -0.5)
-        {
-            $(imgItem).attr("src", star_01);
-        }
-        else if(j - score == -0.5)
-        {
-            $(imgItem).attr("src", star_02);
-        }
-        else
-        {
-            $(imgItem).attr("src", star_03);
-        }
-    });
-}
-
-//根据本机信息填充状态
-function fillState($item, packageName, phoneData)
-{
-    //在下载列表里
-    var downloadIndex = indexList(packageName, phoneData.downloadList);
-    if(downloadIndex != -1)
-    {
-        //下载完成。显示安装状态
-        if(phoneData.downloadList[downloadIndex].downPercent == 100)
-        {
-            $item.find(".state").text("安装");
-            $item.find(".btn").removeClass().addClass("btn installBtn");
-        }
-        //下载未完成，显示继续
-        else
-        {
-            $item.find(".state").text("继续");
-            $item.find(".btn").removeClass().addClass("btn continueBtn");
-        }
-    }
-    //在升级列表里
-    else if(indexList(packageName, phoneData.updateList) != -1)
-    {
-        $item.find(".state").text("升级");
-        $item.find(".btn").removeClass().addClass("btn updateBtn");
-    }
-    //在已安装列表
-    else if(indexList(packageName, phoneData.installList) != -1)
-    {
-        $item.find(".state").text("打开");
-        $item.find(".btn").removeClass().addClass("btn openBtn");
-    }
-    //不在上述列表中
-    else
-    {
-        $item.find(".state").text("下载");
-        $item.find(".btn").removeClass().addClass("btn dlBtn");
-    }
-}
-
 //ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
 function fillItem($item, itemData)
 {
     var packageName = itemData.resPackagename;
+    var ca = itemData.resCapacity/(1024*1024);
     //使用包名作为id
     $item.attr("id", itemData.resPackagename)
         .data("location", itemData.resLocation)
@@ -147,13 +33,12 @@ function fillItem($item, itemData)
         .data("package", packageName)
         .data("icon", itemData.resIcons)
         .data("name", itemData.resName)
-        .data("capacity", itemData.resCapacity/(1024*1024));
+        .data("capacity", ca);
 
     $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
 
     $item.find(".tit strong").text(itemData.resName);
-    var ca = (itemData.resCapacity/(1024 * 1024)).toFixed(1);
-    $item.find('.company').text(ca + 'MB');
+    $item.find('.company').text(ca.toFixed(1) + 'MB');
 
     //评分
     var rated = itemData.resRated;
@@ -163,23 +48,32 @@ function fillItem($item, itemData)
     fillState($item, packageName, phoneData);
 }
 
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
+{
+    var $item = $node.clone();
+    fillItem($item, itemData);
+    return $item;
+}
+
 //填充每日推荐
 function fillRecommend($rec, data)
 {
     var packageName = data.resPackagename;
+    var ca = data.resCapacity/(1024*1024);
     //使用包名作为id
     $rec.find('.recommend-info').attr("id", data.resPackagename)
         .data("location", data.resLocation)
         .data("id", data.resId)
         .data("package", packageName)
         .data("icon", data.resIcons)
-        .data("name", data.resName);
+        .data("name", data.resName)
+        .data("capacity", ca);
 
     $rec.find(".recommend-icon").data("icon", data.resIcons).attr("src", default_icon);
 
     $rec.find(".recommend-name").text(data.resName);
-    var ca = (data.resCapacity/(1024 * 1024)).toFixed(1);
-    $rec.find('.recommend-capa').text(" | " + ca + 'MB');
+    $rec.find('.recommend-capa').text(" | " + ca.toFixed(1) + 'MB');
     if(data.resIntroduction)
     {
         $rec.find('.recommend-des').text(data.resIntroduction);
@@ -195,150 +89,6 @@ function fillRecommend($rec, data)
 
     //状态
     fillState($rec, packageName, phoneData);
-}
-
-//tap点击函数
-function btnTapHandler($target)
-{
-    var $item;
-    if($target.parent().hasClass('recommend-info'))
-    {
-        $item = $target.parent();
-    }
-    else
-    {
-        $item = $target.parent().parent();
-    }
-    //通知android下载，显示下载或者继续字样
-    if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
-    {
-        if($target.hasClass('dlBtn') && userInfo.userState)
-        {
-            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
-        }
-        $target.removeClass().addClass('cancelBtn btn');
-        $target.find(".state").text('暂停');
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":1,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-    //显示升级字样
-    else if($target.hasClass('updateBtn'))
-    {
-        if(userInfo.userState)
-        {
-            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
-        }
-        $target.removeClass('updateBtn').addClass('cancelBtn');
-        $target.find(".state").text('暂停');
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":1,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-    //通知android暂停下载，显示暂停字样
-    else if($target.hasClass('cancelBtn'))
-    {
-        $target.removeClass('cancelBtn').addClass('continueBtn');
-        $target.find(".state").text('继续');
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":5,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-    //通知android打开此应用，显示打开字样
-    else if($target.hasClass("openBtn"))
-    {
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":3,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-    //通知android安装此应用，显示安装字样
-    else if($target.hasClass("installBtn"))
-    {
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":6,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-}
-
-//进入游戏详情
-function infoTapHandler($info)
-{
-    var $item = $info.parent().parent();
-    var resId = $item.data("id");
-    isUxbao && window.uxbao.click(
-        JSON.stringify(
-            {
-                "type":2,
-                "resId":resId,
-                "url": ajaxRecommend.detailUrl + "?resId=" + resId + "&isFree=" + Boolean(userInfo.userState),
-                "resName":$item.data("name"),
-                "resPackageName":$item.data("package")
-            }
-        )
-    );
-}
-
-//进入每日推荐游戏详情
-function recommendTapHandler($info)
-{
-    var $item = $info;
-    var resId = $item.data("id");
-    isUxbao && window.uxbao.click(
-        JSON.stringify(
-            {
-                "type":2,
-                "resId":resId,
-                "url":ajaxRecommend.detailUrl + "?resId=" + resId,
-                "resName":$item.data("name"),
-                "resPackageName":$item.data("package")
-            }
-        )
-    );
 }
 
 //加载更多
@@ -376,7 +126,7 @@ function loadMore()
 
                         for (var i = 0; i < len; ++i)
                         {
-                            var $item = createItem(data.product[i]);
+                            var $item = createItem($(".app").eq(0) ,data.product[i]);
                             $container.append($item);
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
                             //添加点击响应函数
@@ -387,7 +137,7 @@ function loadMore()
                             });
                             $item.find(".appInfo").on('tap', function()
                             {
-                                infoTapHandler($(this));
+                                infoTapHandler($(this).parent().parent());
                                 return false;
                             });
                         }
@@ -417,6 +167,12 @@ var default_icon, star_01, star_02, star_03;
 //页面加载完毕执行函数
 $(function()
 {
+    default_icon = $(".app").eq(0).find('.appIcon').attr('src');
+    var $default_stars = $('.items-score').eq(0).find('img');
+    star_01 = $default_stars.eq(0).attr('src');
+    star_02 = $default_stars.eq(1).attr('src');
+    star_03 = $default_stars.eq(2).attr('src');
+
     var $freePart = $('#free-part');
     if(userInfo.serviceProvider && userInfo.serviceProvider == '0101')
     {
@@ -431,12 +187,6 @@ $(function()
         var declarationPath = $freePart.data('declaration');
         $freePart.attr('src', declarationPath).show();
     }
-
-    default_icon = $(".app").eq(0).find('.appIcon').attr('src');
-    var $default_stars = $('.items-score').eq(0).find('img');
-    star_01 = $default_stars.eq(0).attr('src');
-    star_02 = $default_stars.eq(1).attr('src');
-    star_03 = $default_stars.eq(2).attr('src');
     //最开始ajax加载20个应用
     $.ajax(
         {
@@ -471,15 +221,16 @@ $(function()
                             fillItem($item, data.product[i]);
                             $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
 
-                            //添加点击响应函数
+                            //添加按钮点击响应事件
                             $item.find(".btn").on("tap",function()
                             {
                                 btnTapHandler($(this));
                                 return false;
                             });
+                            //添加点击进入游戏详情事件
                             $item.find(".appInfo").on('tap', function()
                             {
-                                infoTapHandler($(this));
+                                infoTapHandler($(this).parent().parent());
                                 return false;
                             });
                         }
@@ -681,7 +432,8 @@ $(function()
                 "imsi":userInfo.imsi,
                 "resolution":userInfo.resolution,
                 "size":1,
-                "start_position":1
+                "start_position":1,
+                "servicePrivider":userInfo.userState && userInfo.serviceProvider
             },
             jsonp:'jsonDaily',
             success:function(data)
@@ -699,7 +451,7 @@ $(function()
                     });
                     $recommend.find(".recommend-info").on('tap', function()
                     {
-                        recommendTapHandler($(this));
+                        infoTapHandler($(this));
                         return false;
                     });
                     $.fn.imglazyload.detect();

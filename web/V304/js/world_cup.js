@@ -11,7 +11,7 @@ window.requestAnimFrame = (function() {
 })();
 
 //专题应用ajax参数对象
-var ajaxSubjectGame =
+var ajaxWorldCup =
 {
     "count":0,
     "total_size":0,//总共的应用个数
@@ -30,136 +30,19 @@ var ajaxSubjectGame =
 
 //加载进来的专题应用列表
 var subjectGameList = [];
-//空li字符串，创建用
-function createItem(itemData, $tem)
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
 {
-    var $item = $tem.clone();
+    var $item = $node.clone();
     fillItem($item, itemData);
     return $item;
-}
-
-//供android调用，更新页面的应用的状态，一种是安装包下载进度，还有就是下载完成，安装完成时
-function updateState(packageName, state)
-{
-    var $item = $(document.getElementById(packageName));
-    var $btn = $item.find(".btn");
-    if(state >= 0 && state <= 100)
-    {
-        if(!$btn.hasClass("cancelBtn"))
-        {
-            $btn.removeClass().addClass("cancelBtn btn");
-        }
-        $item.find(".state").text(state + "%");
-    }
-    else if(state == "finishDownload")
-    {
-        $btn.removeClass().addClass("installBtn btn");
-        $item.find(".state").text("安装");
-    }
-    else if(state == "finishInstall")
-    {
-        $btn.removeClass().addClass("openBtn btn");
-        $item.find(".state").text("打开");
-    }
-    else if(state == "pause")
-    {
-        $btn.removeClass().addClass("continueBtn btn");
-        $item.find(".state").text("继续");
-    }
-}
-
-//判断packageName是否在list中，在的话返回索引，不在的话返回-1
-function indexList(packageName, list)
-{
-    var len = list.length;
-    for(var i = 0; i < len; ++i)
-    {
-        if(packageName == list[i].resPackagename)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
-//ajax填充打分
-function fillRate($item, score)
-{
-    //分数
-    $item.find(".items-score img").each(function(j, imgItem)
-    {
-        if(j - score < -0.5)
-        {
-            $(imgItem).attr("src", star_01);
-        }
-        else if(j - score == -0.5)
-        {
-            $(imgItem).attr("src", star_02);
-        }
-        else
-        {
-            $(imgItem).attr("src", star_03);
-        }
-    });
-}
-
-//根据本机信息填充状态
-function fillState($item, packageName, phoneData)
-{
-    //在下载列表里
-    var downloadIndex = indexList(packageName, phoneData.downloadList);
-    if(downloadIndex != -1)
-    {
-        //下载完成。显示安装状态
-        if(phoneData.downloadList[downloadIndex].downPercent == 100)
-        {
-            $item.find(".state").text("安装");
-            $item.find(".btn").removeClass().addClass("btn installBtn");
-        }
-        //下载未完成，显示继续
-        else
-        {
-            $item.find(".state").text("继续");
-            $item.find(".btn").removeClass().addClass("btn continueBtn");
-        }
-    }
-    //在升级列表里
-    else if(indexList(packageName, phoneData.updateList) != -1)
-    {
-        $item.find(".state").text("升级");
-        $item.find(".btn").removeClass().addClass("btn updateBtn");
-    }
-    //在已安装列表
-    else if(indexList(packageName, phoneData.installList) != -1)
-    {
-        $item.find(".state").text("打开");
-        $item.find(".btn").removeClass().addClass("btn openBtn");
-    }
-    //不在上述列表中
-    else
-    {
-        $item.find(".state").text("下载");
-        $item.find(".btn").removeClass().addClass("btn dlBtn");
-    }
-}
-
-function indexOfGift(acId)
-{
-    var len = myGiftData.length;
-    for(var i = 0; i < len; ++i)
-    {
-        if(myGiftData[i].acId === acId)
-        {
-            return i;
-        }
-    }
-    return -1;
 }
 
 //ajax填充一个应用的信息，$item是一个zepto对象，itemData提供填充数据
 function fillItem($item, itemData)
 {
     var packageName = itemData.resPackagename;
+    var ca = itemData.resCapacity/(1024*1024);
     //使用包名作为id
     $item.attr("id", itemData.resPackagename)
         .data("location", itemData.resLocation)
@@ -167,55 +50,14 @@ function fillItem($item, itemData)
         .data("package", packageName)
         .data("icon", itemData.resIcons)
         .data("name", itemData.resName)
-        .data("capacity", itemData.resCapacity/(1024*1024));
-    if(itemData.acId)
-    {
-        var index = indexOfGift(itemData.acId);
-        //领过了
-        if(index != -1)
-        {
-            $item.find('.relate-gift').show().on('tap', function()
-            {
-                isUxbao && window.uxbao.click(JSON.stringify
-                    (
-                        {
-                            "type":12,
-                            "title":itemData.acName,
-                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId + "&num=" + myGiftData[index].giftNo
-                        }
-                    )
-                );
-                return false;
-            });
-        }
-        //没领过
-        else
-        {
-            $item.find('.relate-gift').show().on('tap', function()
-            {
-                isUxbao && window.uxbao.click(JSON.stringify
-                    (
-                        {
-                            "type":12,
-                            "title":itemData.acName,
-                            "url":$.htmlRoot + "gift_detail.html" +  "?acId=" + itemData.acId
-                        }
-                    )
-                );
-                return false;
-            });
-        }
-    }
-    else
-    {
-        $item.find('.relate-gift').hide().off('tap');
-    }
-    //$item.find(".number").text(i);
+        .data("capacity", ca);
+
+    bindGiftTapHandler($item, itemData);
+
     $item.find(".appIcon").data("icon", itemData.resIcons).attr("src", default_icon);
 
     $item.find(".tit strong").text(itemData.resName);
-    var ca = (itemData.resCapacity/(1024 * 1024)).toFixed(1);
-    $item.find(".tit p").text(ca + 'MB | ' + itemData.resDeveloper);
+    $item.find(".tit p").text(ca.toFixed(1) + 'MB | ' + itemData.resDeveloper);
 
     //评分
     var rated = itemData.resRated;
@@ -223,151 +65,6 @@ function fillItem($item, itemData)
 
     //状态
     fillState($item, packageName, phoneData);
-}
-
-//tap点击函数
-function btnTapHandler($target)
-{
-    var $item = $target.parent().parent();
-    //通知android下载
-    if($target.hasClass('dlBtn') || $target.hasClass('continueBtn'))
-    {
-        if($target.hasClass('dlBtn') && userInfo.userState)
-        {
-            ++ajaxSubjectGame.count;
-            $('#lotteryCount').text(ajaxSubjectGame.count + '次');
-            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
-        }
-        $target.removeClass().addClass('cancelBtn btn');
-        $target.find(".state").text('暂停');
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":1,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-    else if($target.hasClass('updateBtn'))
-    {
-        if(userInfo.userState)
-        {
-            isUxbao && window.uxbao.addSaveDataFlow($item.data("capacity"));
-        }
-        $target.removeClass('updateBtn').addClass('cancelBtn');
-        $target.find(".state").text('暂停');
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":1,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-    //通知android暂停下载
-    else if($target.hasClass('cancelBtn'))
-    {
-        $target.removeClass('cancelBtn').addClass('continueBtn');
-        $target.find(".state").text('继续');
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":5,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-    //通知android打开此应用
-    else if($target.hasClass("openBtn"))
-    {
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":3,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-    //通知android安装此应用
-    else if($target.hasClass("installBtn"))
-    {
-        isUxbao && window.uxbao.click(
-            JSON.stringify(
-                {
-                    "type":6,
-                    "resPackagename":$item.data("package"),
-                    "resId":$item.data("id"),
-                    "resLocation":$item.data("location"),
-                    "resIcons":$item.data("icon"),
-                    "resName":$item.data("name")
-                }
-            )
-        );
-    }
-}
-
-//进入游戏详情
-function infoTapHandler($info)
-{
-    var $item = $info.parent().parent();
-    var resId = $item.data("id");
-    isUxbao && window.uxbao.click(
-        JSON.stringify(
-            {
-                "type":2,
-                "resId":resId,
-                "url":ajaxSubjectGame.detailUrl + "?resId=" + resId + "&isFree=" + Boolean(userInfo.userState),
-                "resName":$item.data("name"),
-                "resPackageName":$item.data("package")
-            }
-        )
-    );
-}
-
-//将日期对象转换成日期字符串如2014.03.15
-function getDateStr(date)
-{
-    var dateStr = "";
-    dateStr += date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    if(month < 10)
-    {
-        dateStr += '.0' + month;
-    }
-    else
-    {
-        dateStr += '.' + month;
-    }
-    if(day < 10)
-    {
-        dateStr += '.0' + day;
-    }
-    else
-    {
-        dateStr += '.' + day;
-    }
-    return dateStr;
 }
 
 //随机整数
@@ -426,10 +123,10 @@ $(function()
 
     //专题内容
     $.ajax({
-        url:ajaxSubjectGame.contentUrl,
+        url:ajaxWorldCup.contentUrl,
         dataType:'jsonp',
         data:{
-            "categoryId":ajaxSubjectGame.rescategory_id,
+            "categoryId":ajaxWorldCup.rescategory_id,
             "version":userInfo.version,
             "phonetypeName":userInfo.phonetypeName,
             "os_version":userInfo.os_version,
@@ -458,12 +155,12 @@ $(function()
     //最开始ajax加载20个应用，一次全部加载
     $.ajax(
         {
-            url:ajaxSubjectGame.appUrl,
+            url:ajaxWorldCup.appUrl,
             dataType:'jsonp',
             data:
             {
-                "rescategory_id":ajaxSubjectGame.rescategory_id,
-                "order_by":ajaxSubjectGame.order_by,
+                "rescategory_id":ajaxWorldCup.rescategory_id,
+                "order_by":ajaxWorldCup.order_by,
                 "resolution":userInfo.resolution,
                 "version":userInfo.version,
                 "phonetypeName":userInfo.phonetypeName,
@@ -471,8 +168,8 @@ $(function()
                 "language":userInfo.language,
                 "imei":userInfo.imei,
                 "imsi":userInfo.imsi,
-                "size":ajaxSubjectGame.init_size,
-                "start_position":ajaxSubjectGame.start_position,
+                "size":ajaxWorldCup.init_size,
+                "start_position":ajaxWorldCup.start_position,
                 "servicePrivider":userInfo.userState && userInfo.serviceProvider
             },
             jsonp:'jsonpSubjectGame',
@@ -480,7 +177,7 @@ $(function()
             {
                 if(data.state === 1)//获取成功
                 {
-                    ajaxSubjectGame.total_size = data.products.total_size;
+                    ajaxWorldCup.total_size = data.products.total_size;
                     subjectGameList = subjectGameList.concat(data.product);
                     var $templete = $('.app').clone();
                     var $container = $("#app-list-box").empty();
@@ -488,7 +185,7 @@ $(function()
 
                     for (var i = 0; i < len; ++i)
                     {
-                        var $item = createItem(data.product[i], $templete);
+                        var $item = createItem($templete, data.product[i]);
                         $container.append($item);
                         $item.find(".appIcon").imglazyload({"urlName":"data-icon"});
                         //添加点击响应函数
@@ -499,7 +196,7 @@ $(function()
                         });
                         $item.find(".appInfo").on('tap', function()
                         {
-                            infoTapHandler($(this));
+                            infoTapHandler($(this).parent().parent());
                             return false;
                         });
                     }
@@ -519,7 +216,7 @@ $(function()
 
     //获取抽奖次数
     $.ajax({
-        url:ajaxSubjectGame.countUrl,
+        url:ajaxWorldCup.countUrl,
         dataType:"jsonp",
         data:{
             "imei":userInfo.imei,
@@ -530,8 +227,8 @@ $(function()
         {
             if(data.state === 1)
             {
-                ajaxSubjectGame.count = data.lotteryCnt;
-                $('#lotteryCount').text(ajaxSubjectGame.count + '次');
+                ajaxWorldCup.count = data.lotteryCnt;
+                $('#lotteryCount').text(ajaxWorldCup.count + '次');
             }
             else
             {
@@ -576,7 +273,7 @@ $(function()
                             {
                                 "type":12,
                                 "title":$('#gift-dialog').data('name'),
-                                "url":ajaxSubjectGame.giftUrl +  "?acId=" + $('#gift-dialog').data('id') + "&num=" + myGiftData[index].giftNo
+                                "url":ajaxWorldCup.giftUrl +  "?acId=" + $('#gift-dialog').data('id') + "&num=" + myGiftData[index].giftNo
                             }
                         )
                     );
@@ -588,7 +285,7 @@ $(function()
                             {
                                 "type":12,
                                 "title":$('#gift-dialog').data('name'),
-                                "url":ajaxSubjectGame.giftUrl +  "?acId=" + $('#gift-dialog').data('id')
+                                "url":ajaxWorldCup.giftUrl +  "?acId=" + $('#gift-dialog').data('id')
                             }
                         )
                     );
@@ -626,7 +323,7 @@ $(function()
                         return;
                     }
                     $.ajax({
-                        url:ajaxSubjectGame.infoUrl,
+                        url:ajaxWorldCup.infoUrl,
                         dataType:'jsonp',
                         data:{
                             "lotteryId":prizeId,
@@ -685,7 +382,7 @@ $(function()
                         return;
                     }
                     $.ajax({
-                        url:ajaxSubjectGame.infoUrl,
+                        url:ajaxWorldCup.infoUrl,
                         dataType:'jsonp',
                         data:{
                             "lotteryId":prizeId,
@@ -791,7 +488,7 @@ $(function()
         }
 
         $.ajax({
-            url:ajaxSubjectGame.lotteryUrl,
+            url:ajaxWorldCup.lotteryUrl,
             dataType:'jsonp',
             data:{
                 "imei":userInfo.imei,
@@ -809,8 +506,8 @@ $(function()
                 //正常抽奖
                 else if(data.state === 1)
                 {
-                    --ajaxSubjectGame.count;
-                    $('#lotteryCount').text(ajaxSubjectGame.count + '次');
+                    --ajaxWorldCup.count;
+                    $('#lotteryCount').text(ajaxWorldCup.count + '次');
                     prize = data.lotteryResult;
                     prizeId = data.lotteryId;
                     if(data.lotteryResult === 6)

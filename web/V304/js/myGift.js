@@ -13,7 +13,6 @@ function itemTapHandler($target)
     var num = $target.find(".btn").data("num");
     if(num)
     {
-        console.log("进入详情");
         isUxbao && window.uxbao.click(JSON.stringify
             (
                 {
@@ -38,10 +37,11 @@ function itemTapHandler($target)
     }
 }
 
-function createItem(itemData)
+//从现有node根据给的data创建新node
+function createItem($node, itemData)
 {
-    var $item = $(($(".giftItem")[0]).cloneNode(true));
-    fillItem($item,itemData);
+    var $item = $node.clone();
+    fillItem($item, itemData);
     return $item;
 }
 
@@ -105,7 +105,7 @@ $(function()
         }
         else
         {
-            $item = createItem(myGiftData[i]);
+            $item = createItem($(".giftItem").eq(0), myGiftData[i]);
             $container.append($item);
         }
         $item.find("img").imglazyload({"urlName":"data-pic"});
